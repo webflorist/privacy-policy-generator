@@ -1,0 +1,32 @@
+{
+	"i18n-ally.localesPaths": ["locales"],
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.keepFulfilled": false,
+	"i18n-ally.sortKeys": true,
+	"i18n-ally.sourceLanguage": "de",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": true,
+	"stylelint.enable": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"tailwindCSS.emmetCompletions": true,
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"eslint.enable": true,
+	"volar.completion.preferredTagNameCase": "pascal",
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"emmet.includeLanguages": {
+		"postcss": "css"
+	},
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"cSpell.words": [
+		"numerus",
+		"organisation"
+	]
+}

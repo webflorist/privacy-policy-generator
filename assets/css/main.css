@@ -1,0 +1,42 @@
+@import './_primevue.css';
+@import './_forms.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	#app {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	a:not(.no-style, .p-button),
+	.prose a {
+		@apply border-b border-dotted border-primary font-semibold text-primary no-underline;
+
+		&:hover {
+			@apply border-solid;
+		}
+	}
+
+	dl {
+		@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:grid;
+
+		grid-template-columns: auto 1fr;
+
+		dt {
+			@apply whitespace-nowrap font-semibold sm:text-right;
+		}
+	}
+}
+
+@layer components {
+	.container {
+		@apply max-w-4xl;
+	}
+}

@@ -1,0 +1,28 @@
+@layer components {
+	.btn-primary,
+	.btn-primary-outline {
+		@apply relative inline-flex items-center border border-gray-300 px-4 py-2 text-sm focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
+
+		&.btn-primary {
+			@apply bg-primary text-white hover:bg-primary;
+		}
+
+		&.btn-primary-outline {
+			@apply bg-white text-gray-700 hover:bg-gray-50;
+		}
+	}
+
+	.btn-group {
+		@apply rounded-md shadow-sm;
+
+		> * {
+			&:first-child {
+				@apply rounded-l-md;
+			}
+
+			&:last-child {
+				@apply rounded-r-md;
+			}
+		}
+	}
+}

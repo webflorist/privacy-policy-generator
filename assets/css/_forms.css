@@ -1,0 +1,7 @@
+@layer components {
+	fieldset {
+		label {
+			@apply text-right;
+		}
+	}
+}

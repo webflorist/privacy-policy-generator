@@ -1,0 +1,40 @@
+{
+  "h1": {
+    "line1": "Generator für eine",
+    "line2": "Open Source Datenschutzerklärung"
+  },
+  "intro": {
+    "p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
+    "p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
+    "p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
+  },
+  "privacy_policy": "Datenschutzerklärung",
+  "settings": {
+    "data-controller": {
+      "organisation": {
+        "title": "Organisation"
+      }
+    },
+    "numerus": {
+      "options": {
+        "plural": {
+          "title": "Plural"
+        },
+        "singular": {
+          "title": "Singular"
+        }
+      }
+    },
+    "tabs": {
+      "data-controller": {
+        "title": "Verantwortliche Stelle"
+      },
+      "general": {
+        "title": "Allgemeines"
+      }
+    },
+    "title": "Einstellungen"
+  },
+  "source_code_text": "Quellcode des Text-Pakets",
+  "source_code_vue": "Quellcode des vue-Pakets"
+}
