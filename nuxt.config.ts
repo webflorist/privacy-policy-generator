@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import vuetify from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
@@ -8,19 +10,33 @@ export default defineNuxtConfig({
 		},
 	},
 	build: {
-		transpile: ['primevue'],
+		transpile: ['vuetify'],
 	},
-	modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss'],
+	modules: [
+		'@nuxtjs/i18n',
+		'@nuxtjs/tailwindcss',
+		// @ts-ignore
+		// this adds the vuetify vite plugin
+		// also produces type errors in the current beta release
+		async (options, nuxt) => {
+			nuxt.hooks.hook('vite:extendConfig', (config) =>
+				config.plugins.push(vuetify())
+			)
+		},
+	],
 	css: [
 		'@fontsource/inter/300.css',
 		'@fontsource/inter/400.css',
 		'@fontsource/inter/700.css',
-		'primevue/resources/primevue.css',
-		'primeicons/primeicons.css',
+		'vuetify/styles',
+		'@mdi/font/css/materialdesignicons.css',
 	],
 	vite: {
 		css: {
 			devSourcemap: true,
+		},
+		ssr: {
+			noExternal: ['vuetify'], // add the vuetify vite plugin
 		},
 	},
 	i18n: {

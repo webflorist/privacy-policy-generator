@@ -1,5 +1,0 @@
-@layer components {
-	.p-button {
-		@apply justify-center;
-	}
-}

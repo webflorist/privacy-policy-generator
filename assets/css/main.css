@@ -1,4 +1,4 @@
-@import './_primevue.css';
+@import './_vuetify.css';
 @import './_forms.css';
 
 @tailwind base;
@@ -15,7 +15,7 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	a:not(.no-style, .p-button),
+	a:not(.no-style, .v-btn),
 	.prose a {
 		@apply border-b border-dotted border-primary font-semibold text-primary no-underline;
 
@@ -37,6 +37,12 @@
 
 @layer components {
 	.container {
-		@apply max-w-4xl;
+		@apply max-w-5xl;
+	}
+}
+
+@layer utilities {
+	.container-padding {
+		@apply px-4;
 	}
 }
