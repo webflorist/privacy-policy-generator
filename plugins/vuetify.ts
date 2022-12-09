@@ -1,20 +1,6 @@
 import { createVuetify } from 'vuetify'
 
 const vuetify = createVuetify({
-	defaults: {
-		VBtn: {
-			color: 'primary',
-		},
-		VBtnToggle: {
-			color: 'primary',
-			divided: true,
-		},
-		VTextField: {
-			color: 'primary',
-			variant: 'underlined',
-			clearable: true
-		},		
-	},
 	theme: {
 		themes: {
 			light: {
@@ -24,6 +10,7 @@ const vuetify = createVuetify({
 			},
 		},
 	},
+	ssr: true,
 })
 
 export default defineNuxtPlugin((nuxtApp) => {

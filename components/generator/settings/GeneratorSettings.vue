@@ -13,6 +13,8 @@ const tabs = ['general', 'data-controller']
 				<v-tabs
 					v-model="activeTab"
 					bg-color="primary"
+					show-arrows
+					center-active
 					:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
 				>
 					<v-tab

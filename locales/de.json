@@ -13,9 +13,22 @@
     "data-controller": {
       "organisation": {
         "title": "Organisation"
+      },
+      "name": {
+        "title": "Name"
+      },
+      "address": {
+        "title": "Adresse"
+      },
+      "email": {
+        "title": "E-Mail"
+      },
+      "phone": {
+        "title": "Telefon"
       }
     },
     "numerus": {
+      "title": "Numerus",
       "options": {
         "plural": {
           "title": "Plural"
@@ -27,7 +40,7 @@
     },
     "tabs": {
       "data-controller": {
-        "title": "Verantwortliche Stelle"
+        "title": "Kontakt"
       },
       "general": {
         "title": "Allgemeines"

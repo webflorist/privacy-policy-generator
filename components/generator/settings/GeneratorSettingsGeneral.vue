@@ -4,16 +4,18 @@ const settings = useSettings()
 const numerusOptions: Numerus[] = ['plural', 'singular']
 </script>
 <template>
-	<v-btn-toggle variant="outlined" v-model="settings.numerus" mandatory class="mx-auto">
-		<v-btn
-			v-for="numerus in numerusOptions"
-			:key="numerus"
-			@click="settings.numerus = numerus"
-			class="w-24"
-			color="primary"
-			:value="numerus"
+	<div>
+		<v-radio-group
+			:label="$t(`settings.numerus.title`)"
+			v-model="settings.numerus"
+			inline
 		>
-			{{ $t(`settings.numerus.options.${numerus}.title`) }}
-		</v-btn>
-	</v-btn-toggle>
+			<v-radio
+				v-for="numerus in numerusOptions"
+				:key="numerus"
+				:label="$t(`settings.numerus.options.${numerus}.title`)"
+				:value="numerus"
+			></v-radio>
+		</v-radio-group>
+	</div>
 </template>
