@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import PrivacyPolicyText from '@webflorist/privacy-policy-text'
 import { useForm } from 'vee-validate'
 import { defineRule } from 'vee-validate'
 const { t } = useI18n()
 const settings = useSettings()
+
+console.log(PrivacyPolicyText.processors)
 
 defineRule('name-or-org-required', (value, target, ctx) => {
 	if (ctx.form.name || ctx.form.organisation) {
@@ -10,10 +13,6 @@ defineRule('name-or-org-required', (value, target, ctx) => {
 	}
 	return t('errors.name-or-org-required')
 })
-
-const emit = defineEmits<{
-	(e: 'errors', count: number): void
-}>()
 
 const form = useForm({
 	validationSchema: {
@@ -23,36 +22,39 @@ const form = useForm({
 	validateOnMount: true,
 })
 
+const emit = defineEmits<{
+	(e: 'errors', count: number): void
+}>()
+
 watch(form.errors, (newErrors) => {
 	emit('errors', Object.keys(newErrors).length)
 })
 </script>
 <template>
-	<p>{{ $t('settings.data-controller.description') }}</p>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.organisation.title')"
+		:label="$t('settings.data-controller.organisation.title')"
 		name="organisation"
 		v-model="settings.dataController.organisation"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.name.title')"
+		:label="$t('settings.data-controller.name.title')"
 		name="name"
 		v-model="settings.dataController.name"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.address.title')"
+		:label="$t('settings.data-controller.address.title')"
 		name="address"
 		v-model="settings.dataController.address"
 		type="address"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.email.title')"
+		:label="$t('settings.data-controller.email.title')"
 		name="email"
 		v-model="settings.dataController.email"
 		type="email"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.phone.title')"
+		:label="$t('settings.data-controller.phone.title')"
 		name="phone"
 		v-model="settings.dataController.phone"
 		type="tel"

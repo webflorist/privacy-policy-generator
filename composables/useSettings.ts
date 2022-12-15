@@ -1,7 +1,11 @@
+import * as yup from 'yup'
+import { useForm } from 'vee-validate'
 export const useSettings = () => {
 	return useState<GeneratorSettings>('settings', () => {
 		return {
-			numerus: 'plural',
+			general: {
+				numerus: 'plural',
+			},
 			dataController: {
 				organisation: null,
 				name: null,

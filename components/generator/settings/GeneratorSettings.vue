@@ -1,8 +1,19 @@
 <script setup lang="ts">
+import { useForm } from 'vee-validate'
 const breakpoint = useBreakpoint()
 
 const activeTab = ref('general')
-const tabs = ['general', 'data-controller']
+const tabs = reactive({
+	general: {
+		errors: 0,
+	},
+	'data-controller': {
+		errors: 0,
+	},
+	processors: {
+		errors: 0,
+	},
+})
 </script>
 <template>
 	<section class="bg-gray-50 pb-16">
@@ -18,11 +29,19 @@ const tabs = ['general', 'data-controller']
 					:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
 				>
 					<v-tab
-						v-for="tabKey in tabs"
+						v-for="(tabData, tabKey) in tabs"
 						:key="tabKey"
 						:value="tabKey"
-						>{{ $t(`settings.tabs.${tabKey}.title`) }}</v-tab
 					>
+						{{ $t(`settings.${tabKey}.tab`) }}
+						<v-badge
+							v-if="tabData.errors > 0"
+							color="red"
+							:content="tabData.errors"
+							inline
+						>
+						</v-badge>
+					</v-tab>
 				</v-tabs>
 
 				<v-card-text>
@@ -30,8 +49,17 @@ const tabs = ['general', 'data-controller']
 						<v-window-item value="general">
 							<GeneratorSettingsGeneral />
 						</v-window-item>
-						<v-window-item value="data-controller">
-							<GeneratorSettingsDataController />
+						<v-window-item value="data-controller" eager>
+							<GeneratorSettingsDataController
+								@errors="
+									tabs['data-controller'].errors = $event
+								"
+							/>
+						</v-window-item>
+						<v-window-item value="processors" eager>
+							<GeneratorSettingsProcessors
+								@errors="tabs['processors'].errors = $event"
+							/>
 						</v-window-item>
 					</v-window>
 				</v-card-text>

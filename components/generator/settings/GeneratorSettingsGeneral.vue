@@ -6,14 +6,15 @@ const numerusOptions: Numerus[] = ['plural', 'singular']
 <template>
 	<div>
 		<v-radio-group
-			:label="$t(`settings.numerus.title`)"
-			v-model="settings.numerus"
+			:label="$t(`settings.general.fields.numerus.title`)"
+			v-model="settings.general.numerus"
 			inline
+			:messages="$t('settings.general.fields.numerus.hint')"
 		>
 			<v-radio
 				v-for="numerus in numerusOptions"
 				:key="numerus"
-				:label="$t(`settings.numerus.options.${numerus}.title`)"
+				:label="$t(`settings.general.fields.numerus.options.${numerus}.title`)"
 				:value="numerus"
 			></v-radio>
 		</v-radio-group>

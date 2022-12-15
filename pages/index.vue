@@ -5,16 +5,6 @@ const { locale: currentLocale } = useI18n()
 
 const settings = useSettings()
 
-const isSingular = computed(() => settings.value.numerus === 'singular')
-
-const dataController = {
-	organisation: 'Acme Corporation',
-	name: 'John Doe',
-	address: 'Acme Street 1, 123456 Acme City, USA',
-	email: 'privacy@example.com',
-	phone: '+1 555-0123',
-}
-
 let cookies = {
 	first_party: [
 		{
@@ -90,7 +80,7 @@ const dataProcessing = {
 		<article class="container prose mx-auto my-10 px-10 lg:prose-lg">
 			<h1>{{ $t('privacy_policy') }}</h1>
 			<PrivacyPolicy
-				:singular="isSingular"
+				:singular="settings.general.numerus === 'singular'"
 				:locale="currentLocale"
 				:data-controller="{
 					organisation: settings.dataController.organisation,
