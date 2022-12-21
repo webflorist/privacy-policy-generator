@@ -30,7 +30,7 @@
     "@typescript-eslint/parser": "^5.46.1",
     "@vee-validate/i18n": "^4.7.3",
     "@vee-validate/rules": "^4.7.3",
-    "@webflorist/privacy-policy-vue": "^1.1.4",
+    "@webflorist/privacy-policy-vue": "webflorist/privacy-policy-vue#develop",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",

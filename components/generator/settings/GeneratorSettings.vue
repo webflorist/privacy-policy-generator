@@ -10,6 +10,9 @@ const tabs = reactive({
 	'data-controller': {
 		errors: 0,
 	},
+	'data-processings': {
+		errors: 0,
+	},
 	processors: {
 		errors: 0,
 	},
@@ -17,7 +20,7 @@ const tabs = reactive({
 </script>
 <template>
 	<section class="bg-gray-50 pb-16">
-		<div class="container-padding container prose max-w-2xl">
+		<div class="container-padding container prose max-w-3xl">
 			<h2>{{ $t('settings.title') }}</h2>
 
 			<v-card>
@@ -56,9 +59,11 @@ const tabs = reactive({
 								"
 							/>
 						</v-window-item>
-						<v-window-item value="processors" eager>
-							<GeneratorSettingsProcessors
-								@errors="tabs['processors'].errors = $event"
+						<v-window-item value="data-processings" eager>
+							<GeneratorSettingsDataProcessings
+								@errors="
+									tabs['data-processings'].errors = $event
+								"
 							/>
 						</v-window-item>
 					</v-window>

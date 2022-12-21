@@ -7,11 +7,6 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
-	type: {
-		type: String,
-		required: false,
-		default: 'text',
-	},
 	label: {
 		type: String,
 		required: false,
@@ -27,11 +22,10 @@ const { handleBlur, errors } = useField(
 </script>
 
 <template>
-	<v-text-field
+	<v-select
 		@blur="handleBlur"
 		:label="label"
 		:error-messages="errors"
-		:type="type"
 		clearable
 	/>
 </template>

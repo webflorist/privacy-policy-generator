@@ -1,5 +1,3 @@
-import * as yup from 'yup'
-import { useForm } from 'vee-validate'
 export const useSettings = () => {
 	return useState<GeneratorSettings>('settings', () => {
 		return {
@@ -13,6 +11,15 @@ export const useSettings = () => {
 				email: null,
 				phone: null,
 			},
+			dataProcessings: {
+				webhosting: [],
+				analytics: [],
+				maps: [],
+				emails: [],
+				payment: [],
+				advertising: [],
+				booking: [],
+			}
 		}
 	})
 }
