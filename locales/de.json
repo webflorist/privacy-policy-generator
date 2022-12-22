@@ -1,5 +1,6 @@
 {
   "errors": {
+    "missing-data-processing": "Es sollte zumindest eine Datenverarbeitung in dieser Kategorie angegeben sein.",
     "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
   },
   "h1": {
@@ -14,7 +15,7 @@
   "privacy_policy": "Datenschutzerklärung",
   "settings": {
     "data-controller": {
-      "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt.",
+      "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
       "fields": {
         "address": {
           "title": "Adresse"
@@ -33,6 +34,49 @@
         }
       },
       "tab": "Datenverantwortliche:r"
+    },
+    "data-processings": {
+      "categories": {
+        "advertising": {
+          "description": "Darstellung zielgerichteter Werbung",
+          "title": "Werbung"
+        },
+        "analytics": {
+          "description": "Erfassung von Nutzungsstatistiken",
+          "title": "Web-Analyse"
+        },
+        "booking": {
+          "description": "Buchung von Orten oder Diensten",
+          "title": "Buchungen"
+        },
+        "emails": {
+          "description": "Senden von E-Mails (z.B. via Kontaktformulare)",
+          "title": "E-Mails"
+        },
+        "maps": {
+          "description": "Darstellung interaktiver Karten & Routenplanung",
+          "title": "Interaktive Karten"
+        },
+        "payment": {
+          "description": "Abwicklung von Zahlungsvorgängen",
+          "title": "Zahlungsabwicklung"
+        },
+        "webhosting": {
+          "description": "Hosten der Webseite und benötigter Dienste & Inhalte (z.B. Datenbank, Bilder, Skripte, etc.)",
+          "title": "Webhosting"
+        }
+      },
+      "create": "Neue Datenverarbeitung erstellen",
+      "delete": "Datenverarbeitung entfernen",
+      "fields": {
+        "processor": {
+          "title": "Auftragsverarbeiter"
+        },
+        "service": {
+          "title": "Dienstname"
+        }
+      },
+      "tab": "Datenverarbeitungen"
     },
     "general": {
       "fields": {

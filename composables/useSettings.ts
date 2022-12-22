@@ -13,6 +13,15 @@ export const useSettings = () => {
 				email: null,
 				phone: null,
 			},
+			dataProcessings: {
+				webhosting: [],
+				analytics: [],
+				maps: [],
+				emails: [],
+				payment: [],
+				advertising: [],
+				booking: [],
+			}
 			processors: []
 		}
 	})
