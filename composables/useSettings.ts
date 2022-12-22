@@ -1,10 +1,10 @@
-import * as yup from 'yup'
-import { useForm } from 'vee-validate'
 export const useSettings = () => {
+	const { locale } = useI18n()
 	return useState<GeneratorSettings>('settings', () => {
 		return {
 			general: {
 				numerus: 'plural',
+				language: locale.value
 			},
 			dataController: {
 				organisation: null,
@@ -13,6 +13,7 @@ export const useSettings = () => {
 				email: null,
 				phone: null,
 			},
+			processors: []
 		}
 	})
 }

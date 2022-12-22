@@ -10,6 +10,18 @@ const vuetify = createVuetify({
 			},
 		},
 	},
+	defaults: {
+		VBtnToggle: {
+			color: 'primary',
+			divided: true,
+		},
+		VBtn: {
+			color: 'primary',
+		},
+		VTextField: {
+			variant: 'underlined',
+		},
+	},
 	ssr: true,
 })
 

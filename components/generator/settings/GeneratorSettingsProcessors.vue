@@ -1,62 +1,36 @@
 <script setup lang="ts">
 import PrivacyPolicyText from '@webflorist/privacy-policy-text'
-import { useForm } from 'vee-validate'
-import { defineRule } from 'vee-validate'
-const { t } = useI18n()
+
 const settings = useSettings()
 
 console.log(PrivacyPolicyText.processors)
-
-defineRule('name-or-org-required', (value, target, ctx) => {
-	if (ctx.form.name || ctx.form.organisation) {
-		return true
-	}
-	return t('errors.name-or-org-required')
-})
-
-const form = useForm({
-	validationSchema: {
-		name: 'name-or-org-required',
-		email: 'required|email',
-	},
-	validateOnMount: true,
-})
-
-const emit = defineEmits<{
-	(e: 'errors', count: number): void
-}>()
-
-watch(form.errors, (newErrors) => {
-	emit('errors', Object.keys(newErrors).length)
-})
 </script>
 <template>
-	<FormTextField
-		:label="$t('settings.data-controller.organisation.title')"
-		name="organisation"
-		v-model="settings.dataController.organisation"
-	/>
-	<FormTextField
-		:label="$t('settings.data-controller.name.title')"
-		name="name"
-		v-model="settings.dataController.name"
-	/>
-	<FormTextField
-		:label="$t('settings.data-controller.address.title')"
-		name="address"
-		v-model="settings.dataController.address"
-		type="address"
-	/>
-	<FormTextField
-		:label="$t('settings.data-controller.email.title')"
-		name="email"
-		v-model="settings.dataController.email"
-		type="email"
-	/>
-	<FormTextField
-		:label="$t('settings.data-controller.phone.title')"
-		name="phone"
-		v-model="settings.dataController.phone"
-		type="tel"
-	/>
+	<v-expansion-panels>
+		<v-expansion-panel>
+			<v-expansion-panel-title
+				expand-icon="mdi-plus"
+				collapse-icon="mdi-close"
+			>
+				{{ $t('settings.processors.add') }}
+			</v-expansion-panel-title>
+			<v-expansion-panel-text>
+				<GeneratorSettingsProcessorForm />
+			</v-expansion-panel-text>
+		</v-expansion-panel>
+		<v-expansion-panel
+			v-for="(processorData, processorKey) in settings.processors"
+			:key="'processor-'+processorKey"
+		>
+			<v-expansion-panel-title
+				expand-icon="mdi-pencil"
+				collapse-icon="mdi-close"
+			>
+				{{ processorData.name }}
+			</v-expansion-panel-title>
+			<v-expansion-panel-text>
+				<GeneratorSettingsProcessorForm :processorKey="processorKey" />
+			</v-expansion-panel-text>
+		</v-expansion-panel>
+	</v-expansion-panels>
 </template>

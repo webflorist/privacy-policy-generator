@@ -1,58 +1,85 @@
 {
-	"errors": {
-		"name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
-	},
-	"h1": {
-		"line1": "Generator für eine",
-		"line2": "Open Source Datenschutzerklärung"
-	},
-	"intro": {
-		"p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
-		"p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
-		"p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
-	},
-	"privacy_policy": "Datenschutzerklärung",
-	"settings": {
-		"data-controller": {
-			"tab": "Datenverantwortliche:r",
-			"description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt.",
-			"fields": {
-				"address": {
-					"title": "Adresse"
-				},
-				"email": {
-					"title": "E-Mail"
-				},
-				"name": {
-					"title": "Name"
-				},
-				"organisation": {
-					"title": "Organisation"
-				},
-				"phone": {
-					"title": "Telefon"
-				}
-			}
-		},
-		"general": {
-			"tab": "Allgemeines",
-			"fields": {
-				"numerus": {
-					"hint": "Pronomen des Verfassers (z.B. \"Unsere Webseite...\" vs. \"Meine Webseite...)\"",
-					"options": {
-						"plural": {
-							"title": "Plural"
-						},
-						"singular": {
-							"title": "Singular"
-						}
-					},
-					"title": "Numerus"
-				}
-			}
-		},
-		"title": "Einstellungen"
-	},
-	"source_code_text": "Quellcode des Text-Pakets",
-	"source_code_vue": "Quellcode des vue-Pakets"
+  "errors": {
+    "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
+  },
+  "h1": {
+    "line1": "Generator für eine",
+    "line2": "Open Source Datenschutzerklärung"
+  },
+  "intro": {
+    "p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
+    "p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
+    "p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
+  },
+  "privacy_policy": "Datenschutzerklärung",
+  "settings": {
+    "data-controller": {
+      "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt.",
+      "fields": {
+        "address": {
+          "title": "Adresse"
+        },
+        "email": {
+          "title": "E-Mail"
+        },
+        "name": {
+          "title": "Name"
+        },
+        "organisation": {
+          "title": "Organisation"
+        },
+        "phone": {
+          "title": "Telefon"
+        }
+      },
+      "tab": "Datenverantwortliche:r"
+    },
+    "general": {
+      "fields": {
+        "numerus": {
+          "hint": "Pronomen des Verfassers (z.B. \"Unsere Webseite...\" vs. \"Meine Webseite...)\"",
+          "options": {
+            "plural": {
+              "title": "Plural"
+            },
+            "singular": {
+              "title": "Singular"
+            }
+          },
+          "title": "Numerus"
+        }
+      },
+      "tab": "Allgemeines"
+    },
+    "processors": {
+      "add": "Neuen Auftragsverarbeiter hinzufügen",
+      "fields": {
+        "city": {
+          "title": "Stadt"
+        },
+        "country": {
+          "title": "Land"
+        },
+        "county": {
+          "title": "Bundesland"
+        },
+        "name": {
+          "title": "Name / Organisation"
+        },
+        "privacyPolicyUrl": {
+          "title": "Link zur Datenschutzerklärung"
+        },
+        "street": {
+          "title": "Straße"
+        },
+        "zip": {
+          "title": "PLZ"
+        }
+      },
+      "tab": "Auftragsverarbeiter"
+    },
+    "title": "Einstellungen"
+  },
+  "source_code_text": "Quellcode des Text-Pakets",
+  "source_code_vue": "Quellcode des vue-Pakets"
 }
