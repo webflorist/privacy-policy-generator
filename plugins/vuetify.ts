@@ -18,8 +18,8 @@ const vuetify = createVuetify({
 		VBtn: {
 			color: 'primary',
 		},
-		VTextField: {
-			variant: 'underlined',
+		VExpansionPanels: {
+			variant: 'popout',
 		},
 	},
 	ssr: true,

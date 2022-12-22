@@ -12,21 +12,6 @@
     "p3": "This text is open-sourced and licensed under the <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT license</a>.<br />Feel free to use it as you wish."
   },
   "privacy_policy": "Privacy Policy",
-  "settings": {
-    "data-controller": {
-      "organisation": {
-        "title": "Organisation"
-      }
-    },
-    "tabs": {
-      "data-controller": {
-        "title": "Data Controller"
-      },
-      "general": {
-        "title": "General"
-      }
-    }
-  },
   "source_code_text": "Source code of the text package",
   "source_code_vue": "Source code of the vue package"
 }

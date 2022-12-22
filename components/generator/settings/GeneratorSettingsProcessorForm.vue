@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PrivacyPolicyText from '@webflorist/privacy-policy-text'
+import { processors as defaultProcessors } from '@webflorist/privacy-policy-text'
 import { useForm } from 'vee-validate'
 
 const settings = useSettings()
@@ -12,15 +12,20 @@ const props = defineProps({
 	},
 })
 
-const newProcessor = reactive<Processor>({
+const emit = defineEmits<{
+	(e: 'created'): void
+}>()
+
+const blankProcessor: Processor = {
 	name: '',
 	street: '',
 	zip: '',
 	city: '',
-	county: '',
 	country: '',
-	privacyPolicyUrl: '',
-})
+	privacy_policy_url: '',
+}
+
+const newProcessor = reactive<Processor>({ ...blankProcessor })
 
 const createNew = computed(() => props.processorKey === null)
 
@@ -31,7 +36,22 @@ const processorModel = computed(() =>
 )
 
 const addProcessor = () => {
-	settings.value.processors.push(newProcessor)
+	settings.value.processors.push({ ...newProcessor })
+	Object.assign(newProcessor, { ...blankProcessor })
+	emit('created')
+}
+
+const processorPresets = computed(() => {
+	return defaultProcessors.map((processor, key) => {
+		return {
+			title: processor.name + ', ' + processor.country,
+			value: key,
+		}
+	})
+})
+
+const loadFromPreset = (key: number) => {
+	Object.assign(newProcessor, defaultProcessors[key])
 }
 
 const { errors } = useForm({
@@ -41,7 +61,7 @@ const { errors } = useForm({
 		zip: 'required',
 		city: 'required',
 		country: 'required',
-		privacyPolicyUrl: 'required|url',
+		privacy_policy_url: 'required|url',
 	},
 	validateOnMount: true,
 	initialValues: processorModel,
@@ -50,6 +70,12 @@ const { errors } = useForm({
 const hasErrors = computed(() => Object.keys(errors.value).length > 0)
 </script>
 <template>
+	<FormSelectField
+		:label="$t('settings.processors.add-from-preset')"
+		:items="processorPresets"
+		:use-validation="false"
+		@update:modelValue="loadFromPreset($event)"
+	/>
 	<FormTextField
 		:label="$t('settings.processors.fields.name.title')"
 		name="name"
@@ -71,19 +97,14 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0)
 		v-model="processorModel.city"
 	/>
 	<FormTextField
-		:label="$t('settings.processors.fields.county.title')"
-		name="county"
-		v-model="processorModel.county"
-	/>
-	<FormTextField
 		:label="$t('settings.processors.fields.country.title')"
 		name="country"
 		v-model="processorModel.country"
 	/>
 	<FormTextField
-		:label="$t('settings.processors.fields.privacyPolicyUrl.title')"
-		name="privacyPolicyUrl"
-		v-model="processorModel.privacyPolicyUrl"
+		:label="$t('settings.processors.fields.privacy_policy_url.title')"
+		name="privacy_policy_url"
+		v-model="processorModel.privacy_policy_url"
 		type="url"
 	/>
 	<v-btn

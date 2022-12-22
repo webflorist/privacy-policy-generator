@@ -79,7 +79,7 @@ const dataProcessing = {
 		<GeneratorSettings />
 		<article class="container prose mx-auto my-10 px-10 lg:prose-lg">
 			<h1>{{ $t('privacy_policy') }}</h1>
-			<PrivacyPolicy
+			<!--PrivacyPolicy
 				:singular="settings.general.numerus === 'singular'"
 				:locale="currentLocale"
 				:data-controller="{
@@ -91,7 +91,7 @@ const dataProcessing = {
 				}"
 				:cookies="cookies"
 				:data-processing="dataProcessing"
-			/>
+			/-->
 		</article>
 	</PageMaster>
 </template>

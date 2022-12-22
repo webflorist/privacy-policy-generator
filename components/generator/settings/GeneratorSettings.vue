@@ -48,7 +48,7 @@ const tabs = reactive({
 				</v-tabs>
 
 				<v-card-text>
-					<v-window v-model="activeTab">
+					<v-window v-model="activeTab" class="p-1">
 						<v-window-item value="general">
 							<GeneratorSettingsGeneral />
 						</v-window-item>
@@ -63,6 +63,13 @@ const tabs = reactive({
 							<GeneratorSettingsDataProcessings
 								@errors="
 									tabs['data-processings'].errors = $event
+								"
+							/>
+						</v-window-item>
+						<v-window-item value="processors" eager>
+							<GeneratorSettingsProcessors
+								@errors="
+									tabs['processors'].errors = $event
 								"
 							/>
 						</v-window-item>

@@ -23,6 +23,15 @@ const newItemData = reactive<DataProcessing>({
 	cookies: [],
 })
 
+const processorOptions = computed(() => {
+	return settings.value.processors.map((processor, key) => {
+		return {
+			title: processor.name + ', ' + processor.country,
+			value: key,
+		}
+	})
+})
+
 const model: DataProcessing =
 	props.key !== null
 		? settings.value.dataProcessings[props.category][props.key]
@@ -55,6 +64,7 @@ watch(form.errors, (newErrors) => {
 	<FormSelectField
 		:label="$t('settings.data-processings.fields.processor.title')"
 		name="processor"
+		:items="processorOptions"
 		v-model="model.processor"
 	/>
 	<FormTextField

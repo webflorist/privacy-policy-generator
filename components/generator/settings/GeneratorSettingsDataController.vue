@@ -28,31 +28,31 @@ watch(form.errors, (newErrors) => {
 })
 </script>
 <template>
-	<p>{{ $t('settings.data-controller.description') }}</p>
+	<p>{{ $t('settings.data_controller.description') }}</p>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.organisation.title')"
+		:label="$t('settings.data_controller.fields.organisation.title')"
 		name="organisation"
 		v-model="settings.dataController.organisation"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.name.title')"
+		:label="$t('settings.data_controller.fields.name.title')"
 		name="name"
 		v-model="settings.dataController.name"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.address.title')"
+		:label="$t('settings.data_controller.fields.address.title')"
 		name="address"
 		v-model="settings.dataController.address"
 		type="address"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.email.title')"
+		:label="$t('settings.data_controller.fields.email.title')"
 		name="email"
 		v-model="settings.dataController.email"
 		type="email"
 	/>
 	<FormTextField
-		:label="$t('settings.data-controller.fields.phone.title')"
+		:label="$t('settings.data_controller.fields.phone.title')"
 		name="phone"
 		v-model="settings.dataController.phone"
 		type="tel"

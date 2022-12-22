@@ -45,7 +45,7 @@ watch(
 	<p>
 		{{ $t(`settings.data-processings.categories.${category}.description`) }}
 	</p>
-	<v-alert v-if="missesRequiredItem" dense color="red">
+	<v-alert v-if="missesRequiredItem" dense color="red" class="mb-5">
 		{{ $t('errors.missing-data-processing') }}
 	</v-alert>
 	<v-expansion-panels>
@@ -62,7 +62,7 @@ watch(
 			>
 				{{ processKey }}
 			</v-expansion-panel-title>
-			<GeneratorSettingsDataProcessingItem
+			<GeneratorSettingsDataProcessingForm
 				:category="category"
 				:key="processKey"
 			/>
@@ -75,7 +75,7 @@ watch(
 				{{ $t('settings.data-processings.create') }}
 			</v-expansion-panel-title>
 			<v-expansion-panel-text>
-				<GeneratorSettingsDataProcessingItem :category="category"
+				<GeneratorSettingsDataProcessingForm :category="category"
 			/></v-expansion-panel-text>
 		</v-expansion-panel>
 	</v-expansion-panels>

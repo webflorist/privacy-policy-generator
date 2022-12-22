@@ -4,7 +4,7 @@ export const useSettings = () => {
 		return {
 			general: {
 				numerus: 'plural',
-				language: locale.value
+				language: locale.value,
 			},
 			dataController: {
 				organisation: null,
@@ -21,8 +21,8 @@ export const useSettings = () => {
 				payment: [],
 				advertising: [],
 				booking: [],
-			}
-			processors: []
+			},
+			processors: [],
 		}
 	})
 }

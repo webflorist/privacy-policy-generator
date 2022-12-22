@@ -14,7 +14,7 @@
   },
   "privacy_policy": "Datenschutzerklärung",
   "settings": {
-    "data-controller": {
+    "data_controller": {
       "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
       "fields": {
         "address": {
@@ -97,6 +97,7 @@
     },
     "processors": {
       "add": "Neuen Auftragsverarbeiter hinzufügen",
+      "add-from-preset": "Aus vordefinierter Liste übernehmen",
       "fields": {
         "city": {
           "title": "Stadt"
@@ -104,13 +105,10 @@
         "country": {
           "title": "Land"
         },
-        "county": {
-          "title": "Bundesland"
-        },
         "name": {
           "title": "Name / Organisation"
         },
-        "privacyPolicyUrl": {
+        "privacy_policy_url": {
           "title": "Link zur Datenschutzerklärung"
         },
         "street": {

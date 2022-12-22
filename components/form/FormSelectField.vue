@@ -12,13 +12,21 @@ const props = defineProps({
 		required: false,
 		default: undefined,
 	},
+	useValidation: {
+		type: Boolean,
+		default: true,
+		required: false,
+	},
 })
 
-const { handleBlur, errors } = useField(
-	toRef(props, 'name'),
-	undefined,
-	{ label: props.label }
-)
+if (props.useValidation) {
+	const { handleBlur, errors } = useField(toRef(props, 'name'), undefined, {
+		label: props.label,
+	})
+} else {
+	const handleBlur = () => {}
+	const errors = []
+}
 </script>
 
 <template>

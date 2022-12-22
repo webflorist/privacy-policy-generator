@@ -3,10 +3,12 @@ import PrivacyPolicyText from '@webflorist/privacy-policy-text'
 
 const settings = useSettings()
 
+const activePanel = ref(null)
+
 console.log(PrivacyPolicyText.processors)
 </script>
 <template>
-	<v-expansion-panels>
+	<v-expansion-panels v-model="activePanel">
 		<v-expansion-panel>
 			<v-expansion-panel-title
 				expand-icon="mdi-plus"
@@ -15,7 +17,7 @@ console.log(PrivacyPolicyText.processors)
 				{{ $t('settings.processors.add') }}
 			</v-expansion-panel-title>
 			<v-expansion-panel-text>
-				<GeneratorSettingsProcessorForm />
+				<GeneratorSettingsProcessorForm @created="activePanel = null" />
 			</v-expansion-panel-text>
 		</v-expansion-panel>
 		<v-expansion-panel

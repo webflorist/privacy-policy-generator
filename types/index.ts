@@ -24,9 +24,8 @@ declare global {
 		street: string
 		zip: string
 		city: string
-		county?: string
 		country: string
-		privacyPolicyUrl: string
+		privacy_policy_url: string
 	}
 
 	type DataCategory = 
