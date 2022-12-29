@@ -41,14 +41,25 @@ watch(
 )
 </script>
 <template>
-	<h3>{{ $t(`settings.data-processings.categories.${category}.title`) }}</h3>
+	<h3>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h3>
 	<p>
-		{{ $t(`settings.data-processings.categories.${category}.description`) }}
+		{{ $t(`settings.data_processings.categories.${category}.description`) }}
 	</p>
 	<v-alert v-if="missesRequiredItem" dense color="red" class="mb-5">
 		{{ $t('errors.missing-data-processing') }}
 	</v-alert>
 	<v-expansion-panels>
+		<v-expansion-panel>
+			<v-expansion-panel-title
+				expand-icon="mdi-plus"
+				collapse-icon="mdi-close"
+			>
+				{{ $t('settings.data_processings.create') }}
+			</v-expansion-panel-title>
+			<v-expansion-panel-text>
+				<GeneratorSettingsDataProcessingForm :category="category"
+			/></v-expansion-panel-text>
+		</v-expansion-panel>
 		<v-expansion-panel
 			v-for="(processData, processKey) of settings.dataProcessings[
 				category
@@ -66,17 +77,6 @@ watch(
 				:category="category"
 				:key="processKey"
 			/>
-		</v-expansion-panel>
-		<v-expansion-panel>
-			<v-expansion-panel-title
-				expand-icon="mdi-plus"
-				collapse-icon="mdi-close"
-			>
-				{{ $t('settings.data-processings.create') }}
-			</v-expansion-panel-title>
-			<v-expansion-panel-text>
-				<GeneratorSettingsDataProcessingForm :category="category"
-			/></v-expansion-panel-text>
 		</v-expansion-panel>
 	</v-expansion-panels>
 </template>

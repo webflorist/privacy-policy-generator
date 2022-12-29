@@ -1,11 +1,22 @@
 import { createVuetify } from 'vuetify'
+import { theme } from '#tailwind-config'
 
 const vuetify = createVuetify({
 	theme: {
 		themes: {
 			light: {
 				colors: {
-					primary: '#9333ea',
+					primary: theme.colors.primary.DEFAULT,
+					'primary-light':
+						theme.colors.primary.light,
+					'primary-dark':
+						theme.colors.primary.dark,
+					secondary:
+						theme.colors.secondary.DEFAULT,
+					'secondary-light':
+						theme.colors.secondary.light,
+					'secondary-dark':
+						theme.colors.secondary.dark,
 				},
 			},
 		},
@@ -20,6 +31,9 @@ const vuetify = createVuetify({
 		},
 		VExpansionPanels: {
 			variant: 'popout',
+		},
+		VExpansionPanelTitle: {
+			color: 'secondary',
 		},
 	},
 	ssr: true,

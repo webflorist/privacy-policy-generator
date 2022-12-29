@@ -62,13 +62,13 @@ watch(form.errors, (newErrors) => {
 </script>
 <template>
 	<FormSelectField
-		:label="$t('settings.data-processings.fields.processor.title')"
+		:label="$t('settings.data_processings.fields.processor.title')"
 		name="processor"
 		:items="processorOptions"
 		v-model="model.processor"
 	/>
 	<FormTextField
-		:label="$t('settings.data-processings.fields.service.title')"
+		:label="$t('settings.data_processings.fields.service.title')"
 		name="service"
 		v-model="model.service"
 	/>

@@ -7,10 +7,10 @@ const tabs = reactive({
 	general: {
 		errors: 0,
 	},
-	'data-controller': {
+	data_controller: {
 		errors: 0,
 	},
-	'data-processings': {
+	data_processings: {
 		errors: 0,
 	},
 	processors: {
@@ -52,25 +52,19 @@ const tabs = reactive({
 						<v-window-item value="general">
 							<GeneratorSettingsGeneral />
 						</v-window-item>
-						<v-window-item value="data-controller" eager>
+						<v-window-item value="data_controller" eager>
 							<GeneratorSettingsDataController
-								@errors="
-									tabs['data-controller'].errors = $event
-								"
+								@errors="tabs.data_controller.errors = $event"
 							/>
 						</v-window-item>
-						<v-window-item value="data-processings" eager>
+						<v-window-item value="data_processings" eager>
 							<GeneratorSettingsDataProcessings
-								@errors="
-									tabs['data-processings'].errors = $event
-								"
+								@errors="tabs.data_processings.errors = $event"
 							/>
 						</v-window-item>
 						<v-window-item value="processors" eager>
 							<GeneratorSettingsProcessors
-								@errors="
-									tabs['processors'].errors = $event
-								"
+								@errors="tabs.processors.errors = $event"
 							/>
 						</v-window-item>
 					</v-window>

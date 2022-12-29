@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import PrivacyPolicyText from '@webflorist/privacy-policy-text'
-
 const settings = useSettings()
-
 const activePanel = ref(null)
-
-console.log(PrivacyPolicyText.processors)
 </script>
 <template>
 	<v-expansion-panels v-model="activePanel">
@@ -22,11 +17,12 @@ console.log(PrivacyPolicyText.processors)
 		</v-expansion-panel>
 		<v-expansion-panel
 			v-for="(processorData, processorKey) in settings.processors"
-			:key="'processor-'+processorKey"
+			:key="'processor-' + processorKey"
 		>
 			<v-expansion-panel-title
 				expand-icon="mdi-pencil"
 				collapse-icon="mdi-close"
+				color="secondary-light"
 			>
 				{{ processorData.name }}
 			</v-expansion-panel-title>

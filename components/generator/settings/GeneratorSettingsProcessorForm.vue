@@ -111,6 +111,7 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0)
 		v-if="createNew"
 		:disabled="hasErrors"
 		class="mt-8"
+		color="secondary"
 		block
 		@click="addProcessor()"
 	>
