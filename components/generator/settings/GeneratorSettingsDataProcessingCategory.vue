@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const settings = useSettings()
+const presenter = usePresenter()
 
 const props = defineProps({
 	category: {
-		type: [String as () => DataProcessingType],
+		type: [String as () => DataProcessingCategory],
 		required: true,
 	},
 	required: {
@@ -12,6 +13,8 @@ const props = defineProps({
 		default: false,
 	},
 })
+
+const activePanel = ref(null)
 
 const missesRequiredItem = computed(
 	() =>
@@ -48,7 +51,7 @@ watch(
 	<v-alert v-if="missesRequiredItem" dense color="red" class="mb-5">
 		{{ $t('errors.missing-data-processing') }}
 	</v-alert>
-	<v-expansion-panels>
+	<v-expansion-panels v-model="activePanel">
 		<v-expansion-panel>
 			<v-expansion-panel-title
 				expand-icon="mdi-plus"
@@ -57,26 +60,31 @@ watch(
 				{{ $t('settings.data_processings.create') }}
 			</v-expansion-panel-title>
 			<v-expansion-panel-text>
-				<GeneratorSettingsDataProcessingForm :category="category"
+				<GeneratorSettingsDataProcessingForm
+					:category="category"
+					@created="activePanel = null"
 			/></v-expansion-panel-text>
 		</v-expansion-panel>
 		<v-expansion-panel
-			v-for="(processData, processKey) of settings.dataProcessings[
+			v-for="(processData, processingKey) of settings.dataProcessings[
 				category
 			]"
-			:key="processKey"
-			:title="processKey"
+			:key="processingKey"
 		>
-		<v-expansion-panel-title
+			<v-expansion-panel-title
 				expand-icon="mdi-pencil"
 				collapse-icon="mdi-close"
+				color="secondary-light"
 			>
-				{{ processKey }}
+				{{ presenter.processTitle(processData) }}
 			</v-expansion-panel-title>
-			<GeneratorSettingsDataProcessingForm
-				:category="category"
-				:key="processKey"
-			/>
+
+			<v-expansion-panel-text>
+				<GeneratorSettingsDataProcessingForm
+					:category="category"
+					:processingKey="processingKey"
+				/>
+			</v-expansion-panel-text>
 		</v-expansion-panel>
 	</v-expansion-panels>
 </template>

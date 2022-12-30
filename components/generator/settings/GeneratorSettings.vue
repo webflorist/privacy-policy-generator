@@ -10,10 +10,10 @@ const tabs = reactive({
 	data_controller: {
 		errors: 0,
 	},
-	data_processings: {
+	processors: {
 		errors: 0,
 	},
-	processors: {
+	data_processings: {
 		errors: 0,
 	},
 })

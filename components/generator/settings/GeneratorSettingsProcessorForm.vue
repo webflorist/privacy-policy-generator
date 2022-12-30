@@ -13,7 +13,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-	(e: 'created'): void
+	(e: 'created', key: number): void
 }>()
 
 const blankProcessor: Processor = {
@@ -36,9 +36,12 @@ const processorModel = computed(() =>
 )
 
 const addProcessor = () => {
-	settings.value.processors.push({ ...newProcessor })
+	const newProcessorArrayLength = settings.value.processors.push({
+		...newProcessor,
+	})
+	const newProcessorKey = newProcessorArrayLength - 1
 	Object.assign(newProcessor, { ...blankProcessor })
-	emit('created')
+	emit('created', newProcessorKey)
 }
 
 const processorPresets = computed(() => {
@@ -73,7 +76,7 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0)
 	<FormSelectField
 		:label="$t('settings.processors.add-from-preset')"
 		:items="processorPresets"
-		:use-validation="false"
+		:standalone="true"
 		@update:modelValue="loadFromPreset($event)"
 	/>
 	<FormTextField
@@ -115,6 +118,6 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0)
 		block
 		@click="addProcessor()"
 	>
-		{{ $t('settings.processors.add') }}
+		{{ $t('settings.general.add') }}
 	</v-btn>
 </template>

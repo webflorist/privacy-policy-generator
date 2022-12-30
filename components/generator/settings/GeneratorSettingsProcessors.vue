@@ -3,6 +3,7 @@ const settings = useSettings()
 const activePanel = ref(null)
 </script>
 <template>
+	<p>{{ $t('settings.processors.description') }}</p>
 	<v-expansion-panels v-model="activePanel">
 		<v-expansion-panel>
 			<v-expansion-panel-title

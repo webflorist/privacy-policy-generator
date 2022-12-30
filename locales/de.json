@@ -1,11 +1,18 @@
 {
   "errors": {
     "missing-data-processing": "Es sollte zumindest eine Datenverarbeitung in dieser Kategorie angegeben sein.",
+    "missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
     "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
+  },
+  "general": {
+    "provided-by": "betrieben von"
   },
   "h1": {
     "line1": "Generator für eine",
     "line2": "Open Source Datenschutzerklärung"
+  },
+  "infos": {
+    "add-data-processor": "Einen neuen Auftragsverarbeiter kannst du im entsprechenden Reiter anlegen."
   },
   "intro": {
     "p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
@@ -79,6 +86,7 @@
       "tab": "Datenverarbeitungen"
     },
     "general": {
+      "add": "Hinzufügen",
       "fields": {
         "numerus": {
           "hint": "Pronomen des Verfassers (z.B. \"Unsere Webseite...\" vs. \"Meine Webseite...)\"",
@@ -98,6 +106,7 @@
     "processors": {
       "add": "Neuen Auftragsverarbeiter hinzufügen",
       "add-from-preset": "Aus vordefinierter Liste übernehmen",
+      "description": "Legen Sie hier alle Auftragsverarbeiter an, die Datenverarbeitungen durchführen.",
       "fields": {
         "city": {
           "title": "Stadt"

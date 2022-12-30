@@ -12,28 +12,32 @@ const props = defineProps({
 		required: false,
 		default: undefined,
 	},
-	useValidation: {
+	standalone: {
 		type: Boolean,
-		default: true,
+		default: false,
 		required: false,
 	},
 })
 
-if (props.useValidation) {
-	const { handleBlur, errors } = useField(toRef(props, 'name'), undefined, {
-		label: props.label,
-	})
-} else {
-	const handleBlur = () => {}
-	const errors = []
-}
+const { handleChange, errors } = useField(toRef(props, 'name'), undefined, {
+	label: props.label,
+	standalone: props.standalone,
+})
 </script>
 
 <template>
 	<v-select
-		@blur="handleBlur"
+		@update:modelValue="handleChange"
 		:label="label"
 		:error-messages="errors"
 		clearable
-	/>
+		:focused="true"
+	>
+		<template v-slot:prepend-item>
+			<slot name="prepend-item" />
+		</template>
+		<template v-slot:append-item>
+			<slot name="append-item" />
+		</template>
+	</v-select>
 </template>
