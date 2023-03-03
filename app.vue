@@ -4,5 +4,9 @@ import { setLocale } from '@vee-validate/i18n'
 useFavicons() */
 </script>
 <template>
-	<NuxtPage />
+	<PageHeader />
+	<div>
+		<NuxtPage />
+	</div>
+	<PageFooter />
 </template>

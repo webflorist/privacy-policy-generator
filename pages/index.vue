@@ -55,9 +55,9 @@ const dataProcessing = {
 </script>
 
 <template>
-	<PageMaster>
+	<main>
 		<section class="bg-gray-50 py-16">
-			<div class="container container-padding text-center">
+			<div class="container-padding container text-center">
 				<h1
 					class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-5xl"
 				>
@@ -93,5 +93,5 @@ const dataProcessing = {
 				:data-processing="dataProcessing"
 			/-->
 		</article>
-	</PageMaster>
+	</main>
 </template>

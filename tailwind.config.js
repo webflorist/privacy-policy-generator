@@ -24,13 +24,13 @@ module.exports = {
 			colors: {
 				primary: {
 					...primaryColor,
-					DEFAULT: primaryColor[600],
+					DEFAULT: primaryColor[700],
 					light: primaryColor[300],
 					dark: primaryColor[900],
 				},
 				secondary: {
 					...secondaryColor,
-					DEFAULT: secondaryColor[600],
+					DEFAULT: secondaryColor[500],
 					light: secondaryColor[300],
 					dark: secondaryColor[900],
 				},
