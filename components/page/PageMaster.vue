@@ -1,10 +1,8 @@
-<script lang="ts" setup>
-useFavicons()
-</script>
+<script lang="ts" setup></script>
 <template>
 	<PageHeader />
 	<main>
-	<slot></slot>
+		<slot></slot>
 	</main>
 	<PageFooter />
 </template>

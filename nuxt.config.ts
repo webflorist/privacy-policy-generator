@@ -67,7 +67,7 @@ export default defineNuxtConfig({
 
 	tailwindcss: {
 		cssPath: '~/assets/css/main.css',
-		exposeConfig: true
+		exposeConfig: true,
 	},
 
 	postcss: {
@@ -89,14 +89,14 @@ export default defineNuxtConfig({
 					content: 'width=device-width, initial-scale=1',
 				},
 			],
-			link: [
+			/* 			link: [
 				{
 					rel: 'preload',
 					as: 'font',
 					href: '/fonts/woff2/ForzaSSm-Book_Web.woff2',
 					crossorigin: 'anonymous',
 				},
-			],
+			], */
 		},
 	},
 })

@@ -33,5 +33,6 @@ const { handleBlur, errors } = useField(
 		:error-messages="errors"
 		:type="type"
 		clearable
+		variant="outlined"
 	/>
 </template>
