@@ -4,7 +4,7 @@
 	"i18n-ally.keepFulfilled": false,
 	"i18n-ally.sortKeys": true,
 	"i18n-ally.sourceLanguage": "de",
-	"editor.tabSize": 4,
+	"editor.tabSize": 3,
 	"editor.insertSpaces": true,
 	"editor.detectIndentation": true,
 	"stylelint.enable": true,
@@ -27,6 +27,8 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"cSpell.words": [
 		"numerus",
-		"organisation"
+		"organisation",
+		"pseudonymized",
+		"tailwindcss"
 	]
 }

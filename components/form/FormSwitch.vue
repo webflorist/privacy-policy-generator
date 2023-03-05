@@ -2,26 +2,21 @@
 import { defineProps, toRef } from 'vue'
 import { useField } from 'vee-validate'
 
+type Item = {
+	title: string
+	value: string
+}
+
 const props = defineProps({
 	name: {
 		type: String,
 		required: false,
 		default: undefined,
 	},
-	type: {
-		type: String,
-		required: false,
-		default: 'text',
-	},
 	label: {
 		type: String,
 		required: false,
 		default: undefined,
-	},
-	clearable: {
-		type: Boolean,
-		required: false,
-		default: true,
 	},
 	modelValue: {
 		type: String,
@@ -33,7 +28,6 @@ const emit = defineEmits(['update:modelValue'])
 
 const {
 	value: inputValue,
-	handleBlur,
 	handleChange,
 	errors,
 } = useField(toRef(props, 'name'), undefined, {
@@ -49,14 +43,10 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-text-field
-		@blur="handleBlur"
-		@input="onInput($event)"
+	<v-switch
+		:label="label"
 		@update:modelValue="onInput($event)"
 		:modelValue="inputValue"
-		:label="label"
-		:error-messages="errors"
-		:type="type"
-		:clearable="clearable"
-	/>
+	>
+	</v-switch>
 </template>

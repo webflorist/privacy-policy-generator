@@ -8,11 +8,6 @@ const props = defineProps({
 		required: false,
 		default: undefined,
 	},
-	type: {
-		type: String,
-		required: false,
-		default: 'text',
-	},
 	label: {
 		type: String,
 		required: false,
@@ -22,6 +17,11 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 		default: true,
+	},
+	standalone: {
+		type: Boolean,
+		default: false,
+		required: false,
 	},
 	modelValue: {
 		type: String,
@@ -38,6 +38,7 @@ const {
 	errors,
 } = useField(toRef(props, 'name'), undefined, {
 	label: props.label,
+	standalone: props.standalone,
 	initialValue: props.modelValue,
 	valueProp: props.modelValue,
 })
@@ -49,14 +50,20 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-text-field
+	<v-combobox
 		@blur="handleBlur"
 		@input="onInput($event)"
 		@update:modelValue="onInput($event)"
 		:modelValue="inputValue"
 		:label="label"
 		:error-messages="errors"
-		:type="type"
 		:clearable="clearable"
-	/>
+	>
+		<template v-slot:prepend-item>
+			<slot name="prepend-item" />
+		</template>
+		<template v-slot:append-item>
+			<slot name="append-item" />
+		</template>
+	</v-combobox>
 </template>

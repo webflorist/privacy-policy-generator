@@ -10,21 +10,12 @@ defineRule('name-or-org-required', (value, target, ctx) => {
 	}
 	return t('errors.name-or-org-required')
 })
-
-const emit = defineEmits<{
-	(e: 'errors', count: number): void
-}>()
-
 const form = useForm({
 	validationSchema: {
 		name: 'name-or-org-required',
 		email: 'required|email',
 	},
 	validateOnMount: true,
-})
-
-watch(form.errors, (newErrors) => {
-	emit('errors', Object.keys(newErrors).length)
 })
 </script>
 <template>

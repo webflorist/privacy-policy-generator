@@ -22,7 +22,6 @@ export const useSettings = () => {
 				advertising: [],
 				booking: [],
 			},
-			processors: [],
 		}
 	})
 }

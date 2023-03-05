@@ -1,35 +1,66 @@
 <script setup lang="ts">
-const settings = useSettings()
-const activePanel = ref(null)
+const { t } = useI18n()
+const processors = useUsedProcessors(true)
+const formatDataCategories = (dataCategories: DataCategory[]) => {
+	return dataCategories
+		.map((category) =>
+			t(`settings.data_processings.fields.data_categories.options.${category}.title`)
+		)
+		.join(', ')
+}
+const formatProcessingCategories = (categories: DataProcessingCategory[]) => {
+	return categories
+		.map((category) => t(`settings.data_processings.categories.${category}.title`))
+		.join(', ')
+}
 </script>
 <template>
 	<p>{{ $t('settings.processors.description') }}</p>
-	<v-expansion-panels v-model="activePanel">
-		<v-expansion-panel>
-			<v-expansion-panel-title
-				expand-icon="mdi-plus"
-				collapse-icon="mdi-close"
+	<v-card v-for="(processor, key) in processors" :key="key" :title="processor.name">
+		<v-list density="compact">
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.name.title')"
+				:subtitle="processor.name"
+			/>
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.street.title')"
+				:subtitle="processor.street"
+			/>
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.zip.title')"
+				:subtitle="processor.zip"
+			/>
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.city.title')"
+				:subtitle="processor.city"
+			/>
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.country.title')"
+				:subtitle="processor.country"
+			/>
+			<v-list-item
+				:title="$t('settings.data_processings.fields.processor.privacy_policy_url.title')"
 			>
-				{{ $t('settings.processors.add') }}
-			</v-expansion-panel-title>
-			<v-expansion-panel-text>
-				<GeneratorSettingsProcessorForm @created="activePanel = null" />
-			</v-expansion-panel-text>
-		</v-expansion-panel>
-		<v-expansion-panel
-			v-for="(processorData, processorKey) in settings.processors"
-			:key="'processor-' + processorKey"
-		>
-			<v-expansion-panel-title
-				expand-icon="mdi-pencil"
-				collapse-icon="mdi-close"
-				color="secondary-light"
-			>
-				{{ processorData.name }}
-			</v-expansion-panel-title>
-			<v-expansion-panel-text>
-				<GeneratorSettingsProcessorForm :processorKey="processorKey" />
-			</v-expansion-panel-text>
-		</v-expansion-panel>
-	</v-expansion-panels>
+				<v-list-item-subtitle>
+					<a :href="processor.privacy_policy_url" target="_blank">{{
+						processor.privacy_policy_url
+					}}</a>
+				</v-list-item-subtitle>
+			</v-list-item>
+			<v-list-item :title="$t('settings.data_processings.title')">
+				<v-list-item-subtitle>
+					{{ formatProcessingCategories(processor.processing_categories) }}
+				</v-list-item-subtitle>
+			</v-list-item>
+			<v-list-item :title="$t('settings.data_processings.fields.data_categories.title')">
+				<v-list-item-subtitle>
+					{{ formatDataCategories(processor.data_categories) }}
+				</v-list-item-subtitle>
+			</v-list-item>
+		</v-list>
+	</v-card>
+	<pre>
+	{{ processors }}
+	</pre
+	>
 </template>

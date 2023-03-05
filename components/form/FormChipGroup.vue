@@ -2,26 +2,26 @@
 import { defineProps, toRef } from 'vue'
 import { useField } from 'vee-validate'
 
+type Item = {
+	title: string
+	value: string
+	hint?: string
+}
+
 const props = defineProps({
 	name: {
 		type: String,
 		required: false,
 		default: undefined,
 	},
-	type: {
-		type: String,
-		required: false,
-		default: 'text',
-	},
 	label: {
 		type: String,
 		required: false,
 		default: undefined,
 	},
-	clearable: {
-		type: Boolean,
-		required: false,
-		default: true,
+	items: {
+		type: [Array as () => Item[]],
+		required: true,
 	},
 	modelValue: {
 		type: String,
@@ -49,14 +49,12 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-text-field
-		@blur="handleBlur"
-		@input="onInput($event)"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
-		:label="label"
-		:error-messages="errors"
-		:type="type"
-		:clearable="clearable"
-	/>
+	<v-chip-group @update:modelValue="onInput($event)" :modelValue="inputValue">
+		<v-chip v-for="(item, key) in items" :key="key" :value="item.value">
+			{{ item.title }}
+			<v-tooltip v-if="item.hint" activator="parent" location="bottom">{{
+				item.hint
+			}}</v-tooltip>
+		</v-chip>
+	</v-chip-group>
 </template>

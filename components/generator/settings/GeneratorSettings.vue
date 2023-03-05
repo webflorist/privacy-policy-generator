@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
 const breakpoint = useBreakpoint()
 
 const activeTab = ref('general')
@@ -10,65 +9,32 @@ const tabs = reactive({
 	data_controller: {
 		errors: 0,
 	},
-	processors: {
+	data_processings: {
 		errors: 0,
 	},
-	data_processings: {
+	processors: {
 		errors: 0,
 	},
 })
 </script>
 <template>
-	<section class="bg-gray-50 pb-16">
-		<div class="container-padding container prose max-w-3xl">
+	<section class="pb-16">
+		<div class="container-padding container max-w-3xl">
 			<h2>{{ $t('settings.title') }}</h2>
 
-			<v-card>
-				<v-tabs
-					v-model="activeTab"
-					bg-color="primary"
-					show-arrows
-					center-active
-					:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
-				>
-					<v-tab
-						v-for="(tabData, tabKey) in tabs"
-						:key="tabKey"
-						:value="tabKey"
-					>
-						{{ $t(`settings.${tabKey}.tab`) }}
-						<v-badge
-							v-if="tabData.errors > 0"
-							color="red"
-							:content="tabData.errors"
-							inline
-						>
-						</v-badge>
-					</v-tab>
-				</v-tabs>
+			<v-card class="mb-5">
+				<v-card-title tag="h3">{{ $t('settings.general.title') }}</v-card-title>
+				<v-card-text> <GeneratorSettingsGeneral /></v-card-text>
+			</v-card>
 
-				<v-card-text>
-					<v-window v-model="activeTab" class="p-1">
-						<v-window-item value="general">
-							<GeneratorSettingsGeneral />
-						</v-window-item>
-						<v-window-item value="data_controller" eager>
-							<GeneratorSettingsDataController
-								@errors="tabs.data_controller.errors = $event"
-							/>
-						</v-window-item>
-						<v-window-item value="data_processings" eager>
-							<GeneratorSettingsDataProcessings
-								@errors="tabs.data_processings.errors = $event"
-							/>
-						</v-window-item>
-						<v-window-item value="processors" eager>
-							<GeneratorSettingsProcessors
-								@errors="tabs.processors.errors = $event"
-							/>
-						</v-window-item>
-					</v-window>
-				</v-card-text>
+			<v-card class="mb-5">
+				<v-card-title tag="h3">{{ $t('settings.data_controller.title') }}</v-card-title>
+				<v-card-text> <GeneratorSettingsDataController /></v-card-text>
+			</v-card>
+
+			<v-card class="mb-5">
+				<v-card-title tag="h3">{{ $t('settings.data_processings.title') }}</v-card-title>
+				<v-card-text> <GeneratorSettingsDataProcessings /></v-card-text>
 			</v-card>
 		</div>
 	</section>

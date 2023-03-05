@@ -1,136 +1,248 @@
 {
-  "errors": {
-    "missing-data-processing": "Es sollte zumindest eine Datenverarbeitung in dieser Kategorie angegeben sein.",
-    "missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
-    "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
-  },
-  "general": {
-    "provided-by": "betrieben von"
-  },
-  "h1": {
-    "line1": "Generator für eine",
-    "line2": "Open Source Datenschutzerklärung"
-  },
-  "infos": {
-    "add-data-processor": "Einen neuen Auftragsverarbeiter kannst du im entsprechenden Reiter anlegen."
-  },
-  "intro": {
-    "p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
-    "p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
-    "p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
-  },
-  "privacy_policy": "Datenschutzerklärung",
-  "settings": {
-    "data_controller": {
-      "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
-      "fields": {
-        "address": {
-          "title": "Adresse"
-        },
-        "email": {
-          "title": "E-Mail"
-        },
-        "name": {
-          "title": "Name"
-        },
-        "organisation": {
-          "title": "Organisation"
-        },
-        "phone": {
-          "title": "Telefon"
-        }
-      },
-      "tab": "Datenverantwortliche:r"
-    },
-    "data_processings": {
-      "categories": {
-        "advertising": {
-          "description": "Darstellung zielgerichteter Werbung",
-          "title": "Werbung"
-        },
-        "analytics": {
-          "description": "Erfassung von Nutzungsstatistiken",
-          "title": "Web-Analyse"
-        },
-        "booking": {
-          "description": "Buchung von Orten oder Diensten",
-          "title": "Buchungen"
-        },
-        "emails": {
-          "description": "Senden von E-Mails (z.B. via Kontaktformulare)",
-          "title": "E-Mails"
-        },
-        "maps": {
-          "description": "Darstellung interaktiver Karten & Routenplanung",
-          "title": "Interaktive Karten"
-        },
-        "payment": {
-          "description": "Abwicklung von Zahlungsvorgängen",
-          "title": "Zahlungsabwicklung"
-        },
-        "webhosting": {
-          "description": "Hosten der Webseite und benötigter Dienste & Inhalte (z.B. Datenbank, Bilder, Skripte, etc.)",
-          "title": "Webhosting"
-        }
-      },
-      "create": "Neue Datenverarbeitung erstellen",
-      "delete": "Datenverarbeitung entfernen",
-      "fields": {
-        "processor": {
-          "title": "Auftragsverarbeiter"
-        },
-        "service": {
-          "title": "Dienstname"
-        }
-      },
-      "tab": "Datenverarbeitungen"
-    },
-    "general": {
-      "add": "Hinzufügen",
-      "fields": {
-        "numerus": {
-          "hint": "Pronomen des Verfassers (z.B. \"Unsere Webseite...\" vs. \"Meine Webseite...)\"",
-          "options": {
-            "plural": {
-              "title": "Plural"
-            },
-            "singular": {
-              "title": "Singular"
-            }
-          },
-          "title": "Numerus"
-        }
-      },
-      "tab": "Allgemeines"
-    },
-    "processors": {
-      "add": "Neuen Auftragsverarbeiter hinzufügen",
-      "add-from-preset": "Aus vordefinierter Liste übernehmen",
-      "description": "Legen Sie hier alle Auftragsverarbeiter an, die Datenverarbeitungen durchführen.",
-      "fields": {
-        "city": {
-          "title": "Stadt"
-        },
-        "country": {
-          "title": "Land"
-        },
-        "name": {
-          "title": "Name / Organisation"
-        },
-        "privacy_policy_url": {
-          "title": "Link zur Datenschutzerklärung"
-        },
-        "street": {
-          "title": "Straße"
-        },
-        "zip": {
-          "title": "PLZ"
-        }
-      },
-      "tab": "Auftragsverarbeiter"
-    },
-    "title": "Einstellungen"
-  },
-  "source_code_text": "Quellcode des Text-Pakets",
-  "source_code_vue": "Quellcode des vue-Pakets"
+	"errors": {
+		"errors-in-form": "Bitte beheben Sie zuerst alle Fehler im Formular.",
+		"missing-data-processing": "Es sollte zumindest eine Datenverarbeitung in dieser Kategorie angegeben sein.",
+		"missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
+		"name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
+	},
+	"general": {
+		"optional": "optional",
+		"provided-by": "betrieben von"
+	},
+	"h1": {
+		"line1": "Generator für eine",
+		"line2": "Open Source Datenschutz­erklärung"
+	},
+	"infos": {
+		"add-data-processor": "Einen neuen Auftragsverarbeiter kannst du im entsprechenden Reiter anlegen."
+	},
+	"intro": {
+		"p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
+		"p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
+		"p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
+	},
+	"privacy_policy": "Datenschutzerklärung",
+	"settings": {
+		"data_controller": {
+			"description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
+			"fields": {
+				"address": {
+					"title": "Adresse"
+				},
+				"email": {
+					"title": "E-Mail"
+				},
+				"name": {
+					"title": "Name"
+				},
+				"organisation": {
+					"title": "Organisation"
+				},
+				"phone": {
+					"title": "Telefon"
+				}
+			},
+			"title": "Datenverantwortliche:r"
+		},
+		"data_processings": {
+			"add": "Datenverarbeitung hinzufügen",
+			"title": "Datenverarbeitungen",
+			"categories": {
+				"advertising": {
+					"description": "Darstellung zielgerichteter Werbung",
+					"title": "Werbung"
+				},
+				"analytics": {
+					"description": "Erfassung von Nutzungsstatistiken",
+					"title": "Web-Analyse"
+				},
+				"booking": {
+					"description": "Buchung von Orten oder Diensten",
+					"title": "Buchungen"
+				},
+				"emails": {
+					"description": "Senden von E-Mails (z.B. via Kontaktformulare)",
+					"title": "E-Mails"
+				},
+				"maps": {
+					"description": "Darstellung interaktiver Karten & Routenplanung",
+					"title": "Interaktive Karten"
+				},
+				"payment": {
+					"description": "Abwicklung von Zahlungsvorgängen",
+					"title": "Zahlungsabwicklung"
+				},
+				"webhosting": {
+					"description": "Hosten der Webseite und benötigter Dienste & Inhalte (z.B. Datenbank, Bilder, Skripte, etc.)",
+					"title": "Webhosting"
+				}
+			},
+			"create": "Neue Datenverarbeitung erstellen",
+			"default_processors": "Vordefinierte Auftragsverarbeiter",
+			"delete": "Datenverarbeitung entfernen",
+			"fields": {
+				"cookies": {
+					"add_cookies": "Fügen Sie eine oder mehrere Cookies hinzu, falls bei dieser Datenverarbeitung Cookies verwendet werden.",
+					"delete_cookie": "Cookie entfernen",
+					"duration": {
+						"hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Sekunden an.",
+						"options": {
+							"1_hour": {
+								"title": "1 Stunde"
+							},
+							"1_minute": {
+								"title": "1 Minute"
+							},
+							"1_month": {
+								"title": "1 Monat"
+							},
+							"1_week": {
+								"title": "1 Woche"
+							},
+							"1_year": {
+								"title": "1 Jahr"
+							},
+							"24_hours": {
+								"title": "24 Stunden"
+							},
+							"2_years": {
+								"title": "2 Jahre"
+							},
+							"6_months": {
+								"title": "6 Monate"
+							},
+							"end_of_session": {
+								"title": "Bis zum Ende der Browser-Session"
+							}
+						},
+						"title": "Gültigkeitsdauer (Auswahl oder Angabe in Sekunden)"
+					},
+					"name": {
+						"title": "Name"
+					},
+					"new_cookie": "Neues Cookie",
+					"purpose": {
+						"options": {
+							"gdpr_choice": {
+								"title": "Speichern der Entscheidung(en) im DSGVO/Cookie Banners"
+							},
+							"security": {
+								"title": "Gewährleistung der Sicherheit (z.B. Verhindern von CSRF-Angriffen)"
+							},
+							"service": {
+								"title": "Verwendung des damit verbundenen Dienstes"
+							},
+							"session": {
+								"title": "Speichern von Session Daten (z.B. zur Authentifizierung)"
+							},
+							"settings": {
+								"title": "Speichern von Benutzer-Einstellungen (z.B. Sprache, Anzeigemodus)"
+							}
+						},
+						"title": "Zweck"
+					},
+					"third_party": {
+						"title": "Drittanbieter Cookie"
+					},
+					"title": "Cookies",
+					"written_on": {
+						"options": {
+							"every_visit": {
+								"description": "Cookie is written automatically on every visit (e.g. session cookies).",
+								"title": "Automatisch bei jedem Besuch"
+							},
+							"service_usage": {
+								"description": "Cookie is only written, when using the associated service (e.g. interactive maps, analytics, payment, etc.).",
+								"title": "Bei Verwendung des jeweiligen Dienstes"
+							}
+						},
+						"title": "Erstellungzeitpunkt"
+					}
+				},
+				"data_categories": {
+					"options": {
+						"geo": {
+							"description": "Geolocation data.",
+							"title": "Geolocation data"
+						},
+						"online": {
+							"description": "Like IP/MAC address, cookies, advertising IDs, pixel tags, device fingerprints.",
+							"title": "Online identifiers"
+						},
+						"payment": {
+							"description": "Like credit card or bank account info.",
+							"title": "Payment data"
+						},
+						"personal": {
+							"description": "Like name, phone, e-mail, address.",
+							"title": "Personally identifiable data"
+						},
+						"pseudonymized": {
+							"description": "Personal information, that was anonymized (e.g. by hashing a IP-address), but can still be identified with additional information.",
+							"title": "Pseudonimyzed data"
+						},
+						"sensitive": {
+							"description": "Like sexual orientation, racial or ethnic origin, medical or financial information.",
+							"title": "Sensitive personal information"
+						},
+						"usage": {
+							"description": "E.g. which, when and how long webpages were visited.",
+							"title": "Usage data"
+						}
+					},
+					"title": "Datenkategorien"
+				},
+				"processor": {
+					"city": {
+						"title": "Stadt"
+					},
+					"country": {
+						"title": "Land"
+					},
+					"load_from_preset": "Auftragsverarbeiter aus vordefinierter Liste laden",
+					"name": {
+						"title": "Name / Organisation"
+					},
+					"privacy_policy_url": {
+						"title": "Link zur Datenschutzerklärung"
+					},
+					"street": {
+						"title": "Straße"
+					},
+					"title": "Auftragsverarbeiter",
+					"zip": {
+						"title": "PLZ"
+					}
+				},
+				"required": {
+					"title": "Datenverarbeitung ist technisch notwendig für die Bereitstellung der Basisfunktionalitäten der Webseite"
+				},
+				"service": {
+					"title": "Dienstname"
+				}
+			},
+			"load_from_preset": "Datenverarbeitung aus Vorlage laden",
+			"used_processors": "Bereits verwendete Auftragsverarbeiter"
+		},
+		"general": {
+			"fields": {
+				"numerus": {
+					"hint": "Pronomen des Verfassers (z.B. \"Unsere Webseite...\" vs. \"Meine Webseite...)\"",
+					"options": {
+						"plural": {
+							"title": "Plural"
+						},
+						"singular": {
+							"title": "Singular"
+						}
+					},
+					"title": "Numerus"
+				}
+			},
+			"title": "Allgemeines"
+		},
+		"title": "Einstellungen"
+	},
+	"source_code_text": "Quellcode des Text-Pakets",
+	"source_code_vue": "Quellcode des vue-Pakets"
 }

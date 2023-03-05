@@ -1,51 +1,36 @@
 <script setup lang="ts">
-const settings = useSettings()
+const breakpoint = useBreakpoint()
+const categories: DataProcessingCategory[] = [
+	'webhosting',
+	'analytics',
+	'maps',
+	'emails',
+	'payment',
+	'advertising',
+]
 
-const categories = reactive({
-	webhosting: {
-		errors: 0,
-		required: true,
-	},
-	analytics: {
-		errors: 0,
-		required: false,
-	},
-	maps: {
-		errors: 0,
-		required: false,
-	},
-	emails: {
-		errors: 0,
-		required: false,
-	},
-	payment: {
-		errors: 0,
-		required: false,
-	},
-	advertising: {
-		errors: 0,
-		required: false,
-	},
-})
-
-const emit = defineEmits<{
-	(e: 'errors', count: number): void
-}>()
-
-watch(categories, (newCategories) => {
-	let errors = 0
-	for (const categoryData of Object.values(newCategories)) {
-		errors += categoryData.errors
-	}
-	emit('errors', errors)
-})
+const activeTab = ref(null)
 </script>
 <template>
-	<GeneratorSettingsDataProcessingCategory
-		v-for="(categoryData, category) in categories"
-		:key="category"
-		:category="category"
-		:required="categoryData.required"
-		@errors="categories[category].errors = $event"
-	/>
+	<v-card>
+		<v-tabs
+			v-model="activeTab"
+			bg-color="primary"
+			show-arrows
+			center-active
+			:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
+		>
+			<v-tab v-for="category in categories" :key="category" :value="category">
+				{{ $t(`settings.data_processings.categories.${category}.title`) }}
+			</v-tab>
+		</v-tabs>
+
+		<v-card-text>
+			<v-window v-model="activeTab" class="p-1">
+				<v-window-item v-for="category in categories" :key="category" :value="category">
+					<GeneratorSettingsDataProcessingCategory :category="category" />
+				</v-window-item>
+			</v-window>
+		</v-card-text>
+	</v-card>
 </template>
