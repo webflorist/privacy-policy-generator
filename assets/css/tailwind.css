@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+%text-primary-adaptive {
+	@apply text-primary-900 dark:text-primary-500;
+ }
+
 @layer base {
 	html {
 		scroll-behavior: smooth;
@@ -16,6 +20,7 @@
 	}
 
 	a:not(.no-style, .v-btn) {
+		@extend %text-primary-adaptive;
 		@apply border-b border-dotted border-primary font-semibold text-primary no-underline;
 
 		&:hover {
@@ -46,10 +51,23 @@
 	.container {
 		@apply max-w-5xl;
 	}
+
+	main {
+		background-image: url('/background.png');
+		background-size: contain;
+	}
 }
 
 @layer utilities {
 	.container-padding {
 		@apply px-4;
+	}
+
+	.flower-shadow {
+		filter: drop-shadow(3px 5px 0 rgb(35 7 79 / 40%));
+	}
+
+	.text-primary-adaptive {
+		@extend %text-primary-adaptive;
 	}
 }

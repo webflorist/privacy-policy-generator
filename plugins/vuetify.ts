@@ -4,13 +4,13 @@ import { theme } from '#tailwind-config'
 const lightTheme: ThemeDefinition = {
 	dark: false,
 	colors: {
-		surface: '#f0f5f9',
+		surface: theme.colors.primary[100],
 		background: '#ffffff',
 		primary: theme.colors.primary.DEFAULT,
 		'primary-light': theme.colors.primary.light,
 		'primary-dark': theme.colors.primary.dark,
-		secondary: '#cce8ff',
-		'secondary-light': '#e5f3ff',
+		secondary: theme.colors.secondary.DEFAULT,
+		'secondary-light': theme.colors.secondary.light,
 		'secondary-dark': theme.colors.secondary.dark,
 	},
 }

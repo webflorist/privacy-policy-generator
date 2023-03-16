@@ -19,14 +19,14 @@ const themeIcon = computed(() =>
 	<v-app-bar tag="header" :elevation="2" border="b">
 		<template v-slot:prepend>
 			<v-app-bar-nav-icon>
-				<a href="https://github.com/webflorist" class="no-style">
-					<span class="sr-only">Webflorist</span>
+				<NuxtLink to="/" class="no-style" :title="$t('general.back-to-home')">
+					<span class="sr-only">{{ $t('general.back-to-home') }}</span>
 					<img
-						alt="Webflorist logo"
-						src="/webflorist.svg"
-						class="w-10"
+						:alt="$t('images.logo.alt')"
+						src="/logo.svg"
+						class="w-32"
 					/>
-				</a>
+				</NuxtLink>
 			</v-app-bar-nav-icon>
 		</template>
 		<template v-slot:append>
