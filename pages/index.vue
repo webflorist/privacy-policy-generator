@@ -12,7 +12,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value)
 
 <template>
 	<v-main>
-		<v-container tag="section">
+		<v-container tag="section" class="text-center pt-16">
 			<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
 				<span class="block">{{ $t('h1.line1') }}</span>
 				{{ ' ' }}

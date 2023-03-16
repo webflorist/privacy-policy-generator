@@ -8,6 +8,7 @@ const dataCategories = useDataCategories()
 const presenter = usePresenter()
 const breakpoint = useBreakpoint()
 const durationOptions = useDurationOptions()
+const { humanizeMinutes } = useHumanizedDuraition()
 const { t } = useI18n()
 
 const props = defineProps({
@@ -214,6 +215,7 @@ watch(errors, (newErrors) => {
 	<template v-if="createNew">
 		<h4>{{ $t('settings.data_processings.load_from_preset') }}</h4>
 		<FormSelectField
+			class="m-default"
 			:items="presetOptions"
 			:standalone="true"
 			:clearable="false"
@@ -239,50 +241,53 @@ watch(errors, (newErrors) => {
 		v-model="processingModel.required"
 	></FormSwitch>
 	<h4>{{ $t('settings.data_processings.fields.processor.title') }}</h4>
-	<FormSelectField
-		autocomplete
-		:label="$t('settings.data_processings.fields.processor.load_from_preset')"
-		:items="processorOptions"
-		:standalone="true"
-		:clearable="false"
-		@update:modelValue="loadProcessorFromPreset($event)"
-	>
-	</FormSelectField>
-	<FormTextField
-		:label="$t('settings.data_processings.fields.processor.name.title')"
-		name="name"
-		v-model="processingModel.processor.name"
-	/>
-	<FormTextField
-		:label="$t('settings.data_processings.fields.processor.street.title')"
-		name="street"
-		v-model="processingModel.processor.street"
-	/>
-	<FormTextField
-		:label="$t('settings.data_processings.fields.processor.zip.title')"
-		name="zip"
-		v-model="processingModel.processor.zip"
-	/>
-	<FormTextField
-		:label="$t('settings.data_processings.fields.processor.city.title')"
-		name="city"
-		v-model="processingModel.processor.city"
-	/>
-	<FormTextField
-		:label="$t('settings.data_processings.fields.processor.country.title')"
-		name="country"
-		v-model="processingModel.processor.country"
-	/>
-	<FormTextField
-		type="url"
-		:label="$t('settings.data_processings.fields.processor.privacy_policy_url.title')"
-		name="privacy_policy_url"
-		v-model="processingModel.processor.privacy_policy_url"
-	/>
+	<div class="m-default">
+		<FormSelectField
+			autocomplete
+			:label="$t('settings.data_processings.fields.processor.load_from_preset')"
+			:items="processorOptions"
+			:standalone="true"
+			:clearable="false"
+			@update:modelValue="loadProcessorFromPreset($event)"
+		>
+		</FormSelectField>
+		<FormTextField
+			:label="$t('settings.data_processings.fields.processor.name.title')"
+			name="name"
+			v-model="processingModel.processor.name"
+		/>
+		<FormTextField
+			:label="$t('settings.data_processings.fields.processor.street.title')"
+			name="street"
+			v-model="processingModel.processor.street"
+		/>
+		<FormTextField
+			:label="$t('settings.data_processings.fields.processor.zip.title')"
+			name="zip"
+			v-model="processingModel.processor.zip"
+		/>
+		<FormTextField
+			:label="$t('settings.data_processings.fields.processor.city.title')"
+			name="city"
+			v-model="processingModel.processor.city"
+		/>
+		<FormTextField
+			:label="$t('settings.data_processings.fields.processor.country.title')"
+			name="country"
+			v-model="processingModel.processor.country"
+		/>
+		<FormTextField
+			type="url"
+			:label="$t('settings.data_processings.fields.processor.privacy_policy_url.title')"
+			name="privacy_policy_url"
+			v-model="processingModel.processor.privacy_policy_url"
+		/>
+	</div>
 	<h4>
 		{{ $t('settings.data_processings.fields.service.title') }} ({{ $t('general.optional') }})
 	</h4>
 	<FormTextField
+		class="m-default"
 		:label="$t('settings.data_processings.fields.service.title')"
 		name="service"
 		v-model="processingModel.service"
@@ -290,6 +295,7 @@ watch(errors, (newErrors) => {
 
 	<h4>{{ $t('settings.data_processings.fields.data_categories.title') }}</h4>
 	<FormChipGroup
+		class="m-default"
 		name="dataCategories"
 		:label="$t('settings.data_processings.fields.data_categories.title')"
 		:items="dataCategoryOptions"
@@ -315,7 +321,7 @@ watch(errors, (newErrors) => {
 				<v-icon>mdi-plus</v-icon>
 			</v-tab>
 		</v-tabs>
-		<v-card-text>
+		<v-card-text class="m-default">
 			<v-window v-model="activeCookieTab">
 				<v-window-item
 					v-for="(cookie, key) in processingModel.cookies"
@@ -349,7 +355,13 @@ watch(errors, (newErrors) => {
 						name="cookie.duration"
 						v-model="processingModel.cookies[key].duration"
 						:items="cookieDurationOptions"
-					/>
+					>
+						<template v-slot:append-inner v-if="processingModel.cookies[key].duration">
+							<span class="whitespace-nowrap">
+								{{ humanizeMinutes(processingModel.cookies[key].duration) }}
+							</span>
+						</template>
+					</FormCombobox>
 					<FormSelectField
 						:label="$t('settings.data_processings.fields.cookies.purpose.title')"
 						name="cookie.purpose"

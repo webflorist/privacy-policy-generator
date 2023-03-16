@@ -17,3 +17,7 @@
 .v-footer {
 	@apply mt-6;
 }
+
+.v-expansion-panel-text__wrapper {
+	@apply py-6 !important;
+}

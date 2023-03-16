@@ -58,12 +58,23 @@ const onInput = (event) => {
 		:label="label"
 		:error-messages="errors"
 		:clearable="clearable"
+		persistent-hint
+		:return-object="false"
 	>
-		<template v-slot:prepend-item>
-			<slot name="prepend-item" />
+		<template v-if="$slots.prepend" v-slot:prepend>
+			<slot name="prepend" />
 		</template>
-		<template v-slot:append-item>
-			<slot name="append-item" />
+		<template v-if="$slots.append" v-slot:append>
+			<slot name="append" />
+		</template>
+		<template v-if="$slots['prepend-inner']" v-slot:prepend-inner>
+			<slot name="prepend-inner" />
+		</template>
+		<template v-if="$slots['append-inner']" v-slot:append-inner>
+			<slot name="append-inner" />
+		</template>
+		<template v-if="$slots.details" v-slot:details>
+			<slot name="details" />
 		</template>
 	</v-combobox>
 </template>

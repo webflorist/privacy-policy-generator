@@ -64,6 +64,7 @@ const onInput = (event) => {
 		:label="label"
 		:error-messages="errors"
 		:clearable="clearable"
+		persistent-hint
 	>
 		<template v-slot:prepend-item>
 			<slot name="prepend-item" />

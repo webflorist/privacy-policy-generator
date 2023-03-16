@@ -58,5 +58,22 @@ const onInput = (event) => {
 		:error-messages="errors"
 		:type="type"
 		:clearable="clearable"
-	/>
+		persistent-hint
+	>
+		<template v-if="$slots.prepend" v-slot:prepend>
+			<slot name="prepend" />
+		</template>
+		<template v-if="$slots.append" v-slot:append>
+			<slot name="append" />
+		</template>
+		<template v-if="$slots['prepend-inner']" v-slot:prepend-inner>
+			<slot name="prepend-inner" />
+		</template>
+		<template v-if="$slots['append-inner']" v-slot:append-inner>
+			<slot name="append-inner" />
+		</template>
+		<template v-if="$slots.details" v-slot:details>
+			<slot name="details" />
+		</template>
+	</v-text-field>
 </template>

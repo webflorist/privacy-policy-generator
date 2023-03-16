@@ -25,7 +25,7 @@ const activeTab = ref(null)
 			</v-tab>
 		</v-tabs>
 
-		<v-card-text>
+		<v-card-text class="m-default">
 			<v-window v-model="activeTab" class="p-1">
 				<v-window-item v-for="category in categories" :key="category" :value="category">
 					<GeneratorSettingsDataProcessingCategory :category="category" />

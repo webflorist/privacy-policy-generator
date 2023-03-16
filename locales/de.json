@@ -85,7 +85,7 @@
 					"add_cookies": "Fügen Sie eine oder mehrere Cookies hinzu, falls bei dieser Datenverarbeitung Cookies verwendet werden.",
 					"delete_cookie": "Cookie entfernen",
 					"duration": {
-						"hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Sekunden an.",
+						"hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Minuten an.",
 						"options": {
 							"1_hour": {
 								"title": "1 Stunde"
@@ -115,7 +115,7 @@
 								"title": "Bis zum Ende der Browser-Session"
 							}
 						},
-						"title": "Gültigkeitsdauer (Auswahl oder Angabe in Sekunden)"
+						"title": "Gültigkeitsdauer (Auswahl oder Angabe in Minuten)"
 					},
 					"name": {
 						"title": "Name"

@@ -16,7 +16,12 @@
 		h3,
 		.h3,
 		h4,
-		.h4 {
+		.h4
+		h5,
+		.h5
+		h6,
+		.h6,
+		.m-default {
 			& + p,
 			& + ul,
 			& + dl,
@@ -24,20 +29,21 @@
 			& + table,
 			& + address,
 			& + blockquote,
-			& + section {
+			& + section,
+			& + .m-default {
 				@apply mt-6;
 			}
 
-			& + h1:not(.h2, .h3, .h4),
+			& + h1:not(.h2, .h3, .h4, .h5, .h6),
 			& + .h1,
-			& + h2:not(.h1, .h3, .h4),
+			& + h2:not(.h1, .h3, .h4, .h5, .h6),
 			& + .h2 {
 				@apply mt-12;
 			}
 
-			& + h3:not(.h1, .h2, .h4),
+			& + h3:not(.h1, .h2, .h4, .h5, .h6),
 			& + .h3,
-			& + h4:not(.h1, .h2, .h3),
+			& + h4:not(.h1, .h2, .h3, .h5, .h6),
 			& + .h4 {
 				@apply mt-8;
 			}
