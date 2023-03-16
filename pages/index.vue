@@ -5,75 +5,35 @@ const { locale: currentLocale } = useI18n()
 
 const settings = useSettings()
 
-let cookies = {
-	first_party: [
-		{
-			name: 'session',
-			purpose: 'session', // session | xsrf | hide_alert | analytics | maps | analytics_third_party | maps_third_party
-			written_on: 'every_visit', // every_visit | hide_alert | maps | accept_cookies
-			duration: 'end_of_session', // end_of_session | 1_year | 2_years | 24_hours | 1_minute | various
-		},
-	],
-	third_party: [
-		{
-			name: '_ga, _gat, _gid',
-			purpose: 'analytics_third_party',
-			written_on: 'accept_cookies',
-			duration: 'various',
-			processor: 'google_eu',
-			service: 'Google Analytics',
-		},
-	],
-}
+const hasWebhostingProcessing = computed(() => settings.value.dataProcessings.webhosting.length > 0)
 
-const dataProcessing = {
-	webhosting: {
-		processor: ['netlify', 'storyblok'],
-		data_categories: ['usage_data'],
-	},
-	analytics: {
-		processor: 'google_eu',
-		service: 'Google Analytics',
-		data_categories: ['usage_data', 'usage_statistics'],
-	},
-	maps: {
-		processor: 'google_usa',
-		service: 'Google Maps',
-		data_categories: ['usage_data', 'geo_data'],
-	},
-	send_emails: {
-		processor: 'twilio_eu',
-		service: 'Twilio Sendgrid',
-		data_categories: ['usage_data', 'inventory_data'],
-	},
-	payment: {
-		processor: 'stripe',
-		service: 'Stripe Payments',
-		data_categories: ['usage_data', 'inventory_data', 'payment_data'],
-	},
-}
+const hasErrors = computed(() => !hasWebhostingProcessing.value)
 </script>
 
 <template>
-	<v-main class="prose dark:prose-invert">
-		<section class="container container-padding text-center pt-16">
-			<h1
-				class="text-3xl font-extrabold tracking-tight sm:text-5xl"
-			>
+	<v-main>
+		<v-container tag="section">
+			<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
 				<span class="block">{{ $t('h1.line1') }}</span>
 				{{ ' ' }}
-				<span class="block text-primary-600 text-4xl sm:text-6xl">{{ $t('h1.line2') }}</span>
+				<span class="block text-4xl text-primary-600 sm:text-6xl">{{
+					$t('h1.line2')
+				}}</span>
 			</h1>
-			<div
-				class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
-			>
+			<div class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
 				<p v-html="$t('intro.p1')" />
 				<p class="mt-3" v-html="$t('intro.p2')" />
 				<p class="mt-3" v-html="$t('intro.p3')" />
 			</div>
-		</section>
+		</v-container>
 		<GeneratorSettings />
-		<article class="container prose mx-auto my-10 px-10 lg:prose-lg">
+		<v-divider></v-divider>
+		<v-container v-if="hasErrors">
+			<v-alert v-if="!hasWebhostingProcessing" type="error">
+				{{ $t('errors.missing-webhosting-data-processing') }}
+			</v-alert>
+		</v-container>
+		<v-container v-else>
 			<h1>{{ $t('privacy_policy') }}</h1>
 			<!--PrivacyPolicy
 				:singular="settings.general.numerus === 'singular'"
@@ -88,6 +48,6 @@ const dataProcessing = {
 				:cookies="cookies"
 				:data-processing="dataProcessing"
 			/-->
-		</article>
+		</v-container>
 	</v-main>
 </template>

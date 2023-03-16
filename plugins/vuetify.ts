@@ -44,8 +44,18 @@ const vuetify = createVuetify({
 		VBtn: {
 			color: 'primary',
 		},
+		VCard: {
+			tag: 'section',
+		},
+		VContainer: {
+			tag: 'section',
+		},
+		VAlert: {
+			tag: 'section',
+		},
 		VExpansionPanels: {
 			variant: 'popout',
+			tag: 'section',
 		},
 		VExpansionPanelTitle: {
 			color: 'secondary',

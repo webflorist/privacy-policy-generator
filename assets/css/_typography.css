@@ -1,0 +1,97 @@
+@layer components {
+	main {
+		/* Margin between elements */
+		p,
+		ul,
+		dl,
+		form,
+		table,
+		address,
+		blockquote,
+		section,
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4 {
+			& + p,
+			& + ul,
+			& + dl,
+			& + form,
+			& + table,
+			& + address,
+			& + blockquote,
+			& + section {
+				@apply mt-6;
+			}
+
+			& + h1:not(.h2, .h3, .h4),
+			& + .h1,
+			& + h2:not(.h1, .h3, .h4),
+			& + .h2 {
+				@apply mt-12;
+			}
+
+			& + h3:not(.h1, .h2, .h4),
+			& + .h3,
+			& + h4:not(.h1, .h2, .h3),
+			& + .h4 {
+				@apply mt-8;
+			}
+		}
+
+		/* Headings */
+		h1:not(.h2, .h3, .h4),
+		.h1 {
+			@apply text-4xl sm:text-6xl;
+		}
+
+		h2:not(.h1, .h3, .h4),
+		.h2 {
+			@apply text-2xl sm:text-4xl;
+		}
+
+		h3:not(.h1, .h2, .h4),
+		.h3 {
+			@apply text-xl sm:text-2xl;
+		}
+
+		h4:not(.h1, .h2, .h3),
+		.h3 {
+			@apply text-lg sm:text-xl;
+		}
+
+		dl {
+			@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:grid;
+
+			grid-template-columns: auto auto;
+
+			dd + dt {
+				@apply mt-5 sm:mt-0;
+			}
+
+			dt {
+				@apply whitespace-nowrap font-semibold sm:text-right;
+			}
+		}
+
+		ul {
+			@apply list-disc pl-10;
+
+			li + li {
+				@apply mt-2;
+			}
+
+			ul {
+				@apply mt-1;
+
+				li + li {
+					@apply mt-0;
+				}
+			}
+		}
+	}
+}

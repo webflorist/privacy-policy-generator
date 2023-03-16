@@ -18,7 +18,7 @@ const activePanel = ref(null)
 
 </script>
 <template>
-	<h3>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h3>
+	<h4>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h4>
 	<p>
 		{{ $t(`settings.data_processings.categories.${category}.description`) }}
 	</p>

@@ -14,6 +14,7 @@ module.exports = {
 		'./nuxt.config.{js,ts}',
 	],
 	darkMode: 'class',
+	important: true,
 	theme: {
 		container: {
 			center: true,
@@ -41,5 +42,4 @@ module.exports = {
 	variants: {
 		extend: {},
 	},
-	plugins: [require('@tailwindcss/typography')],
 }

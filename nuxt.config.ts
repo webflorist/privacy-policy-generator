@@ -67,6 +67,7 @@ export default defineNuxtConfig({
 
 	tailwindcss: {
 		exposeConfig: true,
+		injectPosition: 'last'
 	},
 
 	postcss: {

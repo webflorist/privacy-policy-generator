@@ -1,7 +1,7 @@
 {
 	"errors": {
 		"errors-in-form": "Bitte beheben Sie zuerst alle Fehler im Formular.",
-		"missing-data-processing": "Es sollte zumindest eine Datenverarbeitung in dieser Kategorie angegeben sein.",
+		"missing-webhosting-data-processing": "Es sollte zumindest eine Datenverarbeitung in der Kategorie Webhosting angegeben sein.",
 		"missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
 		"name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus."
 	},

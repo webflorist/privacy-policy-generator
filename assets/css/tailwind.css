@@ -1,4 +1,5 @@
 @import './_vuetify.css';
+@import './_typography.css';
 
 @tailwind base;
 @tailwind components;
@@ -14,12 +15,19 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	a:not(.no-style, .v-btn),
-	.prose a {
+	a:not(.no-style, .v-btn) {
 		@apply border-b border-dotted border-primary font-semibold text-primary no-underline;
 
 		&:hover {
 			@apply border-solid;
+		}
+	}
+
+	main {
+		section + section,
+		section + hr,
+		hr + section {
+			@apply mt-10;
 		}
 	}
 
