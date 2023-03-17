@@ -49,12 +49,24 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-chip-group :model-value="inputValue" @update:modelValue="onInput($event)">
-		<v-chip v-for="(item, key) in items" :key="key" :value="item.value">
-			{{ item.title }}
-			<v-tooltip v-if="item.hint" activator="parent" location="bottom">{{
-				item.hint
-			}}</v-tooltip>
-		</v-chip>
-	</v-chip-group>
+	<div>
+		<v-chip-group
+			:model-value="inputValue"
+			v-bind="$attrs"
+			@update:model-value="onInput($event)"
+		>
+			<v-chip v-for="(item, key) in items" :key="key" :value="item.value">
+				{{ item.title }}
+				<v-tooltip v-if="item.hint" activator="parent" location="bottom">{{
+					item.hint
+				}}</v-tooltip>
+			</v-chip>
+		</v-chip-group>
+		<v-messages
+			:active="errors.length > 0"
+			:messages="errors"
+			color="error"
+			class="mt-3 px-3"
+		></v-messages>
+	</div>
 </template>

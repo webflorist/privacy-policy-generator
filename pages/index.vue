@@ -7,7 +7,9 @@ const settings = useSettings()
 
 const hasWebhostingProcessing = computed(() => settings.value.dataProcessings.webhosting.length > 0)
 
-const hasErrors = computed(() => !hasWebhostingProcessing.value)
+const hasSettingsErrors = ref(false)
+
+const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsErrors.value)
 </script>
 
 <template>
@@ -37,11 +39,14 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value)
 					<p class="mt-3" v-html="$t('intro.p3')" />
 				</div>
 			</v-container>
-			<GeneratorSettings />
+			<GeneratorSettings @has-errors="hasSettingsErrors = $event" />
 			<v-divider></v-divider>
 			<v-container v-if="hasErrors">
 				<v-alert v-if="!hasWebhostingProcessing" type="error">
 					{{ $t('errors.missing-webhosting-data-processing') }}
+				</v-alert>
+				<v-alert v-if="hasSettingsErrors" type="error">
+					{{ $t('errors.settings-errors') }}
 				</v-alert>
 			</v-container>
 			<v-container v-else>

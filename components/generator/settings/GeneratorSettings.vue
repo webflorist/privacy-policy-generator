@@ -1,20 +1,29 @@
 <script setup lang="ts">
-const breakpoint = useBreakpoint()
-
-const activeTab = ref('general')
 const tabs = reactive({
 	general: {
-		errors: 0,
+		errors: false,
 	},
 	data_controller: {
-		errors: 0,
+		errors: false,
 	},
 	data_processings: {
-		errors: 0,
+		errors: false,
 	},
 	processors: {
-		errors: 0,
+		errors: false,
 	},
+})
+
+const emit = defineEmits<{
+	(e: 'hasErrors', state: boolean): void
+}>()
+
+const hasErrors = computed(() => {
+	return Object.values(tabs).some((tab) => tab.errors)
+})
+
+watch(hasErrors, (hasErrors) => {
+	emit('hasErrors', hasErrors)
 })
 </script>
 <template>
@@ -28,12 +37,17 @@ const tabs = reactive({
 
 		<v-card>
 			<v-card-title tag="h3">{{ $t('settings.data_controller.title') }}</v-card-title>
-			<v-card-text class="m-default"> <GeneratorSettingsDataController /></v-card-text>
+			<v-card-text class="m-default">
+				<GeneratorSettingsDataController @has-errors="tabs.data_controller.errors = $event"
+			/></v-card-text>
 		</v-card>
 
 		<v-card>
 			<v-card-title tag="h3">{{ $t('settings.data_processings.title') }}</v-card-title>
-			<v-card-text class="m-default"> <GeneratorSettingsDataProcessings /></v-card-text>
+			<v-card-text class="m-default">
+				<GeneratorSettingsDataProcessings
+					@has-errors="tabs.data_processings.errors = $event"
+			/></v-card-text>
 		</v-card>
 	</v-container>
 </template>

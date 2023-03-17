@@ -21,8 +21,8 @@ module.exports = {
 			center: true,
 		},
 		fontFamily: {
-			body: ['"Inter"', ...defaultTheme.fontFamily.sans],
-			display: ['"Inter"', ...defaultTheme.fontFamily.sans],
+			body: ['"Roboto"', ...defaultTheme.fontFamily.sans],
+			display: ['"Amaranth"', ...defaultTheme.fontFamily.serif],
 		},
 		colors: {
 			primary: {

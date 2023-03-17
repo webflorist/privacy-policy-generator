@@ -7,6 +7,7 @@
 		for div's.
 		*/
 		p,
+		hr,
 		ul,
 		dl,
 		form,
@@ -21,11 +22,14 @@
 		h3,
 		.h3,
 		h4,
-		.h4 h5,
-		.h5 h6,
+		.h4,
+		h5,
+		.h5,
+		h6,
 		.h6,
 		.m-default {
 			& + p,
+			& + hr,
 			& + ul,
 			& + dl,
 			& + form,
@@ -50,6 +54,13 @@
 			& + .h4 {
 				@apply mt-8;
 			}
+
+			& + h5:not(.h1, .h2, .h3, .h4, .h6),
+			& + .h5,
+			& + h6:not(.h1, .h2, .h3, .h4, .h5),
+			& + .h4 {
+				@apply mt-6;
+			}
 		}
 
 		/*
@@ -61,24 +72,35 @@
 		or
 		<div class="h2">
 		*/
-		h1:not(.h2, .h3, .h4),
+
+		h1:not(.h2, .h3, .h4, .h5, .h6),
 		.h1 {
-			@apply text-4xl sm:text-6xl;
+			@apply text-4xl font-bold sm:text-6xl font-display;
 		}
 
-		h2:not(.h1, .h3, .h4),
+		h2:not(.h1, .h3, .h4, .h5, .h6),
 		.h2 {
-			@apply text-2xl sm:text-4xl;
+			@apply text-2xl font-bold sm:text-4xl font-display;
 		}
 
-		h3:not(.h1, .h2, .h4),
+		h3:not(.h1, .h2, .h4, .h5, .h6),
 		.h3 {
-			@apply text-xl sm:text-2xl;
+			@apply text-xl font-normal sm:text-2xl font-display;
 		}
 
-		h4:not(.h1, .h2, .h3),
-		.h3 {
-			@apply text-lg sm:text-xl;
+		h4:not(.h1, .h2, .h3, .h5, .h6),
+		.h4 {
+			@apply text-lg font-normal sm:text-xl font-display;
+		}
+
+		h5:not(.h1, .h2, .h3, .h4, .h6),
+		.h5 {
+			@apply text-base sm:text-lg;
+		}
+
+		h6:not(.h1, .h2, .h3, .h4, .h5),
+		.h6 {
+			@apply text-base font-normal sm:text-lg;
 		}
 
 		/*

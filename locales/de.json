@@ -4,7 +4,8 @@
     "missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
     "missing-webhosting-data-processing": "Es sollte zumindest eine Datenverarbeitung in der Kategorie Webhosting angegeben sein.",
     "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus.",
-    "page-not-found": "Seite nicht gefunden"
+    "page-not-found": "Seite nicht gefunden",
+    "settings-errors": "Bitte beheben Sie die angezeigten Fehler in den Einstellungen."
   },
   "general": {
     "back-to-home": "Zurück zur Startseite",
@@ -40,7 +41,7 @@
   "privacy_policy": "Datenschutzerklärung",
   "settings": {
     "data_controller": {
-      "description": "Der/Die Datenverantwortliche:r (engl. Data Controller) ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
+      "description": "Der/Die Datenverantwortliche:r ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
       "fields": {
         "address": {
           "title": "Adresse"

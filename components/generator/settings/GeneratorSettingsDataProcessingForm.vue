@@ -7,8 +7,6 @@ const presets = useDataProcessingPresets()
 const dataCategories = useDataCategories()
 const presenter = usePresenter()
 const breakpoint = useBreakpoint()
-const durationOptions = useDurationOptions()
-const { humanizeMinutes } = useHumanizedDuraition()
 const { t } = useI18n()
 
 const props = defineProps({
@@ -24,7 +22,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-	(e: 'errors', count: number): void
+	(e: 'hasErrors', state: boolean): void
 	(e: 'created', key: number): void
 }>()
 
@@ -65,6 +63,7 @@ const addProcessing = () => {
 
 const deleteProcessing = () => {
 	settings.value.dataProcessings[props.category].splice(props.processingKey, 1)
+	emit('hasErrors', false)
 }
 
 const presetOptions = computed(() => {
@@ -145,6 +144,7 @@ const loadProcessorFromPreset = (key: string) => {
 }
 
 const activeCookieTab = ref(null)
+const cookieErrors = ref({})
 const addCookie = () => {
 	const newLength = processingModel.value.cookies?.push({
 		name: null,
@@ -158,39 +158,15 @@ const addCookie = () => {
 
 const deleteCookie = (key) => {
 	processingModel.value.cookies?.splice(key, 1)
+	delete cookieErrors.value[key]
+	activeCookieTab.value = processingModel.value.cookies[key]
+		? key
+		: processingModel.value.cookies[key - 1]
+		? key - 1
+		: processingModel.value.cookies[0]
+		? 0
+		: 9999
 }
-
-const cookieWrittenOnOptions = computed(() => {
-	const options = ['every_visit', 'service_usage']
-	return options.map((option) => {
-		return {
-			title: t(`settings.data_processings.fields.cookies.written_on.options.${option}.title`),
-			value: option,
-			hint: t(
-				`settings.data_processings.fields.cookies.written_on.options.${option}.description`
-			),
-		}
-	})
-})
-
-const cookieDurationOptions = computed(() => {
-	return Object.keys(durationOptions).map((option) => {
-		return {
-			title: t(`settings.data_processings.fields.cookies.duration.options.${option}.title`),
-			value: durationOptions[option],
-		}
-	})
-})
-
-const cookiePurposeOptions = computed(() => {
-	const options = ['session', 'security', 'gdpr_choice', 'settings', 'service']
-	return options.map((option) => {
-		return {
-			title: t(`settings.data_processings.fields.cookies.purpose.options.${option}.title`),
-			value: option,
-		}
-	})
-})
 
 const { errors } = useForm({
 	validationSchema: {
@@ -205,15 +181,27 @@ const { errors } = useForm({
 	validateOnMount: true,
 })
 
-const hasErrors = computed(() => Object.keys(errors.value).length > 0)
+const setCookieErrors = (key, hasErrors) => {
+	cookieErrors.value[key] = hasErrors
+}
 
-watch(errors, (newErrors) => {
-	emit('errors', Object.keys(newErrors).length)
+const hasErrors = computed(() => {
+	if (Object.keys(errors.value).length > 0) {
+		return true
+	}
+	if (Object.values(cookieErrors.value).some((item) => item === true)) {
+		return true
+	}
+	return false
+})
+
+watch(hasErrors, (newHasErrors) => {
+	emit('hasErrors', newHasErrors)
 })
 </script>
 <template>
 	<template v-if="createNew">
-		<h4>{{ $t('settings.data_processings.load_from_preset') }}</h4>
+		<h5>{{ $t('settings.data_processings.load_from_preset') }}</h5>
 		<FormSelectField
 			class="m-default"
 			:items="presetOptions"
@@ -240,7 +228,7 @@ watch(errors, (newErrors) => {
 		:label="$t('settings.data_processings.fields.required.title')"
 		name="required"
 	></FormSwitch>
-	<h4>{{ $t('settings.data_processings.fields.processor.title') }}</h4>
+	<h5>{{ $t('settings.data_processings.fields.processor.title') }}</h5>
 	<div class="m-default">
 		<FormSelectField
 			autocomplete
@@ -283,9 +271,9 @@ watch(errors, (newErrors) => {
 			name="privacy_policy_url"
 		/>
 	</div>
-	<h4>
+	<h5>
 		{{ $t('settings.data_processings.fields.service.title') }} ({{ $t('general.optional') }})
-	</h4>
+	</h5>
 	<FormTextField
 		v-model="processingModel.service"
 		class="m-default"
@@ -293,7 +281,7 @@ watch(errors, (newErrors) => {
 		name="service"
 	/>
 
-	<h4>{{ $t('settings.data_processings.fields.data_categories.title') }}</h4>
+	<h5>{{ $t('settings.data_processings.fields.data_categories.title') }}</h5>
 	<FormChipGroup
 		v-model="processingModel.dataCategories"
 		class="m-default"
@@ -303,7 +291,7 @@ watch(errors, (newErrors) => {
 		multiple
 	></FormChipGroup>
 
-	<h4>{{ $t('settings.data_processings.fields.cookies.title') }}</h4>
+	<h5>{{ $t('settings.data_processings.fields.cookies.title') }}</h5>
 	<v-card>
 		<v-tabs
 			v-model="activeCookieTab"
@@ -338,41 +326,10 @@ watch(errors, (newErrors) => {
 							{{ $t('settings.data_processings.fields.cookies.delete_cookie') }}
 						</v-btn>
 					</div>
-					<FormTextField
-						v-model="processingModel.cookies[key].name"
-						:label="$t('settings.data_processings.fields.cookies.name.title')"
-						name="cookie.name"
+					<GeneratorSettingsDataProcessingFormCookie
+						v-model="processingModel.cookies[key]"
+						@has-errors="setCookieErrors(key, $event)"
 					/>
-					<FormSelectField
-						v-model="processingModel.cookies[key].writtenOn"
-						:label="$t('settings.data_processings.fields.cookies.written_on.title')"
-						name="cookie.writtenOn"
-						:items="cookieWrittenOnOptions"
-					/>
-					<FormCombobox
-						v-model="processingModel.cookies[key].duration"
-						:label="$t('settings.data_processings.fields.cookies.duration.title')"
-						:hint="$t('settings.data_processings.fields.cookies.duration.hint')"
-						name="cookie.duration"
-						:items="cookieDurationOptions"
-					>
-						<template v-if="processingModel.cookies[key].duration" #append-inner>
-							<span class="whitespace-nowrap">
-								{{ humanizeMinutes(processingModel.cookies[key].duration) }}
-							</span>
-						</template>
-					</FormCombobox>
-					<FormSelectField
-						v-model="processingModel.cookies[key].purpose"
-						:label="$t('settings.data_processings.fields.cookies.purpose.title')"
-						name="cookie.purpose"
-						:items="cookiePurposeOptions"
-					/>
-					<FormSwitch
-						v-model="processingModel.cookies[key].thirdParty"
-						:label="$t('settings.data_processings.fields.cookies.third_party.title')"
-						name="cookie.thirdParty"
-					></FormSwitch>
 				</v-window-item>
 				<v-window-item :value="9999">
 					{{ $t('settings.data_processings.fields.cookies.add_cookies') }}

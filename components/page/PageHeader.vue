@@ -15,7 +15,11 @@ const themeIcon = computed(() =>
 	<v-app-bar tag="header" :elevation="2" border="b">
 		<template #prepend>
 			<v-app-bar-nav-icon>
-				<NuxtLink to="/" class="no-style" :title="$t('general.back-to-home')">
+				<NuxtLink
+					:to="'/' + currentLocale"
+					class="no-style"
+					:title="$t('general.back-to-home')"
+				>
 					<span class="sr-only">{{ $t('general.back-to-home') }}</span>
 					<img :alt="$t('images.favicon.alt')" src="/favicon.svg" class="w-32" />
 				</NuxtLink>

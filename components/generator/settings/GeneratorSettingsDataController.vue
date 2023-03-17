@@ -4,18 +4,29 @@ import { defineRule } from 'vee-validate'
 const { t } = useI18n()
 const settings = useSettings()
 
+const emit = defineEmits<{
+	(e: 'hasErrors', state: boolean): void
+}>()
+
 defineRule('name-or-org-required', (value, target, ctx) => {
 	if (ctx.form.name || ctx.form.organisation) {
 		return true
 	}
 	return t('errors.name-or-org-required')
 })
-const form = useForm({
+
+const { errors } = useForm({
 	validationSchema: {
 		name: 'name-or-org-required',
 		email: 'required|email',
 	},
 	validateOnMount: true,
+})
+
+const hasErrors = computed(() => Object.keys(errors.value).length > 0)
+
+watch(hasErrors, (newHasErrors) => {
+	emit('hasErrors', newHasErrors)
 })
 </script>
 <template>

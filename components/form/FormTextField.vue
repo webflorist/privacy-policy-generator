@@ -56,6 +56,7 @@ const onInput = (event) => {
 		:type="type"
 		:clearable="clearable"
 		persistent-hint
+		:name="name"
 		@blur="handleBlur"
 		@input="onInput($event)"
 		@update:modelValue="onInput($event)"

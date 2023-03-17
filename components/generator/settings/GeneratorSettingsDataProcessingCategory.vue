@@ -14,6 +14,24 @@ const props = defineProps({
 	},
 })
 
+const emit = defineEmits<{
+	(e: 'hasErrors', state: boolean): void
+}>()
+
+const errorStates = ref({})
+
+const setErrorState = (key: number, hasErrors: boolean) => {
+	errorStates.value[key] = hasErrors
+}
+
+const hasErrors = computed(() => {
+	return Object.values(errorStates.value).some((error) => error)
+})
+
+watch(hasErrors, (hasErrors) => {
+	emit('hasErrors', hasErrors)
+})
+
 const activePanel = ref(null)
 </script>
 <template>
@@ -39,15 +57,17 @@ const activePanel = ref(null)
 			<v-expansion-panel-title
 				expand-icon="mdi-pencil"
 				collapse-icon="mdi-close"
-				color="neutral-light"
+				:color="errorStates[processingKey] ? 'error' : 'neutral-light'"
 			>
 				{{ presenter.processTitle(processData) }}
+				<v-icon v-if="errorStates[processingKey]" class="ml-2">mdi-alert</v-icon>
 			</v-expansion-panel-title>
 
 			<v-expansion-panel-text>
 				<GeneratorSettingsDataProcessingForm
 					:category="category"
 					:processing-key="processingKey"
+					@has-errors="setErrorState(processingKey, $event)"
 				/>
 			</v-expansion-panel-text>
 		</v-expansion-panel>

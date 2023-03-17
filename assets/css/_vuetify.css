@@ -29,3 +29,7 @@
 .v-card--variant-elevated .v-card--variant-elevated {
 	background-color: rgb(var(--v-theme-background)) !important;
 }
+
+.v-card-title {
+	@apply mt-1 !important;
+}
