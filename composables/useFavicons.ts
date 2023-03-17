@@ -3,11 +3,11 @@ export const useFavicons = () => {
 		meta: [
 			{
 				name: 'msapplication-TileColor',
-				content: '#aa191e',
+				content: '#9f00a7',
 			},
 			{
 				name: 'theme-color',
-				content: '#ffffff',
+				content: '#4a148c',
 			},
 		],
 		link: [
