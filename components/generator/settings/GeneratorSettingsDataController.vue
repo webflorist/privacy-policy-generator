@@ -22,31 +22,31 @@ const form = useForm({
 	<p>{{ $t('settings.data_controller.description') }}</p>
 	<form>
 		<FormTextField
+			v-model="settings.dataController.organisation"
 			:label="$t('settings.data_controller.fields.organisation.title')"
 			name="organisation"
-			v-model="settings.dataController.organisation"
 		/>
 		<FormTextField
+			v-model="settings.dataController.name"
 			:label="$t('settings.data_controller.fields.name.title')"
 			name="name"
-			v-model="settings.dataController.name"
 		/>
 		<FormTextField
+			v-model="settings.dataController.address"
 			:label="$t('settings.data_controller.fields.address.title')"
 			name="address"
-			v-model="settings.dataController.address"
 			type="address"
 		/>
 		<FormTextField
+			v-model="settings.dataController.email"
 			:label="$t('settings.data_controller.fields.email.title')"
 			name="email"
-			v-model="settings.dataController.email"
 			type="email"
 		/>
 		<FormTextField
+			v-model="settings.dataController.phone"
 			:label="$t('settings.data_controller.fields.phone.title')"
 			name="phone"
-			v-model="settings.dataController.phone"
 			type="tel"
 		/>
 	</form>

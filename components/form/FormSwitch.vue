@@ -43,10 +43,6 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-switch
-		:label="label"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
-	>
+	<v-switch :label="label" :model-value="inputValue" @update:modelValue="onInput($event)">
 	</v-switch>
 </template>

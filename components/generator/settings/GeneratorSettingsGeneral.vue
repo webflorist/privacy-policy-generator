@@ -1,22 +1,31 @@
 <script setup lang="ts">
 const settings = useSettings()
+const { t } = useI18n()
 
-const numerusOptions: Numerus[] = ['plural', 'singular']
+const numerusOptions = computed(() => [
+	{ value: 'plural', title: t('settings.general.fields.numerus.options.plural.title') },
+	{ value: 'singular', title: t('settings.general.fields.numerus.options.singular.title') },
+])
+
+const languageOptions = computed(() => [
+	{ value: 'de', title: t('settings.general.fields.language.options.de.title') },
+	{ value: 'en', title: t('settings.general.fields.language.options.en.title') },
+])
 </script>
 <template>
 	<form>
-		<v-radio-group
-			:label="$t(`settings.general.fields.numerus.title`)"
+		<FormSelectField
+			v-model="settings.general.language"
+			:label="$t(`settings.general.fields.language.title`)"
+			:items="languageOptions"
+			empty-option
+		/>
+		<FormRadioGroup
 			v-model="settings.general.numerus"
+			:label="$t(`settings.general.fields.numerus.title`)"
 			inline
 			:messages="$t('settings.general.fields.numerus.hint')"
-		>
-			<v-radio
-				v-for="numerus in numerusOptions"
-				:key="numerus"
-				:label="$t(`settings.general.fields.numerus.options.${numerus}.title`)"
-				:value="numerus"
-			></v-radio>
-		</v-radio-group>
+			:items="numerusOptions"
+		/>
 	</form>
 </template>

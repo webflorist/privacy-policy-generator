@@ -50,29 +50,29 @@ const onInput = (event) => {
 
 <template>
 	<v-text-field
-		@blur="handleBlur"
-		@input="onInput($event)"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
+		:model-value="inputValue"
 		:label="label"
 		:error-messages="errors"
 		:type="type"
 		:clearable="clearable"
 		persistent-hint
+		@blur="handleBlur"
+		@input="onInput($event)"
+		@update:modelValue="onInput($event)"
 	>
-		<template v-if="$slots.prepend" v-slot:prepend>
+		<template v-if="$slots.prepend" #prepend>
 			<slot name="prepend" />
 		</template>
-		<template v-if="$slots.append" v-slot:append>
+		<template v-if="$slots.append" #append>
 			<slot name="append" />
 		</template>
-		<template v-if="$slots['prepend-inner']" v-slot:prepend-inner>
+		<template v-if="$slots['prepend-inner']" #prepend-inner>
 			<slot name="prepend-inner" />
 		</template>
-		<template v-if="$slots['append-inner']" v-slot:append-inner>
+		<template v-if="$slots['append-inner']" #append-inner>
 			<slot name="append-inner" />
 		</template>
-		<template v-if="$slots.details" v-slot:details>
+		<template v-if="$slots.details" #details>
 			<slot name="details" />
 		</template>
 	</v-text-field>

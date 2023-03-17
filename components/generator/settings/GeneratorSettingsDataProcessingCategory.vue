@@ -15,7 +15,6 @@ const props = defineProps({
 })
 
 const activePanel = ref(null)
-
 </script>
 <template>
 	<h4>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h4>
@@ -24,10 +23,7 @@ const activePanel = ref(null)
 	</p>
 	<v-expansion-panels v-model="activePanel">
 		<v-expansion-panel>
-			<v-expansion-panel-title
-				expand-icon="mdi-database-plus"
-				collapse-icon="mdi-close"
-			>
+			<v-expansion-panel-title expand-icon="mdi-database-plus" collapse-icon="mdi-close">
 				{{ $t('settings.data_processings.create') }}
 			</v-expansion-panel-title>
 			<v-expansion-panel-text>
@@ -37,15 +33,13 @@ const activePanel = ref(null)
 			/></v-expansion-panel-text>
 		</v-expansion-panel>
 		<v-expansion-panel
-			v-for="(processData, processingKey) of settings.dataProcessings[
-				category
-			]"
+			v-for="(processData, processingKey) of settings.dataProcessings[category]"
 			:key="processingKey"
 		>
 			<v-expansion-panel-title
 				expand-icon="mdi-pencil"
 				collapse-icon="mdi-close"
-				color="secondary-light"
+				color="neutral-light"
 			>
 				{{ presenter.processTitle(processData) }}
 			</v-expansion-panel-title>
@@ -53,7 +47,7 @@ const activePanel = ref(null)
 			<v-expansion-panel-text>
 				<GeneratorSettingsDataProcessingForm
 					:category="category"
-					:processingKey="processingKey"
+					:processing-key="processingKey"
 				/>
 			</v-expansion-panel-text>
 		</v-expansion-panel>

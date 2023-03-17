@@ -5,7 +5,9 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			siteMeta: {
-				url: 'https://TODO',
+				url: 'https://privacy-policy.web.florist',
+				tag: '@privacy-policy-generator',
+				authorTag: '@webflorist',
 			},
 		},
 	},
@@ -13,15 +15,14 @@ export default defineNuxtConfig({
 		transpile: ['vuetify'],
 	},
 	modules: [
+		'@vite-pwa/nuxt',
 		'@nuxtjs/i18n',
 		'@nuxtjs/tailwindcss',
 		// @ts-ignore
 		// this adds the vuetify vite plugin
 		// also produces type errors in the current beta release
 		async (options, nuxt) => {
-			nuxt.hooks.hook('vite:extendConfig', (config) =>
-				config.plugins.push(vuetify())
-			)
+			nuxt.hooks.hook('vite:extendConfig', (config) => config.plugins.push(vuetify()))
 		},
 	],
 	css: [
@@ -67,7 +68,7 @@ export default defineNuxtConfig({
 
 	tailwindcss: {
 		exposeConfig: true,
-		injectPosition: 'last'
+		injectPosition: 'last',
 	},
 
 	postcss: {
@@ -77,6 +78,49 @@ export default defineNuxtConfig({
 			'tailwindcss/nesting': {},
 			tailwindcss: {},
 			autoprefixer: {},
+		},
+	},
+
+	pwa: {
+		registerType: 'autoUpdate',
+		registerWebManifestInRouteRules: true,
+		manifest: {
+			name: 'Privacy Policy Generator',
+			short_name: 'PrivacyPolicyGenerator',
+			theme_color: '#4a148c',
+			background_color: '#4a148c',
+			icons: [
+				{
+					src: '/android-chrome-192x192.png',
+					sizes: '192x192',
+					type: 'image/png',
+				},
+				{
+					src: '/android-chrome-512x512.png',
+					sizes: '512x512',
+					type: 'image/png',
+				},
+				{
+					src: '/android-chrome-512x512.png',
+					sizes: '512x512',
+					type: 'image/png',
+					purpose: 'any maskable',
+				},
+			],
+		},
+		workbox: {
+			navigateFallback: '/',
+			globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+		},
+		client: {
+			installPrompt: true,
+			// you don't need to include this: only for testing purposes
+			// if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
+			periodicSyncForUpdates: 20,
+		},
+		devOptions: {
+			enabled: false,
+			type: 'module',
 		},
 	},
 

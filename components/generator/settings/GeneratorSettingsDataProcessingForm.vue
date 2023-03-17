@@ -228,17 +228,17 @@ watch(errors, (newErrors) => {
 			v-if="!createNew"
 			class="my-8"
 			color="error"
+			append-icon="mdi-alert"
 			@click="deleteProcessing(category, processingKey)"
-			appendIcon="mdi-alert"
 		>
 			{{ $t('settings.data_processings.delete') }}
 		</v-btn>
 	</div>
 
 	<FormSwitch
+		v-model="processingModel.required"
 		:label="$t('settings.data_processings.fields.required.title')"
 		name="required"
-		v-model="processingModel.required"
 	></FormSwitch>
 	<h4>{{ $t('settings.data_processings.fields.processor.title') }}</h4>
 	<div class="m-default">
@@ -252,54 +252,54 @@ watch(errors, (newErrors) => {
 		>
 		</FormSelectField>
 		<FormTextField
+			v-model="processingModel.processor.name"
 			:label="$t('settings.data_processings.fields.processor.name.title')"
 			name="name"
-			v-model="processingModel.processor.name"
 		/>
 		<FormTextField
+			v-model="processingModel.processor.street"
 			:label="$t('settings.data_processings.fields.processor.street.title')"
 			name="street"
-			v-model="processingModel.processor.street"
 		/>
 		<FormTextField
+			v-model="processingModel.processor.zip"
 			:label="$t('settings.data_processings.fields.processor.zip.title')"
 			name="zip"
-			v-model="processingModel.processor.zip"
 		/>
 		<FormTextField
+			v-model="processingModel.processor.city"
 			:label="$t('settings.data_processings.fields.processor.city.title')"
 			name="city"
-			v-model="processingModel.processor.city"
 		/>
 		<FormTextField
+			v-model="processingModel.processor.country"
 			:label="$t('settings.data_processings.fields.processor.country.title')"
 			name="country"
-			v-model="processingModel.processor.country"
 		/>
 		<FormTextField
+			v-model="processingModel.processor.privacy_policy_url"
 			type="url"
 			:label="$t('settings.data_processings.fields.processor.privacy_policy_url.title')"
 			name="privacy_policy_url"
-			v-model="processingModel.processor.privacy_policy_url"
 		/>
 	</div>
 	<h4>
 		{{ $t('settings.data_processings.fields.service.title') }} ({{ $t('general.optional') }})
 	</h4>
 	<FormTextField
+		v-model="processingModel.service"
 		class="m-default"
 		:label="$t('settings.data_processings.fields.service.title')"
 		name="service"
-		v-model="processingModel.service"
 	/>
 
 	<h4>{{ $t('settings.data_processings.fields.data_categories.title') }}</h4>
 	<FormChipGroup
+		v-model="processingModel.dataCategories"
 		class="m-default"
 		name="dataCategories"
 		:label="$t('settings.data_processings.fields.data_categories.title')"
 		:items="dataCategoryOptions"
-		v-model="processingModel.dataCategories"
 		multiple
 	></FormChipGroup>
 
@@ -332,46 +332,46 @@ watch(errors, (newErrors) => {
 						<v-btn
 							class="my-8"
 							color="error"
+							append-icon="mdi-alert"
 							@click="deleteCookie(key)"
-							appendIcon="mdi-alert"
 						>
 							{{ $t('settings.data_processings.fields.cookies.delete_cookie') }}
 						</v-btn>
 					</div>
 					<FormTextField
+						v-model="processingModel.cookies[key].name"
 						:label="$t('settings.data_processings.fields.cookies.name.title')"
 						name="cookie.name"
-						v-model="processingModel.cookies[key].name"
 					/>
 					<FormSelectField
+						v-model="processingModel.cookies[key].writtenOn"
 						:label="$t('settings.data_processings.fields.cookies.written_on.title')"
 						name="cookie.writtenOn"
-						v-model="processingModel.cookies[key].writtenOn"
 						:items="cookieWrittenOnOptions"
 					/>
 					<FormCombobox
+						v-model="processingModel.cookies[key].duration"
 						:label="$t('settings.data_processings.fields.cookies.duration.title')"
 						:hint="$t('settings.data_processings.fields.cookies.duration.hint')"
 						name="cookie.duration"
-						v-model="processingModel.cookies[key].duration"
 						:items="cookieDurationOptions"
 					>
-						<template v-slot:append-inner v-if="processingModel.cookies[key].duration">
+						<template v-if="processingModel.cookies[key].duration" #append-inner>
 							<span class="whitespace-nowrap">
 								{{ humanizeMinutes(processingModel.cookies[key].duration) }}
 							</span>
 						</template>
 					</FormCombobox>
 					<FormSelectField
+						v-model="processingModel.cookies[key].purpose"
 						:label="$t('settings.data_processings.fields.cookies.purpose.title')"
 						name="cookie.purpose"
-						v-model="processingModel.cookies[key].purpose"
 						:items="cookiePurposeOptions"
 					/>
 					<FormSwitch
+						v-model="processingModel.cookies[key].thirdParty"
 						:label="$t('settings.data_processings.fields.cookies.third_party.title')"
 						name="cookie.thirdParty"
-						v-model="processingModel.cookies[key].thirdParty"
 					></FormSwitch>
 				</v-window-item>
 				<v-window-item :value="9999">
@@ -387,8 +387,8 @@ watch(errors, (newErrors) => {
 		class="mt-8"
 		:color="hasErrors ? 'error' : 'secondary'"
 		block
+		:append-icon="hasErrors ? 'mdi-alert' : ''"
 		@click="addProcessing()"
-		:appendIcon="hasErrors ? 'mdi-alert' : ''"
 	>
 		{{ $t('settings.data_processings.add') }}
 	</v-btn>

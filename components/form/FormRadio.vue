@@ -43,13 +43,9 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-radio-group
-		:label="label"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
-	>
-		<v-radio @update:modelValue="onInput($event)" :modelValue="inputValue">
-			<template v-slot:label>
+	<v-radio-group :label="label" :model-value="inputValue" @update:modelValue="onInput($event)">
+		<v-radio :model-value="inputValue" @update:modelValue="onInput($event)">
+			<template #label>
 				{{ label }}
 			</template>
 		</v-radio>

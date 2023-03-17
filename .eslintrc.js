@@ -3,7 +3,6 @@ module.exports = {
 	env: {
 		browser: true,
 		node: true,
-		'cypress/globals': true,
 	},
 	parserOptions: {
 		ecmaVersion: 2020,
@@ -15,7 +14,6 @@ module.exports = {
 		'plugin:nuxt/recommended',
 		'plugin:vue/vue3-recommended',
 		'plugin:prettier/recommended',
-		'plugin:cypress/recommended',
 	],
 	plugins: ['@typescript-eslint', 'vue'],
 	rules: {

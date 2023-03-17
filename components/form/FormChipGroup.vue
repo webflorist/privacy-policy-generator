@@ -49,7 +49,7 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-chip-group @update:modelValue="onInput($event)" :modelValue="inputValue">
+	<v-chip-group :model-value="inputValue" @update:modelValue="onInput($event)">
 		<v-chip v-for="(item, key) in items" :key="key" :value="item.value">
 			{{ item.title }}
 			<v-tooltip v-if="item.hint" activator="parent" location="bottom">{{

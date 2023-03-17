@@ -4,40 +4,27 @@ const { locale: currentLocale, locales: availableLocales } = useI18n()
 const theme = useTheme()
 const switchLocalePath = useSwitchLocalePath()
 const toggleTheme = () =>
-	(theme.global.name.value = theme.global.current.value.dark
-		? 'light'
-		: 'dark')
+	(theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark')
 
 const themeIcon = computed(() =>
-	theme.global.name.value === 'light'
-		? 'mdi-weather-sunny'
-		: 'mdi-weather-night'
+	theme.global.name.value === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'
 )
 </script>
 
 <template>
 	<v-app-bar tag="header" :elevation="2" border="b">
-		<template v-slot:prepend>
+		<template #prepend>
 			<v-app-bar-nav-icon>
 				<NuxtLink to="/" class="no-style" :title="$t('general.back-to-home')">
 					<span class="sr-only">{{ $t('general.back-to-home') }}</span>
-					<img
-						:alt="$t('images.logo.alt')"
-						src="/logo.svg"
-						class="w-32"
-					/>
+					<img :alt="$t('images.favicon.alt')" src="/favicon.svg" class="w-32" />
 				</NuxtLink>
 			</v-app-bar-nav-icon>
 		</template>
-		<template v-slot:append>
+		<template #append>
 			<v-btn :icon="themeIcon" @click="toggleTheme"></v-btn>
 			<v-divider vertical class="mx-3"></v-divider>
-			<v-btn-toggle
-				mandatory
-				divided
-				class="relative z-0 inline-flex"
-				color="primary"
-			>
+			<v-btn-toggle mandatory divided class="relative z-0 inline-flex" color="primary">
 				<v-btn
 					v-for="locale in availableLocales"
 					:key="locale.code"

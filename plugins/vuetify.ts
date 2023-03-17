@@ -9,9 +9,9 @@ const lightTheme: ThemeDefinition = {
 		primary: theme.colors.primary.DEFAULT,
 		'primary-light': theme.colors.primary.light,
 		'primary-dark': theme.colors.primary.dark,
-		secondary: theme.colors.secondary.DEFAULT,
-		'secondary-light': theme.colors.secondary.light,
-		'secondary-dark': theme.colors.secondary.dark,
+		secondary: theme.colors.neutral.DEFAULT,
+		'secondary-light': theme.colors.neutral.light,
+		'secondary-dark': theme.colors.neutral.dark,
 	},
 }
 
@@ -24,7 +24,7 @@ const darkTheme: ThemeDefinition = {
 		primary: theme.colors.primary.DEFAULT,
 		secondary: '#4d4d4d',
 		'secondary-light': '#777777',
-		'secondary-dark': theme.colors.secondary.dark,
+		'secondary-dark': theme.colors.neutral.dark,
 	},
 }
 

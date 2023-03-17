@@ -2,7 +2,7 @@
 defineProps({})
 </script>
 <template>
-	<fieldset class="inline-grid grid-cols-2 auto-cols-auto">
+	<fieldset class="inline-grid auto-cols-auto grid-cols-2">
 		<slot></slot>
 	</fieldset>
 </template>

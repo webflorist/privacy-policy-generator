@@ -25,10 +25,5 @@
 		"editor.defaultFormatter": "redhat.vscode-xml"
 	},
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": [
-		"numerus",
-		"organisation",
-		"pseudonymized",
-		"tailwindcss"
-	]
+	"cSpell.words": ["numerus", "organisation", "pseudonymized", "tailwindcss"]
 }

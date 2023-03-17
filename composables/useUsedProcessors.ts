@@ -1,4 +1,4 @@
-export const useUsedProcessors = (includeUtilization: boolean = false) => {
+export const useUsedProcessors = (includeUtilization = false) => {
 	const settings = useSettings()
 
 	const processorList = computed<Processor[]>(() => {

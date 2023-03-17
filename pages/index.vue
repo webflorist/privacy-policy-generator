@@ -11,38 +11,42 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value)
 </script>
 
 <template>
-	<v-main>
-		<v-container tag="section" class="pt-16 text-center">
-			<div class="mx-auto mb-12 max-w-3xl flex-row items-center justify-center md:flex">
-				<img
-					src="/logo.svg"
-					:alt="$t('images.logo.alt')"
-					class="flower-shadow mx-auto mb-8 h-60 w-60 md:mb-0 md:mr-10"
-				/>
-				<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-left">
-					<span class="block">{{ $t('h1.line1') }}</span>
-					{{ ' ' }}
-					<span class="text-primary-adaptive block text-4xl sm:text-6xl">{{
-						$t('h1.line2')
-					}}</span>
-				</h1>
-			</div>
-			<div class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
-				<p v-html="$t('intro.p1')" />
-				<p class="mt-3" v-html="$t('intro.p2')" />
-				<p class="mt-3" v-html="$t('intro.p3')" />
-			</div>
-		</v-container>
-		<GeneratorSettings />
-		<v-divider></v-divider>
-		<v-container v-if="hasErrors">
-			<v-alert v-if="!hasWebhostingProcessing" type="error">
-				{{ $t('errors.missing-webhosting-data-processing') }}
-			</v-alert>
-		</v-container>
-		<v-container v-else>
-			<h1>{{ $t('privacy_policy') }}</h1>
-			<!--PrivacyPolicy
+	<div>
+		<v-main>
+			<v-container tag="section" class="pt-16 text-center">
+				<div class="mx-auto mb-12 max-w-3xl flex-row items-center justify-center md:flex">
+					<img
+						src="/logo.svg"
+						:alt="$t('images.logo.alt')"
+						class="mx-auto mb-8 h-60 w-60 drop-shadow-primary md:mb-0 md:mr-10"
+					/>
+					<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-left">
+						<span class="block">{{ $t('h1.line1') }}</span>
+						{{ ' ' }}
+						<span
+							class="block text-4xl text-primary-100 drop-shadow-primary dark:text-primary-500 sm:text-6xl"
+							>{{ $t('h1.line2') }}</span
+						>
+					</h1>
+				</div>
+				<div
+					class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
+				>
+					<p v-html="$t('intro.p1')" />
+					<p class="mt-3" v-html="$t('intro.p2')" />
+					<p class="mt-3" v-html="$t('intro.p3')" />
+				</div>
+			</v-container>
+			<GeneratorSettings />
+			<v-divider></v-divider>
+			<v-container v-if="hasErrors">
+				<v-alert v-if="!hasWebhostingProcessing" type="error">
+					{{ $t('errors.missing-webhosting-data-processing') }}
+				</v-alert>
+			</v-container>
+			<v-container v-else>
+				<h1>{{ $t('privacy_policy') }}</h1>
+				<!--PrivacyPolicy
 				:singular="settings.general.numerus === 'singular'"
 				:locale="currentLocale"
 				:data-controller="{
@@ -55,6 +59,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value)
 				:cookies="cookies"
 				:data-processing="dataProcessing"
 			/-->
-		</v-container>
-	</v-main>
+			</v-container>
+		</v-main>
+	</div>
 </template>

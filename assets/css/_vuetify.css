@@ -14,10 +14,18 @@
 	@apply max-w-5xl px-4 !important;
 }
 
+.v-main {
+	@apply pb-6;
+}
+
 .v-footer {
-	@apply mt-6;
+	flex-grow: 0 !important;
 }
 
 .v-expansion-panel-text__wrapper {
 	@apply py-6 !important;
+}
+
+.v-card--variant-elevated .v-card--variant-elevated {
+	background-color: rgb(var(--v-theme-background)) !important;
 }

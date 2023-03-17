@@ -1,6 +1,11 @@
 @layer components {
 	main {
-		/* Margin between elements */
+		/*
+		Margin between elements
+		-----------------------
+		Use class 'm-default'
+		for div's.
+		*/
 		p,
 		ul,
 		dl,
@@ -16,10 +21,8 @@
 		h3,
 		.h3,
 		h4,
-		.h4
-		h5,
-		.h5
-		h6,
+		.h4 h5,
+		.h5 h6,
 		.h6,
 		.m-default {
 			& + p,
@@ -49,7 +52,15 @@
 			}
 		}
 
-		/* Headings */
+		/*
+		Styling of Headings
+		-------------------
+		Apply class to force
+		a style. E.g.:
+		<h1 class="h2">
+		or
+		<div class="h2">
+		*/
 		h1:not(.h2, .h3, .h4),
 		.h1 {
 			@apply text-4xl sm:text-6xl;
@@ -70,6 +81,10 @@
 			@apply text-lg sm:text-xl;
 		}
 
+		/*
+		Styling of Lists
+		----------------
+		*/
 		dl {
 			@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:grid;
 

@@ -57,36 +57,36 @@ const onInput = (event) => {
 <template>
 	<v-autocomplete
 		v-if="autocomplete"
-		@blur="handleBlur"
-		@input="onInput($event)"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
+		:model-value="inputValue"
 		:label="label"
 		:error-messages="errors"
 		:clearable="clearable"
 		persistent-hint
+		@blur="handleBlur"
+		@input="onInput($event)"
+		@update:modelValue="onInput($event)"
 	>
-		<template v-slot:prepend-item>
+		<template #prepend-item>
 			<slot name="prepend-item" />
 		</template>
-		<template v-slot:append-item>
+		<template #append-item>
 			<slot name="append-item" />
 		</template>
 	</v-autocomplete>
 	<v-select
 		v-else
-		@blur="handleBlur"
-		@input="onInput($event)"
-		@update:modelValue="onInput($event)"
-		:modelValue="inputValue"
+		:model-value="inputValue"
 		:label="label"
 		:error-messages="errors"
 		:clearable="clearable"
+		@blur="handleBlur"
+		@input="onInput($event)"
+		@update:modelValue="onInput($event)"
 	>
-		<template v-slot:prepend-item>
+		<template #prepend-item>
 			<slot name="prepend-item" />
 		</template>
-		<template v-slot:append-item>
+		<template #append-item>
 			<slot name="append-item" />
 		</template>
 	</v-select>

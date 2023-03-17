@@ -7,11 +7,12 @@
 
 %text-primary-adaptive {
 	@apply text-primary-900 dark:text-primary-500;
- }
+}
 
 @layer base {
 	html {
 		scroll-behavior: smooth;
+		@apply font-body;
 	}
 
 	#app {
@@ -27,24 +28,6 @@
 			@apply border-solid;
 		}
 	}
-
-	main {
-		section + section,
-		section + hr,
-		hr + section {
-			@apply mt-10;
-		}
-	}
-
-	dl {
-		@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:grid;
-
-		grid-template-columns: auto 1fr;
-
-		dt {
-			@apply whitespace-nowrap font-semibold sm:text-right;
-		}
-	}
 }
 
 @layer components {
@@ -54,17 +37,13 @@
 
 	main {
 		background-image: url('/background.png');
-		background-size: contain;
+		background-size: 100%;
 	}
 }
 
 @layer utilities {
 	.container-padding {
 		@apply px-4;
-	}
-
-	.flower-shadow {
-		filter: drop-shadow(3px 5px 0 rgb(35 7 79 / 40%));
 	}
 
 	.text-primary-adaptive {
