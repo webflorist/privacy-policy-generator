@@ -135,6 +135,33 @@ export const useDefaultProcessors = (): Processor[] => {
 			country: 'DE',
 			privacy_policy_url: 'https://udmedia.de/service/datenschutz/',
 		},
+		{
+			id: 'sendinblue_sas_fr',
+			name: 'Sendinblue SAS',
+			street: '7 rue de Madrid',
+			zip: '75008',
+			city: 'Paris',
+			country: 'FR',
+			privacy_policy_url: 'https://www.sendinblue.com/legal/privacypolicy/',
+		},
+		{
+			id: 'meta_platforms_inc_us',
+			name: 'Meta Platforms, Inc.',
+			street: '1601 Willow Rd',
+			zip: 'CA 94025',
+			city: 'Menlo Park',
+			country: 'US',
+			privacy_policy_url: 'https://www.facebook.com/privacy/policy',
+		},
+		{
+			id: 'tiktok_technology_limited_ie',
+			name: 'TikTok Technology Limited',
+			street: '10 Earlsfort Terrace',
+			zip: 'D02 T380',
+			city: 'Dublin',
+			country: 'IE',
+			privacy_policy_url: 'https://www.tiktok.com/legal/privacy-policy',
+		},
 	]
 	return processors.sort((a: Processor, b: Processor) => a.name.localeCompare(b.name))
 }

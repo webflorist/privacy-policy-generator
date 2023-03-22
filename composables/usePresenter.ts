@@ -3,18 +3,20 @@ export const usePresenter = () => {
 	const processorName = (processor: Processor) => {
 		return processor.name + ', ' + processor.country
 	}
-	const processTitle = (process: DataProcessing) => {
-		if (process.service && process.service.length > 0) {
-			return (
-				process.service +
-				' (' +
-				t('general.provided-by') +
-				' ' +
-				processorName(process.processor) +
-				')'
-			)
-		}
-		return processorName(process.processor)
+	const processTitle = (process: DataProcessing, category: DataProcessingCategory) => {
+		const serviceName =
+			process.service && process.service.length > 0
+				? process.service
+				: t('settings.data_processings.categories.' + category + '.title')
+
+		return (
+			serviceName +
+			' (' +
+			t('general.provided-by') +
+			' ' +
+			processorName(process.processor) +
+			')'
+		)
 	}
 	const stringLimit = (string: string, maxChars: number) => {
 		if (string.length > maxChars) {
@@ -22,6 +24,12 @@ export const usePresenter = () => {
 		}
 		return string
 	}
+	const dataCategories = (dataCategories: DataCategory[]) =>
+		dataCategories
+			.map((category) =>
+				t(`settings.data_processings.fields.data_categories.options.${category}.title`)
+			)
+			.join(', ')
 
-	return { processorName, processTitle, stringLimit }
+	return { processorName, processTitle, stringLimit, dataCategories }
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 const durationOptions = useDurationOptions()
-const { humanizeMinutes } = useHumanizedDuraition()
+const { humanizeMinutes } = useHumanizedDuration()
 const { t } = useI18n()
 
 const props = defineProps({

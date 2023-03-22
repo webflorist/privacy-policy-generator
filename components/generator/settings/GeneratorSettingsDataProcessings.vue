@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const breakpoint = useBreakpoint()
+const settings = useSettings()
 const categories: DataProcessingCategory[] = [
 	'webhosting',
 	'analytics',
@@ -52,6 +53,12 @@ const activeTab = ref(null)
 				:append-icon="errorStates[category] ? 'mdi-alert' : undefined"
 			>
 				{{ $t(`settings.data_processings.categories.${category}.title`) }}
+				<v-badge
+					v-if="settings.dataProcessings[category].length > 0"
+					:content="settings.dataProcessings[category].length"
+					inline
+				>
+				</v-badge>
 			</v-tab>
 		</v-tabs>
 

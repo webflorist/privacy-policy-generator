@@ -95,7 +95,7 @@
 
 		h5:not(.h1, .h2, .h3, .h4, .h6),
 		.h5 {
-			@apply text-base sm:text-lg;
+			@apply text-base sm:text-lg font-display;
 		}
 
 		h6:not(.h1, .h2, .h3, .h4, .h5),
@@ -108,7 +108,7 @@
 		----------------
 		*/
 		dl {
-			@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:grid;
+			@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:inline-grid;
 
 			grid-template-columns: auto auto;
 

@@ -19,7 +19,7 @@ const props = defineProps({
 		default: undefined,
 	},
 	modelValue: {
-		type: String,
+		type: [String, Boolean],
 		default: '',
 	},
 })
@@ -43,6 +43,11 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-switch :label="label" :model-value="inputValue" @update:modelValue="onInput($event)">
+	<v-switch
+		:label="label"
+		:model-value="inputValue"
+		:error-messages="errors"
+		@update:modelValue="onInput($event)"
+	>
 	</v-switch>
 </template>

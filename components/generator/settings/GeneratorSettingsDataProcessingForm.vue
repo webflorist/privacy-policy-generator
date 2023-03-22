@@ -7,6 +7,7 @@ const presets = useDataProcessingPresets()
 const dataCategories = useDataCategories()
 const presenter = usePresenter()
 const breakpoint = useBreakpoint()
+const countries = useCountries()
 const { t } = useI18n()
 
 const props = defineProps({
@@ -69,7 +70,7 @@ const deleteProcessing = () => {
 const presetOptions = computed(() => {
 	return presets[props.category].map((preset, key) => {
 		return {
-			title: presenter.processTitle(preset),
+			title: presenter.processTitle(preset, props.category),
 			value: key,
 		}
 	})
@@ -200,7 +201,7 @@ watch(hasErrors, (newHasErrors) => {
 })
 </script>
 <template>
-	<template v-if="createNew">
+	<template v-if="createNew && presetOptions.length > 0">
 		<h5>{{ $t('settings.data_processings.load_from_preset') }}</h5>
 		<FormSelectField
 			class="m-default"
@@ -259,10 +260,12 @@ watch(hasErrors, (newHasErrors) => {
 			:label="$t('settings.data_processings.fields.processor.city.title')"
 			name="city"
 		/>
-		<FormTextField
+		<FormSelectField
 			v-model="processingModel.processor.country"
+			autocomplete
 			:label="$t('settings.data_processings.fields.processor.country.title')"
 			name="country"
+			:items="countries.getOptions()"
 		/>
 		<FormTextField
 			v-model="processingModel.processor.privacy_policy_url"

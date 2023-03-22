@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import PrivacyPolicy from '@webflorist/privacy-policy-vue'
-
 const { locale: currentLocale } = useI18n()
 
 const settings = useSettings()
@@ -49,21 +47,8 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 					{{ $t('errors.settings-errors') }}
 				</v-alert>
 			</v-container>
-			<v-container v-else>
-				<h1>{{ $t('privacy_policy') }}</h1>
-				<!--PrivacyPolicy
-				:singular="settings.general.numerus === 'singular'"
-				:locale="currentLocale"
-				:data-controller="{
-					organisation: settings.dataController.organisation,
-					name: settings.dataController.name,
-					address: settings.dataController.address,
-					email: settings.dataController.email,
-					phone: settings.dataController.phone,
-				}"
-				:cookies="cookies"
-				:data-processing="dataProcessing"
-			/-->
+			<v-container>
+				<PrivacyPolicy />
 			</v-container>
 		</v-main>
 	</div>

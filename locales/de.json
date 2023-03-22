@@ -38,7 +38,114 @@
       "title": "Datenschutz-Generator"
     }
   },
-  "privacy_policy": "Datenschutzerklärung",
+  "privacy_policy": {
+    "cookies": {
+      "content": {
+        "p1": "Unsere Website bzw. damit verbundene Datenverarbeitungen verwenden so genannte \"Cookies\". Dabei handelt es sich um kleine Textdateien, die mit Hilfe des Browsers auf Ihrem Endgerät verarbeitet und abgelegt werden. Sie werden von bestimmten Funktionen unserer Webseite zum Zwischenspeichern verschiedenster Informationen verwendet.",
+        "p2": "Cookies können sowohl direkt von unserer Webseite (\"Erstanbieter-Cookies\"), als auch durch die Dienste von Auftragsverarbeitern (z.B. beim Senden von E-Mails oder für Webanalyse) gesetzt werden. Beim ersten Aufruf unserer Webseite werden nur technisch notwendige Erstanbieter-Cookies verwendet.",
+        "p3": "Die meisten Web-Browser bieten Funktionen zur Anzeige und zum Löschen von bereits gesetzten Cookies. Weiters können Sie Ihren Browser auch so konfigurieren, dass keinerlei Cookies gesetzt werden. Bitte beachten Sie aber, dass dadurch bestimmte Funktionalitäten unserer Webseite beeinträchtigt werden können.",
+        "p4": "Welche Cookies genau bei welchen Datenverarbeitungen zur Anwendung kommen, finden Sie bei den nachfolgend angeführten einzelnen Datenverarbeitungen."
+      },
+      "no_cookies_content": {
+        "p1": "Websiten verwenden oft so genannte \"Cookies\". Dabei handelt es sich um kleine Textdateien, die mit Hilfe des Browsers auf Ihrem Endgerät verarbeitet und abgelegt werden, um bestimmte Funktionen der Webseite zu gewährleisten. Unsere Website und damit verbundene Datenverarbeitungen verwenden keinerlei \"Cookies\"."
+      },
+      "title": "Cookies"
+    },
+    "data_controller": {
+      "content": {
+        "p1": "Die verantwortliche Stelle ist die natürliche oder juristische Person, die über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet. Für diese Webseite ist dies:"
+      },
+      "title": "Verantwortliche Stelle"
+    },
+    "data_processing": {
+      "analytics": {
+        "content": {
+          "p1": "Wenn Sie Web-Analyse im Cookie-Hinweis akzeptieren, werden Log Daten auch an :analytics_processor gesendet. Dies dient zur Sammlung von statistischen Daten über die Verwendung der Webseite, um z.B. die Benutzerführung unserer Seite zu verbessern. Sämtliche gesammelten Daten werden pseudonymisiert (durch Löschen eines Teils Ihrer IP-Adresse). Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und :analytics_processor. Die Daten bleiben für die Dauer von 26 Monaten gespeichert.",
+          "p2": "Bitte beachten Sie, dass hierbei keinerlei Daten zu transferiert werden, sofern Sie nicht explizit im Cookie-Hinweis zustimmen, der bei Ihrem ersten Besuch der Seite erscheint (\"OPT-IN\"). Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+        },
+        "title": "Web-Analyse"
+      },
+      "items": {
+        "p1": "Nachfolgend finden Sie die in dieser Kategorie durchgeführten Datenverarbeitungen inkl. den Auftragsverarbeitern und ev. verwendeter Cookies:"
+      },
+      "maps": {
+        "content": {
+          "p1": "Unsere Webseite bietet auf Anforderung die Funktionalität zur Darstellung interaktiver Karten (z.B. zur Erstellung von Anfahrtsplänen). Dabei werden Daten an :maps_processor gesendet.",
+          "p2": "Wenn Sie der damit verbundenen Datenverarbeitung zustimmen, wird die Karte eingeblendet. Dabei werden auch persönliche Daten (wie Nutzungs- und Standort-Daten) an :maps_processor gesendet sowie diverse Cookies gesetzt.",
+          "p3": "Bitte beachten Sie, dass keinerlei Daten transferiert werden, sofern Sie nicht explizit der Datenverarbeitung zum Zweck der Anzeige interaktiver Karten zustimmen (\"OPT-IN\"). Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+        },
+        "title": "Interaktive Karten"
+      },
+      "send_emails": {
+        "content": {
+          "p1": "Unsere Webseite verfügt über Formulare, die verwendet werden können, um uns eine E-Mail zu senden. Im Formular können Sie Ihren Namen, Ihre E-Mail-Adresse sowie andere Daten eingeben. Beim Absenden der Anfrage werden diese über :send_emails_processor in unsere Mailbox zugestellt."
+        },
+        "title": "E-Mail-Versand"
+      },
+      "title": "Sammlung und Verwendung von Daten",
+      "webhosting": {
+        "content": {
+          "p1": "Beim Besuch einer Webseite sendet Ihr Web-Browser automatisch Information zum Server und der Infrastruktur, auf dem diese betrieben wird, um die Webseite sowie damit verbundene Ressourcen (wie z.B. Bilder oder Schriftarten) herunterzuladen. Dabei können folgende Arten von Daten übertragen werden:",
+          "p2": "Diese Daten werden automatisch übertragen und geloggt, um die Erreichbarkeit, Funktionalität, Sicherheit und Stabilität unserer Webseite zu gewährleisten. Die Daten bleiben gespeichert bis die Logdatei gelöscht wird. Die gesammelten Daten sind technisch notwendig für den Betrieb und die Wartung dieser Webseite und werden in keiner Weise verwendet, um Sie als Person zu identifizieren oder zu tracken. Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern. Sammlung und Verarbeitung dieser Daten erfolgt in Übereinstimmung mit Artikel 6 (1) der DSGVO.",
+          "ul1": {
+            "li1": "IP (Internet Protocol) Adresse Ihres Endgerätes,",
+            "li2": "Zeit, Datum und Dauer Ihres Besuchs,",
+            "li3": "besuchte Seiten,",
+            "li4": "Typ, Version und Sprache Ihres Web-Browsers und Betriebssystems."
+          }
+        },
+        "title": "Webhosting"
+      }
+    },
+    "gdpr_rights": {
+      "content": {
+        "p1": "Wir behandeln Ihre Daten in Übereinstimmung mit der Europäischen Datenschutzgrundverordnung (\"DSGVO\"). Diese gibt Privatpersonen weitgehende Rechte über die Art und Weise, wie ihre persönlichen Daten gesammelt und verarbeitet werden. Diese Rechte beinhalten:",
+        "ul1": {
+          "li1": {
+            "strong": "Recht auf Auskunft",
+            "text": "über die gesammelten persönlichen Informationen und wie diese gespeichert, verarbeitet oder geteilt werden."
+          },
+          "li2": {
+            "strong": "Recht auf Berichtigung",
+            "text": "Ihrer persönlichen Informationen."
+          },
+          "li3": {
+            "strong": "Recht auf Löschen",
+            "text": "Ihrer persönlichen Informationen."
+          },
+          "li4": {
+            "strong": "Recht auf Beschwerde",
+            "text": "bei einer Aufsichtsbehörde."
+          },
+          "li5": {
+            "strong": "Recht auf Einschränkung",
+            "text": "der Verarbeitung Ihrer persönlichen Informationen."
+          },
+          "li6": {
+            "strong": "Recht auf Widerruf",
+            "text": "von Zustimmungen über die Verarbeitung Ihrer Daten."
+          },
+          "li7": {
+            "strong": "Recht auf Übertragung",
+            "text": "Ihrer persönlichen Informationen an Sie."
+          }
+        }
+      },
+      "title": "Ihre Datenschutzrechte"
+    },
+    "intro_content": {
+      "p1": "Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. In diesem Dokument informieren wir Sie über die Erfassung, Verarbeitung und Weitergabe persönlicher Informationen im Rahmen der verschiedenen Funktionen dieser Webseite. Es beinhaltet auch Informationen über Ihre Rechte und wie sie geschützt sind.",
+      "p2": "Diese Webseite verarbeitet Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen - z.B. der Europäischen Datenschutzgrundverordnung (\"DSGVO\"). Alle gesammelten persönlichen Informationen dienen der Erbringung und Verbesserung unserer Dienstleistungen. Wir werden Ihre persönlichen Daten niemals anderweitig nutzen oder teilen, als in dieser Erklärung beschrieben. Wenn Sie unsere Dienstleistungen nutzen, stimmen Sie der Verarbeitung von Daten im Rahmen dieser Datenschutzerklärung zu. Dabei werden nur technisch notwendige Datenverarbeitungen ohne ihre vorab erteilte Zustimmung durchgeführt. Für alle anderen Datenverarbeitungen erfragen wir Ihre Zustimmung beim Nutzen der jeweiligen Funktion oder über den Datenschutzhinweis. Sie können Ihre Zustimmung jederzeit widerrufen."
+    },
+    "security": {
+      "content": {
+        "p1": "Unsere Webseite nutzt viele technische Maßnahmen für die sichere Übertragung und Speicherung aller gesammelten Daten und um sie gegen Manipulation oder unbefugten Zugriff zu schützen. Jeglicher Datentransfer zwischen Ihrem Endgerät, dieser Webseite und weiterer Dienste findet (SSL-)verschlüsselt statt. Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol in Ihrer Adresszeile Ihres Browsers.",
+        "p2": "Sämtliche Daten werden auf Servern unserer Auftragsverarbeiter gespeichert. Die Sammlung und Verarbeitung dieser Daten basiert auf Verträgen, die wir (in Übereinstimmung mit Artikel 28 der DSGVO) mit diesen Anbietern abgeschlossen haben."
+      },
+      "title": "Datensicherheit"
+    },
+    "title": "Datenschutzerklärung"
+  },
   "settings": {
     "data_controller": {
       "description": "Der/Die Datenverantwortliche:r ist eine natürliche oder juristische Person, die für die Verarbeitung persönlicher Daten verantwortlich ist und als primärer Ansprechparter zum Thema Datenschutz gilt. Dieser Kontakt sollte in jeder Datenschutzerklärung angegeben sein.",
@@ -69,7 +176,7 @@
           "title": "Werbung"
         },
         "analytics": {
-          "description": "Erfassung von Nutzungsstatistiken",
+          "description": "Erfassung von Nutzungsstatistiken durch Web-Analyse-Tools, Tracking-Pixel, etc.",
           "title": "Web-Analyse"
         },
         "booking": {
@@ -77,7 +184,7 @@
           "title": "Buchungen"
         },
         "emails": {
-          "description": "Senden von E-Mails (z.B. via Kontaktformulare)",
+          "description": "Senden von E-Mails (z.B. via Kontaktformularen, Transaktions-E-Mails, Newsletter etc.)",
           "title": "E-Mails"
         },
         "maps": {
@@ -103,6 +210,9 @@
           "duration": {
             "hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Minuten an.",
             "options": {
+              "13_months": {
+                "title": "13 Monate"
+              },
               "1_hour": {
                 "title": "1 Stunde"
               },
@@ -123,6 +233,9 @@
               },
               "2_years": {
                 "title": "2 Jahre"
+              },
+              "3_months": {
+                "title": "3 Monate"
               },
               "6_months": {
                 "title": "6 Monate"
@@ -206,7 +319,7 @@
               "title": "Usage data"
             }
           },
-          "title": "Datenkategorien"
+          "title": "Verarbeitete Datenkategorien"
         },
         "processor": {
           "city": {
@@ -231,7 +344,7 @@
           }
         },
         "required": {
-          "title": "Datenverarbeitung ist technisch notwendig für die Bereitstellung der Basisfunktionalitäten der Webseite"
+          "title": "Diese Datenverarbeitung ist technisch notwendig für die Bereitstellung der Basisfunktionalitäten der Webseite."
         },
         "service": {
           "title": "Dienstname"

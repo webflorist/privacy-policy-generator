@@ -49,6 +49,54 @@ export const useDataProcessingPresets = () => {
 				},
 			],
 		},
+		{
+			processor: defaultProcessors.find(
+				(processor) => processor.id === 'meta_platforms_inc_us'
+			),
+			required: false,
+			service: 'Meta-Pixel',
+			dataCategories: ['online', 'usage', 'geo'],
+			cookies: [
+				{
+					name: '_fbp',
+					writtenOn: 'service_usage',
+					duration: durationOptions['3_months'],
+					purpose: 'service',
+					thirdParty: false,
+				},
+				{
+					name: '_fbc',
+					writtenOn: 'service_usage',
+					duration: durationOptions['3_months'],
+					purpose: 'service',
+					thirdParty: false,
+				},
+			],
+		},
+		{
+			processor: defaultProcessors.find(
+				(processor) => processor.id === 'tiktok_technology_limited_ie'
+			),
+			required: false,
+			service: 'TikTok Pixel',
+			dataCategories: ['online', 'usage', 'geo'],
+			cookies: [
+				{
+					name: '_ttp',
+					writtenOn: 'service_usage',
+					duration: durationOptions['13_months'],
+					purpose: 'service',
+					thirdParty: false,
+				},
+				{
+					name: '_ttp',
+					writtenOn: 'service_usage',
+					duration: durationOptions['13_months'],
+					purpose: 'service',
+					thirdParty: true,
+				},
+			],
+		},
 	]
 
 	const maps: DataProcessing[] = [
@@ -95,7 +143,22 @@ export const useDataProcessingPresets = () => {
 			],
 		},
 	]
-	const emails: DataProcessing[] = []
+	const emails: DataProcessing[] = [
+		{
+			processor: defaultProcessors.find(
+				(processor) => processor.id === 'amazon_web_services_inc_us'
+			),
+			required: false,
+			service: 'Simple Email Service (SES)',
+			dataCategories: ['personal'],
+		},
+		{
+			processor: defaultProcessors.find((processor) => processor.id === 'sendinblue_sas_fr'),
+			required: false,
+			service: 'Transactional Email',
+			dataCategories: ['personal'],
+		},
+	]
 	const payment: DataProcessing[] = []
 	const advertising: DataProcessing[] = []
 	const booking: DataProcessing[] = []

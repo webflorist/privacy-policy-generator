@@ -59,7 +59,7 @@ const activePanel = ref(null)
 				collapse-icon="mdi-close"
 				:color="errorStates[processingKey] ? 'error' : 'neutral-light'"
 			>
-				{{ presenter.processTitle(processData) }}
+				{{ presenter.processTitle(processData, category) }}
 				<v-icon v-if="errorStates[processingKey]" class="ml-2">mdi-alert</v-icon>
 			</v-expansion-panel-title>
 
