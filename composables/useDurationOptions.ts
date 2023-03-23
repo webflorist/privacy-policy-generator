@@ -7,7 +7,6 @@ type DurationOptions = {
 	'1_month': Minutes
 	'3_months': Minutes
 	'6_months': Minutes
-	'13_months': Minutes
 	'1_year': Minutes
 	'13_months': Minutes
 	'2_years': Minutes
@@ -22,7 +21,6 @@ export const useDurationOptions = (): DurationOptions => {
 		'1_month': 43800,
 		'3_months': 131400,
 		'6_months': 262800,
-		'13_months': 569401,
 		'1_year': 525600,
 		'13_months': 569401,
 		'2_years': 1051200,

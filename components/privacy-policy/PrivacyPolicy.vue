@@ -5,9 +5,9 @@ const settings = useSettings()
 const locale = computed(() => settings.value.general.language)
 const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 
-const usesCookies = computed(() =>
+const usesBrowserStore = computed(() =>
 	Object.values(settings.value.dataProcessings).some((category) =>
-		category.some((process) => process.cookies.length > 0)
+		category.some((process) => process.browserStore.length > 0)
 	)
 )
 </script>
@@ -87,7 +87,7 @@ const usesCookies = computed(() =>
 		<section>
 			<h2>{{ t('privacy_policy.cookies.title') }}</h2>
 
-			<p v-if="!usesCookies">
+			<p v-if="!usesBrowserStore">
 				{{ t('privacy_policy.cookies.no_cookies_content.p1') }}
 			</p>
 			<template v-else>
