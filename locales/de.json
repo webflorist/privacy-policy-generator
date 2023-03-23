@@ -17,6 +17,9 @@
     "line2": "Lizenzfreie Datenschutz­erklärung"
   },
   "images": {
+		"cc0_icon": {
+			"alt": "Die Zahl Null in einem schwazen Kreis mit dem Schriftzug \"Public Domain\""
+		},
     "favicon": {
       "alt": "Rundes Symbol mit Schild mit einem Schloss in der Mitte"
     },
@@ -28,9 +31,8 @@
     "add-data-processor": "Einen neuen Auftragsverarbeiter kannst du im entsprechenden Reiter anlegen."
   },
   "intro": {
-    "p1": "Die folgende Datenschutzerklärung wurde mit dem open source paket <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a> erstellt, welches die Texte von <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a> nutzt.",
-    "p2": "Dieser Text <i>sollte</i> DSGVO-konform sein. Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür.",
-    "p3": "Dieser Text ist open source und lizensiert mit der <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT Lizenz</a>.<br />Der Text steht zur freien Verfügung."
+		"p1": "Auf dieser Seite können Sie eine Datenschutzerklärung für Ihre Webseite erstellen. Erstellung und Verwendung ist kostenlos und der Text unter der creative commons CC0 1.0 Lizenz als \"Public Domain\" freigegeben. Eine Namensnennung ist nicht erforderlich.",
+		"p2": "Dieser Text <i>sollte</i> DSGVO-konform sein.<br />Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür."
   },
   "meta": {
     "site": {
@@ -195,6 +197,10 @@
           "description": "Abwicklung von Zahlungsvorgängen",
           "title": "Zahlungsabwicklung"
         },
+				"videos": {
+					"description": "Eingebundene Videos",
+					"title": "Videos"
+				},
         "webhosting": {
           "description": "Hosten der Webseite und benötigter Dienste & Inhalte (z.B. Datenbank, Bilder, Skripte, etc.)",
           "title": "Webhosting"
@@ -204,9 +210,9 @@
       "default_processors": "Vordefinierte Auftragsverarbeiter",
       "delete": "Datenverarbeitung entfernen",
       "fields": {
-        "cookies": {
-          "add_cookies": "Fügen Sie eine oder mehrere Cookies hinzu, falls bei dieser Datenverarbeitung Cookies verwendet werden.",
-          "delete_cookie": "Cookie entfernen",
+				"browser_store": {
+					"add_browser_store": "Fügen Sie eine oder mehrere Browser-Speicher Einträge hinzu, falls bei dieser Datenverarbeitung Cookies, LocalStorage, SessionStorage oder IndexedDB verwendet werden.",
+					"delete_browser_store": "Browser-Speicher eintrag entfernen",
           "duration": {
             "hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Minuten an.",
             "options": {
@@ -249,7 +255,7 @@
           "name": {
             "title": "Name"
           },
-          "new_cookie": "Neues Cookie",
+					"new_browser_store": "Neuer Browser-Speicher Eintrag",
           "purpose": {
             "options": {
               "gdpr_choice": {
@@ -271,22 +277,39 @@
             "title": "Zweck"
           },
           "third_party": {
-            "title": "Drittanbieter Cookie"
-          },
-          "title": "Cookies",
-          "written_on": {
-            "options": {
-              "every_visit": {
-                "description": "Cookie is written automatically on every visit (e.g. session cookies).",
-                "title": "Automatisch bei jedem Besuch"
-              },
-              "service_usage": {
-                "description": "Cookie is only written, when using the associated service (e.g. interactive maps, analytics, payment, etc.).",
-                "title": "Bei Verwendung des jeweiligen Dienstes"
-              }
-            },
-            "title": "Erstellungzeitpunkt"
-          }
+						"title": "Wird durch Domain eines Drittanbieters erstellt"
+					},
+					"title": "Browser-Speicher",
+					"written_on": {
+						"options": {
+							"every_visit": {
+								"description": "Eintrag wird automatisch bei jedem Besuch erstellt (z.B. Session Cookies).",
+								"title": "Automatisch bei jedem Besuch"
+							},
+							"service_usage": {
+								"description": "Eintrag wird nur erstellt, sobald der damit verbundene Dienst genutzt wird (e.g. Karten, Web-Analyse, Bezahlung, etc.).",
+								"title": "Bei Verwendung des jeweiligen Dienstes"
+							}
+						},
+						"title": "Erstellungzeitpunkt"
+					},
+					"type": {
+						"options": {
+							"cookie": {
+								"title": "Cookie"
+							},
+							"local_storage": {
+								"title": "Local Storage"
+							},
+							"session_storage": {
+								"title": "Session Storage"
+							},
+							"indexed_db": {
+								"title": "IndexedDB"
+							}
+						},
+						"title": "Typ"
+					}
         },
         "data_categories": {
           "options": {

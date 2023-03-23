@@ -7,9 +7,8 @@
 		"line2": "Privacy Policy Generator"
 	},
 	"intro": {
-		"p1": "The privacy policy below is created using the open source package <a href=\"https://github.com/webflorist/privacy-policy-vue\" target=\"_blank\">webflorist/privacy-policy-vue</a>, which in turn uses the texts included in  <a href=\"https://github.com/webflorist/privacy-policy-text\" target=\"_blank\">webflorist/privacy-policy-text</a>.",
-		"p2": "This text <i>should</i> be GDPR-compliant, although the author takes <strong>no responsibility</strong> whatsowever for this.",
-		"p3": "This text is open-sourced and licensed under the <a href=\"https://github.com/webflorist/privacy-policy-text/blob/main/LICENSE.md\" target=\"_blank\">MIT license</a>.<br />Feel free to use it as you wish."
+		"p1": "On this page you can create a privacy policy for your website. Creation and use is free and the text is released under the CC0 license as \"Public Domain\". Attribution is not required.",
+		"p2": "This text <i>should</i> be GDPR-compliant. However, the author takes <strong>no responsibility</strong> whatsoever for this."
 	},
 	"privacy_policy": "Privacy Policy",
 	"source_code_text": "Source code of the text package",

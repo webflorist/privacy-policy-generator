@@ -3,6 +3,12 @@ const { locale: currentLocale } = useI18n()
 
 const settings = useSettings()
 
+const cc0Link = computed(() =>
+	currentLocale.value === 'de'
+		? 'https://creativecommons.org/publicdomain/zero/1.0/deed.de'
+		: 'https://creativecommons.org/publicdomain/zero/1.0/deed.en'
+)
+
 const hasWebhostingProcessing = computed(() => settings.value.dataProcessings.webhosting.length > 0)
 
 const hasSettingsErrors = ref(false)
@@ -18,6 +24,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 					<img
 						src="/logo.svg"
 						:alt="$t('images.logo.alt')"
+						:title="$t('meta.site.title')"
 						class="mx-auto mb-8 h-60 w-60 drop-shadow-primary md:mb-0 md:mr-10"
 					/>
 					<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-left">
@@ -32,9 +39,15 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 				<div
 					class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
 				>
-					<p v-html="$t('intro.p1')" />
-					<p class="mt-3" v-html="$t('intro.p2')" />
-					<p class="mt-3" v-html="$t('intro.p3')" />
+					<p>{{ $t('intro.p1') }}</p>
+					<a
+						:href="cc0Link"
+						class="m-default no-style mx-auto block w-40"
+						target="_blank"
+					>
+						<SvgCC0PublicDomain :alt="$t('images.cc0_icon.alt')" />
+					</a>
+					<p v-html="$t('intro.p2')" />
 				</div>
 			</v-container>
 			<GeneratorSettings @has-errors="hasSettingsErrors = $event" />

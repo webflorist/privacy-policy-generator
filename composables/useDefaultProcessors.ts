@@ -162,6 +162,24 @@ export const useDefaultProcessors = (): Processor[] => {
 			country: 'IE',
 			privacy_policy_url: 'https://www.tiktok.com/legal/privacy-policy',
 		},
+		{
+			id: 'innocraft_ltd_nz',
+			name: 'InnoCraft Ltd',
+			street: '7 Waterloo Quay PO625',
+			zip: '6140',
+			city: 'Wellington',
+			country: 'NZ',
+			privacy_policy_url: 'https://matomo.org/privacy-policy/',
+		},
+		{
+			id: 'vimeo_com_inc_us',
+			name: 'Vimeo.com, Inc.',
+			street: '330 West 34th Street, 5th Floor',
+			zip: '10001',
+			city: 'New York',
+			country: 'US',
+			privacy_policy_url: 'https://vimeo.com/privacy',
+		},
 	]
 	return processors.sort((a: Processor, b: Processor) => a.name.localeCompare(b.name))
 }

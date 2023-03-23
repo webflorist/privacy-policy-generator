@@ -29,18 +29,18 @@ const emit = defineEmits<{
 
 const blankProcessing: DataProcessing = {
 	processor: {
-		id: null,
-		name: null,
-		street: null,
-		zip: null,
-		city: null,
-		country: null,
-		privacy_policy_url: null,
+		id: undefined,
+		name: undefined,
+		street: undefined,
+		zip: undefined,
+		city: undefined,
+		country: undefined,
+		privacy_policy_url: undefined,
 	},
 	required: false,
-	service: null,
+	service: undefined,
 	dataCategories: [],
-	cookies: [],
+	browserStore: [],
 }
 
 const newProcessing = reactive<DataProcessing>({ ...blankProcessing })
@@ -144,27 +144,27 @@ const loadProcessorFromPreset = (key: string) => {
 	)
 }
 
-const activeCookieTab = ref(null)
-const cookieErrors = ref({})
-const addCookie = () => {
-	const newLength = processingModel.value.cookies?.push({
-		name: null,
-		writtenOn: null,
-		duration: null,
-		purpose: null,
+const activeBrowserStoreTab = ref(null)
+const browserStoreErrors = ref({})
+const addBrowserStore = () => {
+	const newLength = processingModel.value.browserStore?.push({
+		name: undefined,
+		writtenOn: undefined,
+		duration: undefined,
+		purpose: undefined,
 		thirdParty: false,
 	})
-	activeCookieTab.value = newLength - 1
+	activeBrowserStoreTab.value = newLength - 1
 }
 
-const deleteCookie = (key) => {
-	processingModel.value.cookies?.splice(key, 1)
-	delete cookieErrors.value[key]
-	activeCookieTab.value = processingModel.value.cookies[key]
+const deleteBrowserStore = (key) => {
+	processingModel.value.browserStore?.splice(key, 1)
+	delete browserStoreErrors.value[key]
+	activeBrowserStoreTab.value = processingModel.value.browserStore[key]
 		? key
-		: processingModel.value.cookies[key - 1]
+		: processingModel.value.browserStore[key - 1]
 		? key - 1
-		: processingModel.value.cookies[0]
+		: processingModel.value.browserStore[0]
 		? 0
 		: 9999
 }
@@ -182,15 +182,15 @@ const { errors } = useForm({
 	validateOnMount: true,
 })
 
-const setCookieErrors = (key, hasErrors) => {
-	cookieErrors.value[key] = hasErrors
+const setBrowserStoreErrors = (key, hasErrors) => {
+	browserStoreErrors.value[key] = hasErrors
 }
 
 const hasErrors = computed(() => {
 	if (Object.keys(errors.value).length > 0) {
 		return true
 	}
-	if (Object.values(cookieErrors.value).some((item) => item === true)) {
+	if (Object.values(browserStoreErrors.value).some((item) => item === true)) {
 		return true
 	}
 	return false
@@ -294,28 +294,34 @@ watch(hasErrors, (newHasErrors) => {
 		multiple
 	></FormChipGroup>
 
-	<h5>{{ $t('settings.data_processings.fields.cookies.title') }}</h5>
+	<h5>{{ $t('settings.data_processings.fields.browser_store.title') }}</h5>
 	<v-card>
 		<v-tabs
-			v-model="activeCookieTab"
+			v-model="activeBrowserStoreTab"
 			center-active
 			show-arrows
 			:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
 		>
-			<v-tab v-for="(cookie, key) in processingModel.cookies" :key="key" :value="key">
-				<template v-if="cookie.name">{{ presenter.stringLimit(cookie.name, 5) }}</template>
+			<v-tab
+				v-for="(browserStoreEntry, key) in processingModel.browserStore"
+				:key="key"
+				:value="key"
+			>
+				<template v-if="browserStoreEntry.name">{{
+					presenter.stringLimit(browserStoreEntry.name, 5)
+				}}</template>
 				<template v-else>{{
-					$t('settings.data_processings.fields.cookies.new_cookie')
+					$t('settings.data_processings.fields.browser_store.new_browser_store')
 				}}</template>
 			</v-tab>
-			<v-tab :value="9999" @click="addCookie()">
+			<v-tab :value="9999" @click="addBrowserStore()">
 				<v-icon>mdi-plus</v-icon>
 			</v-tab>
 		</v-tabs>
 		<v-card-text class="m-default">
-			<v-window v-model="activeCookieTab">
+			<v-window v-model="activeBrowserStoreTab">
 				<v-window-item
-					v-for="(cookie, key) in processingModel.cookies"
+					v-for="(browserStoreEntry, key) in processingModel.browserStore"
 					:key="key"
 					:value="key"
 				>
@@ -324,18 +330,18 @@ watch(hasErrors, (newHasErrors) => {
 							class="my-8"
 							color="error"
 							append-icon="mdi-alert"
-							@click="deleteCookie(key)"
+							@click="deleteBrowserStore(key)"
 						>
-							{{ $t('settings.data_processings.fields.cookies.delete_cookie') }}
+							{{ $t('settings.data_processings.fields.browser_store.delete_browser_store') }}
 						</v-btn>
 					</div>
-					<GeneratorSettingsDataProcessingFormCookie
-						v-model="processingModel.cookies[key]"
-						@has-errors="setCookieErrors(key, $event)"
+					<GeneratorSettingsDataProcessingFormBrowserStore
+						v-model="processingModel.browserStore[key]"
+						@has-errors="setBrowserStoreErrors(key, $event)"
 					/>
 				</v-window-item>
 				<v-window-item :value="9999">
-					{{ $t('settings.data_processings.fields.cookies.add_cookies') }}
+					{{ $t('settings.data_processings.fields.browser_store.add_browser_store') }}
 				</v-window-item>
 			</v-window>
 		</v-card-text>
