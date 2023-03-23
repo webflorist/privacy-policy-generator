@@ -38,6 +38,8 @@
 	main {
 		background-image: url('/background.png');
 		background-size: 100%;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
 	}
 }
 

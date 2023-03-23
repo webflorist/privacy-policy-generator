@@ -1,33 +1,56 @@
 <script setup lang="ts">
 const breakpoint = useBreakpoint()
-const categories: DataProcessingCategory[] = [
-	'webhosting',
-	'analytics',
-	'maps',
-	'emails',
-	'payment',
-	'advertising',
-]
+const settings = useSettings()
+
+type CategoryData = {
+	icon: string
+	hasErrors: boolean
+}
+const categories: Record<DataProcessingCategory, CategoryData> = reactive({
+	webhosting: {
+		icon: 'mdi-server-network',
+		hasErrors: false,
+	},
+	analytics: {
+		icon: 'mdi-chart-bar',
+		hasErrors: false,
+	},
+	maps: {
+		icon: 'mdi-map',
+		hasErrors: false,
+	},
+	videos: {
+		icon: 'mdi-video',
+		hasErrors: false,
+	},
+	emails: {
+		icon: 'mdi-email',
+		hasErrors: false,
+	},
+	payment: {
+		icon: 'mdi-credit-card',
+		hasErrors: false,
+	},
+	advertising: {
+		icon: 'mdi-advertisements',
+		hasErrors: false,
+	},
+	booking: {
+		icon: 'mdi-calendar-cursor',
+		hasErrors: false,
+	},
+})
 
 const emit = defineEmits<{
 	(e: 'hasErrors', state: boolean): void
 }>()
 
-const errorStates = ref({
-	webhosting: false,
-	analytics: false,
-	maps: false,
-	emails: false,
-	payment: false,
-	advertising: false,
-})
-
 const setErrorState = (category: DataProcessingCategory, hasErrors: boolean) => {
-	errorStates.value[category] = hasErrors
+	categories[category].hasErrors = hasErrors
 }
 
 const hasErrors = computed(() => {
-	return Object.values(errorStates.value).some((error) => error)
+	return Object.values(categories).some((category) => category.hasErrors)
 })
 
 watch(hasErrors, (hasErrors) => {
@@ -46,18 +69,37 @@ const activeTab = ref(null)
 			:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
 		>
 			<v-tab
-				v-for="category in categories"
+				v-for="(categoryData, category) in categories"
 				:key="category"
 				:value="category"
-				:append-icon="errorStates[category] ? 'mdi-alert' : undefined"
+				class="min-w-[70px]"
 			>
-				{{ $t(`settings.data_processings.categories.${category}.title`) }}
+				<v-icon>
+					{{ categoryData.icon }}
+				</v-icon>
+				<v-tooltip v-if="breakpoint.min.md" activator="parent" location="top">{{
+					$t(`settings.data_processings.categories.${category}.title`)
+				}}</v-tooltip>
+				<span v-if="breakpoint.max.sm" class="ml-3">
+					{{ $t(`settings.data_processings.categories.${category}.title`) }}
+				</span>
+				<v-badge
+					v-if="settings.dataProcessings[category].length > 0"
+					:content="settings.dataProcessings[category].length"
+					:icon="categoryData.hasErrors ? 'mdi-alert' : undefined"
+					:color="categoryData.hasErrors ? 'warning' : undefined"
+					floating
+				></v-badge>
 			</v-tab>
 		</v-tabs>
 
 		<v-card-text class="m-default">
 			<v-window v-model="activeTab" class="p-1">
-				<v-window-item v-for="category in categories" :key="category" :value="category">
+				<v-window-item
+					v-for="(categoryData, category) in categories"
+					:key="category"
+					:value="category"
+				>
 					<GeneratorSettingsDataProcessingCategory
 						:category="category"
 						@has-errors="setErrorState(category, $event)"

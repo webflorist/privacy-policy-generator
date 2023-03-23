@@ -26,7 +26,14 @@ const themeIcon = computed(() =>
 			</v-app-bar-nav-icon>
 		</template>
 		<template #append>
-			<v-btn :icon="themeIcon" @click="toggleTheme"></v-btn>
+			<v-btn
+				icon="mdi-github"
+				tag="a"
+				href="https://github.com/webflorist/privacy-policy-generator"
+				target="_blank"
+				class="on-background"
+			></v-btn>
+			<v-btn :icon="themeIcon" @click="toggleTheme" class="on-background"></v-btn>
 			<v-divider vertical class="mx-3"></v-divider>
 			<v-btn-toggle mandatory divided class="relative z-0 inline-flex" color="primary">
 				<v-btn

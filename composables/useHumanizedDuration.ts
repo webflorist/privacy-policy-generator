@@ -1,5 +1,5 @@
 import humanizeDuration, { HumanizerOptions } from 'humanize-duration'
-export const useHumanizedDuraition = () => {
+export const useHumanizedDuration = () => {
 	const { locale } = useI18n()
 
 	const humanizeMinutes = (minutes: number) =>

@@ -1516,11 +1516,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource/amaranth/-/amaranth-4.5.9.tgz#1e616b74c291890b9ce0640ce41da1a89f98226d"
   integrity sha512-nyM+K4WJdypr5EQuHQNNLp44rUSBeKWUDb8DNeNIOPLQx+1HiE6PW97c/fj8q7iMopLtAtyzYVz+bZ/ZXnVEdw==
 
-"@fontsource/roboto-slab@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto-slab/-/roboto-slab-4.5.11.tgz#fb5290d3d5c9ca6974e6b3a20441a30114d9e47b"
-  integrity sha512-0HXK8WNvZZg4vglhUY4ySBmlh+wnO1JsGcPfCaxDhY24gtRf2POmmeNpSxKFjjQTDV8BiYDXF2H9p15d/6c/YA==
-
 "@fontsource/roboto@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.8.tgz#56347764786079838faf43f0eeda22dd7328437f"
