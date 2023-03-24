@@ -60,10 +60,10 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 			<v-divider></v-divider>
 			<v-container v-if="hasErrors">
 				<v-alert v-if="!hasWebhostingProcessing" type="error">
-					{{ $t('errors.missing-webhosting-data-processing') }}
+					{{ $t('errors.missing_webhosting_data_processing') }}
 				</v-alert>
 				<v-alert v-if="hasSettingsErrors" type="error">
-					{{ $t('errors.settings-errors') }}
+					{{ $t('errors.settings_errors') }}
 				</v-alert>
 			</v-container>
 			<v-container>

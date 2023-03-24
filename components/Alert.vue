@@ -10,6 +10,6 @@ defineProps({
 </script>
 <template>
 	<v-alert tag="section" dense :color="type">
-		{{ $t('errors.missing-webhosting-data-processing') }}
+		{{ $t('errors.missing_webhosting_data_processing') }}
 	</v-alert>
 </template>

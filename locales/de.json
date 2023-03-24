@@ -1,25 +1,35 @@
 {
   "errors": {
-    "errors-in-form": "Bitte beheben Sie zuerst alle Fehler im Formular.",
-    "missing-data-processor": "Es sind noch keine Auftragsverarbeiter angelegt.",
-    "missing-webhosting-data-processing": "Es sollte zumindest eine Datenverarbeitung in der Kategorie Webhosting angegeben sein.",
-    "name-or-org-required": "Füllen Sie entweder Organisation oder Name (oder beides) aus.",
-    "page-not-found": "Seite nicht gefunden",
-    "settings-errors": "Bitte beheben Sie die angezeigten Fehler in den Einstellungen."
+    "errors_in_form": "Bitte beheben Sie zuerst alle Fehler im Formular.",
+    "missing_webhosting_data_processing": "Es sollte zumindest eine Datenverarbeitung in der Kategorie Webhosting angegeben sein.",
+    "name_or_org_required": "Füllen Sie entweder Organisation oder Name (oder beides) aus.",
+    "page_not_found": "Seite nicht gefunden",
+    "settings_errors": "Bitte beheben Sie die angezeigten Fehler in den Einstellungen."
   },
   "general": {
-    "back-to-home": "Zurück zur Startseite",
+    "add": "Hinzufügen",
+    "back_to_home": "Zurück zur Startseite",
+    "close": "Schließen",
+    "copy_html": "HTML",
+    "copy_successful": "Der Text wurde erfolgreich in die Zwischenablage kopiert.",
+    "copy_text": "Text",
+    "copy_to_clipboard": "In Zwischenablage kopieren",
+    "delete": "Entfernen",
+    "goto_github": "Quellcode dieser Seite auf Github ansehen",
     "optional": "optional",
-    "provided-by": "betrieben von"
+    "provided_by": "betrieben von",
+    "sort_down": "nach unten",
+    "sort_up": "nach oben",
+    "switch_theme": "Zwischen dunklem und hellem Farbschema wechseln"
   },
   "h1": {
     "line1": "Generator für eine",
     "line2": "Lizenzfreie Datenschutz­erklärung"
   },
   "images": {
-		"cc0_icon": {
-			"alt": "Die Zahl Null in einem schwazen Kreis mit dem Schriftzug \"Public Domain\""
-		},
+    "cc0_icon": {
+      "alt": "Die Zahl Null in einem schwazen Kreis mit dem Schriftzug \"Public Domain\""
+    },
     "favicon": {
       "alt": "Rundes Symbol mit Schild mit einem Schloss in der Mitte"
     },
@@ -27,12 +37,9 @@
       "alt": "Blumengrafik mit einem Schild-Symbol mit einem Schloss in der Mitte"
     }
   },
-  "infos": {
-    "add-data-processor": "Einen neuen Auftragsverarbeiter kannst du im entsprechenden Reiter anlegen."
-  },
   "intro": {
-		"p1": "Auf dieser Seite können Sie eine Datenschutzerklärung für Ihre Webseite erstellen. Erstellung und Verwendung ist kostenlos und der Text unter der creative commons CC0 1.0 Lizenz als \"Public Domain\" freigegeben. Eine Namensnennung ist nicht erforderlich.",
-		"p2": "Dieser Text <i>sollte</i> DSGVO-konform sein.<br />Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür."
+    "p1": "Auf dieser Seite können Sie eine Datenschutzerklärung für Ihre Webseite erstellen. Erstellung und Verwendung ist kostenlos und der Text unter der creative commons CC0 1.0 Lizenz als \"Public Domain\" freigegeben. Eine Namensnennung ist nicht erforderlich.",
+    "p2": "Dieser Text <i>sollte</i> DSGVO-konform sein.<br />Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür."
   },
   "meta": {
     "site": {
@@ -41,17 +48,17 @@
     }
   },
   "privacy_policy": {
-    "cookies": {
+    "browser_store": {
       "content": {
-        "p1": "Unsere Website bzw. damit verbundene Datenverarbeitungen verwenden so genannte \"Cookies\". Dabei handelt es sich um kleine Textdateien, die mit Hilfe des Browsers auf Ihrem Endgerät verarbeitet und abgelegt werden. Sie werden von bestimmten Funktionen unserer Webseite zum Zwischenspeichern verschiedenster Informationen verwendet.",
-        "p2": "Cookies können sowohl direkt von unserer Webseite (\"Erstanbieter-Cookies\"), als auch durch die Dienste von Auftragsverarbeitern (z.B. beim Senden von E-Mails oder für Webanalyse) gesetzt werden. Beim ersten Aufruf unserer Webseite werden nur technisch notwendige Erstanbieter-Cookies verwendet.",
-        "p3": "Die meisten Web-Browser bieten Funktionen zur Anzeige und zum Löschen von bereits gesetzten Cookies. Weiters können Sie Ihren Browser auch so konfigurieren, dass keinerlei Cookies gesetzt werden. Bitte beachten Sie aber, dass dadurch bestimmte Funktionalitäten unserer Webseite beeinträchtigt werden können.",
-        "p4": "Welche Cookies genau bei welchen Datenverarbeitungen zur Anwendung kommen, finden Sie bei den nachfolgend angeführten einzelnen Datenverarbeitungen."
+        "p1": "Unsere Website bzw. damit verbundene Datenverarbeitungen speichern gewisse Informationen direkt in Ihrem Webbrowser (z.B. via \"Cookies\"), um bestimmte Funktionalitäten zu gewährleisten.",
+        "p2": "Solche Informationen können sowohl direkt von unserer Webseite (\"Erstanbieter-Einträge\"), als auch durch die Dienste von Auftragsverarbeitern (z.B. beim Senden von E-Mails oder für Webanalyse) gesetzt werden. Beim ersten Aufruf unserer Webseite werden nur technisch notwendige Erstanbieter-Einträge verwendet.",
+        "p3": "Die meisten Web-Browser bieten Funktionen zur Anzeige und zum Löschen von bereits gesetzten Einträgen. Weiters können Sie Ihren Browser auch so konfigurieren, dass keinerlei Cookies gesetzt werden. Bitte beachten Sie aber, dass dadurch bestimmte Funktionalitäten unserer Webseite beeinträchtigt werden können.",
+        "p4": "Welche Browser-Einträge genau bei welchen Datenverarbeitungen zur Anwendung kommen, finden Sie bei den nachfolgend angeführten einzelnen Datenverarbeitungen."
       },
-      "no_cookies_content": {
-        "p1": "Websiten verwenden oft so genannte \"Cookies\". Dabei handelt es sich um kleine Textdateien, die mit Hilfe des Browsers auf Ihrem Endgerät verarbeitet und abgelegt werden, um bestimmte Funktionen der Webseite zu gewährleisten. Unsere Website und damit verbundene Datenverarbeitungen verwenden keinerlei \"Cookies\"."
+      "no_browser_store_content": {
+        "p1": "Websiten verwenden oft Funktionen Ihres Webbrowsers (wie z.B. \"Cookies\") zum Ablegen und Auslesen von Informationen, um bestimmte Funktionalitäten zu gewährleisten. Unsere Website und damit verbundene Datenverarbeitungen verwenden keinerlei solche Technologien."
       },
-      "title": "Cookies"
+      "title": "Browser Speicher (Cookies, u.a.)"
     },
     "data_controller": {
       "content": {
@@ -197,10 +204,10 @@
           "description": "Abwicklung von Zahlungsvorgängen",
           "title": "Zahlungsabwicklung"
         },
-				"videos": {
-					"description": "Eingebundene Videos",
-					"title": "Videos"
-				},
+        "videos": {
+          "description": "Eingebundene Videos",
+          "title": "Videos"
+        },
         "webhosting": {
           "description": "Hosten der Webseite und benötigter Dienste & Inhalte (z.B. Datenbank, Bilder, Skripte, etc.)",
           "title": "Webhosting"
@@ -208,11 +215,9 @@
       },
       "create": "Neue Datenverarbeitung erstellen",
       "default_processors": "Vordefinierte Auftragsverarbeiter",
-      "delete": "Datenverarbeitung entfernen",
       "fields": {
-				"browser_store": {
-					"add_browser_store": "Fügen Sie eine oder mehrere Browser-Speicher Einträge hinzu, falls bei dieser Datenverarbeitung Cookies, LocalStorage, SessionStorage oder IndexedDB verwendet werden.",
-					"delete_browser_store": "Browser-Speicher eintrag entfernen",
+        "browser_store": {
+          "add_browser_store": "Fügen Sie eine oder mehrere Browser-Speicher Einträge hinzu, falls bei dieser Datenverarbeitung Cookies, LocalStorage, SessionStorage oder IndexedDB verwendet werden.",
           "duration": {
             "hint": "Wählen Sie eine vordefinierte Option oder geben Sie die Dauer in Minuten an.",
             "options": {
@@ -255,7 +260,7 @@
           "name": {
             "title": "Name"
           },
-					"new_browser_store": "Neuer Browser-Speicher Eintrag",
+          "new_browser_store": "Neuer Browser-Speicher Eintrag",
           "purpose": {
             "options": {
               "gdpr_choice": {
@@ -277,39 +282,39 @@
             "title": "Zweck"
           },
           "third_party": {
-						"title": "Wird durch Domain eines Drittanbieters erstellt"
-					},
-					"title": "Browser-Speicher",
-					"written_on": {
-						"options": {
-							"every_visit": {
-								"description": "Eintrag wird automatisch bei jedem Besuch erstellt (z.B. Session Cookies).",
-								"title": "Automatisch bei jedem Besuch"
-							},
-							"service_usage": {
-								"description": "Eintrag wird nur erstellt, sobald der damit verbundene Dienst genutzt wird (e.g. Karten, Web-Analyse, Bezahlung, etc.).",
-								"title": "Bei Verwendung des jeweiligen Dienstes"
-							}
-						},
-						"title": "Erstellungzeitpunkt"
-					},
-					"type": {
-						"options": {
-							"cookie": {
-								"title": "Cookie"
-							},
-							"local_storage": {
-								"title": "Local Storage"
-							},
-							"session_storage": {
-								"title": "Session Storage"
-							},
-							"indexed_db": {
-								"title": "IndexedDB"
-							}
-						},
-						"title": "Typ"
-					}
+            "title": "Wird durch Domain eines Drittanbieters erstellt"
+          },
+          "title": "Browser-Speicher",
+          "type": {
+            "options": {
+              "cookie": {
+                "title": "Cookie"
+              },
+              "indexed_db": {
+                "title": "IndexedDB"
+              },
+              "local_storage": {
+                "title": "Local Storage"
+              },
+              "session_storage": {
+                "title": "Session Storage"
+              }
+            },
+            "title": "Typ"
+          },
+          "written_on": {
+            "options": {
+              "every_visit": {
+                "description": "Eintrag wird automatisch bei jedem Besuch erstellt (z.B. Session Cookies).",
+                "title": "Automatisch bei jedem Besuch"
+              },
+              "service_usage": {
+                "description": "Eintrag wird nur erstellt, sobald der damit verbundene Dienst genutzt wird (e.g. Karten, Web-Analyse, Bezahlung, etc.).",
+                "title": "Bei Verwendung des jeweiligen Dienstes"
+              }
+            },
+            "title": "Erstellungzeitpunkt"
+          }
         },
         "data_categories": {
           "options": {
@@ -406,7 +411,5 @@
       "title": "Allgemeines"
     },
     "title": "Einstellungen"
-  },
-  "source_code_text": "Quellcode des Text-Pakets",
-  "source_code_vue": "Quellcode des vue-Pakets"
+  }
 }

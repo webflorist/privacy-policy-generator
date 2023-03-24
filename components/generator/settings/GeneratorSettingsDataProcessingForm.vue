@@ -25,6 +25,7 @@ const props = defineProps({
 const emit = defineEmits<{
 	(e: 'hasErrors', state: boolean): void
 	(e: 'created', key: number): void
+	(e: 'sorted', key: number): void
 }>()
 
 const blankProcessing: DataProcessing = {
@@ -65,6 +66,28 @@ const addProcessing = () => {
 const deleteProcessing = () => {
 	settings.value.dataProcessings[props.category].splice(props.processingKey, 1)
 	emit('hasErrors', false)
+}
+
+const sortUp = () => {
+	;[
+		settings.value.dataProcessings[props.category][props.processingKey],
+		settings.value.dataProcessings[props.category][props.processingKey - 1],
+	] = [
+		settings.value.dataProcessings[props.category][props.processingKey - 1],
+		settings.value.dataProcessings[props.category][props.processingKey],
+	]
+	emit('sorted', props.processingKey - 1)
+}
+
+const sortDown = () => {
+	;[
+		settings.value.dataProcessings[props.category][props.processingKey],
+		settings.value.dataProcessings[props.category][props.processingKey + 1],
+	] = [
+		settings.value.dataProcessings[props.category][props.processingKey + 1],
+		settings.value.dataProcessings[props.category][props.processingKey],
+	]
+	emit('sorted', props.processingKey + 1)
 }
 
 const presetOptions = computed(() => {
@@ -212,19 +235,33 @@ watch(hasErrors, (newHasErrors) => {
 		>
 		</FormSelectField>
 	</template>
-	<div class="text-right">
+	<div v-if="!createNew" class="m-default flex flex-row items-center justify-end gap-5">
 		<v-btn
-			v-if="!createNew"
-			class="my-8"
+			v-if="settings.dataProcessings[category].length > 0 && processingKey !== 0"
+			append-icon="mdi-chevron-up"
+			@click="sortUp()"
+			>{{ $t('general.sort_up') }}</v-btn
+		>
+		<v-btn
+			v-if="
+				settings.dataProcessings[category].length > 0 &&
+				settings.dataProcessings[category].length > processingKey + 1
+			"
+			append-icon="mdi-chevron-down"
+			@click="sortDown()"
+			>{{ $t('general.sort_down') }}</v-btn
+		>
+		<v-btn
 			color="error"
 			append-icon="mdi-alert"
 			@click="deleteProcessing(category, processingKey)"
 		>
-			{{ $t('settings.data_processings.delete') }}
+			{{ $t('general.delete') }}
 		</v-btn>
 	</div>
 
 	<FormSwitch
+		class="m-default"
 		v-model="processingModel.required"
 		:label="$t('settings.data_processings.fields.required.title')"
 		name="required"
@@ -296,26 +333,19 @@ watch(hasErrors, (newHasErrors) => {
 
 	<h5>{{ $t('settings.data_processings.fields.browser_store.title') }}</h5>
 	<v-card>
-		<v-tabs
-			v-model="activeBrowserStoreTab"
-			center-active
-			show-arrows
-			:direction="breakpoint.max.sm ? 'vertical' : 'horizontal'"
-		>
+		<v-tabs v-model="activeBrowserStoreTab" center-active show-arrows direction="vertical">
 			<v-tab
 				v-for="(browserStoreEntry, key) in processingModel.browserStore"
 				:key="key"
 				:value="key"
 			>
-				<template v-if="browserStoreEntry.name">{{
-					presenter.stringLimit(browserStoreEntry.name, 5)
-				}}</template>
+				<template v-if="browserStoreEntry.name">{{ browserStoreEntry.name }}</template>
 				<template v-else>{{
 					$t('settings.data_processings.fields.browser_store.new_browser_store')
 				}}</template>
 			</v-tab>
-			<v-tab :value="9999" @click="addBrowserStore()">
-				<v-icon>mdi-plus</v-icon>
+			<v-tab :value="9999" @click="addBrowserStore()" prepend-icon="mdi-plus">
+				{{ $t('general.add') }}
 			</v-tab>
 		</v-tabs>
 		<v-card-text class="m-default">
@@ -332,7 +362,7 @@ watch(hasErrors, (newHasErrors) => {
 							append-icon="mdi-alert"
 							@click="deleteBrowserStore(key)"
 						>
-							{{ $t('settings.data_processings.fields.browser_store.delete_browser_store') }}
+							{{ $t('general.delete') }}
 						</v-btn>
 					</div>
 					<GeneratorSettingsDataProcessingFormBrowserStore
@@ -361,7 +391,7 @@ watch(hasErrors, (newHasErrors) => {
 
 	<v-messages
 		:active="hasErrors"
-		:messages="$t('errors.errors-in-form')"
+		:messages="$t('errors.errors_in_form')"
 		color="error"
 		class="mt-3 px-6 text-center"
 	></v-messages>

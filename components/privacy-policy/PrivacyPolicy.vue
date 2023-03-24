@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PrivacyPolicyDataProcessings from './PrivacyPolicyDataProcessings.vue'
+import * as prettify from 'pretty'
 
 const settings = useSettings()
 const locale = computed(() => settings.value.general.language)
@@ -7,12 +7,43 @@ const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 
 const usesBrowserStore = computed(() =>
 	Object.values(settings.value.dataProcessings).some((category) =>
-		category.some((process) => process.browserStore.length > 0)
+		category.some((process) => process.browserStore && process.browserStore.length > 0)
 	)
 )
+
+const privacyPolicy = ref()
+const showCopyMessage = ref(false)
+const copyHtml = () => {
+	let html: string = privacyPolicy.value.innerHTML
+	html = html.replaceAll('<!---->', '')
+	html = html.replaceAll('<!--v-if-->', '')
+	html = prettify(html)
+	navigator.clipboard.writeText(html)
+	showCopyMessage.value = true
+}
+const copyText = () => {
+	let text: string = privacyPolicy.value.innerText
+	navigator.clipboard.writeText(text)
+	showCopyMessage.value = true
+}
 </script>
 <template>
-	<section>
+	<v-card class="m-default sticky top-20 right-0 float-right">
+		<v-card-title>{{ $t('general.copy_to_clipboard') }}</v-card-title>
+		<v-card-text class="flex justify-evenly">
+			<v-btn @click="copyHtml()">{{ $t('general.copy_html') }}</v-btn>
+			<v-btn @click="copyText()">{{ $t('general.copy_text') }}</v-btn>
+			<v-snackbar v-model="showCopyMessage" color="primary" timeout="2000" location="top">
+				{{ $t('general.copy_successful') }}
+				<template #actions>
+					<v-btn variant="text" color="white" @click="showCopyMessage = false">
+						{{ $t('general.close') }}
+					</v-btn>
+				</template>
+			</v-snackbar>
+		</v-card-text>
+	</v-card>
+	<section ref="privacyPolicy" class="mt-32">
 		<h1>{{ t('privacy_policy.title') }}</h1>
 		<p>{{ t('privacy_policy.intro_content.p1') }}</p>
 		<p>{{ t('privacy_policy.intro_content.p2') }}</p>
@@ -85,16 +116,16 @@ const usesBrowserStore = computed(() =>
 		</section>
 
 		<section>
-			<h2>{{ t('privacy_policy.cookies.title') }}</h2>
+			<h2>{{ t('privacy_policy.browser_store.title') }}</h2>
 
 			<p v-if="!usesBrowserStore">
-				{{ t('privacy_policy.cookies.no_cookies_content.p1') }}
+				{{ t('privacy_policy.browser_store.no_browser_store_content.p1') }}
 			</p>
 			<template v-else>
-				<p>{{ t('privacy_policy.cookies.content.p1') }}</p>
-				<p>{{ t('privacy_policy.cookies.content.p2') }}</p>
-				<p>{{ t('privacy_policy.cookies.content.p3') }}</p>
-				<p>{{ t('privacy_policy.cookies.content.p4') }}</p>
+				<p>{{ t('privacy_policy.browser_store.content.p1') }}</p>
+				<p>{{ t('privacy_policy.browser_store.content.p2') }}</p>
+				<p>{{ t('privacy_policy.browser_store.content.p3') }}</p>
+				<p>{{ t('privacy_policy.browser_store.content.p4') }}</p>
 			</template>
 		</section>
 
@@ -108,10 +139,18 @@ const usesBrowserStore = computed(() =>
 				<h3>{{ t('privacy_policy.data_processing.webhosting.title') }}</h3>
 				<p>{{ t('privacy_policy.data_processing.webhosting.content.p1') }}</p>
 				<ul>
-					<li>{{ t('privacy_policy.data_processing.webhosting.content.ul1.li1') }}</li>
-					<li>{{ t('privacy_policy.data_processing.webhosting.content.ul1.li2') }}</li>
-					<li>{{ t('privacy_policy.data_processing.webhosting.content.ul1.li3') }}</li>
-					<li>{{ t('privacy_policy.data_processing.webhosting.content.ul1.li4') }}</li>
+					<li>
+						{{ t('privacy_policy.data_processing.webhosting.content.ul1.li1') }}
+					</li>
+					<li>
+						{{ t('privacy_policy.data_processing.webhosting.content.ul1.li2') }}
+					</li>
+					<li>
+						{{ t('privacy_policy.data_processing.webhosting.content.ul1.li3') }}
+					</li>
+					<li>
+						{{ t('privacy_policy.data_processing.webhosting.content.ul1.li4') }}
+					</li>
 				</ul>
 				<p>{{ t('privacy_policy.data_processing.webhosting.content.p2') }}</p>
 				<PrivacyPolicyDataProcessings

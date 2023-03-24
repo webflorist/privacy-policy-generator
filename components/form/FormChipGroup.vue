@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps, toRef } from 'vue'
 import { useField } from 'vee-validate'
 
 type Item = {
@@ -33,7 +32,6 @@ const emit = defineEmits(['update:modelValue'])
 
 const {
 	value: inputValue,
-	handleBlur,
 	handleChange,
 	errors,
 } = useField(toRef(props, 'name'), undefined, {

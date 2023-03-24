@@ -18,9 +18,9 @@ const themeIcon = computed(() =>
 				<NuxtLink
 					:to="'/' + currentLocale"
 					class="no-style"
-					:title="$t('general.back-to-home')"
+					:title="$t('general.back_to_home')"
 				>
-					<span class="sr-only">{{ $t('general.back-to-home') }}</span>
+					<span class="sr-only">{{ $t('general.back_to_home') }}</span>
 					<img :alt="$t('images.favicon.alt')" src="/favicon.svg" class="w-32" />
 				</NuxtLink>
 			</v-app-bar-nav-icon>
@@ -32,8 +32,9 @@ const themeIcon = computed(() =>
 				href="https://github.com/webflorist/privacy-policy-generator"
 				target="_blank"
 				class="on-background"
+				:title="$t('general.goto_github')"
 			></v-btn>
-			<v-btn :icon="themeIcon" @click="toggleTheme" class="on-background"></v-btn>
+			<v-btn :icon="themeIcon" @click="toggleTheme" class="on-background" :title="$t('general.switch_theme')"></v-btn>
 			<v-divider vertical class="mx-3"></v-divider>
 			<v-btn-toggle mandatory divided class="relative z-0 inline-flex" color="primary">
 				<v-btn

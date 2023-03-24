@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { defineProps, toRef } from 'vue'
 import { useField } from 'vee-validate'
-
-type Item = {
-	title: string
-	value: string
-}
 
 const props = defineProps({
 	name: {
@@ -43,7 +37,12 @@ const onInput = (event) => {
 </script>
 
 <template>
-	<v-radio-group :label="label" :model-value="inputValue" @update:modelValue="onInput($event)">
+	<v-radio-group
+		:label="label"
+		:model-value="inputValue"
+		:error-messages="errors"
+		@update:modelValue="onInput($event)"
+	>
 		<v-radio :model-value="inputValue" @update:modelValue="onInput($event)">
 			<template #label>
 				{{ label }}

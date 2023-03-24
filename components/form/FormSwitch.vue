@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { defineProps, toRef } from 'vue'
 import { useField } from 'vee-validate'
-
-type Item = {
-	title: string
-	value: string
-}
 
 const props = defineProps({
 	name: {

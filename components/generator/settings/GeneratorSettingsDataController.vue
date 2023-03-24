@@ -8,16 +8,16 @@ const emit = defineEmits<{
 	(e: 'hasErrors', state: boolean): void
 }>()
 
-defineRule('name-or-org-required', (value, target, ctx) => {
+defineRule('name_or_org_required', (value, target, ctx) => {
 	if (ctx.form.name || ctx.form.organisation) {
 		return true
 	}
-	return t('errors.name-or-org-required')
+	return t('errors.name_or_org_required')
 })
 
 const { errors } = useForm({
 	validationSchema: {
-		name: 'name-or-org-required',
+		name: 'name_or_org_required',
 		email: 'required|email',
 	},
 	validateOnMount: true,

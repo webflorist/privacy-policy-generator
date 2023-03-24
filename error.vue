@@ -16,7 +16,7 @@ const handleError = () => clearError({ redirect: '/' })
 						{{ ' ' }}
 						<span
 							class="block text-4xl text-primary-100 drop-shadow-primary dark:text-primary-500 sm:text-6xl"
-							>{{ $t('errors.page-not-found') }}</span
+							>{{ $t('errors.page_not_found') }}</span
 						>
 					</h1>
 				</div>

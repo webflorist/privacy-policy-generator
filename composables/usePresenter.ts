@@ -12,7 +12,7 @@ export const usePresenter = () => {
 		return (
 			serviceName +
 			' (' +
-			t('general.provided-by') +
+			t('general.provided_by') +
 			' ' +
 			processorName(process.processor) +
 			')'

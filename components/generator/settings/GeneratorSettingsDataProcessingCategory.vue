@@ -32,7 +32,7 @@ watch(hasErrors, (hasErrors) => {
 	emit('hasErrors', hasErrors)
 })
 
-const activePanel = ref(null)
+const activePanel = ref<number>()
 </script>
 <template>
 	<h4>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h4>
@@ -68,6 +68,7 @@ const activePanel = ref(null)
 					:category="category"
 					:processing-key="processingKey"
 					@has-errors="setErrorState(processingKey, $event)"
+					@sorted="activePanel = $event + 1"
 				/>
 			</v-expansion-panel-text>
 		</v-expansion-panel>
