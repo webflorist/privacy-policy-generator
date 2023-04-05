@@ -1,15 +1,65 @@
 export const useMetaTags = () => {
-	const siteMeta = useRuntimeConfig().public.siteMeta
+	type GeoCoordinatesSchema = {
+		latitude: string
+		longitude: string
+	}
+	type PostalAddressSchema = {
+		addressCountry: string
+		addressLocality: string
+		postalCode: string
+		streetAddress: string
+	}
+	type OrganisationSchema = {
+		name: string
+		legalName: string
+		address: PostalAddressSchema
+		geo?: GeoCoordinatesSchema
+		image?: string
+		logo?: string
+		email?: string
+		telephone?: string
+		faxNumber?: string
+		sameAs?: string[]
+	}
+	type SiteMetaConfig = {
+		url: string
+		tag: string
+		authorTag: string
+		title?: string
+		description?: string
+		image?: string
+		organization?: OrganisationSchema
+	}
+
+	type BreadcrumbItem = {
+		title: string
+		path: string
+	}
+
+	type RouteMetaOptions = {
+		fullTitle?: string
+		title?: string
+		description?: string
+		pageTranslationPath?: string
+		image?: string
+		breadcrumbs: BreadcrumbItem[]
+		noRobots?: boolean
+	}
+
+	const routeMeta = computed<RouteMetaOptions>(() => route.meta)
+
+	const siteMeta: SiteMetaConfig = useRuntimeConfig().public.siteMeta
 	const route = useRoute()
 	const pageUrl = computed(() => siteMeta.url + route.path.replace(/\/$/, ''))
+
 	const { locale: currentLocale, t, te } = useI18n()
 
 	const locale = computed(() => {
 		return currentLocale.value
 	})
 
-	const siteTitle = computed(() => {
-		if ('title' in siteMeta) {
+	const siteTitle = computed<string>(() => {
+		if (typeof siteMeta.title !== 'undefined') {
 			return siteMeta.title
 		}
 		if (te('meta.site.title')) {
@@ -18,20 +68,20 @@ export const useMetaTags = () => {
 		return pageUrl.value
 	})
 
-	const pageTitle = computed(() => {
-		if (route.meta.fullTitle) {
-			return route.meta.fullTitle
+	const pageTitle = computed<string>(() => {
+		if (typeof routeMeta.value.fullTitle !== 'undefined') {
+			return routeMeta.value.fullTitle
 		}
-		if (route.meta.title) {
-			return route.meta.title + ' - ' + siteTitle.value
+		if (typeof routeMeta.value.title !== 'undefined') {
+			return routeMeta.value.title + ' - ' + siteTitle.value
 		}
-		if (route.meta.pageTranslationPath) {
-			if (te('meta.pages.' + route.meta.pageTranslationPath + '.fullTitle')) {
-				return route.meta.fullTitle
+		if (typeof routeMeta.value.pageTranslationPath !== 'undefined') {
+			if (te('meta.pages.' + routeMeta.value.pageTranslationPath + '.fullTitle')) {
+				return t('meta.pages.' + routeMeta.value.pageTranslationPath + '.fullTitle')
 			}
-			if (te('meta.pages.' + route.meta.pageTranslationPath + '.title')) {
+			if (te('meta.pages.' + routeMeta.value.pageTranslationPath + '.title')) {
 				return (
-					t('meta.pages.' + route.meta.pageTranslationPath + '.title') +
+					t('meta.pages.' + routeMeta.value.pageTranslationPath + '.title') +
 					' - ' +
 					siteTitle.value
 				)
@@ -40,8 +90,8 @@ export const useMetaTags = () => {
 		return siteTitle.value
 	})
 
-	const siteDescription = computed(() => {
-		if ('description' in siteMeta) {
+	const siteDescription = computed<string>(() => {
+		if (typeof siteMeta.description !== 'undefined') {
 			return siteMeta.description
 		}
 		if (te('meta.site.description')) {
@@ -50,22 +100,22 @@ export const useMetaTags = () => {
 		return ''
 	})
 
-	const pageDescription = computed(() => {
-		if (route.meta.description) {
-			return route.meta.description
+	const pageDescription = computed<string>(() => {
+		if (typeof routeMeta.value.description !== 'undefined') {
+			return routeMeta.value.description
 		}
 		if (
-			route.meta.pageTranslationPath &&
-			te('meta.pages.' + route.meta.pageTranslationPath + '.description')
+			typeof routeMeta.value.pageTranslationPath !== 'undefined' &&
+			te('meta.pages.' + routeMeta.value.pageTranslationPath + '.description')
 		) {
-			return t('meta.pages.' + route.meta.pageTranslationPath + '.description')
+			return t('meta.pages.' + routeMeta.value.pageTranslationPath + '.description')
 		}
 		return siteDescription.value
 	})
 
 	const pageImage = computed(() => {
-		if (route.meta.image) {
-			return route.meta.image
+		if (typeof routeMeta.value.image !== 'undefined') {
+			return routeMeta.value.image
 		}
 		if ('image' in siteMeta) {
 			return siteMeta.image
@@ -76,9 +126,9 @@ export const useMetaTags = () => {
 	const breadcrumbs = computed(() => {
 		const breadcrumbs = []
 
-		if (route.meta.breadcrumbs?.length > 0) {
-			for (let i = 0; i < route.meta.breadcrumbs.length; i++) {
-				const breadcrumbItem = route.meta.breadcrumbs[i]
+		if (routeMeta.value.breadcrumbs?.length > 0) {
+			for (let i = 0; i < routeMeta.value.breadcrumbs.length; i++) {
+				const breadcrumbItem = routeMeta.value.breadcrumbs[i]
 				breadcrumbs.push({
 					'@type': 'ListItem',
 					position: i + 1,
@@ -96,7 +146,7 @@ export const useMetaTags = () => {
 	})
 
 	const robots = computed(() => {
-		if (route.meta.noRobots) {
+		if (typeof routeMeta.value.noRobots !== 'undefined' && routeMeta.value.noRobots) {
 			return 'noindex,nofollow'
 		}
 		return 'index,follow'
@@ -126,11 +176,6 @@ export const useMetaTags = () => {
 				{ property: 'og:type', content: 'website' },
 				{ property: 'og:site_name', content: siteTitle.value },
 				{ property: 'og:locale', content: locale.value },
-				{
-					hid: 'og:title',
-					property: 'og:title',
-					content: pageTitle.value,
-				},
 				{
 					hid: 'og:title',
 					property: 'og:title',
@@ -193,30 +238,6 @@ export const useMetaTags = () => {
 				]
 			)
 		}
-
-		// Geo Tags (if present)
-		if ('geo' in siteMeta) {
-			tags.push(
-				...[
-					{
-						name: 'geo.region',
-						content: siteMeta.geo.region,
-					},
-					{
-						name: 'geo.placename',
-						content: siteMeta.geo.placename,
-					},
-					{
-						name: 'geo.position',
-						content: siteMeta.geo.latitude + ';' + siteMeta.geo.longitude,
-					},
-					{
-						name: 'ICBM',
-						content: siteMeta.geo.latitude + ', ' + siteMeta.geo.longitude,
-					},
-				]
-			)
-		}
 		return tags
 	})
 
@@ -254,7 +275,7 @@ export const useMetaTags = () => {
 										itemListElement: breadcrumbs.value,
 									},
 							  }
-							: []),
+							: {}),
 					}),
 				},
 			]
@@ -273,7 +294,7 @@ export const useMetaTags = () => {
 			})
 		}
 
-		if ('organization' in siteMeta) {
+		if (typeof siteMeta.organization !== 'undefined') {
 			tags.push({
 				hid: 'SchemaOrganization',
 				type: 'application/ld+json',
@@ -289,12 +310,16 @@ export const useMetaTags = () => {
 						postalCode: siteMeta.organization.address.postalCode,
 						streetAddress: siteMeta.organization.address.streetAddress,
 					},
-					geo: {
-						'@type': 'GeoCoordinates',
-						latitude: siteMeta.organization.geo.latitude,
-						longitude: siteMeta.organization.geo.longitude,
-					},
-					image: [siteMeta.organization.image],
+					...(typeof siteMeta.organization.geo !== 'undefined'
+						? {
+								geo: {
+									'@type': 'GeoCoordinates',
+									latitude: siteMeta.organization.geo.latitude,
+									longitude: siteMeta.organization.geo.longitude,
+								},
+						  }
+						: {}),
+					image: siteMeta.organization.image,
 					logo: siteMeta.organization.logo,
 					email: siteMeta.organization.email,
 					url: siteMeta.url,
