@@ -159,17 +159,17 @@ export const useMetaTags = () => {
 		tags.push(
 			...[
 				{
-					hid: 'description',
+					key: 'description',
 					name: 'description',
 					content: pageDescription.value,
 				},
 				{
-					hid: 'robots',
+					key: 'robots',
 					name: 'robots',
 					content: robots.value,
 				},
 				{
-					hid: 'og:url',
+					key: 'og:url',
 					property: 'og:url',
 					content: pageUrl.value,
 				},
@@ -177,12 +177,12 @@ export const useMetaTags = () => {
 				{ property: 'og:site_name', content: siteTitle.value },
 				{ property: 'og:locale', content: locale.value },
 				{
-					hid: 'og:title',
+					key: 'og:title',
 					property: 'og:title',
 					content: pageTitle.value,
 				},
 				{
-					hid: 'og:description',
+					key: 'og:description',
 					property: 'og:description',
 					content: pageDescription.value,
 				},
@@ -204,17 +204,17 @@ export const useMetaTags = () => {
 				{ property: 'twitter:site', content: siteMeta.tag },
 				{ property: 'twitter:creator', content: siteMeta.authorTag },
 				{
-					hid: 'twitter:url',
+					key: 'twitter:url',
 					property: 'twitter:url',
 					content: pageUrl,
 				},
 				{
-					hid: 'twitter:title',
+					key: 'twitter:title',
 					name: 'twitter:title',
 					content: pageTitle,
 				},
 				{
-					hid: 'twitter:description',
+					key: 'twitter:description',
 					name: 'twitter:description',
 					content: pageDescription,
 				},
@@ -226,12 +226,12 @@ export const useMetaTags = () => {
 			tags.push(
 				...[
 					{
-						hid: 'og:image',
+						key: 'og:image',
 						property: 'og:image',
 						content: pageImage.value,
 					},
 					{
-						hid: 'twitter:image',
+						key: 'twitter:image',
 						name: 'twitter:image',
 						content: pageImage.value,
 					},
@@ -247,9 +247,9 @@ export const useMetaTags = () => {
 		tags.push(
 			...[
 				{
-					hid: 'SchemaWebSite',
+					key: 'SchemaWebSite',
 					type: 'application/ld+json',
-					children: JSON.stringify({
+					innerHtml: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'WebSite',
 						'@id': siteMeta.url + '/#website',
@@ -259,9 +259,9 @@ export const useMetaTags = () => {
 				},
 
 				{
-					hid: 'SchemaWebPage',
+					key: 'SchemaWebPage',
 					type: 'application/ld+json',
-					children: JSON.stringify({
+					innerHtml: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'WebPage',
 						url: pageUrl.value,
@@ -283,9 +283,9 @@ export const useMetaTags = () => {
 
 		if (pageImage.value) {
 			tags.push({
-				hid: 'SchemaImageObject',
+				key: 'SchemaImageObject',
 				type: 'application/ld+json',
-				children: JSON.stringify({
+				innerHtml: JSON.stringify({
 					'@context': 'https://schema.org',
 					'@type': 'ImageObject',
 					'@id': pageUrl.value + '/#primaryimage',
@@ -296,9 +296,9 @@ export const useMetaTags = () => {
 
 		if (typeof siteMeta.organization !== 'undefined') {
 			tags.push({
-				hid: 'SchemaOrganization',
+				key: 'SchemaOrganization',
 				type: 'application/ld+json',
-				children: JSON.stringify({
+				innerHtml: JSON.stringify({
 					'@context': 'https://schema.org',
 					'@type': 'Organization',
 					name: siteMeta.organization.name,
