@@ -32,14 +32,20 @@ watch(hasErrors, (hasErrors) => {
 	emit('hasErrors', hasErrors)
 })
 
-const activePanel = ref<number>()
+const expansionPanels = ref<HTMLElement | null>(null)
+const activePanel = ref<number | null>()
+
+const dataProcessingCreated = () => {
+	activePanel.value = null
+	expansionPanels.value?.$el.scrollIntoView(true)
+}
 </script>
 <template>
 	<h4>{{ $t(`settings.data_processings.categories.${category}.title`) }}</h4>
 	<p>
 		{{ $t(`settings.data_processings.categories.${category}.description`) }}
 	</p>
-	<v-expansion-panels v-model="activePanel">
+	<v-expansion-panels ref="expansionPanels" v-model="activePanel">
 		<v-expansion-panel>
 			<v-expansion-panel-title expand-icon="mdi-database-plus" collapse-icon="mdi-close">
 				{{ $t('settings.data_processings.create') }}
@@ -47,7 +53,7 @@ const activePanel = ref<number>()
 			<v-expansion-panel-text>
 				<GeneratorSettingsDataProcessingForm
 					:category="category"
-					@created="activePanel = null"
+					@created="dataProcessingCreated()"
 			/></v-expansion-panel-text>
 		</v-expansion-panel>
 		<v-expansion-panel
