@@ -44,6 +44,10 @@ module.exports = {
 				dark: neutralColor[900],
 			},
 		},
+		screens: {
+			xs: '475px',
+			...defaultTheme.screens,
+		},
 		extend: {
 			dropShadow: {
 				primary: '3px 5px 0 rgba(35, 7, 79, 0.4)',
