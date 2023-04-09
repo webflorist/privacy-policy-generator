@@ -19,8 +19,9 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 <template>
 	<div>
 		<v-main>
-			<div class="bg-image pb-12">
-				<v-container tag="section" class="pt-16 text-center">
+			<div class="relative pb-12">
+				<ParallaxBg />
+				<v-container tag="section" class="relative pt-16 text-center">
 					<div
 						class="mx-auto mb-12 max-w-3xl flex-row items-center justify-center md:flex"
 					>
@@ -28,7 +29,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 							src="/logo.svg"
 							:alt="$t('images.logo.alt')"
 							:title="$t('meta.site.title')"
-							class="mx-auto mb-8 h-60 w-60 drop-shadow-primary md:mb-0 md:mr-10"
+							class="mx-auto mb-8 h-60 w-60 drop-shadow-primary md:mb-0 md:mr-10 animation-cowmove"
 						/>
 						<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-left">
 							<span class="block">{{ $t('h1.line1') }}</span>
