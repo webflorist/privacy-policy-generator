@@ -3,7 +3,6 @@ export const useSettings = () => {
 	return useState<GeneratorSettings>('settings', () => {
 		return {
 			general: {
-				numerus: 'plural',
 				language: locale.value,
 			},
 			dataController: {

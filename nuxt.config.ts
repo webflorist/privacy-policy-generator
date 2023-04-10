@@ -18,6 +18,7 @@ export default defineNuxtConfig({
 		'@vite-pwa/nuxt',
 		'@nuxtjs/i18n',
 		'@nuxtjs/tailwindcss',
+		'@vueuse/nuxt',
 		// @ts-ignore
 		// this adds the vuetify vite plugin
 		// also produces type errors in the current beta release

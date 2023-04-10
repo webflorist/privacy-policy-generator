@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
+const present = usePresenter()
 const durationOptions = useDurationOptions()
 const { humanizeMinutes } = useHumanizedDuration()
 const { t } = useI18n()
@@ -129,7 +130,7 @@ watch(errors, (newErrors) => {
 	>
 		<template v-if="model.duration" #append-inner>
 			<span class="whitespace-nowrap">
-				{{ humanizeDuration(model.duration) }}
+				{{ present.humanizedDuration(model.duration) }}
 			</span>
 		</template>
 	</FormCombobox>

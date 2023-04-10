@@ -1,12 +1,9 @@
 export {}
 
 declare global {
-	type Numerus = 'singular' | 'plural'
-
 	type Language = 'de' | 'en'
 
 	type GeneralSettings = {
-		numerus: Numerus
 		language: Language
 	}
 

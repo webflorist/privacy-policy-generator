@@ -28,7 +28,7 @@ const copyText = () => {
 }
 </script>
 <template>
-	<v-card class="m-default sticky top-20 right-0 float-right">
+	<v-card class="m-default sticky right-0 top-20 float-right">
 		<v-card-title>{{ $t('general.copy_to_clipboard') }}</v-card-title>
 		<v-card-text class="flex justify-evenly">
 			<v-btn @click="copyHtml()">{{ $t('general.copy_html') }}</v-btn>
@@ -165,12 +165,13 @@ const copyText = () => {
 			>
 				<h3>{{ t('privacy_policy.data_processing.analytics.title') }}</h3>
 
-				<slot name="data_processing_analytics_start"></slot>
-
 				<p>{{ t('privacy_policy.data_processing.analytics.content.p1') }}</p>
 				<p>{{ t('privacy_policy.data_processing.analytics.content.p2') }}</p>
 
-				<slot name="data_processing_analytics_end"></slot>
+				<PrivacyPolicyDataProcessings
+					category="analytics"
+					:items="settings.dataProcessings.analytics"
+				/>
 			</section>
 
 			<section
@@ -178,11 +179,29 @@ const copyText = () => {
 				id="process-maps"
 			>
 				<h3>{{ t('privacy_policy.data_processing.maps.title') }}</h3>
-				<slot name="data_processing_maps_start"></slot>
 				<p>{{ t('privacy_policy.data_processing.maps.content.p1') }}</p>
 				<p>{{ t('privacy_policy.data_processing.maps.content.p2') }}</p>
 				<p>{{ t('privacy_policy.data_processing.maps.content.p3') }}</p>
-				<slot name="data_processing_maps_end"></slot>
+
+				<PrivacyPolicyDataProcessings
+					category="maps"
+					:items="settings.dataProcessings.maps"
+				/>
+			</section>
+
+			<section
+				v-if="Object.entries(settings.dataProcessings.videos).length > 0"
+				id="process-videos"
+			>
+				<h3>{{ t('privacy_policy.data_processing.videos.title') }}</h3>
+				<p>{{ t('privacy_policy.data_processing.videos.content.p1') }}</p>
+				<p>{{ t('privacy_policy.data_processing.videos.content.p2') }}</p>
+				<p>{{ t('privacy_policy.data_processing.videos.content.p3') }}</p>
+
+				<PrivacyPolicyDataProcessings
+					category="videos"
+					:items="settings.dataProcessings.videos"
+				/>
 			</section>
 
 			<section
@@ -190,172 +209,58 @@ const copyText = () => {
 				id="process-emails"
 			>
 				<h3>{{ t('privacy_policy.data_processing.send_emails.title') }}</h3>
-				<slot name="data_processing_send_emails_start"></slot>
 				<p>{{ t('privacy_policy.data_processing.send_emails.content.p1') }}</p>
-				<slot name="data_processing_send_emails_end"></slot>
-			</section>
-		</section>
-		<!--template>
 
-			<section>
-				<h2>{{ t('privacy_policy.cookies.title') }}</h2>
-
-				<slot name="cookies_start"></slot>
-
-				<p
-					v-if="cookies === false"
-					v-html="t('privacy_policy.cookies.no_cookies_content.p1')"
+				<PrivacyPolicyDataProcessings
+					category="emails"
+					:items="settings.dataProcessings.emails"
 				/>
-				<template v-else>
-					<p>{{t('privacy_policy.cookies.content.p1') }} </p>
-					<p>{{t('privacy_policy.cookies.content.p2') }} </p>
-					<p>{{t('privacy_policy.cookies.content.p3') }} </p>
-					<section v-for="cookieType of cookieTypes" :key="cookieType">
-						<h3>{{ t('privacy_policy.cookies.' + cookieType + '.title') }}</h3>
-						<p>{{t('privacy_policy.cookies.' + cookieType + '.content.p1') }} </p>
-						<CookieDetails
-							v-for="(cookie, key) of cookies[cookieType]"
-							:key="key"
-							:cookie="cookie"
-							:t="t"
-							:processors="usedProcessors"
-							:type="cookieType"
-						/>
-					</section>
-				</template>
-
-				<slot name="cookies_end"></slot>
 			</section>
 
-			<section v-if="Object.entries(dataProcessing).length > 0">
-				<h2>{{ t('privacy_policy.data_processing.title') }}</h2>
+			<section
+				v-if="Object.entries(settings.dataProcessings.payment).length > 0"
+				id="process-payment"
+			>
+				<h3>{{ t('privacy_policy.data_processing.payment.title') }}</h3>
+				<p>{{ t('privacy_policy.data_processing.payment.content.p1') }}</p>
 
-				<slot name="data_processing_start"></slot>
-
-				<section v-if="dataProcessing.webhosting" id="process-webhosting">
-					<h3>{{ t('privacy_policy.data_processing.webhosting.title') }}</h3>
-
-					<slot name="data_processing_webhosting_start"></slot>
-
-					<p>{{t('privacy_policy.data_processing.webhosting.content.p1') }} </p>
-					<ul>
-						<li
-							v-html="t('privacy_policy.data_processing.webhosting.content.ul1.li1')"
-						/>
-						<li
-							v-html="t('privacy_policy.data_processing.webhosting.content.ul1.li2')"
-						/>
-						<li
-							v-html="t('privacy_policy.data_processing.webhosting.content.ul1.li3')"
-						/>
-						<li
-							v-html="t('privacy_policy.data_processing.webhosting.content.ul1.li4')"
-						/>
-					</ul>
-					<p>{{t('privacy_policy.data_processing.webhosting.content.p2') }} </p>
-
-					<slot name="data_processing_webhosting_end"></slot>
-				</section>
-
-				<section v-if="dataProcessing.analytics" id="process-analytics">
-					<h3>{{ t('privacy_policy.data_processing.analytics.title') }}</h3>
-
-					<slot name="data_processing_analytics_start"></slot>
-
-					<p>{{t('privacy_policy.data_processing.analytics.content.p1') }} </p>
-					<p>{{t('privacy_policy.data_processing.analytics.content.p2') }} </p>
-
-					<slot name="data_processing_analytics_end"></slot>
-				</section>
-
-				<section v-if="dataProcessing.maps" id="process-maps">
-					<h3>{{ t('privacy_policy.data_processing.maps.title') }}</h3>
-					<slot name="data_processing_maps_start"></slot>
-					<p>{{t('privacy_policy.data_processing.maps.content.p1') }} </p>
-					<p>{{t('privacy_policy.data_processing.maps.content.p2') }} </p>
-					<p>{{t('privacy_policy.data_processing.maps.content.p3') }} </p>
-					<slot name="data_processing_maps_end"></slot>
-				</section>
-
-				<section v-if="dataProcessing.send_emails" id="process-send_emails">
-					<h3>{{ t('privacy_policy.data_processing.send_emails.title') }}</h3>
-					<slot name="data_processing_send_emails_start"></slot>
-					<p>{{t('privacy_policy.data_processing.send_emails.content.p1') }} </p>
-					<slot name="data_processing_send_emails_end"></slot>
-				</section>
-
-				<slot name="data_processing_end"></slot>
+				<PrivacyPolicyDataProcessings
+					category="payment"
+					:items="settings.dataProcessings.payment"
+				/>
 			</section>
 
-			<section>
-				<h2>{{ t('privacy_policy.outgoing_links.title') }}</h2>
-				<slot name="outgoing_links_start"></slot>
-				<p>{{t('privacy_policy.outgoing_links.content.p1') }} </p>
-				<slot name="outgoing_links_end"></slot>
+			<section
+				v-if="Object.entries(settings.dataProcessings.advertising).length > 0"
+				id="process-advertising"
+			>
+				<h3>{{ t('privacy_policy.data_processing.advertising.title') }}</h3>
+				<p>{{ t('privacy_policy.data_processing.advertising.content.p1') }}</p>
+
+				<PrivacyPolicyDataProcessings
+					category="advertising"
+					:items="settings.dataProcessings.advertising"
+				/>
 			</section>
 
-			<section>
-				<h2>{{ t('privacy_policy.processor_list') }}</h2>
+			<section
+				v-if="Object.entries(settings.dataProcessings.booking).length > 0"
+				id="process-booking"
+			>
+				<h3>{{ t('privacy_policy.data_processing.booking.title') }}</h3>
+				<p>{{ t('privacy_policy.data_processing.booking.content.p1') }}</p>
 
-				<slot name="processor_list_start"></slot>
-
-				<section
-					v-for="(processor, key) in usedProcessors"
-					:id="'processor-' + key"
-					:key="key"
-				>
-					<h3>{{ processor.name }}</h3>
-					<dl>
-						<dt>{{ t('privacy_policy.address') }}</dt>
-						<dd>
-							{{ processor.address }}
-						</dd>
-
-						<dt>{{ t('privacy_policy.data_purpose.title') }}</dt>
-						<dd>
-							<div v-for="(purpose, key) in processor.purposes" :key="key">
-								<a :href="'#process-' + purpose">{{
-									t('privacy_policy.data_purpose.' + purpose)
-								}}</a>
-							</div>
-						</dd>
-
-						<dt>{{ t('privacy_policy.data_category.title') }}</dt>
-						<dd>
-							<span v-for="(category, key) in processor.data_categories" :key="key">
-								<template v-if="key > 0 && key < processor.data_categories.length"
-									>,
-								</template>
-								{{ t('privacy_policy.data_category.' + category) }}
-							</span>
-						</dd>
-
-						<dt>{{ t('privacy_policy.privacy_policy') }}</dt>
-						<dd>
-							<a
-								:href="processor.privacy_policy"
-								target="_blank"
-								rel="noopener nofollower"
-								>{{ processor.privacy_policy }}</a
-							>
-						</dd>
-
-						<template v-if="processor.privacy_shield">
-							<dt>Privacy Shield</dt>
-							<dd>
-								<a
-									:href="processor.privacy_shield"
-									target="_blank"
-									rel="noopener nofollower"
-									>{{ processor.privacy_shield }}</a
-								>
-							</dd>
-						</template>
-					</dl>
-				</section>
-
-				<slot name="processor_list_end"></slot>
+				<PrivacyPolicyDataProcessings
+					category="booking"
+					:items="settings.dataProcessings.booking"
+				/>
 			</section>
-		</template-->
+
+		</section>		
+
+		<section>
+			<h2>{{ t('privacy_policy.outgoing_links.title') }}</h2>
+			<p>{{t('privacy_policy.outgoing_links.content.p1') }} </p>
+		</section>
 	</section>
 </template>

@@ -130,10 +130,6 @@
 
 			ul {
 				@apply mt-1;
-
-				li + li {
-					@apply mt-0;
-				}
 			}
 		}
 	}

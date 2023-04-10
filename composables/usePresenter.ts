@@ -1,5 +1,7 @@
 export const usePresenter = () => {
 	const { t } = useI18n()
+	const durationOptions = useDurationOptions()
+	const { humanizeMinutes } = useHumanizedDuration()
 	const processorName = (processor: Processor) => {
 		return processor.name + ', ' + processor.country
 	}
@@ -31,5 +33,17 @@ export const usePresenter = () => {
 			)
 			.join(', ')
 
-	return { processorName, processTitle, stringLimit, dataCategories }
+	const humanizedDuration = (duration: number) => {
+		const presetOption = Object.keys(durationOptions).find(
+			(key) => durationOptions[key] === duration
+		)
+		if (presetOption) {
+			return t(
+				`settings.data_processings.fields.browser_store.duration.options.${presetOption}.title`
+			)
+		}
+		return humanizeMinutes(duration)
+	}
+
+	return { processorName, processTitle, stringLimit, dataCategories, humanizedDuration }
 }

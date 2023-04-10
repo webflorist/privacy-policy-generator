@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
-
 const { y } = useWindowScroll()
 
 const getStyle = (ratio: number): string => `transform:translateY(-${y.value * ratio}px)`
@@ -40,7 +38,7 @@ const getStyle = (ratio: number): string => `transform:translateY(-${y.value * r
 
 	.flower-ornament {
 		@apply drop-shadow-lg;
-		
+
 		background-image: url('/flower-ornament.svg');
 		background-position-x: right;
 		background-size: 55vw;
