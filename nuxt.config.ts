@@ -62,6 +62,7 @@ export default defineNuxtConfig({
 		},
 		strategy: 'prefix',
 		langDir: 'locales',
+		defaultLocale: 'en',
 		vueI18n: {
 			globalInjection: true,
 			legacy: false,
