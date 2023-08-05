@@ -28,7 +28,7 @@ const copyText = () => {
 }
 </script>
 <template>
-	<v-card class="m-default sticky right-0 top-20 float-right">
+	<v-card class="m-default-sm sticky right-0 top-20 float-right">
 		<v-card-title>{{ $t('general.copy_to_clipboard') }}</v-card-title>
 		<v-card-text class="flex justify-evenly">
 			<v-btn @click="copyHtml()">{{ $t('general.copy_html') }}</v-btn>

@@ -1,19 +1,15 @@
-@import './_vuetify.css';
-@import './_typography.css';
-@import './_animations.css';
+@import url('./_vuetify.css');
+@import url('./_typography.css');
+@import url('./_animations.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-%text-primary-adaptive {
-	@apply text-primary-900 dark:text-primary-500;
-}
-
 @layer base {
 	html {
 		scroll-behavior: smooth;
-		@apply font-body;
+		@apply font-body overflow-x-hidden;
 	}
 
 	#app {
@@ -21,13 +17,8 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	a:not(.no-style, .v-btn) {
-		@extend %text-primary-adaptive;
-		@apply border-b border-dotted border-primary font-semibold text-primary no-underline;
-
-		&:hover {
-			@apply border-solid;
-		}
+	body {
+		@apply overflow-x-hidden;
 	}
 }
 
@@ -38,9 +29,8 @@
 }
 
 @layer utilities {
-
 	.container-padding {
-		@apply px-4;
+		@apply px-4 md:px-10;
 	}
 
 	.text-primary-adaptive {

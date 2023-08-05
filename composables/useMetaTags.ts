@@ -1,44 +1,12 @@
 export const useMetaTags = () => {
-	type GeoCoordinatesSchema = {
-		latitude: string
-		longitude: string
-	}
-	type PostalAddressSchema = {
-		addressCountry: string
-		addressLocality: string
-		postalCode: string
-		streetAddress: string
-	}
-	type OrganisationSchema = {
-		name: string
-		legalName: string
-		address: PostalAddressSchema
-		geo?: GeoCoordinatesSchema
-		image?: string
-		logo?: string
-		email?: string
-		telephone?: string
-		faxNumber?: string
-		sameAs?: string[]
-	}
-	type SiteMetaConfig = {
-		url: string
-		tag: string
-		authorTag: string
-		title?: string
-		description?: string
-		image?: string
-		organization?: OrganisationSchema
-	}
-
 	type BreadcrumbItem = {
 		title: string
 		path: string
 	}
 
 	type RouteMetaOptions = {
-		fullTitle?: string
 		title?: string
+		overrideTitleSchema?: boolean
 		description?: string
 		pageTranslationPath?: string
 		image?: string
@@ -48,19 +16,20 @@ export const useMetaTags = () => {
 
 	const routeMeta = computed<RouteMetaOptions>(() => route.meta)
 
-	const siteMeta: SiteMetaConfig = useRuntimeConfig().public.siteMeta
 	const route = useRoute()
-	const pageUrl = computed(() => siteMeta.url + route.path.replace(/\/$/, ''))
+	const { siteSettings } = useSiteSettings()
+	const { locale: currentLocale, locales: availableLocales, t, te } = useI18n()
+	const switchLocalePath = useSwitchLocalePath()
 
-	const { locale: currentLocale, t, te } = useI18n()
+	const pageUrl = computed(() => siteSettings.value.baseUrl + route.path.replace(/\/$/, ''))
 
 	const locale = computed(() => {
 		return currentLocale.value
 	})
 
 	const siteTitle = computed<string>(() => {
-		if (typeof siteMeta.title !== 'undefined') {
-			return siteMeta.title
+		if (typeof siteSettings.value.localeTitle[currentLocale.value] !== 'undefined') {
+			return siteSettings.value.localeTitle[currentLocale.value]
 		}
 		if (te('meta.site.title')) {
 			return t('meta.site.title')
@@ -69,30 +38,27 @@ export const useMetaTags = () => {
 	})
 
 	const pageTitle = computed<string>(() => {
-		if (typeof routeMeta.value.fullTitle !== 'undefined') {
-			return routeMeta.value.fullTitle
-		}
+		let title = null
 		if (typeof routeMeta.value.title !== 'undefined') {
-			return routeMeta.value.title + ' - ' + siteTitle.value
+			title = routeMeta.value.title
+		} else if (
+			typeof routeMeta.value.pageTranslationPath !== 'undefined' &&
+			te('meta.pages.' + routeMeta.value.pageTranslationPath + '.title')
+		) {
+			title = t('meta.pages.' + routeMeta.value.pageTranslationPath + '.fullTitle')
 		}
-		if (typeof routeMeta.value.pageTranslationPath !== 'undefined') {
-			if (te('meta.pages.' + routeMeta.value.pageTranslationPath + '.fullTitle')) {
-				return t('meta.pages.' + routeMeta.value.pageTranslationPath + '.fullTitle')
+		if (title !== null) {
+			if (routeMeta.value.overrideTitleSchema === true) {
+				return title
 			}
-			if (te('meta.pages.' + routeMeta.value.pageTranslationPath + '.title')) {
-				return (
-					t('meta.pages.' + routeMeta.value.pageTranslationPath + '.title') +
-					' - ' +
-					siteTitle.value
-				)
-			}
+			return title + ' - ' + siteTitle.value
 		}
 		return siteTitle.value
 	})
 
 	const siteDescription = computed<string>(() => {
-		if (typeof siteMeta.description !== 'undefined') {
-			return siteMeta.description
+		if (typeof siteSettings.value.localeDescription[currentLocale.value] !== 'undefined') {
+			return siteSettings.value.localeDescription[currentLocale.value]
 		}
 		if (te('meta.site.description')) {
 			return t('meta.site.description')
@@ -117,8 +83,8 @@ export const useMetaTags = () => {
 		if (typeof routeMeta.value.image !== 'undefined') {
 			return routeMeta.value.image
 		}
-		if ('image' in siteMeta) {
-			return siteMeta.image
+		if ('image' in siteSettings.value) {
+			return siteSettings.value.image
 		}
 		return null
 	})
@@ -134,8 +100,8 @@ export const useMetaTags = () => {
 					position: i + 1,
 					item: {
 						'@type': 'WebPage',
-						'@id': siteMeta.url + breadcrumbItem.path,
-						url: siteMeta.url + breadcrumbItem.path,
+						'@id': siteSettings.value.baseUrl + breadcrumbItem.path,
+						url: siteSettings.value.baseUrl + breadcrumbItem.path,
 						name: breadcrumbItem.title,
 					},
 				})
@@ -201,8 +167,8 @@ export const useMetaTags = () => {
 		tags.push(
 			...[
 				{ name: 'twitter:card', content: 'summary_large_image' },
-				{ property: 'twitter:site', content: siteMeta.tag },
-				{ property: 'twitter:creator', content: siteMeta.authorTag },
+				{ property: 'twitter:site', content: siteSettings.value.siteTag },
+				{ property: 'twitter:creator', content: siteSettings.value.authorTag },
 				{
 					key: 'twitter:url',
 					property: 'twitter:url',
@@ -241,6 +207,27 @@ export const useMetaTags = () => {
 		return tags
 	})
 
+	const linkTags = computed(() => {
+		const tags = []
+
+		// Canonical Tag
+		tags.push({
+			rel: 'canonical',
+			href: pageUrl,
+		})
+
+		// hreflang Tags
+		for (const localeInfo of availableLocales.value) {
+			tags.push({
+				rel: 'alternate',
+				hreflang: localeInfo.code,
+				href: siteSettings.value.baseUrl + switchLocalePath(localeInfo.code),
+			})
+		}
+
+		return tags
+	})
+
 	const schemaTags = computed(() => {
 		const tags = []
 
@@ -249,11 +236,11 @@ export const useMetaTags = () => {
 				{
 					key: 'SchemaWebSite',
 					type: 'application/ld+json',
-					innerHtml: JSON.stringify({
+					innerHTML: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'WebSite',
-						'@id': siteMeta.url + '/#website',
-						url: siteMeta.url,
+						'@id': siteSettings.value.baseUrl + '/#website',
+						url: siteSettings.value.baseUrl,
 						name: siteTitle.value,
 					}),
 				},
@@ -261,7 +248,7 @@ export const useMetaTags = () => {
 				{
 					key: 'SchemaWebPage',
 					type: 'application/ld+json',
-					innerHtml: JSON.stringify({
+					innerHTML: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'WebPage',
 						url: pageUrl.value,
@@ -285,7 +272,7 @@ export const useMetaTags = () => {
 			tags.push({
 				key: 'SchemaImageObject',
 				type: 'application/ld+json',
-				innerHtml: JSON.stringify({
+				innerHTML: JSON.stringify({
 					'@context': 'https://schema.org',
 					'@type': 'ImageObject',
 					'@id': pageUrl.value + '/#primaryimage',
@@ -294,41 +281,7 @@ export const useMetaTags = () => {
 			})
 		}
 
-		if (typeof siteMeta.organization !== 'undefined') {
-			tags.push({
-				key: 'SchemaOrganization',
-				type: 'application/ld+json',
-				innerHtml: JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'Organization',
-					name: siteMeta.organization.name,
-					legalName: siteMeta.organization.legalName,
-					address: {
-						'@type': 'PostalAddress',
-						addressCountry: siteMeta.organization.address.addressCountry,
-						addressLocality: siteMeta.organization.address.addressLocality,
-						postalCode: siteMeta.organization.address.postalCode,
-						streetAddress: siteMeta.organization.address.streetAddress,
-					},
-					...(typeof siteMeta.organization.geo !== 'undefined'
-						? {
-								geo: {
-									'@type': 'GeoCoordinates',
-									latitude: siteMeta.organization.geo.latitude,
-									longitude: siteMeta.organization.geo.longitude,
-								},
-						  }
-						: {}),
-					image: siteMeta.organization.image,
-					logo: siteMeta.organization.logo,
-					email: siteMeta.organization.email,
-					url: siteMeta.url,
-					telephone: siteMeta.organization.telephone,
-					faxNumber: siteMeta.organization.faxNumber,
-					sameAs: siteMeta.organization.sameAs,
-				}),
-			})
-		}
+		return tags
 	})
 
 	useHead({
@@ -337,12 +290,7 @@ export const useMetaTags = () => {
 			lang: currentLocale,
 		},
 		meta: metaTags,
-		link: [
-			{
-				rel: 'canonical',
-				href: pageUrl,
-			},
-		],
+		link: linkTags,
 		script: schemaTags,
 	})
 }

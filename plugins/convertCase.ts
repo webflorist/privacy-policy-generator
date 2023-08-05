@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-regex-literals */
 /*
 Nuxt 3 Plugin providing helpers to convert anything
 to kebap-case, snake_case, camelCase or PascalCase.

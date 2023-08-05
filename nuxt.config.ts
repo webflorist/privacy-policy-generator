@@ -3,13 +3,7 @@
 import vuetify from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
 	runtimeConfig: {
-		public: {
-			siteMeta: {
-				url: 'https://privacy-policy.web.florist',
-				tag: '@privacy-policy-generator',
-				authorTag: '@webflorist',
-			},
-		},
+		public: {},
 	},
 	build: {
 		transpile: ['vuetify'],
@@ -63,10 +57,9 @@ export default defineNuxtConfig({
 		strategy: 'prefix',
 		langDir: 'locales',
 		defaultLocale: 'en',
-		vueI18n: {
-			globalInjection: true,
-			legacy: false,
-			fallbackLocale: 'en',
+		lazy: true,
+		compilation: {
+			strictMessage: false,
 		},
 	},
 
@@ -78,10 +71,10 @@ export default defineNuxtConfig({
 	postcss: {
 		plugins: {
 			'postcss-import': {},
-			'postcss-extend': {},
 			'tailwindcss/nesting': {},
 			tailwindcss: {},
 			autoprefixer: {},
+			'postcss-extend': {},
 		},
 	},
 
@@ -145,6 +138,14 @@ export default defineNuxtConfig({
 					crossorigin: 'anonymous',
 				},
 			], */
+		},
+	},
+
+	// Nitro Config (See https://nitro.unjs.io/config)
+	nitro: {
+		prerender: {
+			failOnError: true,
+			crawlLinks: true,
 		},
 	},
 })

@@ -227,7 +227,7 @@ watch(hasErrors, (newHasErrors) => {
 	<template v-if="createNew && presetOptions.length > 0">
 		<h5>{{ $t('settings.data_processings.load_from_preset') }}</h5>
 		<FormSelectField
-			class="m-default"
+			class="m-default-sm"
 			:items="presetOptions"
 			:standalone="true"
 			:clearable="false"
@@ -235,7 +235,7 @@ watch(hasErrors, (newHasErrors) => {
 		>
 		</FormSelectField>
 	</template>
-	<div v-if="!createNew" class="m-default flex flex-row items-center justify-end gap-5">
+	<div v-if="!createNew" class="m-default-sm flex flex-row items-center justify-end gap-5">
 		<v-btn
 			v-if="settings.dataProcessings[category].length > 0 && processingKey !== 0"
 			append-icon="mdi-chevron-up"
@@ -261,13 +261,13 @@ watch(hasErrors, (newHasErrors) => {
 	</div>
 
 	<FormSwitch
-		class="m-default"
+		class="m-default-sm"
 		v-model="processingModel.required"
 		:label="$t('settings.data_processings.fields.required.title')"
 		name="required"
 	></FormSwitch>
 	<h5>{{ $t('settings.data_processings.fields.processor.title') }}</h5>
-	<div class="m-default">
+	<div class="m-default-sm">
 		<FormSelectField
 			autocomplete
 			:label="$t('settings.data_processings.fields.processor.load_from_preset')"
@@ -316,7 +316,7 @@ watch(hasErrors, (newHasErrors) => {
 	</h5>
 	<FormTextField
 		v-model="processingModel.service"
-		class="m-default"
+		class="m-default-sm"
 		:label="$t('settings.data_processings.fields.service.title')"
 		name="service"
 	/>
@@ -324,7 +324,7 @@ watch(hasErrors, (newHasErrors) => {
 	<h5>{{ $t('settings.data_processings.fields.data_categories.title') }}</h5>
 	<FormChipGroup
 		v-model="processingModel.dataCategories"
-		class="m-default"
+		class="m-default-sm"
 		name="dataCategories"
 		:label="$t('settings.data_processings.fields.data_categories.title')"
 		:items="dataCategoryOptions"
@@ -348,7 +348,7 @@ watch(hasErrors, (newHasErrors) => {
 				{{ $t('general.add') }}
 			</v-tab>
 		</v-tabs>
-		<v-card-text class="m-default">
+		<v-card-text class="m-default-sm">
 			<v-window v-model="activeBrowserStoreTab">
 				<v-window-item
 					v-for="(browserStoreEntry, key) in processingModel.browserStore"

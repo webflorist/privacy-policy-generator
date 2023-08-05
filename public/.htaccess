@@ -62,6 +62,13 @@
     ExpiresByType application/x-javascript              "access plus 1 year"
     ExpiresByType text/javascript                       "access plus 1 year"
 
+  # No caching for Nuxt payload files.
+    <Files _payload.js>
+        ExpiresByType application/javascript            "access plus 0 seconds"
+        ExpiresByType application/x-javascript          "access plus 0 seconds"
+        ExpiresByType text/javascript                   "access plus 0 seconds"
+    </Files>
+
   # Manifest files
     ExpiresByType application/manifest+json             "access plus 1 week"
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
@@ -151,9 +158,14 @@ Header append Vary User-Agent env=!dont-vary
 #Alternative caching using Apache's "mod_headers", if it's installed.
 #Caching of common files - ENABLED
 <IfModule mod_headers.c>
-<FilesMatch "\.(ico|pdf|flv|swf|js|mjs|css|gif|png|jpg|jpeg|txt|woff2|woff)$">
-Header set Cache-Control "max-age=31536000, public"
-</FilesMatch>
+	<FilesMatch "\.(ico|pdf|flv|swf|js|mjs|css|gif|png|jpg|jpeg|txt|woff2|woff)$">
+		Header set Cache-Control "max-age=31536000, public"
+	</FilesMatch>
+
+  # No caching for Nuxt payload files.
+    <Files _payload.js>
+		Header set Cache-Control "public, max-age=0"
+    </Files>
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -430,10 +442,20 @@ Header always set Permissions-Policy "geolocation=(), midi=(),sync-xhr=(),accele
 	RewriteCond %{REQUEST_FILENAME}/index.html -f
 	# And there is no trailing slash show the index.html. 
 	RewriteRule [^/]$ %{REQUEST_URI}/index.html [L]
+	
+	# If it's a request to a directory with a trailing slash.
+	RewriteCond %{REQUEST_FILENAME}/ -d
+	# And a HTML file exists.
+	RewriteCond %{REQUEST_FILENAME}/index.html -f
+	# Redirect to the URL without the trailing slash.
+	RewriteRule ^(.*)\/(\?.*)?$ https://%{HTTP_HOST}/$1$2 [R=301,L]
 
 	RewriteCond %{THE_REQUEST} ^.*/index\.php 
 	RewriteRule ^(.*)index.php$ /$1 [R=301,L] 
 
 </IfModule>
 
-ErrorDocument 404 /
+# Set 200.html als fallback to handle all non-found urls.
+# This handles e.g. CMS pages, that are not yet generated,
+# or do not exist.
+ErrorDocument 404 /200.html

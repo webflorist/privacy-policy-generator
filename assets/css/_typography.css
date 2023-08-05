@@ -1,5 +1,6 @@
 @layer components {
-	main {
+	main,
+	.typography {
 		/*
 		Margin between elements
 		-----------------------
@@ -27,7 +28,13 @@
 		.h5,
 		h6,
 		.h6,
-		.m-default {
+		.m-default-lg,
+		.m-default-sm {
+			& + section,
+			& + .m-default-lg {
+				@apply mt-6;
+			}
+
 			& + p,
 			& + hr,
 			& + ul,
@@ -36,30 +43,64 @@
 			& + table,
 			& + address,
 			& + blockquote,
-			& + section,
-			& + .m-default {
-				@apply mt-6;
+			& + .m-default-sm {
+				@apply mt-4;
 			}
 
 			& + h1:not(.h2, .h3, .h4, .h5, .h6),
 			& + .h1,
 			& + h2:not(.h1, .h3, .h4, .h5, .h6),
 			& + .h2 {
-				@apply mt-12;
+				@apply mt-12 md:mt-24 xl:mt-48;
 			}
 
 			& + h3:not(.h1, .h2, .h4, .h5, .h6),
 			& + .h3,
 			& + h4:not(.h1, .h2, .h3, .h5, .h6),
 			& + .h4 {
-				@apply mt-8;
+				@apply mt-8 md:mt-16 xl:mt-32;
 			}
 
 			& + h5:not(.h1, .h2, .h3, .h4, .h6),
 			& + .h5,
 			& + h6:not(.h1, .h2, .h3, .h4, .h5),
 			& + .h4 {
-				@apply mt-6;
+				@apply mt-6 md:mt-12 xl:mt-24;
+			}
+		}
+
+		/* Special case for heading following other headings */
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			& + h1:not(.h2, .h3, .h4, .h5, .h6),
+			& + .h1,
+			& + h2:not(.h1, .h3, .h4, .h5, .h6),
+			& + .h2 {
+				@apply mt-4 md:mt-8 xl:mt-16;
+			}
+
+			& + h3:not(.h1, .h2, .h4, .h5, .h6),
+			& + .h3,
+			& + h4:not(.h1, .h2, .h3, .h5, .h6),
+			& + .h4 {
+				@apply mt-2 md:mt-4 xl:mt-8;
+			}
+
+			& + h5:not(.h1, .h2, .h3, .h4, .h6),
+			& + .h5,
+			& + h6:not(.h1, .h2, .h3, .h4, .h5),
+			& + .h4 {
+				@apply mt-1 md:mt-2 xl:mt-4;
 			}
 		}
 
@@ -95,7 +136,7 @@
 
 		h5:not(.h1, .h2, .h3, .h4, .h6),
 		.h5 {
-			@apply text-base sm:text-lg font-display;
+			@apply text-base font-bold sm:text-lg font-display;
 		}
 
 		h6:not(.h1, .h2, .h3, .h4, .h5),
@@ -104,10 +145,19 @@
 		}
 
 		/*
+			Styling of Links
+			----------------
+			*/
+		a:not(.unstyled, [class*='btn-']) {
+			@extend %text-primary-adaptive;
+			@apply border-b border-dotted border-primary font-semibold text-primary no-underline hover:border-solid;
+		}
+
+		/*
 		Styling of Lists
 		----------------
 		*/
-		dl {
+		dl:not(.unstyled) {
 			@apply mt-2 grid-cols-2 gap-y-1 gap-x-5 px-5 sm:inline-grid;
 
 			grid-template-columns: auto auto;
@@ -121,16 +171,45 @@
 			}
 		}
 
-		ul {
-			@apply list-disc pl-10;
+		ul:not(.unstyled) {
+			@apply pl-10;
+
+			list-style: none;
+
+			li::before {
+				/* 
+				Disc:   '\2022'
+				Square: '\25AA'
+				*/
+				content: '\2022';
+
+				@apply text-primary-dark text-lg absolute inline-block -ml-5;
+			}
 
 			li + li {
-				@apply mt-2;
+				@apply mt-3;
 			}
 
 			ul {
 				@apply mt-1;
 			}
+		}
+
+		/*
+		Styling of Forms
+		----------------
+		*/
+		select {
+			@apply rounded-md py-2 pl-3 pr-10 text-base ring-1 focus:ring-2 focus:outline-none focus:ring-primary-dark sm:text-sm;
+
+			appearance: none;
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+			background-position: right 0.5rem center;
+			background-repeat: no-repeat;
+			background-size: 1.5em 1.5em;
+			padding-right: 2.5rem;
+			-webkit-print-color-adjust: exact;
+			color-adjust: exact;
 		}
 	}
 }

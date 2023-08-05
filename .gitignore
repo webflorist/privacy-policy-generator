@@ -5,4 +5,9 @@ node_modules
 .cache
 .output
 .env
+.vite
 dist
+
+# cypress testing folders
+cypress/screenshots
+cypress/videos

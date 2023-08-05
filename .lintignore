@@ -3,7 +3,14 @@ node_modules
 .nuxt
 .nitro
 .cache
+cache
 .output
 .env
 dist
+.vite
 public
+.npm
+
+# cypress testing folders
+cypress/screenshots
+cypress/videos

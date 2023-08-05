@@ -46,7 +46,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 						<p>{{ $t('intro.p1') }}</p>
 						<a
 							:href="cc0Link"
-							class="m-default no-style mx-auto block w-40"
+							class="m-default-sm unstyled mx-auto block w-40"
 							target="_blank"
 						>
 							<SvgCC0PublicDomain :alt="$t('images.cc0_icon.alt')" />

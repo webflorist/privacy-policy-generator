@@ -17,7 +17,7 @@ const themeIcon = computed(() =>
 			<v-app-bar-nav-icon>
 				<NuxtLink
 					:to="'/' + currentLocale"
-					class="no-style"
+					class="unstyled"
 					:title="$t('general.back_to_home')"
 				>
 					<span class="sr-only">{{ $t('general.back_to_home') }}</span>

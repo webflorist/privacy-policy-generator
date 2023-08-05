@@ -22,19 +22,12 @@ module.exports = {
 		],
 		'declaration-block-trailing-semicolon': null,
 		'no-descending-specificity': null,
+		'media-query-no-invalid': null,
 	},
 	overrides: [
 		{
 			files: ['**/*.vue', '**/*.html'],
 			customSyntax: 'postcss-html',
-		},
-		{
-			files: ['**/*.scss'],
-			customSyntax: 'postcss-scss',
-			rules: {
-				'color-function-notation': 'legacy',
-				'alpha-value-notation': 'number',
-			},
 		},
 	],
 }
