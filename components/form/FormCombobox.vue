@@ -4,8 +4,7 @@ import { useField } from 'vee-validate'
 const props = defineProps({
 	name: {
 		type: String,
-		required: false,
-		default: undefined,
+		required: true,
 	},
 	label: {
 		type: String,
@@ -28,37 +27,25 @@ const props = defineProps({
 	},
 })
 
-const emit = defineEmits(['update:modelValue'])
-
-const {
-	value: inputValue,
-	handleBlur,
-	handleChange,
-	errors,
-} = useField(toRef(props, 'name'), undefined, {
+const { value, handleBlur, handleChange, errors } = useField(toRef(props, 'name'), undefined, {
 	label: props.label,
 	standalone: props.standalone,
-	initialValue: props.modelValue,
-	valueProp: props.modelValue,
+	syncVModel: true,
 })
-
-const onInput = (event) => {
-	handleChange(event, true)
-	emit('update:modelValue', event)
-}
 </script>
 
 <template>
 	<v-combobox
-		:model-value="inputValue"
+		:model-value="value"
 		:label="label"
 		:error-messages="errors"
+		hide-details="auto"
 		:clearable="clearable"
 		persistent-hint
 		:return-object="false"
 		@blur="handleBlur"
-		@input="onInput($event)"
-		@update:modelValue="onInput($event)"
+		@input="handleChange"
+		@update:modelValue="handleChange"
 	>
 		<template v-if="$slots.prepend" #prepend>
 			<slot name="prepend" />

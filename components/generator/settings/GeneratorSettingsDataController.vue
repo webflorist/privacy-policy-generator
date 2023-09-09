@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { defineRule } from 'vee-validate'
+import { useForm, defineRule } from 'vee-validate'
 const { t } = useI18n()
 const settings = useSettings()
 
@@ -8,7 +7,7 @@ const emit = defineEmits<{
 	(e: 'hasErrors', state: boolean): void
 }>()
 
-defineRule('name_or_org_required', (value, target, ctx) => {
+defineRule('name_or_org_required', (_value, _target, ctx) => {
 	if (ctx.form.name || ctx.form.organisation) {
 		return true
 	}

@@ -6,9 +6,9 @@ const usedProcessors = useUsedProcessors()
 const presets = useDataProcessingPresets()
 const dataCategories = useDataCategories()
 const presenter = usePresenter()
-const breakpoint = useBreakpoint()
 const countries = useCountries()
 const { t } = useI18n()
+const { formOptions } = usePresenter()
 
 const props = defineProps({
 	category: {
@@ -26,6 +26,7 @@ const emit = defineEmits<{
 	(e: 'hasErrors', state: boolean): void
 	(e: 'created', key: number): void
 	(e: 'sorted', key: number): void
+	(e: 'updated'): void
 }>()
 
 const blankProcessing: DataProcessing = {
@@ -37,6 +38,7 @@ const blankProcessing: DataProcessing = {
 		city: undefined,
 		country: undefined,
 		privacy_policy_url: undefined,
+		dpf_url: undefined,
 	},
 	required: false,
 	service: undefined,
@@ -139,18 +141,32 @@ const processorOptions = computed(() => {
 	return options
 })
 
-const dataCategoryOptions = computed(() => {
-	return dataCategories.map((dataCategory) => {
-		return {
-			title: t(
-				`settings.data_processings.fields.data_categories.options.${dataCategory}.title`
-			),
-			value: dataCategory,
-			hint: t(
-				`settings.data_processings.fields.data_categories.options.${dataCategory}.description`
-			),
-		}
-	})
+const dataCategoryOptions = computed(() =>
+	formOptions(dataCategories, 'settings.data_processings.fields.data_categories.options', true)
+)
+
+const purposesOptions = computed<DataProcessingPurpose>(() => {
+	switch (props.category) {
+		case 'webhosting':
+			return formOptions(
+				['documents', 'fonts', 'images', 'scripts', 'cdn', 'database'],
+				'settings.data_processings.fields.purposes.options',
+				true
+			)
+		case 'emails':
+			return formOptions(
+				[
+					'newsletter',
+					'transactional_mails',
+					'contact_form',
+					'application_form',
+					'registration_form',
+				],
+				'settings.data_processings.fields.purposes.options',
+				true
+			)
+	}
+	return []
 })
 
 const loadProcessFromPreset = (key: number) => {
@@ -200,6 +216,7 @@ const { errors } = useForm({
 		city: 'required',
 		country: 'required',
 		privacy_policy_url: 'required|url',
+		dpf_url: 'url',
 		dataCategories: 'required',
 	},
 	validateOnMount: true,
@@ -213,7 +230,7 @@ const hasErrors = computed(() => {
 	if (Object.keys(errors.value).length > 0) {
 		return true
 	}
-	if (Object.values(browserStoreErrors.value).some((item) => item === true)) {
+	if (Object.values(browserStoreErrors.value).includes(true)) {
 		return true
 	}
 	return false
@@ -231,6 +248,7 @@ watch(hasErrors, (newHasErrors) => {
 			:items="presetOptions"
 			:standalone="true"
 			:clearable="false"
+			name="loadProcessFromPreset"
 			@update:modelValue="loadProcessFromPreset($event)"
 		>
 		</FormSelectField>
@@ -261,8 +279,8 @@ watch(hasErrors, (newHasErrors) => {
 	</div>
 
 	<FormSwitch
-		class="m-default-sm"
 		v-model="processingModel.required"
+		class="m-default-sm"
 		:label="$t('settings.data_processings.fields.required.title')"
 		name="required"
 	></FormSwitch>
@@ -274,6 +292,7 @@ watch(hasErrors, (newHasErrors) => {
 			:items="processorOptions"
 			:standalone="true"
 			:clearable="false"
+			name="loadProcessorFromPreset"
 			@update:modelValue="loadProcessorFromPreset($event)"
 		>
 		</FormSelectField>
@@ -310,7 +329,21 @@ watch(hasErrors, (newHasErrors) => {
 			:label="$t('settings.data_processings.fields.processor.privacy_policy_url.title')"
 			name="privacy_policy_url"
 		/>
+		<FormTextField
+			v-model="processingModel.processor.dpf_url"
+			type="url"
+			:label="$t('settings.data_processings.fields.processor.dpf_url.title')"
+			name="dpf_url"
+			:hint="$t('settings.data_processings.fields.processor.dpf_url.description')"
+		>
+			<template #details>
+				<a href="https://www.dataprivacyframework.gov/s/participant-search" target="_blank">
+					{{ $t('settings.data_processings.fields.processor.dpf_url.to_search_page') }}
+				</a>
+			</template>
+		</FormTextField>
 	</div>
+
 	<h5>
 		{{ $t('settings.data_processings.fields.service.title') }} ({{ $t('general.optional') }})
 	</h5>
@@ -320,6 +353,22 @@ watch(hasErrors, (newHasErrors) => {
 		:label="$t('settings.data_processings.fields.service.title')"
 		name="service"
 	/>
+
+	<template v-if="purposesOptions.length > 0">
+		<h5>
+			{{ $t('settings.data_processings.fields.purposes.title') }} ({{
+				$t('general.optional')
+			}})
+		</h5>
+		<FormChipGroup
+			v-model="processingModel.purposes"
+			class="m-default-sm"
+			name="purposes"
+			:label="$t('settings.data_processings.fields.purposes.title')"
+			:items="purposesOptions"
+			multiple
+		></FormChipGroup>
+	</template>
 
 	<h5>{{ $t('settings.data_processings.fields.data_categories.title') }}</h5>
 	<FormChipGroup
@@ -344,7 +393,7 @@ watch(hasErrors, (newHasErrors) => {
 					$t('settings.data_processings.fields.browser_store.new_browser_store')
 				}}</template>
 			</v-tab>
-			<v-tab :value="9999" @click="addBrowserStore()" prepend-icon="mdi-plus">
+			<v-tab :value="9999" prepend-icon="mdi-plus" @click="addBrowserStore()">
 				{{ $t('general.add') }}
 			</v-tab>
 		</v-tabs>
@@ -378,15 +427,16 @@ watch(hasErrors, (newHasErrors) => {
 	</v-card>
 
 	<v-btn
-		v-if="createNew"
 		:disabled="hasErrors"
 		class="mt-8"
-		:color="hasErrors ? 'error' : 'secondary'"
+		:color="hasErrors ? 'error' : 'primary'"
 		block
 		:append-icon="hasErrors ? 'mdi-alert' : ''"
-		@click="addProcessing()"
+		@click="createNew ? addProcessing() : emit('updated')"
 	>
-		{{ $t('settings.data_processings.add') }}
+		{{
+			createNew ? $t('settings.data_processings.add') : $t('settings.data_processings.close')
+		}}
 	</v-btn>
 
 	<v-messages

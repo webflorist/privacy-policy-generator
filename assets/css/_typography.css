@@ -1,10 +1,11 @@
 @layer components {
-	main,
 	.typography {
 		/*
 		Margin between elements
 		-----------------------
-		Use class 'm-default'
+		Use classes
+		'm-default-sm' or
+		'm-default-lg'
 		for div's.
 		*/
 		p,
@@ -64,8 +65,8 @@
 			& + h5:not(.h1, .h2, .h3, .h4, .h6),
 			& + .h5,
 			& + h6:not(.h1, .h2, .h3, .h4, .h5),
-			& + .h4 {
-				@apply mt-6 md:mt-12 xl:mt-24;
+			& + .h6 {
+				@apply mt-6;
 			}
 		}
 

@@ -4,7 +4,7 @@
 }
 
 .v-tooltip .v-overlay__content {
-	background: rgba(var(--v-theme-surface-variant), 1) !important;
+	background: rgb(var(--v-theme-surface-variant) 1) !important;
 }
 
 .v-messages {
@@ -33,4 +33,8 @@
 
 .v-card-title {
 	@apply mt-1 !important;
+}
+
+.v-tab {
+	@apply text-white !important;
 }

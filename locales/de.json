@@ -11,6 +11,7 @@
 		"back_to_home": "Zurück zur Startseite",
 		"close": "Schließen",
 		"copy_html": "HTML",
+		"copy_markdown": "Markdown",
 		"copy_successful": "Der Text wurde erfolgreich in die Zwischenablage kopiert.",
 		"copy_text": "Text",
 		"copy_to_clipboard": "In Zwischenablage kopieren",
@@ -39,7 +40,7 @@
 	},
 	"intro": {
 		"p1": "Auf dieser Seite können Sie eine Datenschutzerklärung für Ihre Webseite erstellen. Erstellung und Verwendung ist kostenlos und der Text unter der creative commons CC0 1.0 Lizenz als \"Public Domain\" freigegeben. Eine Namensnennung ist nicht erforderlich.",
-		"p2": "Dieser Text <i>sollte</i> DSGVO-konform sein.<br />Der Autor übernimmt allerdings <strong>keinerlei Verantwortung</strong> dafür."
+		"p2": "Der Autor übernimmt <strong>keinerlei Verantwortung oder Haftung</strong>. Beachten Sie, dass die DSGVO-Konformität dieser Datenschutzerklärung immer von den Gegebenheiten Ihrer Webseite abhängt. Es wird empfohlen, die erstellte Datenschutzerklärung von einem Rechtsanwalt überprüfen zu lassen."
 	},
 	"meta": {
 		"site": {
@@ -66,22 +67,36 @@
 			},
 			"title": "Verantwortliche Stelle"
 		},
-		"outgoing_links": {
-			"title": "Ausgehende Links",
-			"content": {
-				"p1": "Unsere Webseite beinhaltet Links zu anderen Webseiten, die nicht von uns betrieben werden. Wenn Sie auf einen solchen ausgehenden Link klicken, werden Sie zu dieser Webseite weitergeleitet. Wir haben keinerlei Einfluss auf diese Webseiten und ihren Datenschutz und \u00fcbernehmen deshalb keine Verantwortung in Bezug auf deren Inhalt und Verhalten. Weitere Details finden Sie in den Datenschutzerkl\u00e4rungen dieser Seiten."
-			}
-		},
 		"data_processing": {
+			"advertising": {
+				"content": {
+					"p1": "Wir binden auf unserer Seite Inhalte zu Werbe- und Marketing-Zwecken ein. Dabei werden Daten an den Anbieter des jeweiligen Dienstes gesendet.",
+					"p2": "Bitte beachten Sie, dass hierbei keinerlei Daten zu transferiert werden, sofern Sie nicht explizit im Datenschutzhinweis zustimmen, der bei Ihrem ersten Besuch der Seite erscheint. Diese Art der Zustimmung wird auch \"OPT-IN\" genannt. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+				},
+				"title": "Werbung"
+			},
 			"analytics": {
 				"content": {
-					"p1": "Wenn Sie die Datenverarbeitungen der Kategorie Web-Analyse im Datenschutzhinweis akzeptieren, werden statistische Daten über die Verwendung der Webseite gesammelt, um z.B. die Benutzerführung unserer Seite zu verbessern. Sämtliche gesammelten Daten werden pseudonymisiert (durch Löschen eines Teils Ihrer IP-Adresse). Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern durchgeführt. Die Daten bleiben für die Dauer von 26 Monaten gespeichert.",
+					"p1": "Wenn Sie die Datenverarbeitungen der Kategorie Web-Analyse im Datenschutzhinweis akzeptieren, werden statistische Daten über die Verwendung der Webseite gesammelt, um z.B. die Benutzerführung unserer Seite zu verbessern. Sämtliche gesammelten Daten werden pseudonymisiert (durch Löschen eines Teils Ihrer IP-Adresse). Die Daten bleiben für die Dauer von 26 Monaten gespeichert.",
 					"p2": "Bitte beachten Sie, dass hierbei keinerlei Daten zu transferiert werden, sofern Sie nicht explizit im Datenschutzhinweis zustimmen, der bei Ihrem ersten Besuch der Seite erscheint. Diese Art der Zustimmung wird auch \"OPT-IN\" genannt. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
 				},
 				"title": "Web-Analyse"
 			},
+			"booking": {
+				"content": {
+					"p1": "Sie können auf unserer Webseite bestimmte Buchungen, Reservierungen, oder Terminvereinbarungen vornehmen. Hierzu nutzen wir externe Dienstleister, zu denen Daten übertragen und von diesen weiterverarbeitet werden. Wir weisen Sie bei der Nutzung dieser Dienste explizit darauf hin und fordern Ihre Zustimmung ein.",
+					"p2": "Bitte beachten Sie, dass erst Daten transferiert werden, wenn Sie einen dieser Dienste nutzen. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a oder 1b) der DSGVO."
+				},
+				"title": "Buchungen"
+			},
+			"content": {
+				"p1": "Beim Besuch unserer Webseite und der Nutzung der damit angebotenen Funktionalitäten und Dienstleistungen werden verschiedenste Daten von Ihnen an uns und unsere Auftragsverarbeiter übermittelt. Gewisse Datenverarbeitungen sind für die technische Basisfunktionalität der Webseite, oder die Erfüllung von vertraglichen oder vorvertraglichen Maßnahmen notwendig und werden somit ohne ihre weitere Zustimmung durchgeführt. Andere Datenverarbeitungen kommen erst zustande, wenn Sie bestimmte Funkionen der Webseite nutzen. In diesen Fällen weisen wir Sie explizit auf die Datenverarbeitung hin oder fordern Ihre explizite Zustimmung ein.",
+				"p2": "Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern durchgeführt. In jedem Fall führen wir keine Datenverarbeitungen ohne rechtmäßigem Grund durch. Alle Datenverarbeitungen geschehen somit in Übereinstimmung mit Artikel 6 der DSGVO.",
+				"p3": "Die die Weitergabe und Verarbeitung Ihrer Daten kann dabei auch außerhalb der Europäischen Union (EU) oder des Europäischen Wirtschaftsraums (EWR) stattfinden. In diesem Fall stellen wir sicher, dass die Weitergabe und Verarbeitung Ihrer Daten nur in Ländern mit einem angemessenen Datenschutzniveau stattfindet. Insbesonders bei US-Unternehmen stellen wir sicher, dass diese die Anforderungen des EU-U.S. Data Privacy Frameworks erfüllen.",
+				"p4": "Nachfolgend finden Sie alle mit unserer Webseite verbundenen Datenverarbeitungen inkl. einer genauen Bescheribung ihres Zwecks, den übertragenen Datenkategorien, den Daten der jeweiligen Auftragsverarbeiter sowie eventuell verwendeter Einträge im Browser-Speicher."
+			},
 			"items": {
-				"p1": "Nachfolgend finden Sie die in dieser Kategorie durchgeführten Datenverarbeitungen inkl. den Auftragsverarbeitern und ev. verwendeter Cookies:"
+				"p1": "Nachfolgend finden Sie die in dieser Kategorie durchgeführten Datenverarbeitungen inkl. den Auftragsverarbeitern und eventuell verwendeter Einträge im Browser-Speicher:"
 			},
 			"maps": {
 				"content": {
@@ -91,17 +106,33 @@
 				},
 				"title": "Interaktive Karten"
 			},
+			"payment": {
+				"content": {
+					"p1": "Sie können auf unserer Webseite Produkte kaufen. Dabei wird die Zahlung über einen Zahlungsanbieder abgewickelt, wobei sämtliche für die Zahlung erforderlichen Daten an diesen übermittelt werden.",
+					"p2": "Bitte beachten Sie, dass erst Informationen an den Zahlungsanbieter übermittelt, wenn Sie die Zahlungs initiieren. Die Datenverarbeitung isr für die Erfüllung des Kaufvertrages erforderlich und geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+				},
+				"title": "Zahlungsabwicklung"
+			},
 			"send_emails": {
 				"content": {
-					"p1": "Unsere Webseite bietet Funktionalitäten zum Senden von E-Mails an Sie bzw an uns. Dabei werden sämtliche im E-Mail angegebenen Daten (wie z.B. Ihr Name, Ihre E-Mail-Adresse, etc) über die Mailserver der angeführten Diensteanbieter in die Ziel-Mailbox Mailbox zugestellt."
+					"p1": "Unsere Webseite bietet Funktionalitäten zum Senden von E-Mails an Sie bzw an uns. Dabei werden sämtliche im E-Mail angegebenen Daten (wie z.B. Ihr Name, Ihre E-Mail-Adresse, etc) an die jeweiligen Auftragsverarbeiter übertragen und über deren Mailserver in die Ziel-Mailbox Mailbox zugestellt.",
+					"p2": "Wir versenden E-Mails nur nach ihrer explizien Zustimmung oder bei vertraglicher oder vorvertraglicher Notwendigkeit. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 der DSGVO."
 				},
 				"title": "E-Mail-Versand"
 			},
 			"title": "Sammlung und Verwendung von Daten",
+			"videos": {
+				"content": {
+					"p1": "Unsere Webseite bindet auf Anforderung Videos ein, welche von externen Auftragsverarbeitern zur Verfügung gestellt werden. Dabei werden Daten an den Anbieter des jeweiligen Dienstes übertragen.",
+					"p2": "Die Vidoes werden erst eingeblendet, wenn Sie der damit verbundenen Datenverarbeitung zustimmen. Dabei werden auch persönliche Daten (wie Nutzungsdaten oder Online Identifikatoren) an den Auftragsverarbeiter gesendet und eventuell Daten im Speicher Ihres Browsers hinterlegt.",
+					"p3": "Bitte beachten Sie, dass keinerlei Daten transferiert werden, sofern Sie nicht explizit der Datenverarbeitung zum Zweck der Anzeige von Videos zustimmen. Diese Art der Zustimmung wird auch \"OPT-IN\" genannt. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+				},
+				"title": "Videos"
+			},
 			"webhosting": {
 				"content": {
 					"p1": "Beim Besuch einer Webseite sendet Ihr Web-Browser automatisch Information zum Server und der Infrastruktur, auf dem diese betrieben wird, um die Webseite sowie damit verbundene Ressourcen (wie z.B. Bilder oder Schriftarten) herunterzuladen. Dabei können folgende Arten von Daten übertragen werden:",
-					"p2": "Diese Daten werden automatisch übertragen und geloggt, um die Erreichbarkeit, Funktionalität, Sicherheit und Stabilität unserer Webseite zu gewährleisten. Die Daten bleiben gespeichert bis die Logdatei gelöscht wird. Die gesammelten Daten sind technisch notwendig für den Betrieb und die Wartung dieser Webseite und werden in keiner Weise verwendet, um Sie als Person zu identifizieren oder zu tracken. Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern durchgeführt. Sammlung und Verarbeitung dieser Daten erfolgt in Übereinstimmung mit Artikel 6 (1) der DSGVO.",
+					"p2": "Diese Daten werden automatisch übertragen und geloggt, um die Erreichbarkeit, Funktionalität, Sicherheit und Stabilität unserer Webseite zu gewährleisten. Die Daten bleiben gespeichert bis die Logdatei gelöscht wird. Die gesammelten Daten sind technisch notwendig für den Betrieb und die Wartung dieser Webseite und werden in keiner Weise verwendet, um Sie als Person zu identifizieren oder zu tracken. Sammlung und Verarbeitung dieser Daten erfolgt in Übereinstimmung mit Artikel 6 (1) der DSGVO.",
 					"ul1": {
 						"li1": "IP (Internet Protocol) Adresse Ihres Endgerätes,",
 						"li2": "Zeit, Datum und Dauer Ihres Besuchs,",
@@ -152,6 +183,12 @@
 			"p1": "Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Auf dieser Seite informieren wir Sie über die Erfassung, Verarbeitung und Weitergabe persönlicher Informationen im Rahmen der verschiedenen Funktionen dieser Webseite. Sie finden hier auch Informationen über Ihre Rechte und wie sie geschützt sind.",
 			"p2": "Diese Webseite verarbeitet Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen - z.B. der Europäischen Datenschutzgrundverordnung (\"DSGVO\"). Alle gesammelten persönlichen Informationen dienen der Erbringung und Verbesserung unserer Dienstleistungen. Wir werden Ihre persönlichen Daten niemals anderweitig nutzen oder teilen, als in dieser Erklärung beschrieben. Wenn Sie unsere Dienstleistungen nutzen, stimmen Sie der Verarbeitung von Daten im Rahmen dieser Datenschutzerklärung zu. Dabei werden nur technisch notwendige Datenverarbeitungen ohne ihre vorab erteilte Zustimmung durchgeführt. Für alle anderen Datenverarbeitungen erfragen wir Ihre Zustimmung beim Nutzen der jeweiligen Funktion oder über den Datenschutzhinweis. Sie können Ihre Zustimmung jederzeit widerrufen."
 		},
+		"outgoing_links": {
+			"content": {
+				"p1": "Unsere Webseite beinhaltet Links zu anderen Webseiten, die nicht von uns betrieben werden. Wenn Sie auf einen solchen ausgehenden Link klicken, werden Sie zu dieser Webseite weitergeleitet. Wir haben keinerlei Einfluss auf diese Webseiten und ihren Datenschutz und übernehmen deshalb keine Verantwortung in Bezug auf deren Inhalt und Verhalten. Weitere Details finden Sie in den Datenschutzerklärungen dieser Seiten."
+			},
+			"title": "Ausgehende Links"
+		},
 		"security": {
 			"content": {
 				"p1": "Unsere Webseite nutzt viele technische Maßnahmen für die sichere Übertragung und Speicherung aller gesammelten Daten und um sie gegen Manipulation oder unbefugten Zugriff zu schützen. Jeglicher Datentransfer zwischen Ihrem Endgerät, dieser Webseite und weiterer Dienste findet (SSL-)verschlüsselt statt. Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol in Ihrer Adresszeile Ihres Browsers.",
@@ -195,7 +232,7 @@
 					"title": "Web-Analyse"
 				},
 				"booking": {
-					"description": "Buchung von Orten oder Diensten",
+					"description": "Buchung von Veranstaltungsorten, Diensleistungen oder Terminen",
 					"title": "Buchungen"
 				},
 				"emails": {
@@ -219,6 +256,7 @@
 					"title": "Webhosting"
 				}
 			},
+			"close": "Schließen",
 			"create": "Neue Datenverarbeitung erstellen",
 			"default_processors": "Vordefinierte Auftragsverarbeiter",
 			"fields": {
@@ -248,8 +286,14 @@
 							"24_hours": {
 								"title": "24 Stunden"
 							},
+							"2_weeks": {
+								"title": "2 Wochen"
+							},
 							"2_years": {
 								"title": "2 Jahre"
+							},
+							"30_years": {
+								"title": "30 Jahre"
 							},
 							"3_months": {
 								"title": "3 Monate"
@@ -259,6 +303,12 @@
 							},
 							"end_of_session": {
 								"title": "Bis zum Ende der Browser-Session"
+							},
+							"unknown": {
+								"title": "Unbekannt"
+							},
+							"unlimited": {
+								"title": "Unbegrenzt"
 							}
 						},
 						"title": "Gültigkeitsdauer"
@@ -325,32 +375,32 @@
 				"data_categories": {
 					"options": {
 						"geo": {
-							"description": "Geolocation data.",
-							"title": "Geolocation data"
+							"description": "Daten zur Ortsbestimmung (z.B. Geokoordinaten).",
+							"title": "Geopositioning"
 						},
 						"online": {
-							"description": "Like IP/MAC address, cookies, advertising IDs, pixel tags, device fingerprints.",
-							"title": "Online identifiers"
+							"description": "Wie IP/MAC Adresse, Cookies, Werbe-IDs, Pixel tags, Device Fingerprints.",
+							"title": "Online Identitikatoren"
 						},
 						"payment": {
-							"description": "Like credit card or bank account info.",
-							"title": "Payment data"
+							"description": "Wie z.B. Kreditkarten oder Bankkonto Informationen.",
+							"title": "Zahlungsdaten"
 						},
 						"personal": {
-							"description": "Like name, phone, e-mail, address.",
-							"title": "Personally identifiable data"
+							"description": "Wie z.B. Name, Adresse, Telefonnummer, E-Mail-Adresse.",
+							"title": "Persönlich identifizierbare Daten"
 						},
 						"pseudonymized": {
-							"description": "Personal information, that was anonymized (e.g. by hashing a IP-address), but can still be identified with additional information.",
-							"title": "Pseudonimyzed data"
+							"description": "Anonymisierte persönlich identifizierbare Daten (z.B. durch Hashing), welche durch Kombination mit anderen Daten identifizierbar werden können.",
+							"title": "Pseudonymisierte Daten"
 						},
 						"sensitive": {
-							"description": "Like sexual orientation, racial or ethnic origin, medical or financial information.",
-							"title": "Sensitive personal information"
+							"description": "Wie z.B. sexuelle Orientierung, ethnische Zugehörigkeit, medizinische oder finanzielle Informationen.",
+							"title": "Sensible persönliche Daten"
 						},
 						"usage": {
-							"description": "E.g. which, when and how long webpages were visited.",
-							"title": "Usage data"
+							"description": "Z.B. welche Webseiten wann und wie lange besucht wurden.",
+							"title": "Nutzungsdaten"
 						}
 					},
 					"title": "Verarbeitete Datenkategorien"
@@ -361,6 +411,11 @@
 					},
 					"country": {
 						"title": "Land"
+					},
+					"dpf_url": {
+						"description": "Link zum DPF Eintrag für U.S. Unternehmen",
+						"title": "Link zum EU-U.S. Data Privacy Framework Eintrag",
+						"to_search_page": "Zur DPF Teilnehmer-Suche"
 					},
 					"load_from_preset": "Auftragsverarbeiter aus vordefinierter Liste laden",
 					"name": {
@@ -376,6 +431,55 @@
 					"zip": {
 						"title": "PLZ"
 					}
+				},
+				"purposes": {
+					"options": {
+						"application_form": {
+							"description": "Für Bewerbungen verwendetes E-Mail Formular.",
+							"title": "Bewerbungsformular"
+						},
+						"cdn": {
+							"description": "Für schnelle Auslieferung diverser Seiteninhalte optimierte Server.",
+							"title": "Content Delivery Network (CDN)"
+						},
+						"contact_form": {
+							"description": "Für Kontaktaufnahme verwendetes E-Mail Formular.",
+							"title": "Kontaktformular"
+						},
+						"database": {
+							"description": "Für den Betrieb der Webseite benötigte Datenbank.",
+							"title": "Datenbank"
+						},
+						"documents": {
+							"description": "HTML Dokumente der Webseite.",
+							"title": "HTML-Dokumente"
+						},
+						"fonts": {
+							"description": "Schriftarten, die auf der Webseite Anwendung finden.",
+							"title": "Schriftarten"
+						},
+						"images": {
+							"description": "Auf der Webseite eingebundene Bilder.",
+							"title": "Bilder"
+						},
+						"newsletter": {
+							"description": "Zum Versenden von Marketing-Newslettern.",
+							"title": "Newsletter"
+						},
+						"registration_form": {
+							"description": "Für Anmeldungen verwendetes E-Mail Formular.",
+							"title": "Anmeldungsformular"
+						},
+						"scripts": {
+							"description": "Skripte, die für diverse Funktionalitäten der Webseite nötig sind.",
+							"title": "Skripte"
+						},
+						"transactional_mails": {
+							"description": "Zur Vertragserfüllung versendete Transaktions-Mails.",
+							"title": "Transaktions-E-Mails"
+						}
+					},
+					"title": "Zwecke"
 				},
 				"required": {
 					"title": "Diese Datenverarbeitung ist technisch notwendig für die Bereitstellung der Basisfunktionalitäten der Webseite."

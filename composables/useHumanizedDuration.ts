@@ -1,4 +1,4 @@
-import humanizeDuration, { HumanizerOptions } from 'humanize-duration'
+import humanizeDuration from 'humanize-duration'
 export const useHumanizedDuration = () => {
 	const { locale } = useI18n()
 

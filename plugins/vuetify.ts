@@ -61,7 +61,7 @@ const vuetify = createVuetify({
 			color: 'secondary',
 		},
 		VTextField: {
-			//variant: 'default'
+			// variant: 'default'
 		},
 		VTabs: {
 			bgColor: 'primary',

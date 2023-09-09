@@ -8,12 +8,14 @@ export const useDataProcessingPresets = () => {
 			required: true,
 			service: 'Cloudflare CDN',
 			dataCategories: ['online', 'usage'],
+			purposes: ['cdn'],
 		},
 		{
 			processor: defaultProcessors.find((processor) => processor.id === 'storyblok_gmbh_at'),
 			required: true,
 			service: 'Storyblok CMS',
 			dataCategories: ['online', 'usage'],
+			purposes: ['images'],
 		},
 	]
 
@@ -201,6 +203,7 @@ export const useDataProcessingPresets = () => {
 					name: 'CONSENT, __Secure-ENID, AEC, OGPC',
 					type: 'cookie',
 					writtenOn: 'service_usage',
+					duration: durationOptions['3_months'],
 					purpose: 'service',
 					thirdParty: true,
 				},
@@ -334,10 +337,18 @@ export const useDataProcessingPresets = () => {
 			dataCategories: ['personal'],
 		},
 		{
-			processor: defaultProcessors.find((processor) => processor.id === 'sendinblue_sas_fr'),
+			processor: defaultProcessors.find((processor) => processor.id === 'brevo_sas_fr'),
 			required: false,
 			service: 'Transactional Email',
 			dataCategories: ['personal'],
+			purposes: ['transactional_mails'],
+		},
+		{
+			processor: defaultProcessors.find((processor) => processor.id === 'brevo_sas_fr'),
+			required: false,
+			service: 'Marketing Platform',
+			dataCategories: ['personal'],
+			purposes: ['newsletter'],
 		},
 	]
 	const payment: DataProcessing[] = []

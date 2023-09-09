@@ -3,9 +3,19 @@ export {}
 declare global {
 	type Language = 'de' | 'en'
 
+	type LocaleString = Record<Language, string>
+
 	type GeneralSettings = {
 		language: Language
 	}
+
+	type FormOption = {
+		title: string
+		value: string
+		hint?: string
+	}
+
+	type FormOptions = FormOption[]
 
 	type DataController = {
 		organisation?: string
@@ -13,18 +23,6 @@ declare global {
 		address: string
 		email: string
 		phone: string
-	}
-
-	type Processor = {
-		id: string
-		name: string
-		street: string
-		zip: string
-		city: string
-		country: string
-		privacy_policy_url: string
-		processing_categories?: DataProcessingCategory[]
-		data_categories?: DataCategory[]
 	}
 
 	type DataCategory =
@@ -45,6 +43,19 @@ declare global {
 		| 'payment' // Processing of payment transactions
 		| 'advertising' // Display of targeted advertisements
 		| 'booking' // Booking of places or services
+
+	type Processor = {
+		id: string
+		name: string
+		street: string
+		zip: string
+		city: string
+		country: string
+		privacy_policy_url: string
+		dpf_url?: string
+		processing_categories?: DataProcessingCategory[]
+		data_categories?: DataCategory[]
+	}
 
 	type BrowserStoreType = 'cookie' | 'local_storage' | 'session_storage' | 'indexed_db'
 
@@ -70,11 +81,29 @@ declare global {
 		thirdParty: boolean // Is this entry set by a third-party service/domain?
 	}
 
+	type DataProcessingPurposeWebhosting =
+		| 'documents' // General webhosting
+		| 'fonts' // Fonts
+		| 'images' // Images
+		| 'scripts' // Scripts
+		| 'cdn' // CDN
+		| 'database' // Database
+
+	type DataProcessingPurposeEmails =
+		| 'newsletter' // Newsletter
+		| 'transactional_mails' // Transactional Mails
+		| 'contact_form' // Contact Forms
+		| 'application_form' // Application Forms
+		| 'registration_form' // Application Forms
+
+	type DataProcessingPurpose = DataProcessingPurposeWebhosting | DataProcessingPurposeEmails
+
 	type DataProcessing = {
 		processor: Processor // The processor
 		required: boolean // Is this processing is technically required for the website's basic functionality?
-		service: string // Name of the service (e.g. "Google Analytics")
+		service: string | LocaleString // Name of the service (e.g. "Google Analytics")
 		dataCategories: DataCategory[] // The processed data categories
+		purposes?: DataProcessingPurpose[] // Purposes of the data processing (depending on category)
 		browserStore?: BrowserStore[] // BrowserStore(s) associated with this data-processing
 	}
 

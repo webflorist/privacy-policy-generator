@@ -34,7 +34,12 @@ const themeIcon = computed(() =>
 				class="on-background"
 				:title="$t('general.goto_github')"
 			></v-btn>
-			<v-btn :icon="themeIcon" @click="toggleTheme" class="on-background" :title="$t('general.switch_theme')"></v-btn>
+			<v-btn
+				:icon="themeIcon"
+				class="on-background"
+				:title="$t('general.switch_theme')"
+				@click="toggleTheme"
+			></v-btn>
 			<v-divider vertical class="mx-3"></v-divider>
 			<v-btn-toggle mandatory divided class="relative z-0 inline-flex" color="primary">
 				<v-btn

@@ -14,7 +14,7 @@ export const useCountries = () => {
 		value: string
 	}
 
-	const getOptions = (locale: Locale = currentLocale.value) => {
+	const getOptions = (locale: Locale = currentLocale.value): CountryOption[] => {
 		const names = getNames(locale, { select: 'official' })
 		const countryList = []
 		for (const [code, country] of Object.entries(names)) {

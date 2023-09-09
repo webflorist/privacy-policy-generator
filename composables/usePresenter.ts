@@ -45,5 +45,33 @@ export const usePresenter = () => {
 		return humanizeMinutes(duration)
 	}
 
-	return { processorName, processTitle, stringLimit, dataCategories, humanizedDuration }
+	const formOptions = (
+		values: string[] | Record<string, string>,
+		translationPrefix: string,
+		includeHint: boolean = false
+	): FormOptions => {
+		const isObject = !Array.isArray(values)
+		const valueArray = isObject ? Object.keys(durationOptions) : values
+
+		return valueArray.map((value) => {
+			return {
+				title: t(`${translationPrefix}.${value}.title`),
+				value: isObject ? values[value] : value,
+				...(includeHint
+					? {
+							hint: t(`${translationPrefix}.${value}.description`),
+					  }
+					: {}),
+			}
+		})
+	}
+
+	return {
+		processorName,
+		processTitle,
+		stringLimit,
+		dataCategories,
+		humanizedDuration,
+		formOptions,
+	}
 }

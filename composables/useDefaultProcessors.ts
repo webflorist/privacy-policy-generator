@@ -1,5 +1,5 @@
 export const useDefaultProcessors = (): Processor[] => {
-	const processors = [
+	const processors: Processor[] = [
 		{
 			id: 'google_ireland_limited_ie',
 			name: 'Google Ireland Limited',
@@ -17,6 +17,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'Mountain View',
 			country: 'US',
 			privacy_policy_url: 'https://policies.google.com/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt000000001L5AAI&status=Active',
 		},
 		{
 			id: 'twilio_ireland_limited_ie',
@@ -35,6 +37,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'San Francisco',
 			country: 'US',
 			privacy_policy_url: 'https://www.twilio.com/legal/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000TNLbAAO&status=Active',
 		},
 		{
 			id: 'netlify_inc_us',
@@ -44,6 +48,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'San Francisco',
 			country: 'US',
 			privacy_policy_url: 'https://www.netlify.com/privacy/',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt00000008RhTAAU&status=Active',
 		},
 		{
 			id: 'stripe_inc_us',
@@ -53,6 +59,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'San Francisco',
 			country: 'US',
 			privacy_policy_url: 'https://stripe.com/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000TQOUAA4&status=Active',
 		},
 		{
 			id: 'storyblok_gmbh_at',
@@ -71,6 +79,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'Seattle',
 			country: 'US',
 			privacy_policy_url: 'https://aws.amazon.com/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000TOWQAA4&status=Active',
 		},
 		{
 			id: 'paypal_europe_sarl_et_cie_lu',
@@ -80,15 +90,6 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'Luxembourg',
 			country: 'LU',
 			privacy_policy_url: 'https://www.paypal.com/webapps/mpp/ua/privacy-full',
-		},
-		{
-			id: 'chargebee_inc_us',
-			name: 'Chargebee Inc.',
-			street: '340 S Lemon Avenue, #1537',
-			zip: 'CA 91789',
-			city: 'Walnut',
-			country: 'US',
-			privacy_policy_url: 'https://www.chargebee.com/privacy/',
 		},
 		{
 			id: 'domaintechnik_ledl_net_gmbh_at',
@@ -125,6 +126,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'San Francisco',
 			country: 'US',
 			privacy_policy_url: 'https://www.cloudflare.com/privacypolicy/',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000GnZKAA0&status=Active',
 		},
 		{
 			id: 'ud_media_gmbh_de',
@@ -136,13 +139,13 @@ export const useDefaultProcessors = (): Processor[] => {
 			privacy_policy_url: 'https://udmedia.de/service/datenschutz/',
 		},
 		{
-			id: 'sendinblue_sas_fr',
-			name: 'Sendinblue SAS',
-			street: '7 rue de Madrid',
+			id: 'brevo_sas_fr',
+			name: 'Brevo SAS',
+			street: '106 boulevard Haussmann',
 			zip: '75008',
 			city: 'Paris',
 			country: 'FR',
-			privacy_policy_url: 'https://www.sendinblue.com/legal/privacypolicy/',
+			privacy_policy_url: 'https://www.brevo.com/de/legal/privacypolicy/',
 		},
 		{
 			id: 'meta_platforms_inc_us',
@@ -152,6 +155,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'Menlo Park',
 			country: 'US',
 			privacy_policy_url: 'https://www.facebook.com/privacy/policy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000GnywAAC&status=Active',
 		},
 		{
 			id: 'tiktok_technology_limited_ie',
@@ -179,6 +184,8 @@ export const useDefaultProcessors = (): Processor[] => {
 			city: 'New York',
 			country: 'US',
 			privacy_policy_url: 'https://vimeo.com/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt00000008V77AAE&status=Active',
 		},
 	]
 	return processors.sort((a: Processor, b: Processor) => a.name.localeCompare(b.name))

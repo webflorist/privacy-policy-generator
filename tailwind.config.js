@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
@@ -81,6 +82,26 @@ module.exports = {
 				light: neutralColor[300],
 				dark: neutralColor[900],
 			},
+			success: {
+				DEFAULT: colors.green[700],
+				dark: colors.green[800],
+				light: colors.green[50],
+			},
+			error: {
+				DEFAULT: colors.red[700],
+				dark: colors.red[800],
+				light: colors.red[50],
+			},
+			warning: {
+				DEFAULT: colors.yellow[700],
+				dark: colors.yellow[800],
+				light: colors.yellow[50],
+			},
+			info: {
+				DEFAULT: colors.blue[700],
+				dark: colors.blue[800],
+				light: colors.blue[50],
+			},
 		},
 		extend: {
 			screens: {
@@ -95,5 +116,5 @@ module.exports = {
 	variants: {
 		extend: {},
 	},
-  safelist: [],
+	safelist: [],
 }

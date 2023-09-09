@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
 	items: {
 		type: Array as () => DataProcessing[],
 		required: true,
@@ -17,6 +17,7 @@ const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 </script>
 <template>
 	<p>{{ t('privacy_policy.data_processing.items.p1') }}</p>
+
 	<ul>
 		<li v-for="(process, key) of items" :key="key">
 			<h4>{{ present.processTitle(process, category) }}</h4>
@@ -25,63 +26,75 @@ const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 				{{ t('settings.data_processings.fields.required.title') }}
 			</p>
 
-			<dl>
-				<dt>
-					<h5>{{ t('settings.data_processings.fields.processor.title') }}</h5>
-				</dt>
-				<dd>
-					{{ process.processor.name }}<br />
-					{{ process.processor.street }}<br />
-					{{ process.processor.zip }}<br />
-					{{ process.processor.city }}<br />
-					{{ getCountryName(process.processor.country, locale) }}
-				</dd>
+			<h5>{{ t('settings.data_processings.fields.processor.title') }}</h5>
+			<p>
+				{{ process.processor.name }}<br />
+				{{ process.processor.street }}<br />
+				{{ process.processor.zip }} {{ process.processor.city }}<br />
+				{{ getCountryName(process.processor.country, locale) }}<br />
 
-				<dt>
-					<h5>
-						{{
-							t('settings.data_processings.fields.processor.privacy_policy_url.title')
-						}}
-					</h5>
-				</dt>
-				<dd>
-					<a :href="process.processor.privacy_policy_url" target="_blank">{{
-						process.processor.privacy_policy_url
+				<a :href="process.processor.privacy_policy_url" target="_blank">{{
+					t('settings.data_processings.fields.processor.privacy_policy_url.title')
+				}}</a>
+				<template v-if="process.processor.dpf_url">
+					<br />
+					<a :href="process.processor.dpf_url" target="_blank">{{
+						t('settings.data_processings.fields.processor.dpf_url.title')
 					}}</a>
-				</dd>
+				</template>
+			</p>
 
-				<dt>
-					<h5>
-						{{ t('settings.data_processings.fields.data_categories.title') }}
-					</h5>
-				</dt>
-				<dd>
-					<template v-for="dataCategory of process.dataCategories" :key="dataCategory">
+			<template v-if="process.purposes && process.purposes.length > 0">
+				<h5>
+					{{ t('settings.data_processings.fields.purposes.title') }}
+				</h5>
+				<ul>
+					<li v-for="purpose of process.purposes" :key="purpose">
+						<strong
+							>{{
+								t(
+									`settings.data_processings.fields.purposes.options.${purpose}.title`
+								)
+							}}:</strong
+						>
 						{{
+							t(
+								`settings.data_processings.fields.purposes.options.${purpose}.description`
+							)
+						}}<br />
+					</li>
+				</ul>
+			</template>
+
+			<h5>
+				{{ t('settings.data_processings.fields.data_categories.title') }}
+			</h5>
+
+			<ul>
+				<li v-for="dataCategory of process.dataCategories" :key="dataCategory">
+					<strong
+						>{{
 							t(
 								`settings.data_processings.fields.data_categories.options.${dataCategory}.title`
 							)
-						}}
-						({{
-							t(
-								`settings.data_processings.fields.data_categories.options.${dataCategory}.description`
-							)
-						}})<br />
-					</template>
-				</dd>
-				<template v-if="process.browserStore && process.browserStore.length > 0">
-					<dt>
-						<h5>
-							{{ t('settings.data_processings.fields.browser_store.title') }}
-						</h5>
-					</dt>
-					<dd>
-						<PrivacyPolicyDataProcessingBrowserStore
-							:browser-store-items="process.browserStore"
-						/>
-					</dd>
-				</template>
-			</dl>
+						}}:</strong
+					>
+					{{
+						t(
+							`settings.data_processings.fields.data_categories.options.${dataCategory}.description`
+						)
+					}}<br />
+				</li>
+			</ul>
+			<template v-if="process.browserStore && process.browserStore.length > 0">
+				<h5>
+					{{ t('settings.data_processings.fields.browser_store.title') }}
+				</h5>
+
+				<PrivacyPolicyDataProcessingBrowserStore
+					:browser-store-items="process.browserStore"
+				/>
+			</template>
 		</li>
 	</ul>
 </template>

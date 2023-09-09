@@ -2,18 +2,18 @@
 	.animation-cowmove {
 		transition: 0.5s;
 		animation: cowmove 5s infinite;
-      animation-direction: alternate;
+		animation-direction: alternate;
 	}
 
 	@keyframes cowmove {
 		0% {
 			transform: rotate(0deg);
 		}
-      
+
 		75% {
 			transform: rotate(10deg);
 		}
-      
+
 		100% {
 			transform: rotate(10deg);
 		}

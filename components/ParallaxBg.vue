@@ -13,7 +13,7 @@ const getStyle = (ratio: number): string => `transform:translateY(-${y.value * r
 .parallax-bg {
 	@apply absolute bottom-0 left-0 right-0 top-0 overflow-hidden;
 
-	box-shadow: inset 0 -20px 30px 0px rgb(0 0 0 / 30%);
+	box-shadow: inset 0 -20px 30px 0 rgb(0 0 0 / 30%);
 	clip-path: inset(0 0 0 0);
 
 	div {
@@ -28,7 +28,6 @@ const getStyle = (ratio: number): string => `transform:translateY(-${y.value * r
 
 	.background {
 		background-image: url('/background.png');
-
 		background-size: 1000px;
 
 		@screen lg {

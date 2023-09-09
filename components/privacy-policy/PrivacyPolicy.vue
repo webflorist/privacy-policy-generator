@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as prettify from 'pretty'
+import TurndownService from 'turndown'
 
 const settings = useSettings()
 const locale = computed(() => settings.value.general.language)
@@ -11,28 +12,42 @@ const usesBrowserStore = computed(() =>
 	)
 )
 
+const turndownService = new TurndownService({
+	headingStyle: 'atx',
+})
+
 const privacyPolicy = ref()
 const showCopyMessage = ref(false)
-const copyHtml = () => {
+
+const getPrettyHtml = () => {
 	let html: string = privacyPolicy.value.innerHTML
 	html = html.replaceAll('<!---->', '')
 	html = html.replaceAll('<!--v-if-->', '')
-	html = prettify(html)
+	return prettify(html)
+}
+const copyHtml = () => {
+	const html: string = getPrettyHtml()
 	navigator.clipboard.writeText(html)
 	showCopyMessage.value = true
 }
 const copyText = () => {
-	let text: string = privacyPolicy.value.innerText
+	const text: string = privacyPolicy.value.innerText
 	navigator.clipboard.writeText(text)
+	showCopyMessage.value = true
+}
+const copyMarkdown = () => {
+	const markdown: string = turndownService.turndown(getPrettyHtml())
+	navigator.clipboard.writeText(markdown)
 	showCopyMessage.value = true
 }
 </script>
 <template>
 	<v-card class="m-default-sm sticky right-0 top-20 float-right">
-		<v-card-title>{{ $t('general.copy_to_clipboard') }}</v-card-title>
-		<v-card-text class="flex justify-evenly">
+		<v-card-title class="text-center">{{ $t('general.copy_to_clipboard') }}</v-card-title>
+		<v-card-text class="flex justify-evenly gap-3">
 			<v-btn @click="copyHtml()">{{ $t('general.copy_html') }}</v-btn>
 			<v-btn @click="copyText()">{{ $t('general.copy_text') }}</v-btn>
+			<v-btn @click="copyMarkdown()">{{ $t('general.copy_markdown') }}</v-btn>
 			<v-snackbar v-model="showCopyMessage" color="primary" timeout="2000" location="top">
 				{{ $t('general.copy_successful') }}
 				<template #actions>
@@ -132,6 +147,9 @@ const copyText = () => {
 		<section>
 			<h2>{{ t('privacy_policy.data_processing.title') }}</h2>
 
+			<p>{{ t('privacy_policy.data_processing.content.p1') }}</p>
+			<p>{{ t('privacy_policy.data_processing.content.p2') }}</p>
+			<p>{{ t('privacy_policy.data_processing.content.p3') }}</p>
 			<section
 				v-if="Object.entries(settings.dataProcessings.webhosting).length > 0"
 				id="process-webhosting"
@@ -210,6 +228,7 @@ const copyText = () => {
 			>
 				<h3>{{ t('privacy_policy.data_processing.send_emails.title') }}</h3>
 				<p>{{ t('privacy_policy.data_processing.send_emails.content.p1') }}</p>
+				<p>{{ t('privacy_policy.data_processing.send_emails.content.p2') }}</p>
 
 				<PrivacyPolicyDataProcessings
 					category="emails"
@@ -223,6 +242,7 @@ const copyText = () => {
 			>
 				<h3>{{ t('privacy_policy.data_processing.payment.title') }}</h3>
 				<p>{{ t('privacy_policy.data_processing.payment.content.p1') }}</p>
+				<p>{{ t('privacy_policy.data_processing.payment.content.p2') }}</p>
 
 				<PrivacyPolicyDataProcessings
 					category="payment"
@@ -236,6 +256,7 @@ const copyText = () => {
 			>
 				<h3>{{ t('privacy_policy.data_processing.advertising.title') }}</h3>
 				<p>{{ t('privacy_policy.data_processing.advertising.content.p1') }}</p>
+				<p>{{ t('privacy_policy.data_processing.advertising.content.p2') }}</p>
 
 				<PrivacyPolicyDataProcessings
 					category="advertising"
@@ -249,18 +270,18 @@ const copyText = () => {
 			>
 				<h3>{{ t('privacy_policy.data_processing.booking.title') }}</h3>
 				<p>{{ t('privacy_policy.data_processing.booking.content.p1') }}</p>
+				<p>{{ t('privacy_policy.data_processing.booking.content.p2') }}</p>
 
 				<PrivacyPolicyDataProcessings
 					category="booking"
 					:items="settings.dataProcessings.booking"
 				/>
 			</section>
-
-		</section>		
+		</section>
 
 		<section>
 			<h2>{{ t('privacy_policy.outgoing_links.title') }}</h2>
-			<p>{{t('privacy_policy.outgoing_links.content.p1') }} </p>
+			<p>{{ t('privacy_policy.outgoing_links.content.p1') }}</p>
 		</section>
 	</section>
 </template>

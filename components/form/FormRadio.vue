@@ -4,8 +4,7 @@ import { useField } from 'vee-validate'
 const props = defineProps({
 	name: {
 		type: String,
-		required: false,
-		default: undefined,
+		required: true,
 	},
 	label: {
 		type: String,
@@ -18,32 +17,21 @@ const props = defineProps({
 	},
 })
 
-const emit = defineEmits(['update:modelValue'])
-
-const {
-	value: inputValue,
-	handleChange,
-	errors,
-} = useField(toRef(props, 'name'), undefined, {
+const { value, handleChange, errors } = useField(toRef(props, 'name'), undefined, {
 	label: props.label,
-	initialValue: props.modelValue,
-	valueProp: props.modelValue,
+	syncVModel: true,
 })
-
-const onInput = (event) => {
-	handleChange(event, true)
-	emit('update:modelValue', event)
-}
 </script>
 
 <template>
 	<v-radio-group
 		:label="label"
-		:model-value="inputValue"
+		:model-value="value"
 		:error-messages="errors"
-		@update:modelValue="onInput($event)"
+		hide-details="auto"
+		@update:modelValue="handleChange"
 	>
-		<v-radio :model-value="inputValue" @update:modelValue="onInput($event)">
+		<v-radio :model-value="value" @update:modelValue="handleChange">
 			<template #label>
 				{{ label }}
 			</template>

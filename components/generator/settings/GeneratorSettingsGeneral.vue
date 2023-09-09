@@ -14,6 +14,7 @@ const languageOptions = computed(() => [
 			:label="$t(`settings.general.fields.language.title`)"
 			:items="languageOptions"
 			empty-option
+			name="language"
 		/>
 	</form>
 </template>

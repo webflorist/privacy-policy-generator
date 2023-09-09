@@ -73,7 +73,7 @@ const activeTab = ref(null)
 				v-for="(categoryData, category) in categories"
 				:key="category"
 				:value="category"
-				class="min-w-[70px] text-white"
+				class="min-w-[70px]"
 			>
 				<v-icon>
 					{{ categoryData.icon }}

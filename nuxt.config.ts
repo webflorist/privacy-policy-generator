@@ -8,18 +8,7 @@ export default defineNuxtConfig({
 	build: {
 		transpile: ['vuetify'],
 	},
-	modules: [
-		'@vite-pwa/nuxt',
-		'@nuxtjs/i18n',
-		'@nuxtjs/tailwindcss',
-		'@vueuse/nuxt',
-		// @ts-ignore
-		// this adds the vuetify vite plugin
-		// also produces type errors in the current beta release
-		async (options, nuxt) => {
-			nuxt.hooks.hook('vite:extendConfig', (config) => config.plugins.push(vuetify()))
-		},
-	],
+	modules: ['@vite-pwa/nuxt', '@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
 	css: [
 		'@fontsource/roboto/300.css',
 		'@fontsource/roboto/400.css',
@@ -29,7 +18,15 @@ export default defineNuxtConfig({
 		'vuetify/styles',
 		'@mdi/font/css/materialdesignicons.css',
 	],
+	hooks: {
+		'vite:extendConfig': (config) => {
+			config.plugins?.push(vuetify())
+		},
+	},
 	vite: {
+		define: {
+			'process.env.DEBUG': false,
+		},
 		css: {
 			devSourcemap: true,
 		},

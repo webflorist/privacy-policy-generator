@@ -1,11 +1,31 @@
 <script setup lang="ts">
 const present = usePresenter()
-const props = defineProps({
+const { t } = useI18n()
+defineProps({
 	browserStoreItems: {
 		type: Array as () => BrowserStore[],
 		required: true,
 	},
 })
+const getDuration = (browserStore: BrowserStore) => {
+	switch (browserStore.type) {
+		case 'cookie':
+			return browserStore.duration
+				? present.humanizedDuration(browserStore.duration)
+				: t('settings.data_processings.fields.browser_store.duration.options.unknown.title')
+		case 'local_storage':
+		case 'indexed_db':
+			return t(
+				'settings.data_processings.fields.browser_store.duration.options.unlimited.title'
+			)
+		case 'session_storage':
+			return t(
+				'settings.data_processings.fields.browser_store.duration.options.end_of_session.title'
+			)
+		default:
+			return t('settings.data_processings.fields.browser_store.duration.options.unknown')
+	}
+}
 </script>
 <template>
 	<ul>
@@ -35,7 +55,7 @@ const props = defineProps({
 			<strong
 				>{{ $t('settings.data_processings.fields.browser_store.duration.title') }}:</strong
 			>
-			{{ present.humanizedDuration(browserStore.duration) }}<br />
+			{{ getDuration(browserStore) }}<br />
 			<strong
 				>{{ $t('settings.data_processings.fields.browser_store.purpose.title') }}:</strong
 			>

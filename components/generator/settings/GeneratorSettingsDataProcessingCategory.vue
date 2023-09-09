@@ -2,7 +2,7 @@
 const settings = useSettings()
 const presenter = usePresenter()
 
-const props = defineProps({
+defineProps({
 	category: {
 		type: [String as () => DataProcessingCategory],
 		required: true,
@@ -36,6 +36,11 @@ const expansionPanels = ref<HTMLElement | null>(null)
 const activePanel = ref<number | null>()
 
 const dataProcessingCreated = () => {
+	activePanel.value = null
+	expansionPanels.value?.$el.scrollIntoView(true)
+}
+
+const dataProcessingUpdated = () => {
 	activePanel.value = null
 	expansionPanels.value?.$el.scrollIntoView(true)
 }
@@ -75,6 +80,7 @@ const dataProcessingCreated = () => {
 					:processing-key="processingKey"
 					@has-errors="setErrorState(processingKey, $event)"
 					@sorted="activePanel = $event + 1"
+					@updated="dataProcessingUpdated()"
 				/>
 			</v-expansion-panel-text>
 		</v-expansion-panel>

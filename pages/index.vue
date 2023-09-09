@@ -17,7 +17,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 </script>
 
 <template>
-	<div>
+	<div class="typography">
 		<v-main>
 			<div class="relative pb-12">
 				<ParallaxBg />

@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
-const present = usePresenter()
+const { humanizedDuration, formOptions } = usePresenter()
 const durationOptions = useDurationOptions()
-const { humanizeMinutes } = useHumanizedDuration()
-const { t } = useI18n()
 
 const props = defineProps({
 	modelValue: {
@@ -25,67 +23,34 @@ const typeOptionValues: BrowserStoreType[] = [
 	'session_storage',
 	'indexed_db',
 ]
-const typeOptions = computed(() => {
-	return typeOptionValues.map((option) => {
-		return {
-			title: t(`settings.data_processings.fields.browser_store.type.options.${option}.title`),
-			value: option,
-			hint: t(
-				`settings.data_processings.fields.browser_store.type.options.${option}.description`
-			),
-		}
-	})
-})
+const typeOptions = computed(() =>
+	formOptions(
+		typeOptionValues,
+		'settings.data_processings.fields.browser_store.type.options',
+		true
+	)
+)
 
 const writtenOnOptionValues = ['every_visit', 'service_usage']
-const writtenOnOptions = computed(() => {
-	return writtenOnOptionValues.map((option) => {
-		return {
-			title: t(
-				`settings.data_processings.fields.browser_store.written_on.options.${option}.title`
-			),
-			value: option,
-			hint: t(
-				`settings.data_processings.fields.browser_store.written_on.options.${option}.description`
-			),
-		}
-	})
-})
-
-const cookieDurationOptions = computed(() => {
-	return Object.keys(durationOptions).map((option) => {
-		return {
-			title: t(
-				`settings.data_processings.fields.browser_store.duration.options.${option}.title`
-			),
-			value: durationOptions[option],
-		}
-	})
-})
-
-const humanizeDuration = (duration: number) => {
-	const presetOption = Object.keys(durationOptions).find(
-		(key) => durationOptions[key] === duration
+const writtenOnOptions = computed(() =>
+	formOptions(
+		writtenOnOptionValues,
+		'settings.data_processings.fields.browser_store.written_on.options',
+		true
 	)
-	if (presetOption) {
-		return t(
-			`settings.data_processings.fields.browser_store.duration.options.${presetOption}.title`
-		)
-	}
-	return humanizeMinutes(duration)
-}
+)
+
+const cookieDurationOptions = computed(() =>
+	formOptions(durationOptions, 'settings.data_processings.fields.browser_store.duration.options')
+)
 
 const purposeOptionValues = ['session', 'security', 'gdpr_choice', 'settings', 'service']
-const purposeOptions = computed(() => {
-	return purposeOptionValues.map((option) => {
-		return {
-			title: t(
-				`settings.data_processings.fields.browser_store.purpose.options.${option}.title`
-			),
-			value: option,
-		}
-	})
-})
+const purposeOptions = computed(() =>
+	formOptions(
+		purposeOptionValues,
+		'settings.data_processings.fields.browser_store.purpose.options'
+	)
+)
 
 const { errors } = useForm({
 	validationSchema: {
@@ -130,7 +95,7 @@ watch(errors, (newErrors) => {
 	>
 		<template v-if="model.duration" #append-inner>
 			<span class="whitespace-nowrap">
-				{{ present.humanizedDuration(model.duration) }}
+				{{ humanizedDuration(model.duration) }}
 			</span>
 		</template>
 	</FormCombobox>

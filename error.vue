@@ -3,31 +3,30 @@ defineProps({
 	error: Object,
 })
 useColorTheme()
-const handleError = () => clearError({ redirect: '/' })
+const { locale: currentLocale, defaultLocale } = useI18n()
+
+const homeLink = computed(() => {
+	if (currentLocale.value === defaultLocale) {
+		return '/'
+	}
+	return '/' + currentLocale.value
+})
 </script>
 
 <template>
-	<NuxtLayout>
-		<v-main>
-			<v-container tag="section" class="pt-16 text-center">
-				<div class="mx-auto mb-12 max-w-3xl flex-row items-center justify-center md:flex">
-					<h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-left">
-						<span class="block">404</span>
-						{{ ' ' }}
-						<span
-							class="block text-4xl text-primary-100 drop-shadow-primary dark:text-primary-500 sm:text-6xl"
-							>{{ $t('errors.page_not_found') }}</span
-						>
-					</h1>
-				</div>
-				<div
-					class="mx-auto mt-3 max-w-md text-base sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
-				>
-					<p>
-						<button class="link" @click="handleError">Zurück zur Startseite</button>
-					</p>
-				</div>
-			</v-container>
-		</v-main>
-	</NuxtLayout>
+	<main class="typography">
+		<div class="container-padding container my-16">
+			<div class="m-default-lg text-center text-3xl md:text-4xl xl:text-5xl">
+				<h1 v-if="error.statusCode === 404">404 - {{ $t('errors.page_not_found') }}</h1>
+				<h1 v-else>{{ $t('errors.general_error') }}</h1>
+			</div>
+			<div class="m-default-lg text-center">
+				<p>
+					<a :href="homeLink" class="link">
+						{{ $t('general.back_to_home') }}
+					</a>
+				</p>
+			</div>
+		</div>
+	</main>
 </template>

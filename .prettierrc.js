@@ -4,9 +4,10 @@ module.exports = {
 	useTabs: true,
 	tabWidth: 4,
 	printWidth: 100,
+	trailingComma: 'es5',
 	overrides: [
 		{
-			files: '**/*.md',
+			files: ['**/*.md', '**/*.yaml', '**/*.yml'],
 			options: {
 				tabWidth: 2,
 			},

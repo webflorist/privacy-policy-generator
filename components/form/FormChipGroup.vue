@@ -10,8 +10,7 @@ type Item = {
 const props = defineProps({
 	name: {
 		type: String,
-		required: false,
-		default: undefined,
+		required: true,
 	},
 	label: {
 		type: String,
@@ -28,31 +27,15 @@ const props = defineProps({
 	},
 })
 
-const emit = defineEmits(['update:modelValue'])
-
-const {
-	value: inputValue,
-	handleChange,
-	errors,
-} = useField(toRef(props, 'name'), undefined, {
+const { value, handleChange, errors } = useField(toRef(props, 'name'), undefined, {
 	label: props.label,
-	initialValue: props.modelValue,
-	valueProp: props.modelValue,
+	syncVModel: true,
 })
-
-const onInput = (event) => {
-	handleChange(event, true)
-	emit('update:modelValue', event)
-}
 </script>
 
 <template>
 	<div>
-		<v-chip-group
-			:model-value="inputValue"
-			v-bind="$attrs"
-			@update:model-value="onInput($event)"
-		>
+		<v-chip-group :model-value="value" v-bind="$attrs" @update:model-value="handleChange">
 			<v-chip v-for="(item, key) in items" :key="key" :value="item.value">
 				{{ item.title }}
 				<v-tooltip v-if="item.hint" activator="parent" location="bottom">{{
@@ -61,6 +44,7 @@ const onInput = (event) => {
 			</v-chip>
 		</v-chip-group>
 		<v-messages
+			v-if="errors.length > 0"
 			:active="errors.length > 0"
 			:messages="errors"
 			color="error"
