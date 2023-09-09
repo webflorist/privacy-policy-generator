@@ -30,11 +30,11 @@ devDependencies:
     specifier: ^6.6.0
     version: 6.6.0(eslint@8.49.0)(typescript@5.2.2)
   '@vee-validate/i18n':
-    specifier: 4.11.3
-    version: 4.11.3
+    specifier: ^4.11.6
+    version: 4.11.6
   '@vee-validate/rules':
-    specifier: 4.11.3
-    version: 4.11.3(vue@3.3.4)
+    specifier: ^4.11.6
+    version: 4.11.6(vue@3.3.4)
   '@vite-pwa/nuxt':
     specifier: ^0.1.1
     version: 0.1.1(@nuxt/kit@3.7.1)(vite-plugin-pwa@0.16.5)
@@ -102,8 +102,8 @@ devDependencies:
     specifier: ^5.2.2
     version: 5.2.2
   vee-validate:
-    specifier: 4.11.3
-    version: 4.11.3(vue@3.3.4)
+    specifier: ^4.11.6
+    version: 4.11.6(vue@3.3.4)
   vite-plugin-vuetify:
     specifier: ^1.0.2
     version: 1.0.2(vite@4.4.9)(vue@3.3.4)(vuetify@3.3.15)
@@ -3046,14 +3046,14 @@ packages:
       vue: 3.3.4
     dev: true
 
-  /@vee-validate/i18n@4.11.3:
-    resolution: {integrity: sha512-9KWyplhcwLVTw1MDnrHFe92xnmGwY93h5dG2Fa8n+zb9brfyzD5j366B+WWMJK86yBEKrStZomBohTLLdnVlxg==}
+  /@vee-validate/i18n@4.11.6:
+    resolution: {integrity: sha512-vSxso2TpQ04HhOK83EvW+XqIuhREP2DWxolFAa2whvY14wM1hZCu3mlS5WK/LAg1nxx8RMu6ZJH8/FJHQTnvNw==}
     dev: true
 
-  /@vee-validate/rules@4.11.3(vue@3.3.4):
-    resolution: {integrity: sha512-MJmQgTXnt0lEOLfF2z+IE1dViu8dISaLa95axjd/rfjGYLQE9kI/eGQOZ0bojuYIVB7cD+K3xkRNdCPg9Bi7fg==}
+  /@vee-validate/rules@4.11.6(vue@3.3.4):
+    resolution: {integrity: sha512-w1TgwtPxIEr7BrVbYqYUSkivYr1CzbLKMwL8WtUPWNqD9oFZopUQVVGEDvyzUlIH2wtUhhgeO8MT8OYG5Ws8pg==}
     dependencies:
-      vee-validate: 4.11.3(vue@3.3.4)
+      vee-validate: 4.11.6(vue@3.3.4)
     transitivePeerDependencies:
       - vue
     dev: true
@@ -9814,8 +9814,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vee-validate@4.11.3(vue@3.3.4):
-    resolution: {integrity: sha512-YhWORdZRE1GL6vXKj3r9f+Y8fJH5JMwMUJ4DFS44+WcTtiNXggyE3pyJPlZBqS9AgYGZ47EOv4UczkLxHqufiw==}
+  /vee-validate@4.11.6(vue@3.3.4):
+    resolution: {integrity: sha512-DwmNRqYVwX/CrH2ai8RRE1Y0ETmMFkS6X+8JxzC9rmE5cMqBxMiHRiqRABRvtJAbgHFG7LeSzVkPcr/mG5BiSQ==}
     peerDependencies:
       vue: ^3.3.4
     dependencies:
