@@ -92,7 +92,7 @@
       },
       "content": {
         "p1": "Beim Besuch unserer Webseite und der Nutzung der damit angebotenen Funktionalitäten und Dienstleistungen werden verschiedenste Daten von Ihnen an uns und unsere Auftragsverarbeiter übermittelt. Gewisse Datenverarbeitungen sind für die technische Basisfunktionalität der Webseite, oder die Erfüllung von vertraglichen oder vorvertraglichen Maßnahmen notwendig und werden somit ohne ihre weitere Zustimmung durchgeführt. Andere Datenverarbeitungen kommen erst zustande, wenn Sie bestimmte Funkionen der Webseite nutzen. In diesen Fällen weisen wir Sie explizit auf die Datenverarbeitung hin oder fordern Ihre explizite Zustimmung ein.",
-        "p2": "Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern durchgeführt. In jedem Fall führen wir keine Datenverarbeitungen ohne rechtmäßigem Grund durch. Alle Datenverarbeitungen geschehen somit in Übereinstimmung mit Artikel 6 der DSGVO.",
+        "p2": "Alle Datenverarbeitungen werden auf Grundlage eines Vertrags zwischen uns und den angeführten Auftragsverarbeitern durchgeführt. In jedem Fall führen wir keine Datenverarbeitungen ohne rechtmäßigen Grund durch. Alle Datenverarbeitungen geschehen somit in Übereinstimmung mit Artikel 6 der DSGVO.",
         "p3": "Die die Weitergabe und Verarbeitung Ihrer Daten kann dabei auch außerhalb der Europäischen Union (EU) oder des Europäischen Wirtschaftsraums (EWR) stattfinden. In diesem Fall stellen wir sicher, dass die Weitergabe und Verarbeitung Ihrer Daten nur in Ländern mit einem angemessenen Datenschutzniveau stattfindet. Insbesonders bei US-Unternehmen stellen wir sicher, dass diese die Anforderungen des EU-U.S. Data Privacy Frameworks erfüllen.",
         "p4": "Nachfolgend finden Sie alle mit unserer Webseite verbundenen Datenverarbeitungen inkl. einer genauen Bescheribung ihres Zwecks, den übertragenen Datenkategorien, den Daten der jeweiligen Auftragsverarbeiter sowie eventuell verwendeter Einträge im Browser-Speicher."
       },
@@ -109,14 +109,14 @@
       },
       "payment": {
         "content": {
-          "p1": "Sie können auf unserer Webseite Produkte kaufen. Dabei wird die Zahlung über einen Zahlungsanbieder abgewickelt, wobei sämtliche für die Zahlung erforderlichen Daten an diesen übermittelt werden.",
-          "p2": "Bitte beachten Sie, dass erst Informationen an den Zahlungsanbieter übermittelt, wenn Sie die Zahlungs initiieren. Die Datenverarbeitung isr für die Erfüllung des Kaufvertrages erforderlich und geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+          "p1": "Sie können auf unserer Webseite Produkte kaufen. Dabei wird die Zahlung über einen Zahlungsanbieter abgewickelt, wobei sämtliche für die Zahlung erforderlichen Daten an diesen übermittelt werden.",
+          "p2": "Bitte beachten Sie, dass erst Informationen an den Zahlungsanbieter übermittelt, wenn Sie die Zahlung initiieren. Die Datenverarbeitung isr für die Erfüllung des Kaufvertrages erforderlich und geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
         },
         "title": "Zahlungsabwicklung"
       },
       "send_emails": {
         "content": {
-          "p1": "Unsere Webseite bietet Funktionalitäten zum Senden von E-Mails an Sie bzw an uns. Dabei werden sämtliche im E-Mail angegebenen Daten (wie z.B. Ihr Name, Ihre E-Mail-Adresse, etc) an die jeweiligen Auftragsverarbeiter übertragen und über deren Mailserver in die Ziel-Mailbox Mailbox zugestellt.",
+          "p1": "Unsere Webseite bietet Funktionalitäten zum Senden von E-Mails an Sie bzw. an uns. Dabei werden sämtliche im E-Mail angegebenen Daten (wie z.B. Ihr Name, Ihre E-Mail-Adresse, etc) an die jeweiligen Auftragsverarbeiter übertragen und über deren Mailserver in die Ziel-Mailbox Mailbox zugestellt.",
           "p2": "Wir versenden E-Mails nur nach ihrer explizien Zustimmung oder bei vertraglicher oder vorvertraglicher Notwendigkeit. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 der DSGVO."
         },
         "title": "E-Mail-Versand"
@@ -125,7 +125,7 @@
       "videos": {
         "content": {
           "p1": "Unsere Webseite bindet auf Anforderung Videos ein, welche von externen Auftragsverarbeitern zur Verfügung gestellt werden. Dabei werden Daten an den Anbieter des jeweiligen Dienstes übertragen.",
-          "p2": "Die Vidoes werden erst eingeblendet, wenn Sie der damit verbundenen Datenverarbeitung zustimmen. Dabei werden auch persönliche Daten (wie Nutzungsdaten oder Online Identifikatoren) an den Auftragsverarbeiter gesendet und eventuell Daten im Speicher Ihres Browsers hinterlegt.",
+          "p2": "Die Videos werden erst eingeblendet, wenn Sie der damit verbundenen Datenverarbeitung zustimmen. Dabei werden auch persönliche Daten (wie Nutzungsdaten oder Online Identifikatoren) an den Auftragsverarbeiter gesendet und eventuell Daten im Speicher Ihres Browsers hinterlegt.",
           "p3": "Bitte beachten Sie, dass keinerlei Daten transferiert werden, sofern Sie nicht explizit der Datenverarbeitung zum Zweck der Anzeige von Videos zustimmen. Diese Art der Zustimmung wird auch \"OPT-IN\" genannt. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
         },
         "title": "Videos"
@@ -133,7 +133,7 @@
       "webhosting": {
         "content": {
           "p1": "Beim Besuch einer Webseite sendet Ihr Web-Browser automatisch Information zum Server und der Infrastruktur, auf dem diese betrieben wird, um die Webseite sowie damit verbundene Ressourcen (wie z.B. Bilder oder Schriftarten) herunterzuladen. Dabei können folgende Arten von Daten übertragen werden:",
-          "p2": "Diese Daten werden automatisch übertragen und geloggt, um die Erreichbarkeit, Funktionalität, Sicherheit und Stabilität unserer Webseite zu gewährleisten. Die Daten bleiben gespeichert bis die Logdatei gelöscht wird. Die gesammelten Daten sind technisch notwendig für den Betrieb und die Wartung dieser Webseite und werden in keiner Weise verwendet, um Sie als Person zu identifizieren oder zu tracken. Sammlung und Verarbeitung dieser Daten erfolgt in Übereinstimmung mit Artikel 6 (1) der DSGVO.",
+          "p2": "Diese Daten werden automatisch übertragen und geloggt, um die Erreichbarkeit, Funktionalität, Sicherheit und Stabilität unserer Webseite zu gewährleisten. Die Daten bleiben gespeichert, bis die Logdatei gelöscht wird. Die gesammelten Daten sind technisch notwendig für den Betrieb und die Wartung dieser Webseite und werden in keiner Weise verwendet, um Sie als Person zu identifizieren oder zu tracken. Sammlung und Verarbeitung dieser Daten erfolgt in Übereinstimmung mit Artikel 6 (1) der DSGVO.",
           "ul1": {
             "li1": "IP (Internet Protocol) Adresse Ihres Endgerätes,",
             "li2": "Zeit, Datum und Dauer Ihres Besuchs,",
@@ -370,18 +370,18 @@
                 "title": "Bei Verwendung des jeweiligen Dienstes"
               }
             },
-            "title": "Erstellungzeitpunkt"
+            "title": "Erstellungszeitpunkt"
           }
         },
         "data_categories": {
           "options": {
             "geo": {
               "description": "Daten zur Ortsbestimmung (z.B. Geokoordinaten).",
-              "title": "Geopositioning"
+              "title": "Ortsbestimmung"
             },
             "online": {
               "description": "Wie IP/MAC Adresse, Cookies, Werbe-IDs, Pixel tags, Device Fingerprints.",
-              "title": "Online Identitikatoren"
+              "title": "Online Identifikatoren"
             },
             "payment": {
               "description": "Wie z.B. Kreditkarten oder Bankkonto Informationen.",
