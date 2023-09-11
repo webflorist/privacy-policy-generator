@@ -20,9 +20,12 @@ declare global {
 	type DataController = {
 		organisation?: string
 		name?: string
-		address: string
+		street: string
+		zip: string
+		city: string
+		country: string
 		email: string
-		phone: string
+		phone?: string
 	}
 
 	type DataCategory =

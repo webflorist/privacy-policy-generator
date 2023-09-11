@@ -1,11 +1,11 @@
-import { getNames, registerLocale, getName } from 'i18n-iso-countries'
+import i18nCountries from 'i18n-iso-countries'
 import de from 'i18n-iso-countries/langs/de.json'
 import en from 'i18n-iso-countries/langs/en.json'
 export const useCountries = () => {
 	const { locale: currentLocale } = useI18n()
 
-	registerLocale(de)
-	registerLocale(en)
+	i18nCountries.registerLocale(de)
+	i18nCountries.registerLocale(en)
 
 	type Locale = 'de' | 'en'
 
@@ -15,7 +15,7 @@ export const useCountries = () => {
 	}
 
 	const getOptions = (locale: Locale = currentLocale.value): CountryOption[] => {
-		const names = getNames(locale, { select: 'official' })
+		const names = i18nCountries.getNames(locale, { select: 'official' })
 		const countryList = []
 		for (const [code, country] of Object.entries(names)) {
 			countryList.push({
@@ -27,7 +27,7 @@ export const useCountries = () => {
 	}
 
 	const getCountryName = (code: string, locale: Locale = currentLocale.value) =>
-		getName(code, locale, { select: 'official' })
+		i18nCountries.getName(code, locale, { select: 'official' })
 
 	return { getOptions, getCountryName }
 }

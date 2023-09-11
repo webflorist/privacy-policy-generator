@@ -11,6 +11,9 @@ devDependencies:
   '@fontsource/roboto':
     specifier: ^5.0.8
     version: 5.0.8
+  '@invictus.codes/nuxt-vuetify':
+    specifier: ^0.3.0
+    version: 0.3.0(rollup@2.79.1)(typescript@5.2.2)(vite@4.4.9)(vue@3.3.4)
   '@mdi/font':
     specifier: ^7.2.96
     version: 7.2.96
@@ -2002,6 +2005,24 @@ packages:
       vue-demi: 0.13.11(vue@3.3.4)
     transitivePeerDependencies:
       - vue
+    dev: true
+
+  /@invictus.codes/nuxt-vuetify@0.3.0(rollup@2.79.1)(typescript@5.2.2)(vite@4.4.9)(vue@3.3.4):
+    resolution: {integrity: sha512-Rc2fIzq4CFUlmUHudQBBjyy+yVTlZeevsqh4cuGqPcIdUNWYJRrWFHl5bsp/lfNS5iDYElSBxefWJOD4wFc4gA==}
+    engines: {node: '>=16.0.0', npm: '>=8.0.0', pnpm: '>=7.0.0', yarn: '>=1.0.0'}
+    dependencies:
+      '@nuxt/kit': 3.7.1(rollup@2.79.1)
+      defu: 6.1.2
+      vite-plugin-vuetify: 1.0.2(vite@4.4.9)(vue@3.3.4)(vuetify@3.3.15)
+      vuetify: 3.3.15(typescript@5.2.2)(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - typescript
+      - vite
+      - vue
+      - vue-i18n
+      - webpack-plugin-vuetify
     dev: true
 
   /@ioredis/commands@1.2.0:

@@ -8,7 +8,10 @@ export const useSettings = () => {
 			dataController: {
 				organisation: undefined,
 				name: undefined,
-				address: undefined,
+				street: undefined,
+				zip: undefined,
+				city: undefined,
+				country: undefined,
 				email: undefined,
 				phone: undefined,
 			},

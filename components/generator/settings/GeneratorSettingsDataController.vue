@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useForm, defineRule } from 'vee-validate'
 const { t } = useI18n()
+const countries = useCountries()
 const settings = useSettings()
 
 const emit = defineEmits<{
@@ -18,6 +19,10 @@ const { errors } = useForm({
 	validationSchema: {
 		name: 'name_or_org_required',
 		email: 'required|email',
+		street: 'required',
+		zip: 'required',
+		city: 'required',
+		country: 'required',
 	},
 	validateOnMount: true,
 })
@@ -42,10 +47,26 @@ watch(hasErrors, (newHasErrors) => {
 			name="name"
 		/>
 		<FormTextField
-			v-model="settings.dataController.address"
-			:label="$t('settings.data_controller.fields.address.title')"
-			name="address"
-			type="address"
+			v-model="settings.dataController.street"
+			:label="$t('settings.data_processings.fields.processor.street.title')"
+			name="street"
+		/>
+		<FormTextField
+			v-model="settings.dataController.zip"
+			:label="$t('settings.data_processings.fields.processor.zip.title')"
+			name="zip"
+		/>
+		<FormTextField
+			v-model="settings.dataController.city"
+			:label="$t('settings.data_processings.fields.processor.city.title')"
+			name="city"
+		/>
+		<FormSelectField
+			v-model="settings.dataController.country"
+			autocomplete
+			:label="$t('settings.data_processings.fields.processor.country.title')"
+			name="country"
+			:items="countries.getOptions()"
 		/>
 		<FormTextField
 			v-model="settings.dataController.email"

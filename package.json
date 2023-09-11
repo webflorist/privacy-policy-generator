@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@fontsource/amaranth": "^5.0.8",
 		"@fontsource/roboto": "^5.0.8",
+		"@invictus.codes/nuxt-vuetify": "^0.3.0",
 		"@mdi/font": "^7.2.96",
 		"@nuxtjs/eslint-config-typescript": "^12.1.0",
 		"@nuxtjs/i18n": "^8.0.0-beta.13",
