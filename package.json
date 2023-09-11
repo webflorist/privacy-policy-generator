@@ -23,7 +23,7 @@
 		"@invictus.codes/nuxt-vuetify": "^0.3.0",
 		"@mdi/font": "^7.2.96",
 		"@nuxtjs/eslint-config-typescript": "^12.1.0",
-		"@nuxtjs/i18n": "^8.0.0-beta.13",
+		"@nuxtjs/i18n": "^8.0.0-rc.1",
 		"@nuxtjs/tailwindcss": "^6.8.0",
 		"@types/node": "^20",
 		"@typescript-eslint/parser": "^6.6.0",

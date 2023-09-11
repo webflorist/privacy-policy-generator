@@ -85,9 +85,11 @@ declare global {
 	}
 
 	type DataProcessingPurposeWebhosting =
-		| 'documents' // General webhosting
+		| 'documents' // HTML-documents
+		| 'stylesheets' // Stylesheets
 		| 'fonts' // Fonts
 		| 'images' // Images
+		| 'videos' // Videos
 		| 'scripts' // Scripts
 		| 'cdn' // CDN
 		| 'database' // Database
@@ -104,7 +106,7 @@ declare global {
 	type DataProcessing = {
 		processor: Processor // The processor
 		required: boolean // Is this processing is technically required for the website's basic functionality?
-		service: string | LocaleString // Name of the service (e.g. "Google Analytics")
+		service?: string | LocaleString // Name of the service (e.g. "Google Analytics")
 		dataCategories: DataCategory[] // The processed data categories
 		purposes?: DataProcessingPurpose[] // Purposes of the data processing (depending on category)
 		browserStore?: BrowserStore[] // BrowserStore(s) associated with this data-processing

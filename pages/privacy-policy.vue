@@ -1,17 +1,31 @@
 <script setup lang="ts">
-const { locale: currentLocale } = useI18n()
+const { locale } = useI18n()
+const defaultProcessors = useDefaultProcessors()
 
 const settings: GeneratorSettings = {
-	general: {
-		language: currentLocale.value,
-	},
+	general: { language: locale.value },
 	dataController: {
+		organisation: 'web.florist',
 		name: 'Gerald Buttinger',
-		street: 'Alte Aigner Str. 3A',
-		city: 'Salzburg',
-		zip: '12345',
-		country: 'United States',
 		email: 'gerald@web.florist',
+	},
+	dataProcessings: {
+		webhosting: [
+			{
+				processor: defaultProcessors.find((processor) => processor.id === 'netlify_inc_us'),
+				required: true,
+				dataCategories: ['online', 'usage'],
+				browserStore: [],
+				purposes: ['documents', 'stylesheets', 'fonts', 'scripts', 'images', 'videos'],
+			},
+		],
+		analytics: [],
+		maps: [],
+		videos: [],
+		emails: [],
+		payment: [],
+		advertising: [],
+		booking: [],
 	},
 }
 </script>

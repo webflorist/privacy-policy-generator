@@ -53,8 +53,10 @@ export default defineNuxtConfig({
 		customRoutes: 'config',
 		pages: {
 			'privacy-policy': {
-				en: 'privacy-policy',
-				de: 'datenschutzerklaerung',
+				de: '/datenschutzerklaerung',
+			},
+			'legal-notice': {
+				de: '/impressum',
 			},
 		},
 	},

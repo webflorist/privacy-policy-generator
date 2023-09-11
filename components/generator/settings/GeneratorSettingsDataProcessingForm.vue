@@ -149,7 +149,16 @@ const purposesOptions = computed<DataProcessingPurpose>(() => {
 	switch (props.category) {
 		case 'webhosting':
 			return formOptions(
-				['documents', 'fonts', 'images', 'scripts', 'cdn', 'database'],
+				[
+					'documents',
+					'stylesheets',
+					'fonts',
+					'scripts',
+					'images',
+					'videos',
+					'cdn',
+					'database',
+				],
 				'settings.data_processings.fields.purposes.options',
 				true
 			)

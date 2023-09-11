@@ -6,6 +6,8 @@ const props = defineProps({
 	},
 })
 
+const { getCountryName } = useCountries()
+
 const locale = computed(() => props.settings.general.language)
 const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 
@@ -65,8 +67,14 @@ const usesBrowserStore = computed(() =>
 			<template v-if="settings.dataController.name"
 				>{{ settings.dataController.name }}<br
 			/></template>
-			<template v-if="settings.dataController.address">
-				{{ settings.dataController.address }}<br />
+			<template v-if="settings.dataController.street">
+				{{ settings.dataController.street }}<br />
+			</template>
+			<template v-if="settings.dataController.zip && settings.dataController.city">
+				{{ settings.dataController.zip }} {{ settings.dataController.city }}<br />
+			</template>
+			<template v-if="settings.dataController.country">
+				{{ getCountryName(settings.dataController.country, locale) }}<br />
 			</template>
 			<template v-if="settings.dataController.email">
 				<a :href="'mailto:' + settings.dataController.email"
