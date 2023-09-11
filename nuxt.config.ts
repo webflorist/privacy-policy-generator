@@ -55,15 +55,7 @@ export default defineNuxtConfig({
 			'privacy-policy': {
 				de: '/datenschutzerklaerung',
 			},
-			'legal-notice': {
-				de: '/impressum',
-			},
 		},
-	},
-
-	tailwindcss: {
-		exposeConfig: true,
-		injectPosition: 'last',
 	},
 
 	// https://nuxt.com/modules/nuxt-vuetify
