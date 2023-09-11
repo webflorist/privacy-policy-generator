@@ -52,7 +52,6 @@
 		"turndown": "^7.1.2",
 		"typescript": "^5.2.2",
 		"vee-validate": "^4.11.6",
-		"vite-plugin-vuetify": "^1.0.2",
 		"vuetify": "^3.3.15"
 	}
 }
