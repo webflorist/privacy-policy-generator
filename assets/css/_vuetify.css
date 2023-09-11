@@ -4,7 +4,7 @@
 }
 
 .v-tooltip .v-overlay__content {
-	background: rgb(var(--v-theme-surface-variant) 1) !important;
+	background: rgb(var(--v-theme-surface-variant)) !important;
 }
 
 .v-messages {
