@@ -1,4 +1,3 @@
-import { de } from '@vee-validate/i18n/dist/locale/de.json'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { theme } from './tailwind.config.js'

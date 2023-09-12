@@ -25,5 +25,5 @@
 		"editor.defaultFormatter": "redhat.vscode-xml"
 	},
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": ["organisation", "processings", "pseudonymized", "webhosting"]
+	"cSpell.words": ["processings", "pseudonymized", "webhosting"]
 }
