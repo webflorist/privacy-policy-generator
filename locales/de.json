@@ -9,6 +9,8 @@
 	"general": {
 		"add": "Hinzufügen",
 		"back_to_home": "Zurück zur Startseite",
+		"cc0_licence": "creative commons CC0 1.0 \"Public Domain\" Lizenz",
+		"cc0_link": "https://creativecommons.org/publicdomain/zero/1.0/deed.de",
 		"close": "Schließen",
 		"copy_html": "HTML",
 		"copy_markdown": "Markdown",
@@ -212,7 +214,7 @@
 				"name": {
 					"title": "Name"
 				},
-				"organisation": {
+				"organization": {
 					"title": "Organisation"
 				},
 				"phone": {

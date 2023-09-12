@@ -9,7 +9,7 @@ const emit = defineEmits<{
 }>()
 
 defineRule('name_or_org_required', (_value, _target, ctx) => {
-	if (ctx.form.name || ctx.form.organisation) {
+	if (ctx.form.name || ctx.form.organization) {
 		return true
 	}
 	return t('errors.name_or_org_required')
@@ -37,9 +37,9 @@ watch(hasErrors, (newHasErrors) => {
 	<p>{{ $t('settings.data_controller.description') }}</p>
 	<form>
 		<FormTextField
-			v-model="settings.dataController.organisation"
-			:label="$t('settings.data_controller.fields.organisation.title')"
-			name="organisation"
+			v-model="settings.dataController.organization"
+			:label="$t('settings.data_controller.fields.organization.title')"
+			name="organization"
 		/>
 		<FormTextField
 			v-model="settings.dataController.name"

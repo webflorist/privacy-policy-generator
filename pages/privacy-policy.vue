@@ -5,7 +5,7 @@ const defaultProcessors = useDefaultProcessors()
 const settings: GeneratorSettings = {
 	general: { language: locale.value },
 	dataController: {
-		organisation: 'web.florist',
+		organization: 'web.florist',
 		name: 'Gerald Buttinger',
 		email: 'gerald@web.florist',
 	},

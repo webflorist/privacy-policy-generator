@@ -61,8 +61,8 @@ const usesBrowserStore = computed(() =>
 		<h2>{{ t('privacy_policy.data_controller.title') }}</h2>
 		<p>{{ t('privacy_policy.data_controller.content.p1') }}</p>
 		<address>
-			<template v-if="settings.dataController.organisation">
-				{{ settings.dataController.organisation }}<br />
+			<template v-if="settings.dataController.organization">
+				{{ settings.dataController.organization }}<br />
 			</template>
 			<template v-if="settings.dataController.name"
 				>{{ settings.dataController.name }}<br

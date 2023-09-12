@@ -6,7 +6,7 @@ export const useSettings = () => {
 				language: locale.value,
 			},
 			dataController: {
-				organisation: undefined,
+				organization: undefined,
 				name: undefined,
 				street: undefined,
 				zip: undefined,

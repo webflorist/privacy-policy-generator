@@ -18,7 +18,7 @@ declare global {
 	type FormOptions = FormOption[]
 
 	type DataController = {
-		organisation?: string
+		organization?: string
 		name?: string
 		street: string
 		zip: string
