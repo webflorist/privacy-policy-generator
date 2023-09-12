@@ -10,16 +10,16 @@ export const useSiteSettings = () => {
 
 	const siteSettings = useState<SiteSettings>('siteSettings', (): SiteSettings => {
 		return {
-			baseUrl: 'https://privacy-policy.web.florist',
+			baseUrl: 'https://privacy-policy-generator.web.florist',
 			siteTag: '@privacy-policy-generator',
 			authorTag: '@webflorist',
 			localeTitle: {
-				de: 'Datenschutzgenerator',
-				en: 'Privacy Policy Generator',
+				de: ' Datenschutzgenerator - webflorist',
+				en: 'Privacy Policy Generator - webflorist',
 			},
 			localeDescription: {
-				de: 'Datenschutzgenerator',
-				en: 'Privacy Policy Generator',
+				de: 'Generator für eine lizenzfreie Datenschutz­erklärung in verschiedenen Sprachen. Einfach, schnell und kostenlos.',
+				en: 'Generator for a licence-free privacy policy in different languages. Simple, fast and free of charge.',
 			},
 		}
 	})
