@@ -1,13 +1,5 @@
 <script setup lang="ts">
-const { locale: currentLocale } = useI18n()
-
 const settings = useSettings()
-
-const cc0Link = computed(() =>
-	currentLocale.value === 'de'
-		? 'https://creativecommons.org/publicdomain/zero/1.0/deed.de'
-		: 'https://creativecommons.org/publicdomain/zero/1.0/deed.en'
-)
 
 const hasWebhostingProcessing = computed(() => settings.value.dataProcessings.webhosting.length > 0)
 
@@ -48,7 +40,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 						>
 							<p>{{ $t('intro.p1') }}</p>
 							<a
-								:href="cc0Link"
+								:href="$t('general.cc0_link')"
 								class="m-default-sm unstyled mx-auto block w-40"
 								target="_blank"
 							>

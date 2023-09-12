@@ -13,8 +13,10 @@ const localePath = useLocalePath()
 				{{ $t('privacy_policy.title') }}
 			</NuxtLink>
 			<v-col class="mt-4 text-center" cols="12">
-				&copy; {{ new Date().getFullYear() }}
-				<strong>web.florist - Gerald Buttinger</strong>
+				&copy; {{ new Date().getFullYear() }} <strong>webflorist</strong> |
+				<a :href="$t('general.cc0_link')" target="_blank">{{
+					$t('general.cc0_licence')
+				}}</a>
 			</v-col>
 		</v-row>
 	</v-footer>
