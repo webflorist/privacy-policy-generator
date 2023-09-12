@@ -1,524 +1,528 @@
 {
-	"errors": {
-		"errors_in_form": "Please fix all errors in the form first.",
-		"missing_webhosting_data_processing": "There should be at least one data processing in the Webhosting category specified.",
-		"name_or_org_required": "Please fill in either organization or name (or both).",
-		"page_not_found": "Page not found",
-		"settings_errors": "Please fix the displayed errors in the settings."
-	},
-	"general": {
-		"add": "Add",
-		"back_to_home": "Back to homepage",
-		"cc0_licence": "creative commons CC0 1.0 \"Public Domain\" License",
-		"cc0_link": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-		"close": "Close",
-		"copy_html": "HTML",
-		"copy_markdown": "Markdown",
-		"copy_successful": "The text has been successfully copied to the clipboard.",
-		"copy_text": "Text",
-		"copy_to_clipboard": "Copy to clipboard",
-		"delete": "Delete",
-		"goto_github": "View the source code of this page on Github",
-		"legal_notice": "Legal Notice",
-		"optional": "optional",
-		"provided_by": "operated by",
-		"sort_down": "move down",
-		"sort_up": "move up",
-		"switch_theme": "Switch between dark and light color schemes"
-	},
-	"h1": {
-		"line1": "Generator for a",
-		"line2": "Free Privacy Policy"
-	},
-	"images": {
-		"cc0_icon": {
-			"alt": "The number zero in a black circle with the text \"Public Domain\""
-		},
-		"favicon": {
-			"alt": "Round symbol with a shield with a lock in the middle"
-		},
-		"logo": {
-			"alt": "Flower graphic with a shield symbol with a lock in the middle"
-		}
-	},
-	"intro": {
-		"p1": "On this page, you can generate a privacy policy for your website. Creation and use are free, and the text is released under the creative commons CC0 1.0 license as \"Public Domain.\" Attribution is not required.",
-		"p2": "The author assumes <strong>no responsibility or liability</strong>. Please note that the GDPR compliance of this privacy policy depends on the circumstances of your website. It is recommended to have the generated privacy policy reviewed by a lawyer."
-	},
-	"meta": {
-		"site": {
-			"description": "Generator for a Free Privacy Policy",
-			"title": "Privacy Policy Generator"
-		}
-	},
-	"privacy_policy": {
-		"browser_store": {
-			"content": {
-				"p1": "Our website or related data processing stores certain information directly in your web browser (e.g., via \"Cookies\") to ensure certain functionalities.",
-				"p2": "Such information can be set both directly by our website (\"first-party entries\") and by data processors' services (e.g., when sending emails or for web analytics). Only technically necessary first-party entries are used upon your first visit to our website.",
-				"p3": "Most web browsers provide functions to view and delete already set entries. Furthermore, you can configure your browser to not set any cookies. Please note, however, that this may affect certain functionalities of our website.",
-				"p4": "Details about which browser entries are used for which data processing are provided for each individual data processing below."
-			},
-			"no_browser_store_content": {
-				"p1": "Websites often use your web browser's functions (such as \"Cookies\") to store and retrieve information to ensure certain functionalities. Our website and related data processing do not use such technologies."
-			},
-			"title": "Browser Storage (Cookies, etc.)"
-		},
-		"data_controller": {
-			"content": {
-				"p1": "The data controller is the natural or legal person who decides on the purposes and means of processing personal data (e.g., names, email addresses, etc.). For this website, this is:"
-			},
-			"title": "Data Controller"
-		},
-		"data_processing": {
-			"advertising": {
-				"content": {
-					"p1": "We embed content for advertising and marketing purposes on our site. Data is sent to the provider of the respective service.",
-					"p2": "Please note that no data is transferred unless you explicitly consent in the privacy notice that appears during your first visit to the site. This type of consent is also called \"OPT-IN.\" Data processing is therefore in accordance with Article 6(1a) of the GDPR."
-				},
-				"title": "Advertising"
-			},
-			"analytics": {
-				"content": {
-					"p1": "If you accept the data processing in the Web Analytics category in the privacy notice, statistical data about the use of the website is collected to improve the user experience of our site. All collected data is pseudonymized (by truncating a part of your IP address) and is stored for 26 months.",
-					"p2": "Please note that no data is transferred unless you explicitly consent in the privacy notice that appears during your first visit to the site. This type of consent is also called \"OPT-IN.\" Data processing is therefore in accordance with Article 6(1a) of the GDPR."
-				},
-				"title": "Web Analytics"
-			},
-			"booking": {
-				"content": {
-					"p1": "You can make certain bookings, reservations, or appointments on our website. For this purpose, we use external service providers to whom data is transmitted and further processed. We explicitly inform you and request your consent when using these services.",
-					"p2": "Please note that data is transferred only when you use one of these services. The data processing, therefore, complies with Article 6 (1a or 1b) of the GDPR."
-				},
-				"title": "Bookings"
-			},
-			"content": {
-				"p1": "When visiting our website and using the offered functionalities and services, various data about you is transmitted to us and our data processors. Certain data processing is necessary for the technical basic functionality of the website or for the fulfillment of contractual or pre-contractual measures and is therefore carried out without your further consent. Other data processing only occurs when you use specific functions of the website. In these cases, we explicitly inform you about the data processing or request your explicit consent.",
-				"p2": "All data processing is carried out on the basis of a contract between us and the specified data processors. In any case, we do not carry out data processing without a lawful basis. Therefore, all data processing complies with Article 6 of the GDPR.",
-				"p3": "The transfer and processing of your data may also take place outside the European Union (EU) or the European Economic Area (EEA). In this case, we ensure that the transfer and processing of your data only occur in countries with an adequate level of data protection. Especially for US companies, we ensure that they comply with the requirements of the EU-U.S. Data Privacy Framework.",
-				"p4": "Below you will find all data processing associated with our website, including a detailed description of their purpose, the categories of data transferred, the data processors involved, and any entries used in browser storage."
-			},
-			"items": {
-				"p1": "Below, you will find the data processing carried out in this category, including the data processors involved and any entries used in browser storage:"
-			},
-			"maps": {
-				"content": {
-					"p1": "Upon request, our website provides the functionality to display interactive maps (e.g., for creating directions). Data is sent to the provider of the respective service when using this functionality.",
-					"p2": "The map is only displayed when you consent to the associated data processing. Personal data (such as usage and location data) is also sent to the data processor.",
-					"p3": "Please note that no data is transferred unless you explicitly consent to the data processing for the purpose of displaying interactive maps. This type of consent is also referred to as 'OPT-IN.' The data processing, therefore, complies with Article 6 (1a) of the GDPR."
-				},
-				"title": "Interactive Maps"
-			},
-			"payment": {
-				"content": {
-					"p1": "You can purchase products on our website. Payment is processed through a payment provider, and all data required for the payment is transmitted to them.",
-					"p2": "Please note that information is transmitted to the payment provider only when you initiate the payment. The data processing is necessary for the fulfillment of the purchase contract and, therefore, complies with Article 6 (1a) of the GDPR."
-				},
-				"title": "Payment Processing"
-			},
-			"send_emails": {
-				"content": {
-					"p1": "Our website offers functionality for sending emails to you or to us. All data provided in the email (such as your name, email address, etc.) is transmitted to the respective data processors and delivered to the target email mailbox through their mail servers.",
-					"p2": "We send emails only with your explicit consent or when there is a contractual or pre-contractual necessity. The data processing, therefore, complies with Article 6 of the GDPR."
-				},
-				"title": "Email Sending"
-			},
-			"title": "Collection and Use of Data",
-			"videos": {
-				"content": {
-					"p1": "Upon request, our website embeds videos provided by external data processors. Data is transferred to the provider of the respective service.",
-					"p2": "The videos are displayed only when you consent to the associated data processing. Personal data (such as usage data or online identifiers) may also be sent to the data processor and possibly stored in your browser's memory.",
-					"p3": "Please note that no data is transferred unless you explicitly consent to the data processing for the purpose of displaying videos. This type of consent is also referred to as 'OPT-IN.' The data processing, therefore, complies with Article 6 (1a) of the GDPR."
-				},
-				"title": "Videos"
-			},
-			"webhosting": {
-				"content": {
-					"p1": "When visiting a website, your web browser automatically sends information to the server and infrastructure on which it operates to download the website and associated resources (such as images or fonts). The following types of data may be transmitted:",
-					"p2": "This data is automatically transmitted and logged to ensure the accessibility, functionality, security, and stability of our website. The data remains stored until the log file is deleted. The collected data is technically necessary for the operation and maintenance of this website and is not used in any way to identify or track you as an individual. The collection and processing of this data comply with Article 6 (1) of the GDPR.",
-					"ul1": {
-						"li1": "IP (Internet Protocol) address of your device,",
-						"li2": "Time, date, and duration of your visit,",
-						"li3": "Visited pages,",
-						"li4": "Type, version, and language of your web browser and operating system."
-					}
-				},
-				"title": "Webhosting"
-			}
-		},
-		"gdpr_rights": {
-			"content": {
-				"p1": "We treat your data in accordance with the European General Data Protection Regulation (\"GDPR\"). This regulation provides individuals with extensive rights concerning how their personal data is collected and processed. These rights include:",
-				"ul1": {
-					"li1": {
-						"strong": "Right to Information",
-						"text": "about the collected personal information and how it is stored, processed, or shared."
-					},
-					"li2": {
-						"strong": "Right to Rectification",
-						"text": "of your personal information."
-					},
-					"li3": {
-						"strong": "Right to Erasure",
-						"text": "of your personal information."
-					},
-					"li4": {
-						"strong": "Right to Lodge a Complaint",
-						"text": "with a supervisory authority."
-					},
-					"li5": {
-						"strong": "Right to Restriction",
-						"text": "of the processing of your personal information."
-					},
-					"li6": {
-						"strong": "Right to Withdraw Consent",
-						"text": "for the processing of your data."
-					},
-					"li7": {
-						"strong": "Right to Data Portability",
-						"text": "of your personal information to you."
-					}
-				}
-			},
-			"title": "Your Data Protection Rights"
-		},
-		"intro_content": {
-			"p1": "The protection of your personal data is of special concern to us. On this page, we inform you about the collection, processing, and sharing of personal information within the various functions of this website. You will also find information about your rights and how they are protected.",
-			"p2": "This website processes your data solely based on legal provisions, such as the European General Data Protection Regulation (\"GDPR\"). All collected personal information is used for the provision and improvement of our services. We will never use or share your personal data for any other purposes than those described in this statement. By using our services, you consent to the processing of data in accordance with this privacy policy. Only technically necessary data processing is carried out without your prior consent. For all other data processing, we request your consent when using the respective function or through the privacy notice. You can withdraw your consent at any time."
-		},
-		"outgoing_links": {
-			"content": {
-				"p1": "Our website includes links to other websites that are not operated by us. When you click on such an outgoing link, you will be redirected to that website. We have no control over these websites and their privacy practices, and therefore, we assume no responsibility for their content and behavior. Further details can be found in the privacy policies of these websites."
-			},
-			"title": "Outgoing Links"
-		},
-		"security": {
-			"content": {
-				"p1": "Our website employs various technical measures to ensure the secure transmission and storage of all collected data and to protect it against manipulation or unauthorized access. Any data transfer between your device, this website, and other services is encrypted (SSL). You can recognize an encrypted connection by the padlock symbol in your browser's address bar.",
-				"p2": "All data is stored on servers of our data processors. The collection and processing of this data are based on contracts we have concluded (in accordance with Article 28 of the GDPR) with these providers."
-			},
-			"title": "Data Security"
-		},
-		"title": "Privacy Policy"
-	},
-	"settings": {
-		"data_controller": {
-			"description": "The data controller is a natural or legal person responsible for the processing of personal data and is considered the primary point of contact for data protection matters. This contact should be specified in every privacy policy.",
-			"fields": {
-				"address": {
-					"title": "Address"
-				},
-				"email": {
-					"title": "Email"
-				},
-				"name": {
-					"title": "Name"
-				},
-				"organization": {
-					"title": "Organization"
-				},
-				"phone": {
-					"title": "Phone"
-				}
-			},
-			"title": "Data Controller"
-		},
-		"data_processings": {
-			"add": "Add Data Processing",
-			"categories": {
-				"advertising": {
-					"description": "Display of targeted advertising",
-					"title": "Advertising"
-				},
-				"analytics": {
-					"description": "Collection of usage statistics through web analytics tools, tracking pixels, etc.",
-					"title": "Web Analytics"
-				},
-				"booking": {
-					"description": "Booking of venues, services, or appointments",
-					"title": "Bookings"
-				},
-				"emails": {
-					"description": "Sending emails (e.g., via contact forms, transactional emails, newsletters, etc.)",
-					"title": "Emails"
-				},
-				"maps": {
-					"description": "Display of interactive maps & route planning",
-					"title": "Interactive Maps"
-				},
-				"payment": {
-					"description": "Payment processing",
-					"title": "Payment Processing"
-				},
-				"videos": {
-					"description": "Embedded videos",
-					"title": "Videos"
-				},
-				"webhosting": {
-					"description": "Hosting of the website and required services & content (e.g., database, images, scripts, etc.)",
-					"title": "Web Hosting"
-				}
-			},
-			"close": "Close",
-			"create": "Create New Data Processing",
-			"default_processors": "Default Data Processors",
-			"fields": {
-				"browser_store": {
-					"add_browser_store": "Add one or more browser storage entries if cookies, LocalStorage, SessionStorage, or IndexedDB are used for this data processing.",
-					"duration": {
-						"hint": "Select a predefined option or specify the duration in minutes.",
-						"options": {
-							"13_months": {
-								"title": "13 months"
-							},
-							"1_hour": {
-								"title": "1 hour"
-							},
-							"1_minute": {
-								"title": "1 minute"
-							},
-							"1_month": {
-								"title": "1 month"
-							},
-							"1_week": {
-								"title": "1 week"
-							},
-							"1_year": {
-								"title": "1 year"
-							},
-							"24_hours": {
-								"title": "24 hours"
-							},
-							"2_weeks": {
-								"title": "2 weeks"
-							},
-							"2_years": {
-								"title": "2 years"
-							},
-							"30_years": {
-								"title": "30 years"
-							},
-							"3_months": {
-								"title": "3 months"
-							},
-							"6_months": {
-								"title": "6 months"
-							},
-							"end_of_session": {
-								"title": "Until the end of the browser session"
-							},
-							"unknown": {
-								"title": "Unknown"
-							},
-							"unlimited": {
-								"title": "Unlimited"
-							}
-						},
-						"title": "Validity Duration"
-					},
-					"name": {
-						"title": "Name"
-					},
-					"new_browser_store": "New Browser Storage Entry",
-					"purpose": {
-						"options": {
-							"gdpr_choice": {
-								"title": "Storing decisions in GDPR/Cookie banners"
-							},
-							"security": {
-								"title": "Ensuring security (e.g., preventing CSRF attacks)"
-							},
-							"service": {
-								"title": "Using the associated service"
-							},
-							"session": {
-								"title": "Storing session data (e.g., for authentication)"
-							},
-							"settings": {
-								"title": "Storing user settings (e.g., language, display mode)"
-							}
-						},
-						"title": "Purpose"
-					},
-					"third_party": {
-						"title": "Created by a third-party domain"
-					},
-					"title": "Browser Storage",
-					"type": {
-						"options": {
-							"cookie": {
-								"title": "Cookie"
-							},
-							"indexed_db": {
-								"title": "IndexedDB"
-							},
-							"local_storage": {
-								"title": "Local Storage"
-							},
-							"session_storage": {
-								"title": "Session Storage"
-							}
-						},
-						"title": "Type"
-					},
-					"written_on": {
-						"options": {
-							"every_visit": {
-								"description": "Entry is automatically created with each visit (e.g., session cookies).",
-								"title": "Automatically with each visit"
-							},
-							"service_usage": {
-								"description": "Entry is only created when the associated service is used (e.g., maps, web analytics, payment, etc.).",
-								"title": "Upon usage of the respective service"
-							}
-						},
-						"title": "Creation Time"
-					}
-				},
-				"data_categories": {
-					"options": {
-						"geo": {
-							"description": "Location data (e.g., geo-coordinates).",
-							"title": "Location Data"
-						},
-						"online": {
-							"description": "Such as IP/MAC address, cookies, advertising IDs, pixel tags, device fingerprints.",
-							"title": "Online Identifiers"
-						},
-						"payment": {
-							"description": "Such as credit card or bank account information.",
-							"title": "Payment Data"
-						},
-						"personal": {
-							"description": "Such as name, address, phone number, email address.",
-							"title": "Personally Identifiable Data"
-						},
-						"pseudonymized": {
-							"description": "Anonymized personally identifiable data (e.g., through hashing) that can be identified when combined with other data.",
-							"title": "Pseudonymized Data"
-						},
-						"sensitive": {
-							"description": "Such as sexual orientation, ethnic origin, medical, or financial information.",
-							"title": "Sensitive Personal Data"
-						},
-						"usage": {
-							"description": "Such as which web pages were visited, when, and for how long.",
-							"title": "Usage Data"
-						}
-					},
-					"title": "Processed Data Categories"
-				},
-				"processor": {
-					"city": {
-						"title": "City"
-					},
-					"country": {
-						"title": "Country"
-					},
-					"dpf_url": {
-						"description": "Link to the EU-U.S. Data Privacy Framework entry for U.S. companies",
-						"title": "Link to EU-U.S. Data Privacy Framework Entry",
-						"to_search_page": "Go to DPF Participant Search"
-					},
-					"load_from_preset": "Load Processor from Preset",
-					"name": {
-						"title": "Name / Organization"
-					},
-					"privacy_policy_url": {
-						"title": "Privacy Policy Link"
-					},
-					"street": {
-						"title": "Street"
-					},
-					"title": "Data Processor",
-					"zip": {
-						"title": "ZIP Code"
-					}
-				},
-				"purposes": {
-					"options": {
-						"application_form": {
-							"description": "Email form used for applications.",
-							"title": "Application Form"
-						},
-						"cdn": {
-							"description": "Servers optimized for fast delivery of various page content.",
-							"title": "Content Delivery Network (CDN)"
-						},
-						"contact_form": {
-							"description": "Email form used for contacting.",
-							"title": "Contact Form"
-						},
-						"database": {
-							"description": "Database required for the operation of the website.",
-							"title": "Database"
-						},
-						"documents": {
-							"description": "HTML documents of the website.",
-							"title": "HTML Documents"
-						},
-						"fonts": {
-							"description": "Fonts used on the website.",
-							"title": "Fonts"
-						},
-						"images": {
-							"description": "Images embedded on the website.",
-							"title": "Images"
-						},
-						"newsletter": {
-							"description": "Used for sending marketing newsletters.",
-							"title": "Newsletter"
-						},
-						"registration_form": {
-							"description": "Email form used for registrations.",
-							"title": "Registration Form"
-						},
-						"scripts": {
-							"description": "Scripts required for various website functionalities.",
-							"title": "Scripts"
-						},
-						"stylesheets": {
-							"description": "Style definitions responsible for the appearance of the website.",
-							"title": "Stylesheets"
-						},
-						"transactional_mails": {
-							"description": "Transactional emails sent for contract fulfillment.",
-							"title": "Transactional Emails"
-						},
-						"videos": {
-							"description": "Videos embedded on the website.",
-							"title": "Videos"
-						}
-					},
-					"title": "Purposes"
-				},
-				"required": {
-					"title": "This data processing is technically necessary for providing the basic functionality of the website."
-				},
-				"service": {
-					"title": "Service Name"
-				}
-			},
-			"load_from_preset": "Load Data Processing from Template",
-			"title": "Data Processings",
-			"used_processors": "Previously Used Data Processors"
-		},
-		"general": {
-			"fields": {
-				"language": {
-					"options": {
-						"de": {
-							"title": "German"
-						},
-						"en": {
-							"title": "English"
-						}
-					},
-					"title": "Language"
-				}
-			},
-			"title": "General"
-		},
-		"title": "Settings"
-	}
+  "errors": {
+    "errors_in_form": "Please fix all errors in the form first.",
+    "missing_webhosting_data_processing": "There should be at least one data processing in the Webhosting category specified.",
+    "name_or_org_required": "Please fill in either organization or name (or both).",
+    "page_not_found": "Page not found",
+    "settings_errors": "Please fix the displayed errors in the settings."
+  },
+  "general": {
+    "add": "Add",
+    "back_to_home": "Back to homepage",
+    "cc0_licence": "creative commons CC0 1.0 \"Public Domain\" License",
+    "cc0_link": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "close": "Close",
+    "copy_html": "HTML",
+    "copy_markdown": "Markdown",
+    "copy_successful": "The text has been successfully copied to the clipboard.",
+    "copy_text": "Text",
+    "copy_to_clipboard": "Copy to clipboard",
+    "delete": "Delete",
+    "goto_github": "View the source code of this page on Github",
+    "legal_notice": "Legal Notice",
+    "optional": "optional",
+    "provided_by": "operated by",
+    "sort_down": "move down",
+    "sort_up": "move up",
+    "switch_theme": "Switch between dark and light color schemes"
+  },
+  "h1": {
+    "line1": "Generator for a",
+    "line2": "Free Privacy Policy"
+  },
+  "images": {
+    "cc0_icon": {
+      "alt": "The number zero in a black circle with the text \"Public Domain\""
+    },
+    "favicon": {
+      "alt": "Round symbol with a shield with a lock in the middle"
+    },
+    "logo": {
+      "alt": "Flower graphic with a shield symbol with a lock in the middle"
+    }
+  },
+  "intro": {
+    "p1": "On this page, you can generate a privacy policy for your website. Creation and use are free, and the text is released under the creative commons CC0 1.0 license as \"Public Domain.\" Attribution is not required.",
+    "p2": "The author assumes <strong>no responsibility or liability</strong>. Please note that the GDPR compliance of this privacy policy depends on the circumstances of your website. It is recommended to have the generated privacy policy reviewed by a lawyer."
+  },
+  "meta": {
+    "site": {
+      "description": "Generator for a Free Privacy Policy",
+      "title": "Privacy Policy Generator"
+    }
+  },
+  "privacy_policy": {
+    "browser_store": {
+      "content": {
+        "p1": "Our website or related data processing stores certain information directly in your web browser (e.g., via \"Cookies\") to ensure certain functionalities.",
+        "p2": "Such information can be set both directly by our website (\"first-party entries\") and by data processors' services (e.g., when sending emails or for web analytics). Only technically necessary first-party entries are used upon your first visit to our website.",
+        "p3": "Most web browsers provide functions to view and delete already set entries. Furthermore, you can configure your browser to not set any cookies. Please note, however, that this may affect certain functionalities of our website.",
+        "p4": "Details about which browser entries are used for which data processing are provided for each individual data processing below."
+      },
+      "no_browser_store_content": {
+        "p1": "Websites often use your web browser's functions (such as \"Cookies\") to store and retrieve information to ensure certain functionalities. Our website and related data processing do not use such technologies."
+      },
+      "title": "Browser Storage (Cookies, etc.)"
+    },
+    "data_controller": {
+      "content": {
+        "p1": "The data controller is the natural or legal person who decides on the purposes and means of processing personal data (e.g., names, email addresses, etc.). For this website, this is:"
+      },
+      "title": "Data Controller"
+    },
+    "data_processing": {
+      "advertising": {
+        "content": {
+          "p1": "We embed content for advertising and marketing purposes on our site. Data is sent to the provider of the respective service.",
+          "p2": "Please note that no data is transferred unless you explicitly consent in the privacy notice that appears during your first visit to the site. This type of consent is also called \"OPT-IN.\" Data processing is therefore in accordance with Article 6(1a) of the GDPR."
+        },
+        "title": "Advertising"
+      },
+      "analytics": {
+        "content": {
+          "p1": "If you accept the data processing in the Web Analytics category in the privacy notice, statistical data about the use of the website is collected to improve the user experience of our site. All collected data is pseudonymized (by truncating a part of your IP address) and is stored for 26 months.",
+          "p2": "Please note that no data is transferred unless you explicitly consent in the privacy notice that appears during your first visit to the site. This type of consent is also called \"OPT-IN.\" Data processing is therefore in accordance with Article 6(1a) of the GDPR."
+        },
+        "title": "Web Analytics"
+      },
+      "booking": {
+        "content": {
+          "p1": "You can make certain bookings, reservations, or appointments on our website. For this purpose, we use external service providers to whom data is transmitted and further processed. We explicitly inform you and request your consent when using these services.",
+          "p2": "Please note that data is transferred only when you use one of these services. The data processing, therefore, complies with Article 6 (1a or 1b) of the GDPR."
+        },
+        "title": "Bookings"
+      },
+      "content": {
+        "p1": "When visiting our website and using the offered functionalities and services, various data about you is transmitted to us and our data processors. Certain data processing is necessary for the technical basic functionality of the website or for the fulfillment of contractual or pre-contractual measures and is therefore carried out without your further consent. Other data processing only occurs when you use specific functions of the website. In these cases, we explicitly inform you about the data processing or request your explicit consent.",
+        "p2": "All data processing is carried out on the basis of a contract between us and the specified data processors. In any case, we do not carry out data processing without a lawful basis. Therefore, all data processing complies with Article 6 of the GDPR.",
+        "p3": "The transfer and processing of your data may also take place outside the European Union (EU) or the European Economic Area (EEA). In this case, we ensure that the transfer and processing of your data only occur in countries with an adequate level of data protection. Especially for US companies, we ensure that they comply with the requirements of the EU-U.S. Data Privacy Framework.",
+        "p4": "Below you will find all data processing associated with our website, including a detailed description of their purpose, the categories of data transferred, the data processors involved, and any entries used in browser storage."
+      },
+      "items": {
+        "p1": "Below, you will find the data processing carried out in this category, including the data processors involved and any entries used in browser storage:"
+      },
+      "maps": {
+        "content": {
+          "p1": "Upon request, our website provides the functionality to display interactive maps (e.g., for creating directions). Data is sent to the provider of the respective service when using this functionality.",
+          "p2": "The map is only displayed when you consent to the associated data processing. Personal data (such as usage and location data) is also sent to the data processor.",
+          "p3": "Please note that no data is transferred unless you explicitly consent to the data processing for the purpose of displaying interactive maps. This type of consent is also referred to as 'OPT-IN.' The data processing, therefore, complies with Article 6 (1a) of the GDPR."
+        },
+        "title": "Interactive Maps"
+      },
+      "payment": {
+        "content": {
+          "p1": "You can purchase products on our website. Payment is processed through a payment provider, and all data required for the payment is transmitted to them.",
+          "p2": "Please note that information is transmitted to the payment provider only when you initiate the payment. The data processing is necessary for the fulfillment of the purchase contract and, therefore, complies with Article 6 (1a) of the GDPR."
+        },
+        "title": "Payment Processing"
+      },
+      "send_emails": {
+        "content": {
+          "p1": "Our website offers functionality for sending emails to you or to us. All data provided in the email (such as your name, email address, etc.) is transmitted to the respective data processors and delivered to the target email mailbox through their mail servers.",
+          "p2": "We send emails only with your explicit consent or when there is a contractual or pre-contractual necessity. The data processing, therefore, complies with Article 6 of the GDPR."
+        },
+        "title": "Email Sending"
+      },
+      "title": "Collection and Use of Data",
+      "videos": {
+        "content": {
+          "p1": "Upon request, our website embeds videos provided by external data processors. Data is transferred to the provider of the respective service.",
+          "p2": "The videos are displayed only when you consent to the associated data processing. Personal data (such as usage data or online identifiers) may also be sent to the data processor and possibly stored in your browser's memory.",
+          "p3": "Please note that no data is transferred unless you explicitly consent to the data processing for the purpose of displaying videos. This type of consent is also referred to as 'OPT-IN.' The data processing, therefore, complies with Article 6 (1a) of the GDPR."
+        },
+        "title": "Videos"
+      },
+      "webhosting": {
+        "content": {
+          "p1": "When visiting a website, your web browser automatically sends information to the server and infrastructure on which it operates to download the website and associated resources (such as images or fonts). The following types of data may be transmitted:",
+          "p2": "This data is automatically transmitted and logged to ensure the accessibility, functionality, security, and stability of our website. The data remains stored until the log file is deleted. The collected data is technically necessary for the operation and maintenance of this website and is not used in any way to identify or track you as an individual. The collection and processing of this data comply with Article 6 (1) of the GDPR.",
+          "ul1": {
+            "li1": "IP (Internet Protocol) address of your device,",
+            "li2": "Time, date, and duration of your visit,",
+            "li3": "Visited pages,",
+            "li4": "Type, version, and language of your web browser and operating system."
+          }
+        },
+        "title": "Webhosting"
+      }
+    },
+    "gdpr_rights": {
+      "content": {
+        "p1": "We treat your data in accordance with the European General Data Protection Regulation (\"GDPR\"). This regulation provides individuals with extensive rights concerning how their personal data is collected and processed. These rights include:",
+        "ul1": {
+          "li1": {
+            "strong": "Right to Information",
+            "text": "about the collected personal information and how it is stored, processed, or shared."
+          },
+          "li2": {
+            "strong": "Right to Rectification",
+            "text": "of your personal information."
+          },
+          "li3": {
+            "strong": "Right to Erasure",
+            "text": "of your personal information."
+          },
+          "li4": {
+            "strong": "Right to Lodge a Complaint",
+            "text": "with a supervisory authority."
+          },
+          "li5": {
+            "strong": "Right to Restriction",
+            "text": "of the processing of your personal information."
+          },
+          "li6": {
+            "strong": "Right to Withdraw Consent",
+            "text": "for the processing of your data."
+          },
+          "li7": {
+            "strong": "Right to Data Portability",
+            "text": "of your personal information to you."
+          }
+        }
+      },
+      "title": "Your Data Protection Rights"
+    },
+    "intro_content": {
+      "p1": "The protection of your personal data is of special concern to us. On this page, we inform you about the collection, processing, and sharing of personal information within the various functions of this website. You will also find information about your rights and how they are protected.",
+      "p2": "This website processes your data solely based on legal provisions, such as the European General Data Protection Regulation (\"GDPR\"). All collected personal information is used for the provision and improvement of our services. We will never use or share your personal data for any other purposes than those described in this statement. By using our services, you consent to the processing of data in accordance with this privacy policy. Only technically necessary data processing is carried out without your prior consent. For all other data processing, we request your consent when using the respective function or through the privacy notice. You can withdraw your consent at any time."
+    },
+    "outgoing_links": {
+      "content": {
+        "p1": "Our website includes links to other websites that are not operated by us. When you click on such an outgoing link, you will be redirected to that website. We have no control over these websites and their privacy practices, and therefore, we assume no responsibility for their content and behavior. Further details can be found in the privacy policies of these websites."
+      },
+      "title": "Outgoing Links"
+    },
+    "security": {
+      "content": {
+        "p1": "Our website employs various technical measures to ensure the secure transmission and storage of all collected data and to protect it against manipulation or unauthorized access. Any data transfer between your device, this website, and other services is encrypted (SSL). You can recognize an encrypted connection by the padlock symbol in your browser's address bar.",
+        "p2": "All data is stored on servers of our data processors. The collection and processing of this data are based on contracts we have concluded (in accordance with Article 28 of the GDPR) with these providers."
+      },
+      "title": "Data Security"
+    },
+    "title": "Privacy Policy"
+  },
+  "settings": {
+    "data_controller": {
+      "description": "The data controller is a natural or legal person responsible for the processing of personal data and is considered the primary point of contact for data protection matters. This contact should be specified in every privacy policy.",
+      "fields": {
+        "address": {
+          "title": "Address"
+        },
+        "email": {
+          "title": "Email"
+        },
+        "name": {
+          "title": "Name"
+        },
+        "organization": {
+          "title": "Organization"
+        },
+        "phone": {
+          "title": "Phone"
+        }
+      },
+      "title": "Data Controller"
+    },
+    "data_processings": {
+      "add": "Add Data Processing",
+      "categories": {
+        "advertising": {
+          "description": "Display of targeted advertising",
+          "title": "Advertising"
+        },
+        "analytics": {
+          "description": "Collection of usage statistics through web analytics tools, tracking pixels, etc.",
+          "title": "Web Analytics"
+        },
+        "booking": {
+          "description": "Booking of venues, services, or appointments",
+          "title": "Bookings"
+        },
+        "emails": {
+          "description": "Sending emails (e.g., via contact forms, transactional emails, newsletters, etc.)",
+          "title": "Emails"
+        },
+        "maps": {
+          "description": "Display of interactive maps & route planning",
+          "title": "Interactive Maps"
+        },
+        "payment": {
+          "description": "Payment processing",
+          "title": "Payment Processing"
+        },
+        "videos": {
+          "description": "Embedded videos",
+          "title": "Videos"
+        },
+        "webhosting": {
+          "description": "Hosting of the website and required services & content (e.g., database, images, scripts, etc.)",
+          "title": "Web Hosting"
+        }
+      },
+      "close": "Close",
+      "create": "Create New Data Processing",
+      "default_processors": "Default Data Processors",
+      "fields": {
+        "browser_store": {
+          "add_browser_store": "Add one or more browser storage entries if cookies, LocalStorage, SessionStorage, or IndexedDB are used for this data processing.",
+          "duration": {
+            "hint": "Select a predefined option or specify the duration in minutes.",
+            "options": {
+              "13_months": {
+                "title": "13 months"
+              },
+              "1_hour": {
+                "title": "1 hour"
+              },
+              "1_minute": {
+                "title": "1 minute"
+              },
+              "1_month": {
+                "title": "1 month"
+              },
+              "1_week": {
+                "title": "1 week"
+              },
+              "1_year": {
+                "title": "1 year"
+              },
+              "24_hours": {
+                "title": "24 hours"
+              },
+              "2_weeks": {
+                "title": "2 weeks"
+              },
+              "2_years": {
+                "title": "2 years"
+              },
+              "30_years": {
+                "title": "30 years"
+              },
+              "3_months": {
+                "title": "3 months"
+              },
+              "6_months": {
+                "title": "6 months"
+              },
+              "end_of_session": {
+                "title": "Until the end of the browser session"
+              },
+              "unknown": {
+                "title": "Unknown"
+              },
+              "unlimited": {
+                "title": "Unlimited"
+              }
+            },
+            "title": "Validity Duration"
+          },
+          "name": {
+            "title": "Name"
+          },
+          "new_browser_store": "New Browser Storage Entry",
+          "purpose": {
+            "options": {
+              "gdpr_choice": {
+                "title": "Storing decisions in GDPR/Cookie banners"
+              },
+              "security": {
+                "title": "Ensuring security (e.g., preventing CSRF attacks)"
+              },
+              "service": {
+                "title": "Using the associated service"
+              },
+              "session": {
+                "title": "Storing session data (e.g., for authentication)"
+              },
+              "settings": {
+                "title": "Storing user settings (e.g., language, display mode)"
+              }
+            },
+            "title": "Purpose"
+          },
+          "third_party": {
+            "title": "Created by a third-party domain"
+          },
+          "title": "Browser Storage",
+          "type": {
+            "options": {
+              "cookie": {
+                "title": "Cookie"
+              },
+              "indexed_db": {
+                "title": "IndexedDB"
+              },
+              "local_storage": {
+                "title": "Local Storage"
+              },
+              "session_storage": {
+                "title": "Session Storage"
+              }
+            },
+            "title": "Type"
+          },
+          "written_on": {
+            "options": {
+              "every_visit": {
+                "description": "Entry is automatically created with each visit (e.g., session cookies).",
+                "title": "Automatically with each visit"
+              },
+              "service_usage": {
+                "description": "Entry is only created when the associated service is used (e.g., maps, web analytics, payment, etc.).",
+                "title": "Upon usage of the respective service"
+              }
+            },
+            "title": "Creation Time"
+          }
+        },
+        "data_categories": {
+          "options": {
+            "geo": {
+              "description": "Location data (e.g., geo-coordinates).",
+              "title": "Location Data"
+            },
+            "online": {
+              "description": "Such as IP/MAC address, cookies, advertising IDs, pixel tags, device fingerprints.",
+              "title": "Online Identifiers"
+            },
+            "payment": {
+              "description": "Such as credit card or bank account information.",
+              "title": "Payment Data"
+            },
+            "personal": {
+              "description": "Such as name, address, phone number, email address.",
+              "title": "Personally Identifiable Data"
+            },
+            "pseudonymized": {
+              "description": "Anonymized personally identifiable data (e.g., through hashing) that can be identified when combined with other data.",
+              "title": "Pseudonymized Data"
+            },
+            "sensitive": {
+              "description": "Such as sexual orientation, ethnic origin, medical, or financial information.",
+              "title": "Sensitive Personal Data"
+            },
+            "usage": {
+              "description": "Such as which web pages were visited, when, and for how long.",
+              "title": "Usage Data"
+            }
+          },
+          "title": "Processed Data Categories"
+        },
+        "processor": {
+          "city": {
+            "title": "City"
+          },
+          "country": {
+            "title": "Country"
+          },
+          "dpf_url": {
+            "description": "Link to the EU-U.S. Data Privacy Framework entry for U.S. companies",
+            "title": "Link to EU-U.S. Data Privacy Framework Entry",
+            "to_search_page": "Go to DPF Participant Search"
+          },
+          "load_from_preset": "Load Processor from Preset",
+          "name": {
+            "title": "Name / Organization"
+          },
+          "privacy_policy_url": {
+            "title": "Privacy Policy Link"
+          },
+          "street": {
+            "title": "Street"
+          },
+          "title": "Data Processor",
+          "zip": {
+            "title": "ZIP Code"
+          }
+        },
+        "purposes": {
+          "options": {
+            "application_form": {
+              "description": "Email form used for applications.",
+              "title": "Application Form"
+            },
+            "cdn": {
+              "description": "Servers optimized for fast delivery of various page content.",
+              "title": "Content Delivery Network (CDN)"
+            },
+            "contact_form": {
+              "description": "Email form used for contacting.",
+              "title": "Contact Form"
+            },
+            "database": {
+              "description": "Database required for the operation of the website.",
+              "title": "Database"
+            },
+            "documents": {
+              "description": "HTML documents of the website.",
+              "title": "HTML Documents"
+            },
+            "fonts": {
+              "description": "Fonts used on the website.",
+              "title": "Fonts"
+            },
+            "images": {
+              "description": "Images embedded on the website.",
+              "title": "Images"
+            },
+            "newsletter": {
+              "description": "Used for sending marketing newsletters.",
+              "title": "Newsletter"
+            },
+            "registration_form": {
+              "description": "Email form used for registrations.",
+              "title": "Registration Form"
+            },
+            "scripts": {
+              "description": "Scripts required for various website functionalities.",
+              "title": "Scripts"
+            },
+            "stylesheets": {
+              "description": "Style definitions responsible for the appearance of the website.",
+              "title": "Stylesheets"
+            },
+            "transactional_mails": {
+              "description": "Transactional emails sent for contract fulfillment.",
+              "title": "Transactional Emails"
+            },
+            "videos": {
+              "description": "Videos embedded on the website.",
+              "title": "Videos"
+            }
+          },
+          "title": "Purposes"
+        },
+        "required": {
+          "title": "This data processing is technically necessary for providing the basic functionality of the website."
+        },
+        "service": {
+          "title": "Service Name"
+        }
+      },
+      "load_from_preset": "Load Data Processing from Template",
+      "title": "Data Processings",
+      "used_processors": "Previously Used Data Processors"
+    },
+    "general": {
+      "fields": {
+        "language": {
+          "add_new_hint": "Do you need an additional language? Drop me an {issue}, and i'll try to generate an AI translation.",
+          "options": {
+            "de": {
+              "title": "German"
+            },
+            "en": {
+              "title": "English"
+            },
+            "it": {
+              "title": "Italian"
+            }
+          },
+          "title": "Language"
+        }
+      },
+      "title": "General"
+    },
+    "title": "Settings"
+  }
 }

@@ -37,6 +37,11 @@ export default defineNuxtConfig({
 				name: 'English',
 				file: 'en.json',
 			},
+			{
+				code: 'it',
+				name: 'Italian',
+				file: 'it.json',
+			},
 		],
 		detectBrowserLanguage: {
 			useCookie: false,
@@ -53,6 +58,7 @@ export default defineNuxtConfig({
 		pages: {
 			'privacy-policy': {
 				de: '/datenschutzerklaerung',
+				it: '/informativa-sulla-privacy',
 			},
 		},
 	},

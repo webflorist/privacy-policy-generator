@@ -46,7 +46,7 @@ const themeIcon = computed(() =>
 					v-for="locale in availableLocales"
 					:key="locale.code"
 					:to="switchLocalePath(locale.code)"
-					>{{ locale.name }}</v-btn
+					>{{ locale.code }}</v-btn
 				>
 			</v-btn-toggle>
 		</template>

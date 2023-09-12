@@ -1,7 +1,7 @@
 export {}
 
 declare global {
-	type Language = 'de' | 'en'
+	type Language = 'de' | 'en' | 'it'
 
 	type LocaleString = Record<Language, string>
 
