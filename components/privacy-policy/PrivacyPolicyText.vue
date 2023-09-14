@@ -143,6 +143,20 @@ const usesBrowserStore = computed(() =>
 		</section>
 
 		<section
+			v-if="Object.entries(settings.dataProcessings.tagmanager).length > 0"
+			id="process-tagmanager"
+		>
+			<h3>{{ t('privacy_policy.data_processing.tagmanager.title') }}</h3>
+			<p>{{ t('privacy_policy.data_processing.tagmanager.content.p1') }}</p>
+			<p>{{ t('privacy_policy.data_processing.tagmanager.content.p2') }}</p>
+
+			<PrivacyPolicyDataProcessings
+				category="tagmanager"
+				:items="settings.dataProcessings.tagmanager"
+			/>
+		</section>
+
+		<section
 			v-if="Object.entries(settings.dataProcessings.analytics).length > 0"
 			id="process-analytics"
 		>

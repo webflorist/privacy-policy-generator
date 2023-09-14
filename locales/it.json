@@ -85,6 +85,13 @@
 				},
 				"title": "Web Analytics"
 			},
+			"tagmanager": {
+				"content": {
+					"p1": "Utilizziamo un cosiddetto tag manager sul nostro sito. Questo è un servizio esterno che ci consente di integrare vari altri script e contenuti sul nostro sito. Se accetti il ​​trattamento dei dati per il tag manager, i dati verranno caricati dal relativo responsabile del trattamento e l'elaborazione dei dati verrà effettuata da quest'ultimo. Tutti gli altri contenuti rilevanti per la legge sulla protezione dei dati integrati dal Tag Manager vengono mostrati separatamente nell'elaborazione dei dati.",
+					"p2": "Tieni presente che nessun dato verrà trasferito al fornitore del tag manager a meno che tu non acconsenta esplicitamente a ciò nell'informativa sulla protezione dei dati che appare quando visiti per la prima volta il sito. Questo tipo di consenso è chiamato anche \"OPT-IN\". Il trattamento dei dati avviene pertanto ai sensi dell’articolo 6, paragrafo 1a del GDPR."
+				},
+				"title": "Tag Manager"
+			},
 			"booking": {
 				"content": {
 					"p1": "È possibile effettuare determinate prenotazioni e appuntamenti sul nostro sito web. A tal fine, utilizziamo fornitori di servizi esterni a cui vengono trasmessi dati e ulteriormente elaborati. Ti informiamo esplicitamente e richiediamo il tuo consenso quando utilizzi tali servizi.",
@@ -233,6 +240,10 @@
 				"analytics": {
 					"description": "Raccolta di statistiche sull'uso tramite strumenti di analisi web, pixel di tracciamento, ecc.",
 					"title": "Analisi Web"
+				},
+				"tagmanager": {
+					"description": "Tag manager per l'integrazione di script e altri contenuti",
+					"title": "Tag Manager"
 				},
 				"booking": {
 					"description": "Prenotazione di luoghi, servizi o appuntamenti",
@@ -520,6 +531,9 @@
 					},
 					"title": "Lingua"
 				}
+			},
+			"language": {
+				"ai_generated_hint": "Il testo per questa lingua è stato tradotto con il supporto dell'intelligenza artificiale e non è stato ancora corretto."
 			},
 			"title": "Generali"
 		},

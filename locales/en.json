@@ -85,6 +85,13 @@
 				},
 				"title": "Web Analytics"
 			},
+			"tagmanager": {
+				"content": {
+					"p1": "We use a so-called tag manager on our site. This is an external service that allows us to integrate various other scripts and content on our site. If you accept data processing for the tag manager, data will be loaded by the relevant processor and data processing will be carried out by them. All other content relevant to data protection law that is integrated by the Tag Manager is shown separately in data processing.",
+					"p2": "Please note that no data will be transferred to the tag manager provider unless you explicitly agree to this in the data protection notice that appears when you first visit the site. This type of consent is also called \"OPT-IN\". The data processing is therefore carried out in accordance with Article 6 (1a) of the GDPR."
+				},
+				"title": "Tag Manager"
+			},
 			"booking": {
 				"content": {
 					"p1": "You can make certain bookings, reservations, or appointments on our website. For this purpose, we use external service providers to whom data is transmitted and further processed. We explicitly inform you and request your consent when using these services.",
@@ -233,6 +240,10 @@
 				"analytics": {
 					"description": "Collection of usage statistics through web analytics tools, tracking pixels, etc.",
 					"title": "Web Analytics"
+				},
+				"tagmanager": {
+					"description": "Tag Manager for integrating scripts and other content",
+					"title": "Tag Manager"
 				},
 				"booking": {
 					"description": "Booking of venues, services, or appointments",
@@ -520,6 +531,9 @@
 					},
 					"title": "Language"
 				}
+			},
+			"language": {
+				"ai_generated_hint": "The text for this language was translated with AI support and has not yet been proofread."
 			},
 			"title": "General"
 		},

@@ -168,6 +168,23 @@ export const useDataProcessingPresets = () => {
 		},
 	]
 
+	const tagmanager: DataProcessing[] = [
+		{
+			processor: defaultProcessors.find(
+				(processor) => processor.id === 'google_ireland_limited_ie'
+			),
+			required: false,
+			service: 'Google Tag Manager',
+			dataCategories: ['online', 'usage'],
+		},
+		{
+			processor: defaultProcessors.find((processor) => processor.id === 'innocraft_ltd_nz'),
+			required: false,
+			service: 'Matomo Cloud Tag Manager',
+			dataCategories: ['online', 'usage'],
+		},
+	]
+
 	const maps: DataProcessing[] = [
 		{
 			processor: defaultProcessors.find((processor) => processor.id === 'google_llc_us'),
@@ -358,6 +375,7 @@ export const useDataProcessingPresets = () => {
 	return {
 		webhosting,
 		analytics,
+		tagmanager,
 		maps,
 		videos,
 		emails,

@@ -12,6 +12,10 @@ const categories: Record<DataProcessingCategory, CategoryData> = reactive({
 		icon: 'mdi-server-network',
 		hasErrors: false,
 	},
+	tagmanager: {
+		icon: 'mdi-tag',
+		hasErrors: false,
+	},
 	analytics: {
 		icon: 'mdi-chart-bar',
 		hasErrors: false,

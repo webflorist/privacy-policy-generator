@@ -20,6 +20,7 @@ const settings: GeneratorSettings = {
 			},
 		],
 		analytics: [],
+		tagmanager: [],
 		maps: [],
 		videos: [],
 		emails: [],

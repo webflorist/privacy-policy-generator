@@ -7,6 +7,8 @@ const languageOptions = computed(() => [
 	{ value: 'en', title: t('settings.general.fields.language.options.en.title') },
 	{ value: 'it', title: t('settings.general.fields.language.options.it.title') },
 ])
+
+const langIsAiGenerated = computed(() => ['it'].includes(settings.value.general.language))
 </script>
 <template>
 	<form>
@@ -17,6 +19,9 @@ const languageOptions = computed(() => [
 			empty-option
 			name="language"
 		/>
+		<v-alert v-if="langIsAiGenerated" type="warning">
+			{{ $t('settings.general.language.ai_generated_hint') }}
+		</v-alert>
 		<i18n-t keypath="settings.general.fields.language.add_new_hint" tag="p">
 			<template #issue>
 				<a

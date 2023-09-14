@@ -85,6 +85,13 @@
 				},
 				"title": "Web-Analyse"
 			},
+			"tagmanager": {
+				"content": {
+					"p1": "Wir nutzen auf unserer Seite einen so genannten Tag Manager. Dies ist ein externer Dienst, der uns ermöglicht, diverse andere Skripte und Inhalte auf unserer Seite einzubinden. Wenn Sie die Datenverarbeitungen für den Tag Manger akzeptieren, werden Daten vom entsprechenden Auftragsverarbeiter geladen und von diesem Datenverarbeitungen durchgeführt. Sämtliche weitere datenschutzrechtlich relevanten Inhalte, die vom Tag Manager eingebunden werden, sind gesondert in der Datenverarbeitung ausgewiesen.",
+					"p2": "Bitte beachten Sie, dass keinerlei Daten zum Anbieter des Tag Managers transferiert werden, sofern Sie nicht explizit im Datenschutzhinweis zustimmen, der bei Ihrem ersten Besuch der Seite erscheint. Diese Art der Zustimmung wird auch \"OPT-IN\" genannt. Die Datenverarbeitung geschieht somit in Übereinstimmung mit Artikel 6 (1a) der DSGVO."
+				},
+				"title": "Tag Manager"
+			},
 			"booking": {
 				"content": {
 					"p1": "Sie können auf unserer Webseite bestimmte Buchungen, Reservierungen, oder Terminvereinbarungen vornehmen. Hierzu nutzen wir externe Dienstleister, zu denen Daten übertragen und von diesen weiterverarbeitet werden. Wir weisen Sie bei der Nutzung dieser Dienste explizit darauf hin und fordern Ihre Zustimmung ein.",
@@ -233,6 +240,10 @@
 				"analytics": {
 					"description": "Erfassung von Nutzungsstatistiken durch Web-Analyse-Tools, Tracking-Pixel, etc.",
 					"title": "Web-Analyse"
+				},
+				"tagmanager": {
+					"description": "Tag Manager zum Einbinden von Skripten und anderen Inhalten",
+					"title": "Tag Manager"
 				},
 				"booking": {
 					"description": "Buchung von Veranstaltungsorten, Diensleistungen oder Terminen",
@@ -520,6 +531,9 @@
 					},
 					"title": "Sprache"
 				}
+			},
+			"language": {
+				"ai_generated_hint": "Der Text für diese Sprache wurde mit KI-Unterstützung übersetzt und ist noch nicht korrekturgelesen."
 			},
 			"title": "Allgemeines"
 		},

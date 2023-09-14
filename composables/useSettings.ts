@@ -18,6 +18,7 @@ export const useSettings = () => {
 			dataProcessings: {
 				webhosting: [],
 				analytics: [],
+				tagmanager: [],
 				maps: [],
 				videos: [],
 				emails: [],

@@ -39,6 +39,7 @@ declare global {
 
 	type DataProcessingCategory =
 		| 'webhosting' // Hosting of websites and associated services and assets (e.g. databases, images, etc.)
+		| 'tagmanager' // Tag Manager
 		| 'analytics' // Usage analytics, statistics and tracking
 		| 'maps' // Display of interactive maps, route planning, etc.
 		| 'videos' // Embedding of videos
