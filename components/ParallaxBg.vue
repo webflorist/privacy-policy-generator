@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { y } = useWindowScroll()
 
-const getStyle = (ratio: number): string => `transform:translateY(-${y.value * ratio}px)`
+const getStyle = (ratio: number): string => `transform:translate3d(0,-${y.value * ratio}px,0)`
 </script>
 <template>
 	<div class="parallax-bg">
