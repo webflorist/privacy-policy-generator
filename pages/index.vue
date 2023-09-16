@@ -46,7 +46,7 @@ const hasErrors = computed(() => !hasWebhostingProcessing.value || hasSettingsEr
 							>
 								<SvgCC0PublicDomain :alt="$t('images.cc0_icon.alt')" />
 							</a>
-							<p v-html="$t('intro.p2')" />
+							<p>{{ $t('intro.p2') }}</p>
 						</div>
 					</v-container>
 
