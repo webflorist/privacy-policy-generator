@@ -29,7 +29,6 @@
 		"@typescript-eslint/parser": "^6.7.0",
 		"@vee-validate/i18n": "^4.11.6",
 		"@vee-validate/rules": "^4.11.6",
-		"@vite-pwa/nuxt": "^0.1.1",
 		"@vueuse/nuxt": "^10.4.1",
 		"autoprefixer": "^10.4.15",
 		"eslint": "^8.49.0",
