@@ -65,6 +65,9 @@ devDependencies:
   nuxt:
     specifier: ^3.7.1
     version: 3.7.1(@types/node@20.6.0)(eslint@8.49.0)(rollup@2.79.1)(stylelint@15.10.3)(typescript@5.2.2)
+  nuxt-simple-sitemap:
+    specifier: ^3.3.3
+    version: 3.3.3(nuxt@3.7.1)(rollup@2.79.1)(vite@4.4.9)
   postcss:
     specifier: ^8.4.29
     version: 8.4.29
@@ -1924,6 +1927,11 @@ packages:
     engines: {node: '>= 16'}
     dev: true
 
+  /@intlify/shared@9.4.1:
+    resolution: {integrity: sha512-A51elBmZWf1FS80inf/32diO9DeXoqg9GR9aUDHFcfHoNDuT46Q+fpPOdj8jiJnSHSBh8E1E+6qWRhAZXdK3Ng==}
+    engines: {node: '>= 16'}
+    dev: true
+
   /@intlify/unplugin-vue-i18n@0.13.0(rollup@2.79.1)(vue-i18n@9.3.0-beta.27):
     resolution: {integrity: sha512-Mm9NhcvbsSZ5FXXnCpL/XFCk1hPp809hxErNmnwqGp21JjYOKGp3wpQSrpvGk33ZrHZbhPqAu70IEVEAxVZ5+A==}
     engines: {node: '>= 14.16'}
@@ -2151,11 +2159,54 @@ packages:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
     dev: true
 
+  /@nuxt/devtools-kit@0.8.3(nuxt@3.7.1)(rollup@2.79.1)(vite@4.4.9):
+    resolution: {integrity: sha512-qF5xJSvGzPMcWNTSPOpCWQfoDVqR+S56Ux/ZTm2nydHsXkJfS2k2iztJfbHlPquWdH4uS3lVxcfF4CFtgdJqkw==}
+    peerDependencies:
+      nuxt: ^3.6.5
+      vite: '*'
+    dependencies:
+      '@nuxt/kit': 3.7.3(rollup@2.79.1)
+      '@nuxt/schema': 3.7.1(rollup@2.79.1)
+      execa: 7.2.0
+      nuxt: 3.7.1(@types/node@20.6.0)(eslint@8.49.0)(rollup@2.79.1)(stylelint@15.10.3)(typescript@5.2.2)
+      vite: 4.4.9(@types/node@20.6.0)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /@nuxt/kit@3.7.1(rollup@2.79.1):
     resolution: {integrity: sha512-8k4q+92qLz5z7RdSOKrEJIjM63xXBg0z/WhTtZgXv1R5ULZ77usdTMjQYhQ+Kgd1NMkpIXeKaAO6903xrSt53Q==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       '@nuxt/schema': 3.7.1(rollup@2.79.1)
+      c12: 1.4.2
+      consola: 3.2.3
+      defu: 6.1.2
+      globby: 13.2.2
+      hash-sum: 2.0.0
+      ignore: 5.2.4
+      jiti: 1.20.0
+      knitwork: 1.0.0
+      mlly: 1.4.2
+      pathe: 1.1.1
+      pkg-types: 1.0.3
+      scule: 1.0.0
+      semver: 7.5.4
+      ufo: 1.3.0
+      unctx: 2.3.1
+      unimport: 3.3.0(rollup@2.79.1)
+      untyped: 1.4.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxt/kit@3.7.3(rollup@2.79.1):
+    resolution: {integrity: sha512-bhP02i6CNti15Z4ix3LpR3fd1ANtTcpfS3CDSaCja24hDt3UxIasyp52mqD9LRC+OxrUVHJziB18EwUtS6RLDQ==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+    dependencies:
+      '@nuxt/schema': 3.7.3(rollup@2.79.1)
       c12: 1.4.2
       consola: 3.2.3
       defu: 6.1.2
@@ -2195,6 +2246,25 @@ packages:
 
   /@nuxt/schema@3.7.1(rollup@2.79.1):
     resolution: {integrity: sha512-+0W/oos7Ktm3eTwQ/78PrcAObR0+yQzHIUzbQ7HgUnEEntRGVxp4hnfng5dmhvVjJqQvpuGZHa3yIS/g41vE6A==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+    dependencies:
+      '@nuxt/ui-templates': 1.3.1
+      defu: 6.1.2
+      hookable: 5.5.3
+      pathe: 1.1.1
+      pkg-types: 1.0.3
+      postcss-import-resolver: 2.0.0
+      std-env: 3.4.3
+      ufo: 1.3.0
+      unimport: 3.3.0(rollup@2.79.1)
+      untyped: 1.4.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxt/schema@3.7.3(rollup@2.79.1):
+    resolution: {integrity: sha512-Uqe3Z9RnAROzv5owQo//PztD9d4csKK6ulwQO1hIAinCh34X7z2zrv9lhm14hlRYU1n7ISEi4S7UeHgL/r8d8A==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       '@nuxt/ui-templates': 1.3.1
@@ -7259,6 +7329,58 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /nuxt-simple-sitemap@3.3.3(nuxt@3.7.1)(rollup@2.79.1)(vite@4.4.9):
+    resolution: {integrity: sha512-XtHhQsi9t/n0sdb7EW0VB6CQtlBAfsR4z17+UeN633JQeNYzbINSbCr+x3chjZ2z7sAGJjv4t2EPqntwka2AxA==}
+    dependencies:
+      '@nuxt/devtools-kit': 0.8.3(nuxt@3.7.1)(rollup@2.79.1)(vite@4.4.9)
+      '@nuxt/kit': 3.7.3(rollup@2.79.1)
+      chalk: 5.3.0
+      defu: 6.1.2
+      escape-string-regexp: 5.0.0
+      fast-glob: 3.3.1
+      knitwork: 1.0.0
+      nuxt-site-config: 1.2.2(rollup@2.79.1)
+      nuxt-site-config-kit: 1.2.2(rollup@2.79.1)
+      pathe: 1.1.1
+      radix3: 1.1.0
+      semver: 7.5.4
+      site-config-stack: 1.2.2
+      ufo: 1.3.0
+    transitivePeerDependencies:
+      - nuxt
+      - rollup
+      - supports-color
+      - vite
+    dev: true
+
+  /nuxt-site-config-kit@1.2.2(rollup@2.79.1):
+    resolution: {integrity: sha512-J2VqsaqmRMIbK0l3cAaR8WSmSpdJGBKHM0Baem26TQajxu7pDtCvLFyxse3pzXl+Q0FE96Ipyh4okP9Av49Rnw==}
+    dependencies:
+      '@nuxt/kit': 3.7.3(rollup@2.79.1)
+      '@nuxt/schema': 3.7.3(rollup@2.79.1)
+      pkg-types: 1.0.3
+      site-config-stack: 1.2.2
+      std-env: 3.4.3
+      ufo: 1.3.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /nuxt-site-config@1.2.2(rollup@2.79.1):
+    resolution: {integrity: sha512-YD69BMU+SW7jOa1oX7H9iFc+9br7bo3xmk6NHMw4vhq8LnQYgfrfRs+sPQscsxx2Hf3W4uu9ZRAMIFMJdpJ3nA==}
+    dependencies:
+      '@nuxt/kit': 3.7.3(rollup@2.79.1)
+      '@nuxt/schema': 3.7.3(rollup@2.79.1)
+      nuxt-site-config-kit: 1.2.2(rollup@2.79.1)
+      pathe: 1.1.1
+      site-config-stack: 1.2.2
+      ufo: 1.3.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /nuxt@3.7.1(@types/node@20.6.0)(eslint@8.49.0)(rollup@2.79.1)(stylelint@15.10.3)(typescript@5.2.2):
     resolution: {integrity: sha512-y8so6b11dDnuOkjqls3WZToyKODmHFaEYVB/RitjMrkNCez68qGDBFtG+VLaO34I2IdsbugTzByXktEk4dbs9w==}
     engines: {node: ^14.18.0 || >=16.10.0}
@@ -8753,6 +8875,12 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
+  /site-config-stack@1.2.2:
+    resolution: {integrity: sha512-9FqdLwsq2hGukUsZTLPxSO3g3v5cZyGw7F1IOh55QRL0Gxi8gTM8l7FOVjRzMVSCYbMZHPX75QyPdUpXHd5oXQ==}
+    dependencies:
+      ufo: 1.3.0
+    dev: true
+
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -10111,7 +10239,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@intlify/shared': 9.4.0
+      '@intlify/shared': 9.4.1
       '@intlify/vue-i18n-bridge': 0.8.0(vue-i18n@9.3.0-beta.27)
       '@intlify/vue-router-bridge': 0.8.0(vue@3.3.4)
       ufo: 1.3.0

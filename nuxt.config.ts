@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 		'@vite-pwa/nuxt',
 		'@nuxtjs/i18n',
 		'@nuxtjs/tailwindcss',
+		'nuxt-simple-sitemap',
 		'@vueuse/nuxt',
 		'@invictus.codes/nuxt-vuetify',
 	],
@@ -217,6 +218,13 @@ export default defineNuxtConfig({
 				},
 			], */
 		},
+	},
+
+	// Sitemap module config (see https://github.com/harlan-zw/nuxt-simple-sitemap)
+	sitemap: {
+		siteUrl: 'https://privacy-policy-generator.web.florist',
+		discoverImages: false,
+		sitemaps: false,
 	},
 
 	// Nitro Config (See https://nitro.unjs.io/config)

@@ -38,6 +38,7 @@
 		"humanize-duration": "^3.29.0",
 		"i18n-iso-countries": "^7.6.0",
 		"nuxt": "^3.7.1",
+		"nuxt-simple-sitemap": "^3.3.3",
 		"postcss": "^8.4.29",
 		"postcss-extend": "^1.0.5",
 		"postcss-html": "^1.5.0",
