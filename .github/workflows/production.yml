@@ -1,0 +1,49 @@
+name: Production Workflow
+
+on:
+  push:
+    branches: ['production']
+  pull_request:
+    branches: ['production']
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run generate
+
+      - name: Check for empty payloads
+        run: |-
+          ! grep -rnw './.output/public/' -e 'null},prerenderedAt'
+
+      - name: Deploy to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_MESSAGE: 'Deployed from GitHub action'
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_directory: './.output/public'
+          install_command: 'echo Skipping installing the dependencies'
+          build_command: 'echo Skipping building the web files'
