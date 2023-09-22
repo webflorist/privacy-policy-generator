@@ -448,6 +448,10 @@
 				},
 				"purposes": {
 					"options": {
+						"account": {
+							"description": "Funzionalità per la creazione e la gestione degli account utente.",
+							"title": "Account"
+						},
 						"application_form": {
 							"description": "Modulo di contatto utilizzato per le candidature.",
 							"title": "Modulo di Candidatura"

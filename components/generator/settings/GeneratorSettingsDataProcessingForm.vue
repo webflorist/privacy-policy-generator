@@ -158,6 +158,7 @@ const purposesOptions = computed<DataProcessingPurpose>(() => {
 					'videos',
 					'cdn',
 					'database',
+					'account',
 				],
 				'settings.data_processings.fields.purposes.options',
 				true

@@ -94,6 +94,7 @@ declare global {
 		| 'scripts' // Scripts
 		| 'cdn' // CDN
 		| 'database' // Database
+		| 'account' // Accounts
 
 	type DataProcessingPurposeEmails =
 		| 'newsletter' // Newsletter

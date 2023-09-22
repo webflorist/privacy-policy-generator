@@ -448,6 +448,10 @@
 				},
 				"purposes": {
 					"options": {
+						"account": {
+							"description": "Funktionalitäten zur Erstellung und Verwaltung von Benutzer-Accounts.",
+							"title": "Account"
+						},
 						"application_form": {
 							"description": "Für Bewerbungen verwendetes E-Mail Formular.",
 							"title": "Bewerbungsformular"

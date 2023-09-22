@@ -448,6 +448,10 @@
 				},
 				"purposes": {
 					"options": {
+						"account": {
+							"description": "Functionalities for creating and managing user accounts.",
+							"title": "Account"
+						},
 						"application_form": {
 							"description": "Email form used for applications.",
 							"title": "Application Form"
