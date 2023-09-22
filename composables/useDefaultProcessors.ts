@@ -187,6 +187,24 @@ export const useDefaultProcessors = (): Processor[] => {
 			dpf_url:
 				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt00000008V77AAE&status=Active',
 		},
+		{
+			id: 'getresponse_pl',
+			name: 'GetResponse S.A.',
+			street: 'Grunwaldzka 413',
+			zip: '80-309',
+			city: 'Gdansk',
+			country: 'PL',
+			privacy_policy_url: 'https://www.getresponse.com/legal/privacy',
+		},
+		{
+			id: 'elopage_de',
+			name: 'elopage GmbH',
+			street: 'Potsdamer Straße 125',
+			zip: '10783',
+			city: 'Berlin',
+			country: 'DE',
+			privacy_policy_url: 'https://elopage.com/privacy',
+		},
 	]
 	return processors.sort((a: Processor, b: Processor) => a.name.localeCompare(b.name))
 }

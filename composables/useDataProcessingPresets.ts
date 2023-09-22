@@ -367,6 +367,13 @@ export const useDataProcessingPresets = () => {
 			dataCategories: ['personal'],
 			purposes: ['newsletter'],
 		},
+		{
+			processor: defaultProcessors.find((processor) => processor.id === 'getresponse_pl'),
+			required: false,
+			service: 'Email Marketing',
+			dataCategories: ['personal'],
+			purposes: ['newsletter'],
+		},
 	]
 	const payment: DataProcessing[] = []
 	const advertising: DataProcessing[] = []
