@@ -343,6 +343,12 @@ export const useDataProcessingPresets = () => {
 				},
 			],
 		},
+		{
+			processor: defaultProcessors.find((processor) => processor.id === 'wistia_inc_us'),
+			required: false,
+			service: 'Wistia Videos',
+			dataCategories: ['online'],
+		},
 	]
 	const emails: DataProcessing[] = [
 		{
@@ -368,7 +374,7 @@ export const useDataProcessingPresets = () => {
 			purposes: ['newsletter'],
 		},
 		{
-			processor: defaultProcessors.find((processor) => processor.id === 'getresponse_pl'),
+			processor: defaultProcessors.find((processor) => processor.id === 'getresponse_sa_pl'),
 			required: false,
 			service: 'Email Marketing',
 			dataCategories: ['personal'],

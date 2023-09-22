@@ -188,7 +188,7 @@ export const useDefaultProcessors = (): Processor[] => {
 				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt00000008V77AAE&status=Active',
 		},
 		{
-			id: 'getresponse_pl',
+			id: 'getresponse_sa_pl',
 			name: 'GetResponse S.A.',
 			street: 'Grunwaldzka 413',
 			zip: '80-309',
@@ -197,13 +197,24 @@ export const useDefaultProcessors = (): Processor[] => {
 			privacy_policy_url: 'https://www.getresponse.com/legal/privacy',
 		},
 		{
-			id: 'elopage_de',
+			id: 'elopage_gmbh_de',
 			name: 'elopage GmbH',
 			street: 'Potsdamer Straße 125',
 			zip: '10783',
 			city: 'Berlin',
 			country: 'DE',
 			privacy_policy_url: 'https://elopage.com/privacy',
+		},
+		{
+			id: 'wistia_inc_us',
+			name: 'Wistia, Inc.',
+			street: '120 Brookline Street',
+			zip: '02139',
+			city: 'Cambridge',
+			country: 'US',
+			privacy_policy_url: 'https://wistia.com/privacy',
+			dpf_url:
+				'https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2z3d0000000k55AAA&status=Active',
 		},
 	]
 	return processors.sort((a: Processor, b: Processor) => a.name.localeCompare(b.name))
