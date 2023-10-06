@@ -5,10 +5,9 @@ const defaultProcessors = useDefaultProcessors()
 const usedProcessors = useUsedProcessors()
 const presets = useDataProcessingPresets()
 const dataCategories = useDataCategories()
-const presenter = usePresenter()
 const countries = useCountries()
 const { t } = useI18n()
-const { formOptions } = usePresenter()
+const { formOptions, processTitle, processorName } = usePresenter()
 
 const props = defineProps({
 	category: {
@@ -95,7 +94,7 @@ const sortDown = () => {
 const presetOptions = computed(() => {
 	return presets[props.category].map((preset, key) => {
 		return {
-			title: presenter.processTitle(preset, props.category),
+			title: processTitle(preset, props.category),
 			value: key,
 		}
 	})
@@ -109,7 +108,7 @@ const processorOptions = computed(() => {
 	}
 	const generateOption = (processor: Processor): Option => {
 		return {
-			title: presenter.processorName(processor),
+			title: processorName(processor),
 			value: processor.id,
 		}
 	}

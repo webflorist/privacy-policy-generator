@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const present = usePresenter()
-const { t } = useI18n()
+const { humanizedDuration } = usePresenter(true)
+const settings = useSettings()
+const locale = computed(() => settings.value.general.language)
+const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 defineProps({
 	browserStoreItems: {
 		type: Array as () => BrowserStore[],
@@ -11,7 +13,7 @@ const getDuration = (browserStore: BrowserStore) => {
 	switch (browserStore.type) {
 		case 'cookie':
 			return browserStore.duration
-				? present.humanizedDuration(browserStore.duration)
+				? humanizedDuration(browserStore.duration)
 				: t('settings.data_processings.fields.browser_store.duration.options.unknown.title')
 		case 'local_storage':
 		case 'indexed_db':
@@ -34,33 +36,31 @@ const getDuration = (browserStore: BrowserStore) => {
 				><i>{{ browserStore.name }}:</i></strong
 			><br />
 			<template v-if="browserStore.thirdParty">
-				{{ $t('settings.data_processings.fields.browser_store.third_party.title') }}<br
+				{{ t('settings.data_processings.fields.browser_store.third_party.title') }}<br
 			/></template>
-			<strong>{{ $t('settings.data_processings.fields.browser_store.type.title') }}:</strong>
+			<strong>{{ t('settings.data_processings.fields.browser_store.type.title') }}:</strong>
 			{{
-				$t(
+				t(
 					`settings.data_processings.fields.browser_store.type.options.${browserStore.type}.title`
 				)
 			}}<br />
 			<strong
-				>{{
-					$t('settings.data_processings.fields.browser_store.written_on.title')
-				}}:</strong
+				>{{ t('settings.data_processings.fields.browser_store.written_on.title') }}:</strong
 			>
 			{{
-				$t(
+				t(
 					`settings.data_processings.fields.browser_store.written_on.options.${browserStore.writtenOn}.title`
 				)
 			}}<br />
 			<strong
-				>{{ $t('settings.data_processings.fields.browser_store.duration.title') }}:</strong
+				>{{ t('settings.data_processings.fields.browser_store.duration.title') }}:</strong
 			>
 			{{ getDuration(browserStore) }}<br />
 			<strong
-				>{{ $t('settings.data_processings.fields.browser_store.purpose.title') }}:</strong
+				>{{ t('settings.data_processings.fields.browser_store.purpose.title') }}:</strong
 			>
 			{{
-				$t(
+				t(
 					`settings.data_processings.fields.browser_store.purpose.options.${browserStore.purpose}.title`
 				)
 			}}

@@ -11,7 +11,7 @@ defineProps({
 })
 const { getCountryName } = useCountries()
 const settings = useSettings()
-const present = usePresenter()
+const { processTitle } = usePresenter(true)
 const locale = computed(() => settings.value.general.language)
 const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 </script>
@@ -20,7 +20,7 @@ const t = (keypath: string) => useI18n().t(keypath, 1, { locale: locale.value })
 
 	<ul>
 		<li v-for="(process, key) of items" :key="key">
-			<h4>{{ present.processTitle(process, category) }}</h4>
+			<h4>{{ processTitle(process, category) }}</h4>
 
 			<p v-if="process.required">
 				{{ t('settings.data_processings.fields.required.title') }}
